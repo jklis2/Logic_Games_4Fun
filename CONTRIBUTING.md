@@ -21,7 +21,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Code of Conduct
 
-Check out our [Code of Conduct]([(https://github.com/jklis2/Logic_Games_4Fun/blob/main/CODE_OF_CONDUCT.md)])
+Check out our [Code of Conduct](https://github.com/jklis2/Logic_Games_4Fun/blob/main/CODE_OF_CONDUCT.md)
 to learn the rules of our community. 
 
 ## Contact us
