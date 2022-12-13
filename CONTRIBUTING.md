@@ -21,18 +21,13 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Code of Conduct
 
-Check out our [Code of Conduct]([https://github.com/CachyOS/linux-cachyos/blob/master/CODE_OF_CONDUCT.md](https://github.com/jklis2/Logic_Games_4Fun/blob/main/CONTRIBUTING.md))
+Check out our [Code of Conduct]([(https://github.com/jklis2/Logic_Games_4Fun/blob/main/CONTRIBUTING.md)])
 to learn the rules of our community. 
 
 ## Contact us
 
 If you have any questions, you can contact us by email. 
 
-**Peter Jung:** <admin@ptr1337.dev> <br />
+**Jakub Kliś:** <jakubklis2201@gmail.com> <br />
 
-**Piotr Gorski:** <piotrgorski@cachyos.org> <br />
-
-You can also join the discussion on the following platforms:
-
-**Discord:** <https://discord.gg/qJqj94uFwE> <br />
-**Telegram:** <https://t.me/+zCzPX4cAFjk1MTYy> <br />
+**Mateusz Dziekan:** <mateusz333555@gmail.com> <br />
