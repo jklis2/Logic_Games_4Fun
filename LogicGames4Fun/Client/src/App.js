@@ -1,5 +1,11 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { Home } from './routers/Home';
+import { Dashboard } from './routers/Dashboard';
+import { Login } from './routers/Login';
+import { Register } from './routers/Register';
+
 
 function App() {
 
@@ -14,9 +20,17 @@ function App() {
   })
 
   return (
-    <>
-      <div>{!data ? 'Loading...' : data}</div>
-    </>
+    // <>
+    //   <div>{!data ? 'Loading...' : data}</div>
+    // </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
