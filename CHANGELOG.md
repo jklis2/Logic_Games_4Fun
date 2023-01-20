@@ -10,4 +10,4 @@
 	- Added client and server
 
 - **0.0.4** (`2023/01/20`)
-	- Added start files and routers
+	- Added start files, routers, LoginForm and RegisterForm
