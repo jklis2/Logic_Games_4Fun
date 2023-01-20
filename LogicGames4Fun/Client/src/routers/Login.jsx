@@ -1,9 +1,10 @@
 import React from "react";
+import {LoginForm} from "../Component/JSX/LoginForm.jsx"
 
 export const Login = () => {
   return (
     <>
-      <p>Login page</p>
+      <LoginForm/>
     </>
   );
 };

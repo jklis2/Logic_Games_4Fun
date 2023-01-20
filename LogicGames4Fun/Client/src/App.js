@@ -1,10 +1,10 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import { Home } from './routers/Home';
-import { Dashboard } from './routers/Dashboard';
-import { Login } from './routers/Login';
-import { Register } from './routers/Register';
+import { Home } from './Routers/Home';
+import { Dashboard } from './Routers/Dashboard';
+import { Login } from './Routers/Login';
+import { Register } from './Routers/Register';
 
 
 function App() {
