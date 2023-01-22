@@ -1,20 +1,26 @@
-// import { User } from "../models/user";
-const User = require( "../models/user")
-const express = require("express");
-const router = express.Router();
+import User from "../models/user.js";
+import { Router } from "express";
 
-router.get('/', (req, res) => {
-    res.json({message: 'Register test.'})
-})
+const router = Router();
+const users = [];
 
-router.post('/', (req, res) => {
-    const newUser = new User({
-        login: req.body.login,
-        password: req.body.password,
-        email: req.body.email
-    })
-    res.json(newUser);
-    
-})
+router.get("/", (req, res) => {
+  res.json({ message: "Register test." });
+});
 
-module.exports = router;
+router.post("/", (req, res) => {
+  const newUser = new User({
+    id: Date.now(),
+    login: req.body.login,
+    password: req.body.password,
+    email: req.body.email,
+  });
+  users.push(newUser);
+  try {
+    res.status(201).json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+export default router;

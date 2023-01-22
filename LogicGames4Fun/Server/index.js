@@ -1,10 +1,11 @@
 // server/index.js
-const register = require('./routers/register')
-const login = require('./routers/login')
+import register from './routers/register.js'
+import login from './routers/login.js';
+import express from "express";
 
-const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
+app.use(express.json())
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
