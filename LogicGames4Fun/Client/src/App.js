@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import { Home } from './Routers/Home';
 import { Dashboard } from './Routers/Dashboard';
-import { Login } from './Routers/Login';
-import { Register } from './Routers/Register';
+import { LoginAndRegister } from './Routers/LoginAndRegister';
 
 
 function App() {
@@ -25,10 +24,9 @@ function App() {
     // </>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/home' element={<Home/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/register' element={<Register/>}/>
+        <Route path='/login' element={<LoginAndRegister/>}/>
       </Routes>
     </BrowserRouter>
   );
