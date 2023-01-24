@@ -16,3 +16,6 @@
 	- Fixed imports and request data
 	- Deleted LoginForm and RegisterForm
 	- Added LoginAndRegisterForm
+
+- **0.0.6** (`2023/01/24`)
+	- Added HomeForm
