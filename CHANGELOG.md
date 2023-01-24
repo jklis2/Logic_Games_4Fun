@@ -11,3 +11,8 @@
 
 - **0.0.4** (`2023/01/20`)
 	- Added start files, routers, LoginForm and RegisterForm
+
+- **0.0.5** (`2023/01/23`)
+	- Fixed imports and request data
+	- Deleted LoginForm and RegisterForm
+	- Added LoginAndRegisterForm
