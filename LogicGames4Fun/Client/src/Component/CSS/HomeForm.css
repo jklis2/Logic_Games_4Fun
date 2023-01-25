@@ -33,18 +33,37 @@ body{
 
 #home-link {
     margin-right: 1rem;
+    color: #333;
+	font-size: 18px;
+	text-decoration: none;
 }
 
 #dashboard-link {
     margin-right: 1rem;
+    color: #333;
+	font-size: 18px;
+	text-decoration: none;
 }
 
 #login-link {
-    margin-right: 1rem
+    margin-right: 1rem;
+    color: #333;
+	font-size: 18px;
+	text-decoration: none;
 }
 
 #aboutUs-link {
-    margin-right: 1rem
+    margin-right: 1rem;
+    color: #333;
+	font-size: 18px;
+	text-decoration: none;
+}
+
+#contact-link {
+    margin-right: 1rem;
+    color: #333;
+	font-size: 18px;
+	text-decoration: none;
 }
 
 .home-page-info { 

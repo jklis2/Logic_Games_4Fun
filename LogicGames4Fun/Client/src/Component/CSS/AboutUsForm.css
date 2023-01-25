@@ -35,11 +35,10 @@ body{
 .contact-buttons {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
 }
 
 #backTohomeButton {
-    margin-top: 1rem;
+    margin-top: 15vh;
     border-radius: 20px;
 	border: 1px solid #9dddf4;
 	background-color: #9dddf4;
@@ -50,6 +49,4 @@ body{
 	letter-spacing: 1px;
     text-transform: uppercase;
 	transition: transform 80ms ease-in;
-    position: fixed;
-    bottom: 7rem;
 }
