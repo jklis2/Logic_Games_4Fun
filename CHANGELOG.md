@@ -19,3 +19,8 @@
 
 - **0.0.6** (`2023/01/24`)
 	- Added HomeForm
+
+- **0.0.7** (`2023/01/25`)
+	- Added ContactForm and AboutUsForm
+	- Added links to pages
+	- Edited ContactForm and LoginAndRegisterForm
