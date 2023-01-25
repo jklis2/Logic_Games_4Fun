@@ -18,13 +18,15 @@ export const ContactForm = () => {
                 </div>
                 <div id="contact-form">
                     <div id="contact-send-message-form" action="">
-                        <input type="text" placeholder="Your Name"></input>
-                        <input type="email" placeholder="Your Email"></input>
-                        <textarea rows="5" placeholder="Your Message"></textarea>
+                        <input class="contact-input" type="text" placeholder="Your Name"></input>
+                        <input class="contact-input" type="email" placeholder="Your Email"></input>
+                        <textarea class="contact-input" rows="3" placeholder="Your Message"></textarea>
                     </div>
                 </div>
                 <div class="contact-buttons">
-                    <button id="backTohomeButton">Back to home</button>
+                    <a href="/Home">
+                        <button id="backToHomeButton">Back to home</button>
+                    </a>
                     <button id="sendMessageButton">Send message</button>
                 </div>
             </div>

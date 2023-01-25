@@ -24,7 +24,9 @@ export const AboutUsForm = () => {
                 After a friend connected us, the rest is history. 
                 </div>
                 <div class="contact-buttons">
-                    <button id="backTohomeButton">Back to home</button>
+                    <a href="/Home">
+                        <button id="backTohomeButton">Back to home</button>
+                    </a>
                 </div>
             </div>
         </>
