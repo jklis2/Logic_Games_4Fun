@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+    background-color: #fff0da;
+}
+
+.contact-page-content {
+    width:80vw;
+	height: 80vh;
+	background-color: #fff;
+	margin: 10vh 10vw;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+    font-family: 'Montserrat', sans-serif;
+}
+
+#contact-logo-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#contact-page-text {
+    font-size: 25px;
+    padding-top: 1.5rem;
+}
+
+input, textarea {
+    width: 80%;
+    margin: 0.5rem auto;
+    font-size: 20px;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc; 
+    display: flex;
+    justify-content: center;
+    background-color: #eee;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+#backTohomeButton {
+    margin-top: 1rem;
+    border-radius: 20px;
+	border: 1px solid #9dddf4;
+	background-color: #9dddf4;
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+    text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+#sendMessageButton {
+    margin-top: 1rem;
+    border-radius: 20px;
+	border: 1px solid #9dddf4;
+	background-color: #9dddf4;
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+    text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
