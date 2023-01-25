@@ -27,7 +27,9 @@ export const ContactForm = () => {
                     <a href="/Home">
                         <button id="backToHomeButton">Back to home</button>
                     </a>
-                    <button id="sendMessageButton">Send message</button>
+                    <span>
+                        <button id="sendMessageButton">Send message</button>
+                    </span>  
                 </div>
             </div>
         </>

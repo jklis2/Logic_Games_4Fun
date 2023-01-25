@@ -15,12 +15,12 @@ body {
 	margin: -20px 0 50px;
 }
 
-h1 {
+.register-title {
 	font-weight: bold;
 	margin: 0;
 }
 
-p {
+.welcome-text {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
@@ -28,18 +28,18 @@ p {
 	margin: 20px 0 30px;
 }
 
-span {
+.register-span {
 	font-size: 12px;
 }
 
-a {
+.social {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
 }
 
-button {
+.login-buttons {
 	border-radius: 20px;
 	border: 1px solid #9dddf4;
 	background-color: #9dddf4;
@@ -52,20 +52,16 @@ button {
 	transition: transform 80ms ease-in;
 }
 
-button:active {
+.login-buttons:active {
 	transform: scale(0.95);
 }
 
-button:focus {
-	outline: none;
-}
-
-button.ghost {
+.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
 
-form {
+.register-form {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -76,7 +72,7 @@ form {
 	text-align: center;
 }
 
-input {
+.register-input {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
