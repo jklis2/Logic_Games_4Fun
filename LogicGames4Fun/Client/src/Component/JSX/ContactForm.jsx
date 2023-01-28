@@ -4,7 +4,7 @@ import "../CSS/ContactForm.css";
 export const ContactForm = () => {
   return (
     <>
-      <div class="contact-page-content">
+      <div className="contact-page-content">
         <div id="contact-logo-text">
           <div id="conttac-page-logo">
             <img
@@ -19,23 +19,23 @@ export const ContactForm = () => {
         <div id="contact-form">
           <div id="contact-send-message-form" action="">
             <input
-              class="contact-input"
+              className="contact-input"
               type="text"
               placeholder="Your Name"
             ></input>
             <input
-              class="contact-input"
+              className="contact-input"
               type="email"
               placeholder="Your Email"
             ></input>
             <textarea
-              class="contact-input"
+              className="contact-input"
               rows="3"
               placeholder="Your Message"
             ></textarea>
           </div>
         </div>
-        <div class="contact-buttons">
+        <div className="contact-buttons">
           <a href="/Home">
             <button id="backToHomeButton">Back to home</button>
           </a>
