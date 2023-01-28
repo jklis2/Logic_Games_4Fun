@@ -24,3 +24,7 @@
 	- Added ContactForm and AboutUsForm
 	- Added links to pages
 	- Edited ContactForm and LoginAndRegisterForm
+
+- **0.0.8** (`2023/01/25`)
+	- Tried axios requests
+	- Changed all class to className
