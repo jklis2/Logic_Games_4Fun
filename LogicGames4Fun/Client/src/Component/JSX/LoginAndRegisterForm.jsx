@@ -106,7 +106,7 @@ export const LoginAndRegisterForm = () => {
             login();
           }}>
             <h1 className="register-title">Sign in</h1>
-            <div clasNames="social-container">
+            <div className="social-container">
               <a href="#/" className="social">
                 <i className="fab fa-facebook-f"></i>
               </a>
