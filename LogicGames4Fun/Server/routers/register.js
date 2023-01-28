@@ -1,11 +1,17 @@
 import User from "../models/user.js";
 import { Router } from "express";
+import Repository from "../models/repository.js";
 
 const router = Router();
-const users = [];
+const repository = new Repository()
 
 router.get("/", (req, res) => {
-  res.json({ message: "Register test." });
+  try{
+    res.status(200).json(repository.users)
+  }
+  catch(err){
+    res.status(500).json(err)
+  }
 });
 
 router.post("/", (req, res) => {
@@ -14,10 +20,11 @@ router.post("/", (req, res) => {
     login: req.body.login,
     password: req.body.password,
     email: req.body.email,
+    phoneNumber: req.body.phoneNumber
   });
-  users.push(newUser);
   try {
-    res.status(201).json(users);
+    repository.users.push(newUser);
+    res.status(201).json(` Successfuly registered: ${newUser}`);
   } catch (err) {
     res.status(500).json(err);
   }
