@@ -1,23 +1,26 @@
 import React, { useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { useState } from "react";
 import "../CSS/LoginAndRegisterForm.css";
 import { Link } from "react-router-dom";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
 export const LoginAndRegisterForm = () => {
   // Unused local variable.
-  const [nickname, setNickname] = useState('');
-  const [password, setPassword] = useState('');
-  const [testData, setTestData] = useState([])
+  const [nickname, setNickname] = useState("");
+  const [password, setPassword] = useState("");
+  const [testData, setTestData] = useState([]);
 
-  const login = function() {
-    axios.post('//localhost:3001/login', {
-      login: nickname,
-      password: password
-    })
-    .then(res => console.log(res.data))
-    .catch(err => console.log(err))
-  } 
+  const login = function () {
+    axios
+      .post("//localhost:3001/login", {
+        login: nickname,
+        password: password,
+      })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     const signUpButton = document.getElementById("signUp");
@@ -53,58 +56,80 @@ export const LoginAndRegisterForm = () => {
             <span className="register-span">
               or use your email for registration
             </span>
-            <div id="register-form-container">
-              <div id="left-register">
-                <input className="register-input" type="text" placeholder="Name" />
-                <input
-                  className="register-input"
-                  type="text"
-                  placeholder="Surname"
-                />
-                <input
-                  className="register-input"
-                  type="text"
-                  placeholder="Nickname"
-                />
-                <input
-                  className="register-input"
-                  type="email"
-                  placeholder="Email"
-                />
-              </div>
-              <div id="right-register">
-                <input
-                  className="register-input"
-                  type="text"
-                  placeholder="Gender"
-                />
-                <input
-                  className="register-input"
-                  type="date"
-                  placeholder="Date of birth"
-                />
-                <input
-                  className="register-input"
-                  type="password"
-                  placeholder="Password"
-                />
-                <input
-                  className="register-input"
-                  type="password"
-                  placeholder="Confirm password"
-                />
-              </div>
-            </div>
+            <Box
+              component="form"
+              sx={{
+                "& > :not(style)": { m: 0.5, width: "15ch" },
+                display: "grid",
+                gap: 1,
+                gridTemplateColumns: "repeat(2, 1fr)",
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                id="outlined-basic"
+                label="Name"
+                variant="outlined"
+                type="text"
+              />
+              <TextField
+                id="outlined-basic"
+                label="Surname"
+                variant="outlined"
+                type="text"
+              />
+              <TextField
+                id="outlined-basic"
+                label="Nickname"
+                variant="outlined"
+                type="text"
+              />
+              <TextField
+                id="outlined-basic"
+                label="Email"
+                variant="outlined"
+                type="email"
+              />
+              <TextField
+                id="outlined-basic"
+                label="Gender"
+                variant="outlined"
+                type="text"
+              />
+              <TextField
+                id="outlined-basic"
+                label="Date of birth"
+                variant="outlined"
+                type="text"
+              />
+              <TextField
+                id="outlined-basic"
+                label="Password"
+                variant="outlined"
+                type="password"
+              />
+              <TextField
+                id="outlined-basic"
+                label="Confirm password"
+                variant="outlined"
+                type="password"
+              />
+            </Box>
             <button className="login-buttons">Sign Up</button>
           </form>
         </div>
         <div className="form-container sign-in-container">
           {/* Form for is here  */}
 
-          <form className="register-form" action="#" onSubmit={e => {
-            e.preventDefault();
-            login();
-          }}>
+          <form
+            className="register-form"
+            action="#"
+            onSubmit={(e) => {
+              e.preventDefault();
+              login();
+            }}
+          >
             <h1 className="register-title">Sign in</h1>
             <div className="social-container">
               <a href="#/" className="social">
@@ -115,25 +140,36 @@ export const LoginAndRegisterForm = () => {
               </a>
             </div>
             <span className="register-span">or use your account</span>
-            {/* Login is here */}
-            <input
-              className="register-input"
-              type="text"
-              placeholder="Nickname"
-              onChange={(e) => setNickname(e.target.value)}
-            />
-            {/* Passowrd is here */}
-            <input
-              className="register-input"
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <Box
+              component="form"
+              sx={{
+                "& > :not(style)": { m: 1, width: "25ch" },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              {/* Login is here */}
+              <TextField
+                id="outlined-basic"
+                label="Nickname"
+                variant="outlined"
+                type="text"
+                onChange={(e) => setNickname(e.target.value)}
+              />
+              {/* Passowrd is here */}
+              <TextField
+                id="outlined-basic"
+                label="Password"
+                variant="outlined"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Box>
             <a className="social" href="#/">
               Forgot your password?
             </a>
             <button className="login-buttons">
-              <Link to='/dashboard'>Sign In</Link>
+              <Link to="/dashboard">Sign In</Link>
             </button>
           </form>
 

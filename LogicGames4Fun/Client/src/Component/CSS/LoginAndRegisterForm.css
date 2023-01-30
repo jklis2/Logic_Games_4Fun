@@ -50,6 +50,7 @@ body {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+	margin-top: 15px;
 }
 
 .login-buttons:active {
@@ -70,15 +71,6 @@ body {
 	padding: 0 50px;
 	height: 100%;
 	text-align: center;
-}
-
-.register-input {
-	background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
-	max-height: 4vh;
 }
 
 .container {
@@ -122,24 +114,6 @@ body {
 	opacity: 1;
 	z-index: 5;
 	animation: show 0.6s;
-}
-
-#register-form-container {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-}
-
-#left-register {
-	width: 50%;
-	float: left;
-	padding-right: 5%;
-}
-
-#right-register {
-	width: 50%;
-	float: left;
-	padding-left: 5%;
 }
 
 @keyframes show {
@@ -222,7 +196,7 @@ body {
 }
 
 .social-container {
-	margin: 20px 0;
+	margin: 5px 0;
 }
 
 .social-container a {
