@@ -1,4 +1,5 @@
 import './App.css';
+import './Component/CSS/Global.css'
 import React, { useEffect, useState, Navigate } from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Home} from './Routers/Home'
