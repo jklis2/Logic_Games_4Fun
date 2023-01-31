@@ -36,3 +36,5 @@
 - **0.0.10** (`2023/01/31`)
 	- Added favicon and changed app title
 	- Added DashboardForm
+	- Added Global css file
+	- Added Navbar to Dashboard
