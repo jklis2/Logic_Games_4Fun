@@ -28,3 +28,11 @@
 - **0.0.8** (`2023/01/25`)
 	- Tried axios requests
 	- Changed all class to className
+
+- **0.0.9** (`2023/01/30`)
+	- Changed all class to className
+	- Changed input from login and register to MUI input
+
+- **0.0.10** (`2023/01/31`)
+	- Added favicon and changed app title
+	- Added DashboardForm
