@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Navigate } from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Home} from './Routers/Home'
 import { Dashboard } from './Routers/Dashboard';
@@ -26,6 +26,7 @@ function App() {
     // </>
     <BrowserRouter>
       <Routes>
+        {/* <Route path="/" element={<Navigate replace to="/home" />}/> */}
         <Route path='/home' element={<Home/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/login' element={<LoginAndRegister/>}/>
