@@ -1,8 +1,18 @@
+import { Fab } from "@mui/material";
 import React from "react";
 import "../CSS/DashboardForm.css";
 import { Navbar } from "../Navbar/Navbar";
 
 export const DashboardForm = () => {
+
+  const generateLevels = function (minLevel, maxLevel){
+    const levels = []
+    for(let lvl = minLevel; lvl < maxLevel; lvl++){
+      levels.push(<Fab variant="extended" size="small" sx={{bgcolor: 'rgb(255, 255, 255, 0.0)'}} aria-label="add">{lvl}</Fab>)
+    }
+    return levels;
+  }
+
   return (
     <>
       <div id="dashboard-page-conent">
@@ -15,10 +25,11 @@ export const DashboardForm = () => {
             ></img>
           </div>
           <div className="easy-levels">
-            <img
+            {/* <img
               src={`${process.env.PUBLIC_URL}/GamesImages/SudokuEasyLevels.png`}
               alt="Sudoku logo"
-            ></img>
+            ></img> */}
+            {generateLevels(5, 26)}
           </div>
           <div className="medium-levels">
             <img
@@ -27,10 +38,11 @@ export const DashboardForm = () => {
             ></img>
           </div>
           <div className="hard-levels">
-            <img
+            {/* <img
               src={`${process.env.PUBLIC_URL}/GamesImages/SudokuEasyLevels.png`}
               alt="Sudoku logo"
-            ></img>
+            ></img> */}
+            {generateLevels(26, 58)}
           </div>
         </div>
         <div id="dashboard-score-games">
