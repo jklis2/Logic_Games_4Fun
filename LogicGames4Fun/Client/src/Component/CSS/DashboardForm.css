@@ -1,0 +1,28 @@
+#dashboard-level-games {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 2rem 5rem 0 5rem;
+}
+
+.score-games-title {
+    text-align: center;
+    border-bottom: solid;
+    font-size: 30px;
+    margin: 4rem 0 5rem 0;
+}
+
+#score-games-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 2rem 5rem 0 5rem;
+}
+
+#dashboard-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    background-color: rgba(29, 125, 189, 0.753);
+    color: white;
+}
