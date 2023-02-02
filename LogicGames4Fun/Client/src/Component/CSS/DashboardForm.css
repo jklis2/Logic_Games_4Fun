@@ -1,8 +1,102 @@
-#dashboard-level-games {
-    display: flex;
-    flex-direction: row;
+#game-level-text {
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-template-rows: 40px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
     justify-content: space-evenly;
     margin: 2rem 5rem 0 5rem;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.easy-text { 
+    grid-area: 1 / 2 / 2 / 3; 
+    text-align: center;
+}
+
+.medium-text { 
+    grid-area: 1 / 3 / 2 / 4; 
+    text-align: center;
+}
+
+.hard-text { 
+    grid-area: 1 / 4 / 2 / 5; 
+    text-align: center;
+}
+
+#dashboard-level-games {
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-template-rows: repeat(4, 300px);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    justify-content: space-evenly;
+    margin: 2rem 5rem 0 5rem;
+}
+
+.logo-sudoku{ 
+    grid-area: 1 / 1 / 2 / 2; 
+}
+
+.easy-sudoku { 
+    grid-area: 1 / 2 / 2 / 3; 
+}
+
+.medium-sudoku { 
+    grid-area: 1 / 3 / 2 / 4; 
+}
+
+.hard-sudoku { 
+    grid-area: 1 / 4 / 2 / 5; 
+}
+
+.logo-crossword { 
+    grid-area: 2 / 1 / 3 / 2; 
+}
+
+.easy-crossword { 
+    grid-area: 2 / 2 / 3 / 3; 
+}
+
+.medium-crossword { 
+    grid-area: 2 / 3 / 3 / 4; 
+}
+
+.hard-crossword { 
+    grid-area: 2 / 4 / 3 / 5; 
+}
+
+.logo-puzzle { 
+    grid-area: 3 / 1 / 4 / 2; 
+}
+
+.easy-puzzle { 
+    grid-area: 3 / 2 / 4 / 3; 
+}
+
+.medium-puzzle { 
+    grid-area: 3 / 3 / 4 / 4; 
+}
+
+.hard-puzzle { 
+    grid-area: 3 / 4 / 4 / 5; 
+}
+
+.logo-quiz { 
+    grid-area: 4 / 1 / 5 / 2; 
+}
+
+.easy-quiz { 
+    grid-area: 4 / 2 / 5 / 3; 
+}
+
+.medium-quiz { 
+    grid-area: 4 / 3 / 5 / 4; 
+}
+
+.hard-quiz { 
+    grid-area: 4 / 4 / 5 / 5; 
 }
 
 .score-games-title {
