@@ -38,3 +38,11 @@
 	- Added DashboardForm
 	- Added Global css file
 	- Added Navbar to Dashboard
+
+- **0.0.11** (`2023/02/01`)
+	- Added part of Dashboard design
+	- Added game level generation
+	- Added design of 4 levels
+
+- **0.0.12** (`2023/02/04`)
+	- Added MyProfileForm
