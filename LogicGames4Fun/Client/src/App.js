@@ -7,6 +7,7 @@ import { Dashboard } from './Routers/Dashboard';
 import { LoginAndRegister } from './Routers/LoginAndRegister';
 import { Contact } from './Routers/Contact'
 import { AboutUs } from './Routers/AboutUs'
+import { MyProfile } from './Routers/MyProfile'
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path='/login' element={<LoginAndRegister/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/aboutus' element={<AboutUs/>}/>
+        <Route path='/myprofile' element={<MyProfile/>}/>
       </Routes>
     </BrowserRouter>
   );
