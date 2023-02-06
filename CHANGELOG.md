@@ -46,3 +46,9 @@
 
 - **0.0.12** (`2023/02/04`)
 	- Added MyProfileForm
+
+- **0.0.13** (`2023/02/06`)
+	- Added 10 user avatars
+	- Added logos to level games
+	- Added link to Profile and avatar to navbar
+	- Added modal forms to EditProfile
