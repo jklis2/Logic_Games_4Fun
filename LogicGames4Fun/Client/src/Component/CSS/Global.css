@@ -8,3 +8,8 @@ body {
     background-color: #fff0da;
     font-family: 'Roboto', sans-serif;
 }
+
+a, a:visited {
+    text-decoration: none;
+    color: black;
+}

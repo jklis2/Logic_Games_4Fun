@@ -37,7 +37,7 @@ export const Navbar = () => {
   };
   return (
     <>
-      <div id="dashboard-page-conent">
+      <div id="dashboard-page-content">
         <AppBar
           position="static"
           style={{ background: "rgba(29, 125, 189, 0.753)" }}
@@ -137,8 +137,8 @@ export const Navbar = () => {
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar
-                      alt="Remy Sharp"
-                      src="/static/images/avatar/2.jpg"
+                      alt="User avatar 1"
+                      src={`${process.env.PUBLIC_URL}/UserAvatars/UserAvatar1.png`}
                     />
                   </IconButton>
                 </Tooltip>
@@ -160,7 +160,8 @@ export const Navbar = () => {
                 >
                   {settings.map((setting) => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">{setting}</Typography>
+                      {/* <Typography textAlign="center">{setting}</Typography> */}
+                      <a href = {`/${setting.slice(2).replaceAll(' ', '')}`}> {setting}</a>
                     </MenuItem>
                   ))}
                 </Menu>

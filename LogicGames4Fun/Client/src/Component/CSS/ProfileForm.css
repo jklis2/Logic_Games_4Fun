@@ -1,0 +1,91 @@
+.myProfile-page-content {
+    width:80vw;
+	height: 80vh;
+	background-color: #fff;
+	margin: 10vh 10vw;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+			0 10px 10px rgba(0,0,0,0.22);
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 100%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#myProfile-info {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+#myProfile-achievements {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.user-avatar {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.user-nickname {
+    display: flex;
+    justify-content: center;
+}
+
+.user-information {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+}
+
+#name {
+    margin-right: 3rem;
+}
+
+#gender {
+    margin-right: 2.5rem;
+}
+
+.name-and-surname {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.gender-and-birthDate {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.email {
+    display: flex;
+    margin-bottom: 1rem;
+} 
+
+.change-data-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.back-to-dashboard-button {
+    display: flex;
+    justify-content: center;
+}
+
+#button {
+    margin: 1rem;
+    border-radius: 20px;
+	border: 1px solid #9dddf4;
+	background-color: #9dddf4;
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+    text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.achievements-title {
+    display: flex;
+    justify-content: center;
+}

@@ -1,10 +1,10 @@
 import React from "react";
-import { MyProfileForm } from "../Component/JSX/MyProfileForm"
+import { ProfileForm } from "../Component/JSX/ProfileForm"
 
 export const MyProfile = () => {
   return (
     <>
-      <MyProfileForm/>
+      <ProfileForm/>
     </>
   );
 };
