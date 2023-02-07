@@ -11,7 +11,8 @@ export const DashboardForm = () => {
         <Fab
           variant="extended"
           size="small"
-          sx={{ bgcolor: "rgb(255, 255, 255, 0.0)" }}
+          sx={{ 
+            bgcolor: "rgb(255, 255, 255, 0.0)", margin: "10px" }}
           aria-label="add"
         >
           {lvl}
@@ -85,20 +86,20 @@ export const DashboardForm = () => {
           </div>
           <div id="score-games-logo">
             <img
-              src={`${process.env.PUBLIC_URL}/GamesImages/ScoreGame1.png`}
-              alt="Score game 1"
+              src={`${process.env.PUBLIC_URL}/GamesImages/BallInTheHoleLogo.png`}
+              alt="Ball in the hole Game"
             ></img>
             <img
-              src={`${process.env.PUBLIC_URL}/GamesImages/ScoreGame2.png`}
-              alt="Score game 2"
+              src={`${process.env.PUBLIC_URL}/GamesImages/CanvasLogo.png`}
+              alt="Canvas Game"
             ></img>
             <img
-              src={`${process.env.PUBLIC_URL}/GamesImages/ScoreGame3.png`}
-              alt="Score game 3"
+              src={`${process.env.PUBLIC_URL}/GamesImages/SnakeLogo.png`}
+              alt="Snake Game"
             ></img>
             <img
-              src={`${process.env.PUBLIC_URL}/GamesImages/ScoreGame4.png`}
-              alt="Score game 4"
+              src={`${process.env.PUBLIC_URL}/GamesImages/TicTacToeLogo.png`}
+              alt="Tic Tac Toe Game"
             ></img>
           </div>
         </div>
