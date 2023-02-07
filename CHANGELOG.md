@@ -25,7 +25,7 @@
 	- Added links to pages
 	- Edited ContactForm and LoginAndRegisterForm
 
-- **0.0.8** (`2023/01/25`)
+- **0.0.8** (`2023/01/28`)
 	- Tried axios requests
 	- Changed all class to className
 
@@ -52,3 +52,7 @@
 	- Added logos to level games
 	- Added link to Profile and avatar to navbar
 	- Added modal forms to EditProfile
+
+- **0.0.14** (`2023/02/07`)
+	- Updated modal forms in EditProfile
+	- Added PrivacyPolicy Page
