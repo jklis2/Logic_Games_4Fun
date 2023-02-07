@@ -9,10 +9,10 @@ export const EditPhotoForm = (props) => {
   return (
     <>
       <div>
-        <Dialog open={props.open} onClose={props.handleClose}>
-          <DialogTitle>Change avatar</DialogTitle>
-          <DialogContent>
-          <img
+        <Dialog maxWidth= "xl" open={props.open} onClose={props.handleClose}>
+          <DialogTitle sx={{display: "flex", justifyContent: "center", overflow: "hidden" }}>Change avatar</DialogTitle>
+          <DialogContent sx={{textAlign: "center", width: "700px"}}>
+            <img
               src={`${process.env.PUBLIC_URL}/UserAvatars/UserAvatar1.png`}
               alt="User avatar 1"
             ></img>
@@ -53,7 +53,7 @@ export const EditPhotoForm = (props) => {
               alt="User avatar 10"
             ></img>
           </DialogContent>
-          <DialogActions>
+          <DialogActions sx={{display: "flex", justifyContent: "center"}}>
             <Button onClick={props.handleClose}>Cancel</Button>
             <Button onClick={props.handleClose}>Save changes</Button>
           </DialogActions>

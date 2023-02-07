@@ -12,7 +12,7 @@ export const EditPasswordForm = (props) => {
     <>
       <div>
         <Dialog open={props.open} onClose={props.handleClose}>
-          <DialogTitle>Change password</DialogTitle>
+          <DialogTitle sx={{display: "flex", justifyContent: "center"}}>Change password</DialogTitle>
           <DialogContent>
             <Box
               component="form"
@@ -24,7 +24,7 @@ export const EditPasswordForm = (props) => {
             >
               <TextField
                 id="outlined-basic"
-                label="Old password"
+                label="Current password"
                 variant="outlined"
                 type="password"
               />
@@ -42,7 +42,7 @@ export const EditPasswordForm = (props) => {
               />
             </Box>
           </DialogContent>
-          <DialogActions>
+          <DialogActions sx={{display: "flex", justifyContent: "center"}}>
             <Button onClick={props.handleClose}>Cancel</Button>
             <Button onClick={props.handleClose}>Save changes</Button>
           </DialogActions>

@@ -12,7 +12,7 @@ export const EditProfileForm = (props) => {
     <>
       <div>
         <Dialog open={props.open} onClose={props.handleClose}>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle sx={{display: "flex", justifyContent: "center"}}>Edit profile</DialogTitle>
           <DialogContent>
             <Box
               component="form"
@@ -53,7 +53,7 @@ export const EditProfileForm = (props) => {
               />
             </Box>
           </DialogContent>
-          <DialogActions>
+          <DialogActions sx={{display: "flex", justifyContent: "center"}}>
             <Button onClick={props.handleClose}>Cancel</Button>
             <Button onClick={props.handleClose}>Save changes</Button>
           </DialogActions>
