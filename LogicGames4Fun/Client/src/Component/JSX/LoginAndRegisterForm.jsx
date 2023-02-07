@@ -60,7 +60,7 @@ export const LoginAndRegisterForm = () => {
               <Box
                 component="form"
                 sx={{
-                  "& > :not(style)": { m: 0.5, width: "15ch" },
+                  "& > :not(style)": { m: 0.5, width: "17ch" },
                   display: "grid",
                   gap: 1,
                   gridTemplateColumns: "repeat(2, 1fr)",
@@ -73,50 +73,67 @@ export const LoginAndRegisterForm = () => {
                   label="Name"
                   variant="outlined"
                   type="text"
+                  inputProps={{style: {fontSize: 13}}} 
+                  InputLabelProps={{style: {fontSize: 15}}}
                 />
                 <TextField
                   id="outlined-basic"
                   label="Surname"
                   variant="outlined"
                   type="text"
+                  inputProps={{style: {fontSize: 13}}} 
+                  InputLabelProps={{style: {fontSize: 15}}}
                 />
                 <TextField
                   id="outlined-basic"
                   label="Nickname"
                   variant="outlined"
                   type="text"
+                  inputProps={{style: {fontSize: 13}}} 
+                  InputLabelProps={{style: {fontSize: 15}}}
                 />
                 <TextField
                   id="outlined-basic"
                   label="Email"
                   variant="outlined"
                   type="email"
+                  inputProps={{style: {fontSize: 13}}} 
+                  InputLabelProps={{style: {fontSize: 15}}}
                 />
                 <TextField
                   id="outlined-basic"
                   label="Gender"
                   variant="outlined"
                   type="text"
+                  inputProps={{style: {fontSize: 13}}} 
+                  InputLabelProps={{style: {fontSize: 15}}}
                 />
                 <TextField
                   id="outlined-basic"
                   label="Date of birth"
                   variant="outlined"
                   type="text"
+                  inputProps={{style: {fontSize: 13}}} 
+                  InputLabelProps={{style: {fontSize: 15}}}
                 />
                 <TextField
                   id="outlined-basic"
                   label="Password"
                   variant="outlined"
                   type="password"
+                  inputProps={{style: {fontSize: 13}}} 
+                  InputLabelProps={{style: {fontSize: 15}}}
                 />
                 <TextField
                   id="outlined-basic"
                   label="Confirm password"
                   variant="outlined"
                   type="password"
+                  inputProps={{style: {fontSize: 13}}} 
+                  InputLabelProps={{style: {fontSize: 15}}}
                 />
               </Box>
+              <span className="privacy-policy-span">By creating an account, you agree to the <span className="privacy-policy"><a href={`/PrivacyPolicy`}>Terms of Service</a></span>.</span>
               <button className="login-buttons">Sign Up</button>
             </form>
           </div>

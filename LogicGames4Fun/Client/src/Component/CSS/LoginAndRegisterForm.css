@@ -23,6 +23,7 @@
 
 .register-span {
 	font-size: 12px;
+	margin-bottom: 5px;
 }
 
 .social {
@@ -100,6 +101,16 @@
 	width: 50%;
 	opacity: 0;
 	z-index: 1;
+}
+
+.privacy-policy-span {
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+.privacy-policy {
+	font-style: italic;
+	text-decoration: underline;
 }
 
 .container.right-panel-active .sign-up-container {
