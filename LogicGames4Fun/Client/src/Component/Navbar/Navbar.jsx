@@ -16,7 +16,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 
 export const Navbar = () => {
   const pages = ["Find game"];
-  const settings = ["🪪 Profile", "❤️ Favourite games", "🐾 Logout"];
+  const settings = ["🪪 Profile", "❤️ Favourite games", "🏆 Achievements", "🐾 Logout"];
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
