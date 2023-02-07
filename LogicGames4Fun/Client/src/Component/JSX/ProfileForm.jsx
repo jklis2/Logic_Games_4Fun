@@ -70,7 +70,7 @@ export const ProfileForm = () => {
           <div className="myProfile-buttons">
             <div className="change-data-buttons">
               <button onClick={handleClickOpenEditProfile} id="button">Edit profile</button>
-              <button onClick={handleClickOpenEditPassword} id="button">Edit password</button>
+              <button onClick={handleClickOpenEditPassword} id="button">Change password</button>
             </div>
             <div className="back-to-dashboard-button">
               <a href="/Dashboard">

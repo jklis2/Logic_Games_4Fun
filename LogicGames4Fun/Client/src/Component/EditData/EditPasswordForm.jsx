@@ -4,32 +4,47 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import Box from "@mui/material/Box";
 
 export const EditPasswordForm = (props) => {
   return (
     <>
       <div>
         <Dialog open={props.open} onClose={props.handleClose}>
-          <DialogTitle>Subscribe</DialogTitle>
+          <DialogTitle>Change password</DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              Edit password
-            </DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email Address"
-              type="email"
-              fullWidth
-              variant="standard"
-            />
+            <Box
+              component="form"
+              sx={{
+                "& > :not(style)": { m: 2, width: "25ch", display: "flex", justifyContent: "center" },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                id="outlined-basic"
+                label="Old password"
+                variant="outlined"
+                type="password"
+              />
+              <TextField
+                id="outlined-basic"
+                label="New password"
+                variant="outlined"
+                type="password"
+              />
+              <TextField
+                id="outlined-basic"
+                label="Confirm password"
+                variant="outlined"
+                type="password"
+              />
+            </Box>
           </DialogContent>
           <DialogActions>
             <Button onClick={props.handleClose}>Cancel</Button>
-            <Button onClick={props.handleClose}>Subscribe</Button>
+            <Button onClick={props.handleClose}>Save changes</Button>
           </DialogActions>
         </Dialog>
       </div>
