@@ -6,8 +6,10 @@ export const PrivacyPolicyForm = () => {
     <>
       <div className="privacyPolicy-page-content">
         <div id="privacy-policy">
-          <h1>Privacy Policy</h1>
-          <p>Last updated: February 07, 2023</p>
+          <div id="center-text">
+            <h1>Privacy Policy</h1>
+            <p>Last updated: February 07, 2023</p>
+          </div>
           <p>
             This Privacy Policy describes Our policies and procedures on the
             collection, use and disclosure of Your information when You use the
