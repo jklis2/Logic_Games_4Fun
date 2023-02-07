@@ -8,6 +8,7 @@ import { LoginAndRegister } from './Routers/LoginAndRegister';
 import { Contact } from './Routers/Contact'
 import { AboutUs } from './Routers/AboutUs'
 import { MyProfile } from './Routers/Profile'
+import { PrivacyPolicy } from './Routers/PrivacyPolicy';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/aboutus' element={<AboutUs/>}/>
         <Route path='/profile' element={<MyProfile/>}/>
+        <Route path='/privacypolicy' element={<PrivacyPolicy/>}/>
       </Routes>
     </BrowserRouter>
   );
