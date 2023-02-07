@@ -55,4 +55,6 @@
 
 - **0.0.14** (`2023/02/07`)
 	- Updated modal forms in EditProfile
-	- Added PrivacyPolicy Page
+	- Added PrivacyPolicy Page and AchievementsForm
+	- Edited PrivacyPolicy, EditProfileForm, Dashboard design, modal in EditProfile and RegisterForm design
+	- Added Achievements Card and SearchBox to Navbar
