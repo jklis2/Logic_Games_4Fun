@@ -9,6 +9,7 @@ import { Contact } from './Routers/Contact'
 import { AboutUs } from './Routers/AboutUs'
 import { MyProfile } from './Routers/Profile'
 import { PrivacyPolicy } from './Routers/PrivacyPolicy';
+import { Achievements } from './Routers/Achievements';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path='/aboutus' element={<AboutUs/>}/>
         <Route path='/profile' element={<MyProfile/>}/>
         <Route path='/privacypolicy' element={<PrivacyPolicy/>}/>
+        <Route path='/achievements' element={<Achievements/>}/>
       </Routes>
     </BrowserRouter>
   );
