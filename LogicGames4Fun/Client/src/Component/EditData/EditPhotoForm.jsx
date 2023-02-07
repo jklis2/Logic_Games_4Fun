@@ -10,7 +10,7 @@ export const EditPhotoForm = (props) => {
     <>
       <div>
         <Dialog maxWidth= "xl" open={props.open} onClose={props.handleClose}>
-          <DialogTitle sx={{display: "flex", justifyContent: "center", overflow: "hidden" }}>Change avatar</DialogTitle>
+          <DialogTitle sx={{display: "flex", justifyContent: "center", overflow: "hidden", fontWeight: "bold" }}>Change avatar</DialogTitle>
           <DialogContent sx={{textAlign: "center", width: "700px"}}>
             <img
               src={`${process.env.PUBLIC_URL}/UserAvatars/UserAvatar1.png`}

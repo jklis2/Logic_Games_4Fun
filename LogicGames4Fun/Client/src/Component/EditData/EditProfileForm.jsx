@@ -12,7 +12,7 @@ export const EditProfileForm = (props) => {
     <>
       <div>
         <Dialog open={props.open} onClose={props.handleClose}>
-          <DialogTitle sx={{display: "flex", justifyContent: "center"}}>Edit profile</DialogTitle>
+          <DialogTitle sx={{display: "flex", justifyContent: "center", fontWeight: "bold"}}>Edit profile</DialogTitle>
           <DialogContent>
             <Box
               component="form"
