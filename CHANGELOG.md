@@ -58,3 +58,10 @@
 	- Added PrivacyPolicy Page and AchievementsForm
 	- Edited PrivacyPolicy, EditProfileForm, Dashboard design, modal in EditProfile, AchievementForm and RegisterForm design
 	- Added Achievements Card and SearchBox to Navbar
+
+- **0.0.15** (`2023/02/15`)
+	- Added Dashboard to NavBar, achievements images, AchievementPage with UI
+	- Added login fake user
+	- Improved file managment
+	- Edited static ProgressBar
+	- Fixed some errors and recreated profile UI
