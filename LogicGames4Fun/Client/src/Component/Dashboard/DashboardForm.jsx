@@ -11,6 +11,7 @@ export const DashboardForm = () => {
     for (let lvl = minLevel; lvl < maxLevel; lvl++) {
       levels.push(
         <Fab
+          key = {lvl}
           variant="extended"
           size="small"
           sx={{ 
@@ -30,13 +31,13 @@ export const DashboardForm = () => {
         <Navbar />
         <div id="game-level-text">
           <div className="easy-text">
-            <h>Easy levels</h>
+            <h3>Easy levels</h3>
           </div>
           <div className="medium-text">
-            <h>Medium levels</h>
+            <h3>Medium levels</h3>
           </div>
           <div className="hard-text">
-            <h>Hard levels</h>
+            <h3>Hard levels</h3>
           </div>
         </div>
         <div id="dashboard-level-games">
@@ -84,7 +85,7 @@ export const DashboardForm = () => {
 
         <div id="dashboard-score-games">
           <div className="score-games-title">
-            <h>Score games</h>
+            <h2>Score games</h2>
           </div>
           <div id="score-games-logo">
             <img

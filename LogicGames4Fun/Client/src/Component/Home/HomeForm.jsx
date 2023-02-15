@@ -30,13 +30,13 @@ export const HomeForm = () => {
         </div>
         <div className="home-page-info">
           <h1>Logic Games 4Fun</h1>
-          <p1>
+          <p>
             We're a startup that wants to show people that browser games don't
             have to be violent, addictive or pointless. Logic Games 4Fun is
             created to encourage people to practice their mind. Our logic games
             will be adapted to people of all ages, through different levels of
             difficulty.
-          </p1>
+          </p>
           <br></br>
           <a href="/Login">
             <button id="getStarted-button">Get started</button>
@@ -53,21 +53,21 @@ export const HomeForm = () => {
             src={`${process.env.PUBLIC_URL}/Images/Bulb.png`}
             alt="Bulb icon"
           ></img>
-          <p1 className="fun-fact-1">
+          <p className="fun-fact-1">
             Logical games help in developing mathematical cunning, teach
             predicting the effects of one's own decisions and strategic
             planning.
-          </p1>
+          </p>
         </div>
         <div className="home-page-funfact-2">
           <img
             src={`${process.env.PUBLIC_URL}/Images/Bulb.png`}
             alt="Bulb icon"
           ></img>
-          <p1 className="fun-fact-2">
+          <p className="fun-fact-2">
             Logical games support analysis and synthesis, teach how to read
             facts, force you to think and look for the best solutions.
-          </p1>
+          </p>
         </div>
       </div>
     </>

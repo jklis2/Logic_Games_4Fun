@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import "./LoginAndRegisterForm.css";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+import RegisterForm from "./RegisterForm";
+import Overlay from "./Overlay";
+import LoginForm from "./LoginForm";
 
 export const LoginAndRegisterForm = () => {
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
+  const [isValid, setIsValid] = useState(false)
 
   const login = function () {
     axios
@@ -16,7 +18,8 @@ export const LoginAndRegisterForm = () => {
         password: password,
       })
       .then((res) => {
-        localStorage.setItem('user', JSON.stringify(res.data))
+        localStorage.setItem("user", JSON.stringify(res.data));
+        setIsValid(true);
       })
       .catch((err) => console.log(err));
   };
@@ -34,6 +37,12 @@ export const LoginAndRegisterForm = () => {
       container.classList.remove("right-panel-active");
     });
   });
+
+  const onLogin = (e) => {
+    e.preventDefault();
+    login();
+  }
+
   return (
     <>
       <link
@@ -43,176 +52,12 @@ export const LoginAndRegisterForm = () => {
       <div id="login-page-content">
         <div className="container" id="container">
           <div className="form-container sign-up-container">
-            <form className="register-form" action="#">
-              <h1 className="register-title">Create Account</h1>
-              <div className="social-container">
-                <a href="#/" className="social">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#/" className="social">
-                  <i className="fab fa-google"></i>
-                </a>
-              </div>
-              <span className="register-span">
-                or use your email for registration
-              </span>
-              <Box
-                component="form"
-                sx={{
-                  "& > :not(style)": { m: 0.5, width: "17ch" },
-                  display: "grid",
-                  gap: 1,
-                  gridTemplateColumns: "repeat(2, 1fr)",
-                }}
-                noValidate
-                autoComplete="off"
-              >
-                <TextField
-                  id="outlined-basic"
-                  label="Name"
-                  variant="outlined"
-                  type="text"
-                  inputProps={{style: {fontSize: 13}}} 
-                  InputLabelProps={{style: {fontSize: 15}}}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Surname"
-                  variant="outlined"
-                  type="text"
-                  inputProps={{style: {fontSize: 13}}} 
-                  InputLabelProps={{style: {fontSize: 15}}}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Nickname"
-                  variant="outlined"
-                  type="text"
-                  inputProps={{style: {fontSize: 13}}} 
-                  InputLabelProps={{style: {fontSize: 15}}}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Email"
-                  variant="outlined"
-                  type="email"
-                  inputProps={{style: {fontSize: 13}}} 
-                  InputLabelProps={{style: {fontSize: 15}}}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Gender"
-                  variant="outlined"
-                  type="text"
-                  inputProps={{style: {fontSize: 13}}} 
-                  InputLabelProps={{style: {fontSize: 15}}}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Date of birth"
-                  variant="outlined"
-                  type="text"
-                  inputProps={{style: {fontSize: 13}}} 
-                  InputLabelProps={{style: {fontSize: 15}}}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Password"
-                  variant="outlined"
-                  type="password"
-                  inputProps={{style: {fontSize: 13}}} 
-                  InputLabelProps={{style: {fontSize: 15}}}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Confirm password"
-                  variant="outlined"
-                  type="password"
-                  inputProps={{style: {fontSize: 13}}} 
-                  InputLabelProps={{style: {fontSize: 15}}}
-                />
-              </Box>
-              <span className="privacy-policy-span">By creating an account, you agree to the <span className="privacy-policy"><a href={`/PrivacyPolicy`}>Terms of Service</a></span>.</span>
-              <button className="login-buttons">Sign Up</button>
-            </form>
+            <RegisterForm />
           </div>
           <div className="form-container sign-in-container">
-            {/* Form for is here  */}
-            <form
-              className="register-form"
-              action="#"
-              onSubmit={(e) => {
-                e.preventDefault();
-                login();
-              }}
-            >
-              <h1 className="register-title">Sign in</h1>
-              <div className="social-container">
-                <a href="#/" className="social">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#/" className="social">
-                  <i className="fab fa-google"></i>
-                </a>
-              </div>
-              <span className="register-span">or use your account</span>
-              <Box
-                component="form"
-                sx={{
-                  "& > :not(style)": { m: 1, width: "25ch" },
-                }}
-                noValidate
-                autoComplete="off"
-              >
-                {/* Login is here */}
-                <TextField
-                  id="outlined-basic"
-                  label="Nickname"
-                  variant="outlined"
-                  type="text"
-                  onChange={(e) => setNickname(e.target.value)}
-                />
-                {/* Passowrd is here */}
-                <TextField
-                  id="outlined-basic"
-                  label="Password"
-                  variant="outlined"
-                  type="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </Box>
-              <a className="social" href="#/">
-                Forgot your password?
-              </a>
-              <button className="login-buttons">
-                {/* <Link to="/dashboard">Sign In</Link> */}
-                <button>Sign In</button>
-              </button>
-            </form>
-            {/* End of login form */}
+            <LoginForm onLogin = {onLogin} setNickname = {setNickname} setPassword = {setPassword} isValid = {isValid}/>
           </div>
-          <div className="overlay-container">
-            <div className="overlay">
-              <div className="overlay-panel overlay-left">
-                <h1 className="register-title">Welcome!</h1>
-                <p className="welcome-text">
-                  To keep playing please login with your personal info
-                </p>
-                <button className="login-buttons ghost" id="signIn">
-                  Sign In
-                </button>
-              </div>
-              <div className="overlay-panel overlay-right">
-                <h1 className="register-title">Hello!</h1>
-                <p className="welcome-text">
-                  Enter your personal details and join to us!
-                </p>
-                <button className="login-buttons ghost" id="signUp">
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          </div>
+          <Overlay />
         </div>
       </div>
     </>
