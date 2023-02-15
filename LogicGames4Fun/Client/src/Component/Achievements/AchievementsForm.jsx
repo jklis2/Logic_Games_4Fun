@@ -2,7 +2,7 @@ import React from "react";
 import "./AchievementsForm.css";
 import { Navbar } from "../Navbar/Navbar";
 import DashboardFooter from "../Dashboard/DashboardFooter";
-import ProgrssBarValue from "./ProgressBarValue";
+import ProgressBarValue from "./ProgressBarValue";
 
 export const AchievementsForm = () => {
   return (
@@ -24,7 +24,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 easy levels of Sudoku</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="sudoku-proficient-achievement">
@@ -36,7 +36,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 medium levels of Sudoku</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="sudoku-master-achievement">
@@ -48,7 +48,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 hard levels of Sudoku</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="sudoku-king-achievement">
@@ -60,7 +60,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish all levels of Sudoku</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
 
@@ -74,7 +74,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 easy levels of Crossword</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="crossword-proficient-achievement">
@@ -86,7 +86,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 medium levels of Crossword</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="crossword-master-achievement">
@@ -98,7 +98,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 hard levels of Crossword</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="crossword-king-achievement">
@@ -110,7 +110,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish all levels of Crossword</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
 
@@ -124,7 +124,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 easy levels of Puzzle</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="puzzle-proficient-achievement">
@@ -136,7 +136,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 medium levels of Puzzle</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="puzzle-master-achievement">
@@ -148,7 +148,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 hard levels of Puzzle</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="puzzle-king-achievement">
@@ -160,7 +160,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish all levels of Puzzle</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
 
@@ -174,7 +174,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 easy levels of Quiz</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="quiz-proficient-achievement">
@@ -186,7 +186,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 medium levels of Quiz</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="quiz-master-achievement">
@@ -198,7 +198,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish 25 hard levels of Quiz</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
           <div className="quiz-king-achievement">
@@ -210,7 +210,7 @@ export const AchievementsForm = () => {
             </div>
             <div className="achievements-description">
               <p>Finish all levels of Quiz</p>
-              <ProgrssBarValue/>
+              <ProgressBarValue/>
             </div>
           </div>
         </div>
