@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
-import "../CSS/LoginAndRegisterForm.css";
-import { Link } from "react-router-dom";
+import "./LoginAndRegisterForm.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
 export const LoginAndRegisterForm = () => {
-  // Unused local variable.
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
-  const [testData, setTestData] = useState([]);
 
   const login = function () {
     axios

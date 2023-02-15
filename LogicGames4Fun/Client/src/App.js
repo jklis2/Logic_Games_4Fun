@@ -1,5 +1,4 @@
 import './App.css';
-import './Component/CSS/Global.css'
 import React, { useEffect, useState, Navigate } from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Home} from './Routers/Home'
@@ -13,21 +12,7 @@ import { Achievements } from './Routers/Achievements';
 
 
 function App() {
-
-  //Temporary to test backend
-
-  const [data, setData] = useState(null)
-
-  useEffect(() => {
-    fetch('/api')
-      .then((res) => res.json())
-      .then((data) => setData(data.message))
-  })
-
   return (
-    // <>
-    //   <div>{!data ? 'Loading...' : data}</div>
-    // </>
     <BrowserRouter>
       <Routes>
         {/* <Route path="/" element={<Navigate replace to="/home" />}/> */}

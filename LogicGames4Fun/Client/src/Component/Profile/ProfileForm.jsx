@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import "../CSS/ProfileForm.css";
+import "./ProfileForm.css";
 import { EditProfileForm } from "../EditData/EditProfileForm";
 import { EditPhotoForm } from "../EditData/EditPhotoForm";
 import { EditPasswordForm } from "../EditData/EditPasswordForm";
@@ -11,7 +11,6 @@ export const ProfileForm = () => {
     const userFromAPI = localStorage.getItem('user');
     userFromAPI && setUser(JSON.parse(userFromAPI))
   }, [])
-  console.log(user)
 
   // Edit profile
   const [openEditProfile, setOpenEditProfile] = useState(false);

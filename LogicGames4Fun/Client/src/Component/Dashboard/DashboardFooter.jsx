@@ -1,4 +1,4 @@
-import "../CSS/DashboardForm.css";
+import "./DashboardForm.css";
 
 const DashboardFooter = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import "../CSS/AboutUsForm.css";
+import "./AboutUsForm.css";
 
 export const AboutUsForm = () => {
   return (

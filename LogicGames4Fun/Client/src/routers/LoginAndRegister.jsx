@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginAndRegisterForm } from "../Component/JSX/LoginAndRegisterForm";
+import { LoginAndRegisterForm } from "../Component/LoginAndRegister/LoginAndRegisterForm";
 
 export const LoginAndRegister = () => {
   return (

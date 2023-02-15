@@ -1,5 +1,5 @@
 import React from "react";
-import "../CSS/AchievementsForm.css";
+import "./AchievementsForm.css";
 import { Navbar } from "../Navbar/Navbar"
 
 export const AchievementsForm = () => {

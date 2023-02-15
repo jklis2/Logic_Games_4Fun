@@ -1,5 +1,5 @@
 import React from "react";
-import "../CSS/DashboardForm.css";
+import "./DashboardForm.css";
 import { Navbar } from "../Navbar/Navbar";
 import { Fab } from "@mui/material";
 import DashboardFooter from "./DashboardFooter";
