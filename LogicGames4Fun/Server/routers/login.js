@@ -6,7 +6,7 @@ const router = Router();
 const repository = new Repository();
 
 repository.users = [
-  new User("test", "test123", "test123@test.test"),
+  new User("test", "test123", "test123@test.test", 'Michael', 'Winter', 'male', new Date(2000, 10, 10)),
   new User("1", "2", "3@3.z"),
 ];
 
@@ -29,7 +29,7 @@ router.post("/", (req, res) => {
         res.status(403).json('Password is incorrect.')
     }
     
-    res.status(200).json(`Success!`)
+    res.status(200).json(foundUser)
   } catch (err) {
     res.status(500).json(err);
   }

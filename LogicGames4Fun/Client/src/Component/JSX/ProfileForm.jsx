@@ -1,42 +1,32 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "../CSS/ProfileForm.css";
 import { EditProfileForm } from "../EditData/EditProfileForm";
 import { EditPhotoForm } from "../EditData/EditPhotoForm";
 import { EditPasswordForm } from "../EditData/EditPasswordForm";
 
 export const ProfileForm = () => {
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const userFromAPI = localStorage.getItem('user');
+    userFromAPI && setUser(JSON.parse(userFromAPI))
+  }, [])
+  console.log(user)
+
   // Edit profile
-  const [openEditProfile, setOpenEditProfile] = React.useState(false);
-
-  const handleClickOpenEditProfile = () => {
-    setOpenEditProfile(true);
-  };
-
-  const handleCloseEditProfile = () => {
-    setOpenEditProfile(false);
-  };
+  const [openEditProfile, setOpenEditProfile] = useState(false);
+  const handleClickOpenEditProfile = () => setOpenEditProfile(true);
+  const handleCloseEditProfile = () => setOpenEditProfile(false);
 
   // Edit password
-  const [openEditPassword, setOpenEditPassword] = React.useState(false);
-
-  const handleClickOpenEditPassword = () => {
-    setOpenEditPassword(true);
-  };
-
-  const handleCloseEditPassword = () => {
-    setOpenEditPassword(false);
-  };
+  const [openEditPassword, setOpenEditPassword] = useState(false);
+  const handleClickOpenEditPassword = () => setOpenEditPassword(true);
+  const handleCloseEditPassword = () => setOpenEditPassword(false);
 
   // Edit photo
-  const [openEditPhoto, setOpenEditPhoto] = React.useState(false);
-
-  const handleClickOpenEditPhoto = () => {
-    setOpenEditPhoto(true);
-  };
-
-  const handleCloseEditPhoto = () => {
-    setOpenEditPhoto(false);
-  };
+  const [openEditPhoto, setOpenEditPhoto] = useState(false);
+  const handleClickOpenEditPhoto = () => setOpenEditPhoto(true);
+  const handleCloseEditPhoto = () => setOpenEditPhoto(false);
 
   return (
     <>
@@ -52,19 +42,19 @@ export const ProfileForm = () => {
             ></img>
           </div>
           <div className="user-nickname">
-            <h1>Nickname</h1>
+            <h1>{user?.login}</h1>
           </div>
           <div className="user-information">
             <div className="name-and-surname">
-              <p1 id="name">Name</p1>
-              <p1>Surname</p1>
+              <p id="name">Name: {user?.name}</p>
+              <p>Surname {user?.surname} </p>
             </div>
             <div className="gender-and-birthDate">
-              <p1 id="gender">Gender</p1>
-              <p1>Date of birth</p1>
+              <p id="gender">Gender: {user?.gender} </p>
+              <p>Date of birth {user?.dateOfBirth.toLocaleString("en-US")}</p>
             </div>
             <div className="email">
-              <p1>Email</p1>
+              <p>Email: {user?.email}</p>
             </div>
           </div>
           <div className="myProfile-buttons">

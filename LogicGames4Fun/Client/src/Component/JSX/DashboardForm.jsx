@@ -2,8 +2,10 @@ import React from "react";
 import "../CSS/DashboardForm.css";
 import { Navbar } from "../Navbar/Navbar";
 import { Fab } from "@mui/material";
+import DashboardFooter from "./DashboardFooter";
 
 export const DashboardForm = () => {
+
   const generateLevels = function (minLevel, maxLevel) {
     const levels = [];
     for (let lvl = minLevel; lvl < maxLevel; lvl++) {
@@ -103,9 +105,7 @@ export const DashboardForm = () => {
             ></img>
           </div>
         </div>
-        <div id="dashboard-footer">
-          <p>© 2023 Logic Games 4Fun</p>
-        </div>
+        <DashboardFooter/>
       </div>
     </>
   );

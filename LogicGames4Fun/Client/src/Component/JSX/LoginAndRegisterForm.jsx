@@ -18,7 +18,9 @@ export const LoginAndRegisterForm = () => {
         login: nickname,
         password: password,
       })
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        localStorage.setItem('user', JSON.stringify(res.data))
+      })
       .catch((err) => console.log(err));
   };
 
@@ -139,7 +141,6 @@ export const LoginAndRegisterForm = () => {
           </div>
           <div className="form-container sign-in-container">
             {/* Form for is here  */}
-
             <form
               className="register-form"
               action="#"
@@ -187,10 +188,10 @@ export const LoginAndRegisterForm = () => {
                 Forgot your password?
               </a>
               <button className="login-buttons">
-                <Link to="/dashboard">Sign In</Link>
+                {/* <Link to="/dashboard">Sign In</Link> */}
+                <button>Sign In</button>
               </button>
             </form>
-
             {/* End of login form */}
           </div>
           <div className="overlay-container">
