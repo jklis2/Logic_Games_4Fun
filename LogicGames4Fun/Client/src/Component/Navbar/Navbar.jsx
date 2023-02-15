@@ -21,6 +21,7 @@ export const Navbar = () => {
   const pages = ["Find game"];
   const settings = [
     "🪪 Profile",
+    "🏠 Dashboard",
     "❤️ Favourite games",
     "🏆 Achievements",
     "🐾 Logout",
