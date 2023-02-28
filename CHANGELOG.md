@@ -65,3 +65,7 @@
 	- Improved file managment
 	- Edited static ProgressBar
 	- Fixed some errors and recreated profile UI
+	
+- **0.0.16** (`2023/02/28`)
+	- Added SwitchButton to dark and light mode
+	- Fix starting location
