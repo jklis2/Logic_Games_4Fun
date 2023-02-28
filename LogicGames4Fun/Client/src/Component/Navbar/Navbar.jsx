@@ -15,6 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import { SwitchThemeForm } from "../UI/SwitchTheme/SwitchTheme";
 
 export const Navbar = () => {
   const settings = [
@@ -165,7 +166,7 @@ export const Navbar = () => {
                   />
                 </Search>
               </Box>
-
+              <SwitchThemeForm/>
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
