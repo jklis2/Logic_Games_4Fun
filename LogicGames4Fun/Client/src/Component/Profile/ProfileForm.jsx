@@ -3,6 +3,7 @@ import "./ProfileForm.css";
 import { EditProfileForm } from "../EditData/EditProfileForm";
 import { EditPhotoForm } from "../EditData/EditPhotoForm";
 import { EditPasswordForm } from "../EditData/EditPasswordForm";
+import ReactDOM from "react-dom";
 
 export const ProfileForm = () => {
   const [user, setUser] = useState(null);
@@ -28,25 +29,36 @@ export const ProfileForm = () => {
   const handleCloseEditPhoto = () => setOpenEditPhoto(false);
 
   return (
-    <>
-      <EditProfileForm
-        open={openEditProfile}
-        setOpen={setOpenEditProfile}
-        handleClickOpen={handleClickOpenEditProfile}
-        handleClose={handleCloseEditProfile}
-      />
-      <EditPasswordForm
-        open={openEditPassword}
-        setOpen={setOpenEditPassword}
-        handleClickOpen={handleClickOpenEditPassword}
-        handleClose={handleCloseEditPassword}
-      />
-      <EditPhotoForm
-        open={openEditPhoto}
-        setOpen={setOpenEditPhoto}
-        handleClickOpen={handleClickOpenEditPhoto}
-        handleClose={handleCloseEditPhoto}
-      />
+    <div>
+      {ReactDOM.createPortal(
+        <EditProfileForm
+          open={openEditProfile}
+          setOpen={setOpenEditProfile}
+          handleClickOpen={handleClickOpenEditProfile}
+          handleClose={handleCloseEditProfile}
+        />,
+        document.getElementById("modal-root")
+      )}
+      {ReactDOM.createPortal(
+        <EditPasswordForm
+          open={openEditPassword}
+          setOpen={setOpenEditPassword}
+          handleClickOpen={handleClickOpenEditPassword}
+          handleClose={handleCloseEditPassword}
+        />,
+        document.getElementById("modal-root")
+      )}
+
+      {ReactDOM.createPortal(
+        <EditPhotoForm
+          open={openEditPhoto}
+          setOpen={setOpenEditPhoto}
+          handleClickOpen={handleClickOpenEditPhoto}
+          handleClose={handleCloseEditPhoto}
+        />,
+        document.getElementById("modal-root")
+      )}
+
       <div className="myProfile-page-content">
         <div id="myProfile-info">
           <div className="user-avatar">
@@ -93,6 +105,6 @@ export const ProfileForm = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
