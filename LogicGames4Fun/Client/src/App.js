@@ -10,6 +10,7 @@ import { MyProfile } from './Routers/Profile'
 import { PrivacyPolicy } from './Routers/PrivacyPolicy';
 import { Achievements } from './Routers/Achievements';
 import { Navigate } from 'react-router-dom';
+import {Test} from './Routers/Test'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/profile' element={<MyProfile/>}/>
         <Route path='/privacypolicy' element={<PrivacyPolicy/>}/>
         <Route path='/achievements' element={<Achievements/>}/>
+        <Route path='/test' element={<Test/>}/>
       </Routes>
     </BrowserRouter>
   );

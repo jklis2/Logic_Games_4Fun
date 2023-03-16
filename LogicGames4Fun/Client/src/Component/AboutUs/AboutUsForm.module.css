@@ -11,12 +11,13 @@
 #aboutUs-logo-text{
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
 }
 
-#aboutUs-page-text {
+#aboutUs-page-text h2{
     font-size: 25px;
-    padding-top: 1.5rem;
+    font-weight: bold;
 }
 
 .aboutUs-description {
@@ -43,3 +44,4 @@
     text-transform: uppercase;
 	transition: transform 80ms ease-in;
 }
+

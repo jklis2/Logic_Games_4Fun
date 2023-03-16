@@ -1,22 +1,24 @@
 import React from "react";
-import "./AboutUsForm.css";
+import styles from "./AboutUsForm.module.css";
 
 export const AboutUsForm = () => {
+  console.log(styles)
   return (
     <>
-      <div className="aboutUs-page-content">
-        <div id="aboutUs-logo-text">
-          <div id="aboutUs-page-logo">
+    
+      <div className={styles["aboutUs-page-content"]}>
+        <div id={styles["aboutUs-logo-text"]}>
+          <div id={styles["aboutUs-page-logo"]}>
             <img
               src={`${process.env.PUBLIC_URL}/Images/LogoLogicGames4Fun_smaller.png`}
               alt="Logic Games 4Fun Logo"
             ></img>
           </div>
-          <div id="aboutUs-page-text">
+          <div id={styles["aboutUs-page-text"]}>
             <h2>Nice to meet you!</h2>
           </div>
         </div>
-        <div className="aboutUs-description">
+        <div className={styles["aboutUs-description"]}>
           We're Mateusz and Kuba, IT students from Cracow and developers of
           Logic Games 4Fun. Our journey started when both us were trying to come
           up with an idea for an engineering thesis. Our startup that wants to
@@ -26,9 +28,9 @@ export const AboutUsForm = () => {
           through different levels of difficulty. After a friend connected us,
           the rest is history.
         </div>
-        <div className="contact-buttons">
+        <div className={styles["contact-buttons"]}>
           <a href="/Home">
-            <button id="backTohomeButton">Back to home</button>
+            <button id={styles.backTohomeButton}>Back to home</button>
           </a>
         </div>
       </div>
