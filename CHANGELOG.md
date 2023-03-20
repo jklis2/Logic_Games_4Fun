@@ -69,3 +69,11 @@
 - **0.0.16** (`2023/02/28`)
 	- Added SwitchButton to dark and light mode
 	- Fix starting location
+
+- **0.0.17** (`2023/03/06`)
+	- Added redux store
+	- Created portals
+
+- **0.0.18** (`2023/03/20`)
+	- Added 1 photo for Puzzle game
+	- Added css modules to all css files
