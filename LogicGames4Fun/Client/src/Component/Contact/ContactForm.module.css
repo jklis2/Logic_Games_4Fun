@@ -11,12 +11,13 @@
 #contact-logo-text{
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
 }
 
-#contact-page-text {
-    font-size: 25px;
-    padding-top: 1.5rem;
+#contact-page-text h2{
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .contact-input {
@@ -34,11 +35,10 @@
 .contact-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #backToHomeButton {
-    margin: 1rem;
     border-radius: 20px;
 	border: 1px solid #9dddf4;
 	background-color: #9dddf4;
@@ -52,7 +52,6 @@
 }
 
 #sendMessageButton {
-   margin-top: 1rem;
     border-radius: 20px;
 	border: 1px solid #9dddf4;
 	background-color: #9dddf4;

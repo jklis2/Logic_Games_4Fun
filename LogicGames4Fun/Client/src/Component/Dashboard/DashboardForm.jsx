@@ -1,5 +1,5 @@
 import React from "react";
-import "./DashboardForm.css";
+import styles from "./DashboardForm.module.css";
 import { Navbar } from "../Navbar/Navbar";
 import { Fab } from "@mui/material";
 import DashboardFooter from "./DashboardFooter";
@@ -27,67 +27,67 @@ export const DashboardForm = () => {
 
   return (
     <>
-      <div id="dashboard-page-conent">
+      <div id={styles["dashboard-page-conent"]}>
         <Navbar />
-        <div id="game-level-text">
-          <div className="easy-text">
-            <h3>Easy levels</h3>
+        <div id={styles["game-level-text"]}>
+          <div className={styles["easy-text"]}>
+            <h2>Easy levels</h2>
           </div>
-          <div className="medium-text">
-            <h3>Medium levels</h3>
+          <div className={styles["medium-text"]}>
+            <h2>Medium levels</h2>
           </div>
-          <div className="hard-text">
-            <h3>Hard levels</h3>
+          <div className={styles["hard-text"]}>
+            <h2>Hard levels</h2>
           </div>
         </div>
-        <div id="dashboard-level-games">
+        <div id={styles["dashboard-level-games"]}>
           {/* Sudoku */}
-          <div className="logo-sudoku">
+          <div className={styles["logo-sudoku"]}>
             <img
               src={`${process.env.PUBLIC_URL}/GamesImages/SudokuLogo.png`}
               alt="Sudoku logo"
             ></img>
           </div>
-          <div className="easy-sudoku">{generateLevels(1, 26)}</div>
-          <div className="medium-sudoku">{generateLevels(26, 51)}</div>
-          <div className="hard-sudoku">{generateLevels(51, 76)}</div>
+          <div className={styles["easy-sudoku"]}>{generateLevels(1, 26)}</div>
+          <div className={styles["medium-sudoku"]}>{generateLevels(26, 51)}</div>
+          <div className={styles["hard-sudoku"]}>{generateLevels(51, 76)}</div>
           {/* Crossword */}
-          <div className="logo-crossword">
+          <div className={styles["logo-crossword"]}>
             <img
               src={`${process.env.PUBLIC_URL}/GamesImages/CrosswordLogo.png`}
               alt="Crossword logo"
             ></img>
           </div>
-          <div className="easy-crossword">{generateLevels(1, 26)}</div>
-          <div className="medium-crossword">{generateLevels(26, 51)}</div>
-          <div className="hard-crossword">{generateLevels(51, 76)}</div>
+          <div className={styles["easy-crossword"]}>{generateLevels(1, 26)}</div>
+          <div className={styles["medium-crossword"]}>{generateLevels(26, 51)}</div>
+          <div className={styles["hard-crossword"]}>{generateLevels(51, 76)}</div>
           {/* Puzzle */}
-          <div className="logo-puzzle">
+          <div className={styles["logo-puzzle"]}>
             <img
               src={`${process.env.PUBLIC_URL}/GamesImages/PuzzleLogo.png`}
               alt="Puzzle logo"
             ></img>
           </div>
-          <div className="easy-puzzle">{generateLevels(1, 26)}</div>
-          <div className="medium-puzzle">{generateLevels(26, 51)}</div>
-          <div className="hard-puzzle">{generateLevels(51, 76)}</div>
+          <div className={styles["easy-puzzle"]}>{generateLevels(1, 26)}</div>
+          <div className={styles["medium-puzzle"]}>{generateLevels(26, 51)}</div>
+          <div className={styles["hard-puzzle"]}>{generateLevels(51, 76)}</div>
           {/* Quiz */}
-          <div className="logo-quiz">
+          <div className={styles["logo-quiz"]}>
             <img
               src={`${process.env.PUBLIC_URL}/GamesImages/QuizLogo.png`}
               alt="Quiz logo"
             ></img>
           </div>
-          <div className="easy-quiz">{generateLevels(1, 26)}</div>
-          <div className="medium-quiz">{generateLevels(26, 51)}</div>
-          <div className="hard-quiz">{generateLevels(51, 76)}</div>
+          <div className={styles["easy-quiz"]}>{generateLevels(1, 26)}</div>
+          <div className={styles["medium-quiz"]}>{generateLevels(26, 51)}</div>
+          <div className={styles["hard-quiz"]}>{generateLevels(51, 76)}</div>
         </div>
 
-        <div id="dashboard-score-games">
-          <div className="score-games-title">
+        <div id={styles["dashboard-score-games"]}>
+          <div className={styles["score-games-title"]}>
             <h2>Score games</h2>
           </div>
-          <div id="score-games-logo">
+          <div id={styles["score-games-logo"]}>
             <img
               src={`${process.env.PUBLIC_URL}/GamesImages/BallInTheHoleLogo.png`}
               alt="Ball in the hole Game"

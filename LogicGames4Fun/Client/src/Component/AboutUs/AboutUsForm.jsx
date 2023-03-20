@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./AboutUsForm.module.css";
 
 export const AboutUsForm = () => {
-  console.log(styles)
   return (
     <>
     
@@ -30,7 +29,7 @@ export const AboutUsForm = () => {
         </div>
         <div className={styles["contact-buttons"]}>
           <a href="/Home">
-            <button id={styles.backTohomeButton}>Back to home</button>
+            <button id={styles["backTohomeButton"]}>Back to home</button>
           </a>
         </div>
       </div>

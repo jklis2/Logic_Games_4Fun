@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./ProfileForm.css";
+import styles from "./ProfileForm.module.css";
 import { EditProfileForm } from "../EditData/EditProfileForm";
 import { EditPhotoForm } from "../EditData/EditPhotoForm";
 import { EditPasswordForm } from "../EditData/EditPasswordForm";
@@ -59,48 +59,48 @@ export const ProfileForm = () => {
         document.getElementById("modal-root")
       )}
 
-      <div className="myProfile-page-content">
-        <div id="myProfile-info">
-          <div className="user-avatar">
+      <div className={styles["myProfile-page-content"]}>
+        <div id={styles["myProfile-info"]}>
+          <div className={styles["user-avatar"]}>
             <img
               onClick={handleClickOpenEditPhoto}
               src={`${process.env.PUBLIC_URL}/UserAvatars/UserAvatar1.png`}
               alt="User avatar"
             ></img>
           </div>
-          <div className="user-info">
-            <span className="user-info__nickname">{user?.login}</span>
-            <span className="user-info__primary-info">
+          <div className={styles["user-info"]}>
+            <span className={styles["user-info__nickname"]}>{user?.login}</span>
+            <span className={styles["user-info__primary-info"]}>
               {" "}
               Online | {user?.gender} |{" "}
               {user?.dateOfBirth.toLocaleString("en-US")}{" "}
             </span>
           </div>
-          <div className="hr"></div>
-          <div className="description">
+          <div className={styles["hr"]}></div>
+          <div className={styles["description"]}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo fuga
             repellendus cupiditate, blanditiis necessitatibus vero provident
             dignissimos, fugit nisi explicabo aut ab deleniti laboriosam
             voluptatum distinctio. Quasi atque blanditiis fugit.
           </div>
 
-          <div className="hr"></div>
-          <div className="buttons">
-            <button onClick={handleClickOpenEditProfile} id="button">
+          <div className={styles["hr"]}></div>
+          <div className={styles["buttons"]}>
+            <button onClick={handleClickOpenEditProfile} id={styles["button"]}>
               Edit profile
             </button>
-            <button onClick={handleClickOpenEditPassword} id="button">
+            <button onClick={handleClickOpenEditPassword} id={styles["button"]}>
               Change password
             </button>
-            <div className="back-to-dashboard-button">
+            <div className={styles["back-to-dashboard-button"]}>
               <a href="/Dashboard">
-                <button id="button">Back to dashboard</button>
+                <button id={styles["button"]}>Back to dashboard</button>
               </a>
             </div>
           </div>
         </div>
-        <div id="myProfile-achievements">
-          <div className="achievements-title">
+        <div id={styles["myProfile-achievements"]}>
+          <div className={styles["achievements-title"]}>
             <h1>My achievements</h1>
           </div>
         </div>

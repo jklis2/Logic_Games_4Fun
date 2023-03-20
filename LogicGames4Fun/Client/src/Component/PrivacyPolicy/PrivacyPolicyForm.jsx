@@ -1,12 +1,12 @@
 import React from "react";
-import "./PrivacyPolicyForm.css";
+import styles from "./PrivacyPolicyForm.module.css";
 
 export const PrivacyPolicyForm = () => {
   return (
     <>
-      <div className="privacyPolicy-page-content">
-        <div id="privacy-policy">
-          <div id="center-text">
+      <div className={styles["privacyPolicy-page-content"]}>
+        <div id={styles["privacy-policy"]}>
+          <div id={styles["center-text"]}>
             <h1>Privacy Policy</h1>
             <p>Last updated: February 07, 2023</p>
           </div>
@@ -470,9 +470,9 @@ export const PrivacyPolicyForm = () => {
             <li>By email: logicgames4fun@gmail.com</li>
           </ul>
         </div>
-        <div className="back-to-login-button">
+        <div className={styles["back-to-login-button"]}>
           <a href="/Login">
-            <button id="backToLogin">Back to login</button>
+            <button id={styles["backToLogin"]}>Back to login</button>
           </a>
         </div>
       </div>

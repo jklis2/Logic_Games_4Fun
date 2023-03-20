@@ -73,4 +73,6 @@
 #myProfile-achievements {
   grid-area: 1 / 2 / 2 / 3;
   padding-top: 1rem;
+  display: flex;
+  justify-content: center;
 }
