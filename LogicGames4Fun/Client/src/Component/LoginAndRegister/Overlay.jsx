@@ -1,22 +1,28 @@
-const Overlay = () => {
+import styles from "./LoginAndRegisterForm.module.css";
+
+const Overlay = ({setRegisterVisibility}) => {
+
+
+
+
   return (
-    <div className="overlay-container">
-      <div className="overlay">
-        <div className="overlay-panel overlay-left">
-          <h1 className="register-title">Welcome!</h1>
-          <p className="welcome-text">
+    <div className={styles["overlay-container"]}>
+      <div className={styles.overlay}>
+        <div className={`${styles["overlay-panel"]} ${styles["overlay-left"]}`}>
+          <h1 className={styles["register-title"]}>Welcome!</h1>
+          <p className={styles["welcome-text"]}>
             To keep playing please login with your personal info
           </p>
-          <button className="login-buttons ghost" id="signIn">
+          <button className={`${styles["login-buttons"]} ${styles["ghost"]}`} id={styles["signIn"] } onClick = {() => setRegisterVisibility(false)}>
             Sign In
           </button>
         </div>
-        <div className="overlay-panel overlay-right">
-          <h1 className="register-title">Hello!</h1>
-          <p className="welcome-text">
+        <div className={`${styles["overlay-panel"]} ${styles["overlay-right"]}`}>
+          <h1 className={styles["register-title"]}>Hello!</h1>
+          <p className={styles["welcome-text"]}>
             Enter your personal details and join to us!
           </p>
-          <button className="login-buttons ghost" id="signUp">
+          <button className={`${styles["login-buttons"]} ${styles["ghost"]}`} id={styles["signUp"]} onClick={() => setRegisterVisibility(true) }>
             Sign Up
           </button>
         </div>

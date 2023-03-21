@@ -1,20 +1,20 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import "./LoginAndRegisterForm.css";
+import styles from "./LoginAndRegisterForm.module.css";
 
 const RegisterForm = (props) => {
     return(
-        <form className="register-form">
-        <h1 className="register-title">Create Account</h1>
-        <div className="social-container">
-          <a href="#/" className="social">
+        <form className={styles["register-form"]}>
+        <h2 className={styles["register-title"]}>Create Account</h2>
+        <div className={styles["social-container"]}>
+          <a href="#/" className={styles["social"]}>
             <i className="fab fa-facebook-f"></i>
           </a>
-          <a href="#/" className="social">
+          <a href="#/" className={styles["social"]}>
             <i className="fab fa-google"></i>
           </a>
         </div>
-        <span className="register-span">
+        <span className={styles["register-span"]}>
           or use your email for registration
         </span>
         <Box
@@ -93,8 +93,8 @@ const RegisterForm = (props) => {
             InputLabelProps={{style: {fontSize: 15}}}
           />
         </Box>
-        <span className="privacy-policy-span">By creating an account, you agree to the <span className="privacy-policy"><a href={`/PrivacyPolicy`}>Terms of Service</a></span>.</span>
-        <button className="login-buttons">Sign Up</button>
+        <span className={styles["privacy-policy-span"]}>By creating an account, you agree to the <span className={styles["privacy-policy"]}><a href={`/PrivacyPolicy`}>Terms of Service</a></span>.</span>
+        <button className={styles["login-buttons"]}>Sign Up</button>
       </form>
     )
 }

@@ -1,19 +1,20 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import styles from "./LoginAndRegisterForm.module.css";
 
 const LoginForm = (props) => {
   return (
-    <form className="register-form" onSubmit={props.onLogin}>
-      <h1 className="register-title">Sign in</h1>
-      <div className="social-container">
-        <a href="#/" className="social">
+    <form className={styles["register-form"]} onSubmit={props.onLogin}>
+      <h2 className={styles["register-title"]}>Sign in</h2>
+      <div className={styles["social-container"]}>
+        <a href="#/" className={styles["social"]}>
           <i className="fab fa-facebook-f"></i>
         </a>
-        <a href="#/" className="social">
+        <a href="#/" className={styles["social"]}>
           <i className="fab fa-google"></i>
         </a>
       </div>
-      <span className="register-span">or use your account</span>
+      <span className={styles["register-span"]}>or use your account</span>
       <Box
         component="form"
         sx={{
@@ -37,10 +38,10 @@ const LoginForm = (props) => {
           onChange={(e) => props.setPassword(e.target.value)}
         />
       </Box>
-      <a className="social" href="#/">
+      <a className={styles["social"]} href="#/">
         Forgot your password?
       </a>
-      <button className="login-buttons"> Sign in </button>
+      <button className={styles["login-buttons"]}> Sign in </button>
     </form>
   );
 };
