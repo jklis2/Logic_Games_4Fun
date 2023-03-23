@@ -115,7 +115,6 @@ export const Navbar = () => {
                   onClick={handleOpenNavMenu}
                   color="inherit"
                 >
-                  <MenuIcon />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -136,26 +135,6 @@ export const Navbar = () => {
                   }}
                 ></Menu>
               </Box>
-
-              <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href=""
-                sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              >
-                LOGO
-              </Typography>
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 <Search>
                   <SearchIconWrapper>
@@ -194,7 +173,6 @@ export const Navbar = () => {
                 >
                   {settings.map((setting) => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      {/* <Typography textAlign="center">{setting}</Typography> */}
                       <a href={`/${setting.slice(2).replaceAll(" ", "")}`}>
                         {" "}
                         {setting}
