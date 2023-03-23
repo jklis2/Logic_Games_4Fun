@@ -77,3 +77,8 @@
 - **0.0.18** (`2023/03/20`)
 	- Added 1 photo for Puzzle game
 	- Added css modules to all css files
+
+- **0.0.19** (`2023/03/23`)
+	- Added all photo for Puzzle game
+	- Repaired Navbar
+	- Added responsiveness to Home, About us, Contact, Achievements and Privacy policy Pages
