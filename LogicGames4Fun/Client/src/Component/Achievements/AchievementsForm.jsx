@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./AchievementsForm.module.css";
+import styles from "./AchievementsForm.module.scss";
 import { Navbar } from "../Navbar/Navbar";
 import DashboardFooter from "../Dashboard/DashboardFooter";
 import ProgressBarValue from "./ProgressBarValue";
@@ -7,15 +7,15 @@ import ProgressBarValue from "./ProgressBarValue";
 export const AchievementsForm = () => {
   return (
     <>
-      <div className={styles["achievements-page-content"]}>
-        <Navbar />
-        <div className={styles["achievements-title"]}>
+            <Navbar />
+        <div className={`${styles["achievements-title"]} mt-3`}>
           <h1>Achievements</h1>
         </div>
         <div className={styles["user-achievements"]}>
 
           {/* Sudoku achievements */}
-          <div className={styles["sudoku-novice-achievement"]}>
+          <div className={styles.achievement}>
+
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/SudokuImages/SudokuNoviceAchievement.png`}
@@ -27,7 +27,9 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["sudoku-proficient-achievement"]}>
+
+
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/SudokuImages/SudokuProficientAchievement.png`}
@@ -39,7 +41,8 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["sudoku-master-achievement"]}>
+          
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/SudokuImages/SudokuMasterAchievement.png`}
@@ -51,7 +54,7 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["sudoku-king-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/SudokuImages/SudokuKingAchievement.png`}
@@ -65,7 +68,7 @@ export const AchievementsForm = () => {
           </div>
 
           {/* Crossword achievements */}
-          <div className={styles["crossword-novice-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/CrosswordImages/CrosswordNoviceAchievement.png`}
@@ -77,7 +80,7 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["crossword-proficient-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/CrosswordImages/CrosswordProficientAchievement.png`}
@@ -89,7 +92,7 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["crossword-master-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/CrosswordImages/CrosswordMasterAchievement.png`}
@@ -101,7 +104,7 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["crossword-king-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/CrosswordImages/CrosswordKingAchievement.png`}
@@ -115,7 +118,7 @@ export const AchievementsForm = () => {
           </div>
 
           {/* Puzzle achievements */}
-          <div className={styles["puzzle-novice-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/PuzzleImages/PuzzleNoviceAchievement.png`}
@@ -127,7 +130,7 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["puzzle-proficient-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/PuzzleImages/PuzzleProficientAchievement.png`}
@@ -139,7 +142,7 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["puzzle-master-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/PuzzleImages/PuzzleMasterAchievement.png`}
@@ -151,7 +154,7 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["puzzle-king-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/PuzzleImages/PuzzleKingAchievement.png`}
@@ -165,7 +168,7 @@ export const AchievementsForm = () => {
           </div>
 
           {/* Quiz achievements */}
-          <div className={styles["quiz-novice-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/QuizImages/QuizNoviceAchievement.png`}
@@ -177,7 +180,7 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["quiz-proficient-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/QuizImages/QuizProficientAchievement.png`}
@@ -189,7 +192,7 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["quiz-master-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/QuizImages/QuizMasterAchievement.png`}
@@ -201,7 +204,7 @@ export const AchievementsForm = () => {
               <ProgressBarValue/>
             </div>
           </div>
-          <div className={styles["quiz-king-achievement"]}>
+          <div className={styles.achievement}>
             <div className={styles["achievements-image"]}>
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/QuizImages/QuizKingAchievement.png`}
@@ -215,7 +218,6 @@ export const AchievementsForm = () => {
           </div>
         </div>
         <DashboardFooter/>
-      </div>
     </>
   );
 };
