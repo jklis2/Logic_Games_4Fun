@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./AboutUsForm.module.css";
+import styles from "./AboutUsForm.module.scss";
+import "../UI/Button/Button.scss";
 
 export const AboutUsForm = () => {
   return (
-    <>
-    
-      <div className={styles["aboutUs-page-content"]}>
-        <div id={styles["aboutUs-logo-text"]}>
+    <div className={styles["aboutUs-container"]}>
+      <div className={`${styles["aboutUs-box"]} bg-light w-75`}>
+        <div className={styles["aboutUs-logo-text"]}>
           <div id={styles["aboutUs-page-logo"]}>
             <img
               src={`${process.env.PUBLIC_URL}/Images/LogoLogicGames4Fun_smaller.png`}
@@ -29,10 +29,10 @@ export const AboutUsForm = () => {
         </div>
         <div className={styles["contact-buttons"]}>
           <a href="/Home">
-            <button id={styles["backTohomeButton"]}>Back to home</button>
+            <button className="m-3 button-light">Back to home</button>
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 };

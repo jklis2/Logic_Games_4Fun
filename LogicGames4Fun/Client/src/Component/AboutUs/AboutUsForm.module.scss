@@ -1,0 +1,44 @@
+.aboutUs-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutUs-box {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.aboutUs-logo-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img{
+    padding: 0;
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+  }
+
+}
+
+#aboutUs-page-text h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.aboutUs-description {
+  font-size: 20px;
+  padding: 15px;
+  text-align: justify;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+}
