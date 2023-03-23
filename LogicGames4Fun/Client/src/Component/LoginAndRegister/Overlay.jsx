@@ -1,10 +1,6 @@
 import styles from "./LoginAndRegisterForm.module.css";
 
 const Overlay = ({setRegisterVisibility}) => {
-
-
-
-
   return (
     <div className={styles["overlay-container"]}>
       <div className={styles.overlay}>
