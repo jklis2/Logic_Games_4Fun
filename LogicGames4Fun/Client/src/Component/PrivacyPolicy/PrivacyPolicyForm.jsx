@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./PrivacyPolicyForm.module.css";
+import styles from "./PrivacyPolicyForm.module.scss";
+import '../UI/Button/Button.scss'
 
 export const PrivacyPolicyForm = () => {
   return (
@@ -472,7 +473,7 @@ export const PrivacyPolicyForm = () => {
         </div>
         <div className={styles["back-to-login-button"]}>
           <a href="/Login">
-            <button id={styles["backToLogin"]}>Back to login</button>
+            <button className="button-light">Back to login</button>
           </a>
         </div>
       </div>
