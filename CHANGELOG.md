@@ -82,3 +82,6 @@
 	- Added all photo for Puzzle game
 	- Repaired Navbar
 	- Added responsiveness to Home, About us, Contact, Achievements and Privacy policy Pages
+	
+- **0.0.20** (`2023/03/28`)
+	- Added responsiveness to Dashboard Page
