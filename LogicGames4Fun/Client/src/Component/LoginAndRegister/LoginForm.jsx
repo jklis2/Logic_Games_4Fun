@@ -19,6 +19,8 @@ const LoginForm = (props) => {
         component="form"
         sx={{
           "& > :not(style)": { m: 1, width: "25ch" },
+          display: 'flex',
+          flexDirection: 'column'
         }}
         noValidate
         autoComplete="off"
