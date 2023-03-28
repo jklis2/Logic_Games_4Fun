@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import styles from "./LoginAndRegisterForm.module.css";
+import styles from "./LoginAndRegisterForm.module.scss";
 
 const RegisterForm = (props) => {
     return(
@@ -29,7 +29,6 @@ const RegisterForm = (props) => {
           autoComplete="off"
         >
           <TextField
-            id="outlined-basic"
             label="Name"
             variant="outlined"
             type="text"
@@ -37,7 +36,6 @@ const RegisterForm = (props) => {
             InputLabelProps={{style: {fontSize: 15}}}
           />
           <TextField
-            id="outlined-basic"
             label="Surname"
             variant="outlined"
             type="text"
@@ -45,7 +43,6 @@ const RegisterForm = (props) => {
             InputLabelProps={{style: {fontSize: 15}}}
           />
           <TextField
-            id="outlined-basic"
             label="Nickname"
             variant="outlined"
             type="text"
@@ -53,7 +50,6 @@ const RegisterForm = (props) => {
             InputLabelProps={{style: {fontSize: 15}}}
           />
           <TextField
-            id="outlined-basic"
             label="Email"
             variant="outlined"
             type="email"
@@ -61,7 +57,6 @@ const RegisterForm = (props) => {
             InputLabelProps={{style: {fontSize: 15}}}
           />
           <TextField
-            id="outlined-basic"
             label="Gender"
             variant="outlined"
             type="text"
@@ -69,7 +64,6 @@ const RegisterForm = (props) => {
             InputLabelProps={{style: {fontSize: 15}}}
           />
           <TextField
-            id="outlined-basic"
             label="Date of birth"
             variant="outlined"
             type="text"
@@ -77,7 +71,6 @@ const RegisterForm = (props) => {
             InputLabelProps={{style: {fontSize: 15}}}
           />
           <TextField
-            id="outlined-basic"
             label="Password"
             variant="outlined"
             type="password"
@@ -85,7 +78,6 @@ const RegisterForm = (props) => {
             InputLabelProps={{style: {fontSize: 15}}}
           />
           <TextField
-            id="outlined-basic"
             label="Confirm password"
             variant="outlined"
             type="password"

@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import styles from "./LoginAndRegisterForm.module.css";
+import styles from "./LoginAndRegisterForm.module.scss";
 import RegisterForm from "./RegisterForm";
 import Overlay from "./Overlay";
 import LoginForm from "./LoginForm";

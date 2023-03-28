@@ -1,4 +1,4 @@
-import styles from "./LoginAndRegisterForm.module.css";
+import styles from "./LoginAndRegisterForm.module.scss";
 
 const Overlay = ({setRegisterVisibility}) => {
   return (

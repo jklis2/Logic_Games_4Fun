@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import styles from "./LoginAndRegisterForm.module.css";
+import styles from "./LoginAndRegisterForm.module.scss";
 
 const LoginForm = (props) => {
   return (
@@ -24,14 +24,12 @@ const LoginForm = (props) => {
         autoComplete="off"
       >
         <TextField
-          id="outlined-basic"
           label="Nickname"
           variant="outlined"
           type="text"
           onChange={(e) => props.setNickname(e.target.value)}
         />
         <TextField
-          id="outlined-basic"
           label="Password"
           variant="outlined"
           type="password"

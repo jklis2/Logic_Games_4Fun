@@ -4,8 +4,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 100vh;
-	margin: -20px 0 50px;
+	min-height: 100vh;
 }
 
 .register-title {
@@ -74,9 +73,9 @@
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	width: 768px;
+	width: 80%;
 	max-width: 100%;
-	min-height: 480px;
+	min-height: 70vh;
 }
 
 .form-container {
