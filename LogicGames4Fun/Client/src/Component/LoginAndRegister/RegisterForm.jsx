@@ -1,11 +1,12 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import styles from "./LoginAndRegisterForm.module.scss";
+import '../UI/Button/Button.scss';
 
 const RegisterForm = (props) => {
     return(
         <form className={styles["register-form"]}>
-        <h2 className={styles["register-title"]}>Create Account</h2>
+        <h2>Create Account</h2>
         <div className={styles["social-container"]}>
           <a href="#/" className={styles["social"]}>
             <i className="fab fa-facebook-f"></i>
@@ -20,10 +21,10 @@ const RegisterForm = (props) => {
         <Box
           component="form"
           sx={{
-            "& > :not(style)": { m: 0.5, width: "17ch" },
+            "& > :not(style)": { m: 0.5, width: {xs:  "12ch", sm: "15ch", md: "15ch", lg: '18ch',  xl: "25ch"}},
             display: "grid",
             gap: 1,
-            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateColumns: {xs: "repeat(1, 1fr)", sm: "repeat(2, 1fr)"}
           }}
           noValidate
           autoComplete="off"
@@ -86,7 +87,7 @@ const RegisterForm = (props) => {
           />
         </Box>
         <span className={styles["privacy-policy-span"]}>By creating an account, you agree to the <span className={styles["privacy-policy"]}><a href={`/PrivacyPolicy`}>Terms of Service</a></span>.</span>
-        <button className={styles["login-buttons"]}>Sign Up</button>
+        <button className="button-light">Sign Up</button>
       </form>
     )
 }

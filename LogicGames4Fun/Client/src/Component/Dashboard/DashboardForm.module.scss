@@ -1,0 +1,73 @@
+.dashboard-page-conent {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-games {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .dashboard-game {
+    margin-top: 1rem;
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media screen and (max-width: 992px) {
+      grid-template-columns: repeat(1, 1fr);
+      justify-self: center;
+      align-items: center;
+
+      img {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      img {
+        width: 90%;
+      }
+      width: 90%;
+    }
+  }
+}
+
+.dashboard-score-games {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .score-game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+
+    @media screen and (max-width: 1300px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 900px) {
+      justify-items: center !important;
+      grid-template-columns: repeat(1, 1fr);
+
+      img {
+        width: 90%;
+      }
+    }
+  }
+}
+
+.dashboard-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: rgba(29, 125, 189, 0.753);
+  color: white;
+}

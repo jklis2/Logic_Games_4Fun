@@ -9,4 +9,42 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
+
+    @media screen and (min-width: 3840px) {
+        border-radius: 40px;
+        font-size: 40px;
+        font-weight: 200;
+        text-transform: none;
+    }
 }
+
+.login-buttons {
+    border-radius: 20px;
+    border: 1px solid #9dddf4;
+    background-color: #9dddf4;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    margin-top: 15px;
+  
+    &:active {
+      transform: scale(0.95);
+    }
+
+    @media screen and (min-width: 3840px) {
+      margin-top: 20px;
+      border-radius: 40px;
+      font-size: 40px;
+      font-weight: 200;
+      text-transform: none;
+  }
+  }
+  
+  .ghost {
+    background-color: transparent;
+    border-color: #ffffff;
+  }
