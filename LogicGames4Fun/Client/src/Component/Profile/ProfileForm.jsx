@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./ProfileForm.module.css";
+import styles from "./ProfileForm.module.scss";
 import { EditProfileForm } from "../EditData/EditProfileForm";
 import { EditPhotoForm } from "../EditData/EditPhotoForm";
 import { EditPasswordForm } from "../EditData/EditPasswordForm";
@@ -60,7 +60,7 @@ export const ProfileForm = () => {
       )}
 
       <div className={styles["myProfile-page-content"]}>
-        <div id={styles["myProfile-info"]}>
+        <div className={styles["myProfile-info"]}>
           <div className={styles["user-avatar"]}>
             <img
               onClick={handleClickOpenEditPhoto}
@@ -86,22 +86,23 @@ export const ProfileForm = () => {
 
           <div className={styles["hr"]}></div>
           <div className={styles["buttons"]}>
-            <button onClick={handleClickOpenEditProfile} id={styles["button"]}>
+            <button onClick={handleClickOpenEditProfile} className={styles["button"]}>
               Edit profile
             </button>
-            <button onClick={handleClickOpenEditPassword} id={styles["button"]}>
+            <button onClick={handleClickOpenEditPassword} className={styles["button"]}>
               Change password
             </button>
             <div className={styles["back-to-dashboard-button"]}>
               <a href="/Dashboard">
-                <button id={styles["button"]}>Back to dashboard</button>
+                <button className={styles["button"]}>Back to dashboard</button>
               </a>
             </div>
           </div>
         </div>
-        <div id={styles["myProfile-achievements"]}>
+        <div className={styles["myProfile-achievements"]}>
           <div className={styles["achievements-title"]}>
             <h1>My achievements</h1>
+            <div>Some achievements</div>
           </div>
         </div>
       </div>

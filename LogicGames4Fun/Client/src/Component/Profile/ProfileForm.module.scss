@@ -1,61 +1,75 @@
 .myProfile-page-content {
   width: 80vw;
-  height: 80vh;
+  min-height: 80vh;
   background-color: #fff;
   margin: 10vh 10vw;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  
   display: grid;
-  grid-template-columns: repeat(2, 50%);
-  grid-template-rows: 100%;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media screen and (max-width: 830px) {
+    grid-template-columns: repeat(1, 1fr);
+    min-height: 0;
+  }
 }
 
-#myProfile-info {
-  grid-area: 1 / 1 / 2 / 2;
+.myProfile-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 1.5rem;
+
+  .user-info span {
+    display: block;
+  }
+
+  .hr{
+    border-bottom: 1px solid rgba(143, 143, 143, 0.3);
+    width: 70%;
+    margin-top: 10px;
+  }
+
+  .user-avatar{
+    img{
+      width: 90%;
+    }
+  }
 }
 
-#myProfile-info .user-info span {
-  display: block;
-}
-
-#myProfile-info .user-info .user-info__nickname {
+.myProfile-info .user-info .user-info__nickname {
   text-align: center;
   font-weight: bold;
   font-size: 30px;
 }
 
-#myProfile-info .user-info .user-info__primary-info {
+.myProfile-info .user-info .user-info__primary-info {
   text-align: center;
   font-size: 18px;
   color: rgb(97, 97, 97);
 }
 
-#myProfile-info .hr {
-  border-bottom: 1px solid rgba(143, 143, 143, 0.3);
-  width: 70%;
-  margin-top: 10px;
-}
-
-#myProfile-info .description {
+.myProfile-info .description {
   margin-top: 5px;
-  text-align: center;
+  text-align: justify;
   max-width: 70%;
 }
 
-#myProfile-info .buttons {
+.myProfile-info .buttons {
   margin-top: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 830px) {
+    margin-top: 10px;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
 }
 
-#myProfile-info .buttons button {
+.myProfile-info .buttons button {
   width: 100px;
   white-space: normal;
   word-wrap: break-word;
@@ -70,8 +84,7 @@
   cursor: pointer;
 }
 
-#myProfile-achievements {
-  grid-area: 1 / 2 / 2 / 3;
+.myProfile-achievements {
   padding-top: 1rem;
   display: flex;
   justify-content: center;
