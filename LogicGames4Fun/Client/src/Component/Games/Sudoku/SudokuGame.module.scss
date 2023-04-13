@@ -1,0 +1,114 @@
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin gridCenter {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@mixin keys($color, $bgColor) {
+  height: 50px;
+  border-radius: 10px;
+  background-color: $bgColor;
+  color: $color;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  font-weight: bold;
+}
+
+.game-container {
+  width: 100%;
+  @include center();
+}
+
+.game-internal-container {
+  margin-top: 1.5rem;
+  width: 75%;
+  display: grid;
+}
+
+.sudoku-actions {
+  @include gridCenter();
+
+  button {
+    background-color: rgba(29, 125, 189, 0.753);
+    border: 1px solid rgba(29, 125, 189, 0.753);
+
+    &:hover,
+    &:focus {
+      background-color: rgba(29, 125, 189, 0.753);
+      border: 1px solid rgba(29, 125, 189, 0.753);
+    }
+  }
+}
+
+.sudouku-board-container{
+    @include center();
+}
+
+.sudouku-board {
+  @include center();
+  margin-top: 1.5rem;
+  height: 500px;
+  width: 500px;
+}
+
+.sudoku-game-info {
+  @include gridCenter();
+  grid-gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.sudoku-keyboard-container {
+  @include center();
+}
+
+.sudoku-keyboard {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+  grid-gap: 5px;
+  width: 50%;
+
+  .number {
+    @include keys(#000, #f0f2f5);
+  }
+
+  .delete {
+    @include keys(#fff, #e91e63);
+  }
+}
+
+.back-link {
+  font-size: 20px;
+  text-decoration: none !important;
+  color: #000 !important;
+
+  &:visited {
+    text-decoration: none;
+    color: #000 !important;
+  }
+}
+
+.grid-cells {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  text-align: center;
+
+  .cell {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    @include center();
+  }
+}

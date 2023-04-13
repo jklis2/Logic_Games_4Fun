@@ -2,19 +2,17 @@ h1,
 h2 {
   font-size: 40px !important;
 
+  // @media screen and (max-width: 430px) {
+  //   font-size: 5px !important;
+  // }
 
-  @media screen and (max-width: 430px) {
-    font-size: 5px !important;
-  }
+  // @media screen and (max-width: 768px) {
+  //   font-size: 25px !important;
+  // }
 
-
-  @media screen and (max-width: 768px) {
-    font-size: 25px !important;
-  }
-
-  @media screen and (min-width: 3840px) {
-    font-size: 100px !important;
-  }
+  // @media screen and (min-width: 3840px) {
+  //   font-size: 100px !important;
+  // }
 }
 
 .text-field {
@@ -22,12 +20,6 @@ h2 {
     height: 80px !important;
     font-size: 30px !important;
   }
-}
-
-.text-label {
-  // @media screen and (min-width: 3840px) {
-  //   font-size: 30px !important;
-  // }
 }
 
 #login-page-content {
@@ -90,7 +82,6 @@ h2 {
   padding: 0 50px;
   height: 100%;
   text-align: center;
-
 }
 
 .container {
@@ -115,10 +106,19 @@ h2 {
   left: 0;
   width: 50%;
   z-index: 2;
+
+  @media screen and (max-width: 860px) {
+    width: 100%;
+  }
 }
 
 .container.right-panel-active .sign-in-container {
   transform: translateX(100%);
+
+  @media screen and (max-width: 860px) {
+    transform: none;
+    
+  }
 }
 
 .sign-up-container {
@@ -126,6 +126,11 @@ h2 {
   width: 50%;
   opacity: 0;
   z-index: 1;
+
+  @media screen and (max-width: 860px) {
+    width: 100%;
+    
+  }
 }
 
 .privacy-policy-span {
@@ -193,6 +198,11 @@ h2 {
   width: 200%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
+
+  //Hide overlay on mobiles
+  @media screen and (max-width: 860px) {
+    display: none;
+  }
 }
 
 .container.right-panel-active .overlay {
@@ -212,6 +222,11 @@ h2 {
   width: 50%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
+
+  //Resize on mobiles
+  @media screen and (max-width: 860px) {
+    width: 100%;
+  }
 }
 
 .overlay-left {

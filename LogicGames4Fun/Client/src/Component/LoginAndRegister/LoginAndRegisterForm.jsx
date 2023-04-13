@@ -42,7 +42,9 @@ export const LoginAndRegisterForm = () => {
             <RegisterForm />
           </div>
           <div className={`${styles["form-container"]} ${styles["sign-in-container"]}`}>
-            <LoginForm onLogin = {onLogin} setNickname = {setNickname} setPassword = {setPassword} isValid = {isValid}/>
+            <LoginForm onLogin = {onLogin} setNickname = {setNickname} setPassword = {setPassword} isValid = {isValid}
+            registerVisibility={registerVisibility}
+            setRegisterVisibility={setRegisterVisibility}/>
           </div>
           <Overlay setRegisterVisibility={setRegisterVisibility}/>
         </div>

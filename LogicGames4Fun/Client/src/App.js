@@ -11,6 +11,7 @@ import { PrivacyPolicy } from './Routers/PrivacyPolicy';
 import { Achievements } from './Routers/Achievements';
 import { Navigate } from 'react-router-dom';
 import {Test} from './Routers/Test'
+import { Sudoku } from './Routers/Sudoku';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/profile' element={<MyProfile/>}/>
         <Route path='/privacypolicy' element={<PrivacyPolicy/>}/>
         <Route path='/achievements' element={<Achievements/>}/>
+        <Route path='/games/sudoku' element={<Sudoku/>}/>
         <Route path='/test' element={<Test/>}/>
       </Routes>
     </BrowserRouter>
