@@ -16,6 +16,7 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { SwitchThemeForm } from "../UI/SwitchTheme/SwitchTheme";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const settings = [
@@ -173,10 +174,10 @@ export const Navbar = () => {
                 >
                   {settings.map((setting) => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <a href={`/${setting.slice(2).replaceAll(" ", "")}`}>
+                      <Link style={{textDecoration: 'none', color: 'black'}} to={`/${setting.slice(2).replaceAll(" ", "")}`}>
                         {" "}
                         {setting}
-                      </a>
+                      </Link>
                     </MenuItem>
                   ))}
                 </Menu>

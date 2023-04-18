@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./AboutUsForm.module.scss";
 import "../UI/Button/Button.scss";
+import { Link } from "react-router-dom";
 
 export const AboutUsForm = () => {
   return (
@@ -28,9 +29,9 @@ export const AboutUsForm = () => {
           the rest is history.
         </div>
         <div className={styles["contact-buttons"]}>
-          <a href="/Home">
+          <Link to="/Home">
             <button className="m-3 button-light">Back to home</button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

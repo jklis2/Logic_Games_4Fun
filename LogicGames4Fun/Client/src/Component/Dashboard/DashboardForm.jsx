@@ -4,9 +4,22 @@ import { Navbar } from "../Navbar/Navbar";
 import { Fab } from "@mui/material";
 import DashboardFooter from "./DashboardFooter";
 import Carousel from "react-bootstrap/Carousel";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux"
+import { sudokuActions } from "../../Redux/sudoku-slice";
 
 export const DashboardForm = () => {
-  const generateLevels = function (minLevel, maxLevel) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  //If level not exists redirect to dashboard 
+
+  const runGame = (lvl) => {
+    dispatch(sudokuActions.selectLevel({lvl}))
+    navigate('/games/sudoku')
+  }
+
+  const generateLevels = function (minLevel, maxLevel, game) {
     const levels = [];
     for (let lvl = minLevel; lvl < maxLevel; lvl++) {
       levels.push(
@@ -20,7 +33,8 @@ export const DashboardForm = () => {
           }}
           aria-label="add"
         >
-          {lvl}
+          
+          <span onClick={() => runGame(lvl)}>{lvl}</span>
         </Fab>
       );
     }
@@ -55,7 +69,7 @@ export const DashboardForm = () => {
                   <div>
                     <h2>Easy levels</h2>
                   </div>
-                  <div>{generateLevels(1, 26)}</div>
+                  <div>{generateLevels(1, 26, 'sudoku')}</div>
                 </div>
               </Carousel.Item>
 
@@ -64,7 +78,7 @@ export const DashboardForm = () => {
                   <div>
                     <h2>Medium levels</h2>
                   </div>
-                  <div>{generateLevels(26, 51)}</div>
+                  <div>{generateLevels(26, 51, 'sudoku')}</div>
                 </div>
               </Carousel.Item>
 
@@ -73,7 +87,7 @@ export const DashboardForm = () => {
                   <div>
                     <h2>Hard levels</h2>
                   </div>
-                  <div>{generateLevels(51, 76)}</div>
+                  <div>{generateLevels(51, 76, 'sudoku')}</div>
                 </div>
               </Carousel.Item>
             </Carousel>

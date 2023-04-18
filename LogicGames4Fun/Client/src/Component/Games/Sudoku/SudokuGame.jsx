@@ -6,6 +6,7 @@ import Popover from "react-bootstrap/Popover";
 import { Link } from "react-router-dom";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import Box from "@mui/material/Box";
+import { useSelector } from "react-redux";
 
 const howToPlayPop = (
   <Popover id="popover-basic">
@@ -48,19 +49,30 @@ const tipsPop = (
 );
 
 export const SudokuGame = () => {
+  const level = useSelector((state) => state.sudoku.level)
+
   const generateFields = () => {
     const cellsSet = [];
     for (let i = 0; i < 9; i++) {
       let cells = [];
       for (let j = 0; j < 9; j++) {
         cells.push(
-          <div key={j} className={styles.cell}>
-            {j}
+          <div
+            key={j}
+            className={styles.cell}
+            style={{ 
+              marginRight: j === 2 || j === 5 ? "10px" : "0px",
+              marginBottom: (i === 2 || i === 5) ? "10px" : "0px"
+            }}
+            contentEditable={true}
+          >
+            
           </div>
         );
       }
       cellsSet.push(cells);
     }
+
     return cellsSet;
   };
 
@@ -132,7 +144,7 @@ export const SudokuGame = () => {
                 fontWeight: "bold",
               }}
             >
-              Level: 12
+              Level: {level}
             </Box>
           </div>
           <div className={styles["sudoku-keyboard-container"]}>

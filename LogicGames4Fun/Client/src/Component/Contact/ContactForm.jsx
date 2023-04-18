@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./ContactForm.module.scss";
 import "../UI/Button/Button.scss";
+import { Link } from "react-router-dom";
 
 export const ContactForm = () => {
   return (
@@ -38,9 +39,9 @@ export const ContactForm = () => {
             </div>
           </div>
           <div className={styles["contact-buttons"]}>
-            <a href="/Home">
+            <Link to="/Home">
               <button className="button-light">Back to home</button>
-            </a>
+            </Link>
             <span>
               <button className="button-light">Send message</button>
             </span>
