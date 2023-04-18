@@ -99,7 +99,7 @@ export const DashboardForm = () => {
             <div className="d-flex flex-center justify-content-center">
               <img
                 src={`${process.env.PUBLIC_URL}/GamesImages/CrosswordLogo.png`}
-                alt="Sudoku logo"
+                alt="Crossword logo"
               ></img>
             </div>
 
@@ -147,7 +147,7 @@ export const DashboardForm = () => {
             <div className="d-flex flex-center justify-content-center">
               <img
                 src={`${process.env.PUBLIC_URL}/GamesImages/PuzzleLogo.png`}
-                alt="Sudoku logo"
+                alt="Puzzle logo"
               ></img>
             </div>
 
@@ -194,8 +194,8 @@ export const DashboardForm = () => {
           <div className={styles["dashboard-game"]}>
             <div className="d-flex flex-center justify-content-center">
               <img
-                src={`${process.env.PUBLIC_URL}/GamesImages/QuizLogo.png`}
-                alt="Sudoku logo"
+                src={`${process.env.PUBLIC_URL}/GamesImages/MemoryLogo.png`}
+                alt="Memory logo"
               ></img>
             </div>
 
@@ -250,8 +250,8 @@ export const DashboardForm = () => {
               ></img>
 
               <img
-                src={`${process.env.PUBLIC_URL}/GamesImages/CanvasLogo.png`}
-                alt="Canvas Game"
+                src={`${process.env.PUBLIC_URL}/GamesImages/QuizLogo.png`}
+                alt="Quiz Game"
               ></img>
               <img
                 src={`${process.env.PUBLIC_URL}/GamesImages/SnakeLogo.png`}
