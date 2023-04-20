@@ -48,31 +48,112 @@ const tipsPop = (
   </Popover>
 );
 
+class Sudoku {
+  constructor(row, column, value, box) {
+    this.column = column;
+    this.row = row;
+    this.value = value;
+    this.box = box;
+  }
+}
+
 export const SudokuGame = () => {
-  const level = useSelector((state) => state.sudoku.level)
+  const sudokuArr = [];
+  let box;
+
+  //Generate sudoku object
+  for (let col = 0; col < 9; col++) {
+    for (let row = 0; row < 9; row++) {
+      box = Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1;
+      sudokuArr.push(new Sudoku(col, row, null, box));
+    }
+  }
+
+  //Check if exists in array
+  const checkSudoku = function (column, row, value) {
+    //Clone columns
+    const columnsClone = sudokuArr.filter((su) => su.column === column);
+    //Clone rows
+    const rowsClone = sudokuArr.filter((su) => su.row === row);
+
+    // //Clone boxes
+    // const fakeArrayOfBoxes = sudokuArr.filter(su => su.row === fakeBox);
+    //Check if value exists in arrays
+    const existsRow = rowsClone.filter((row) => row.value === value);
+    const existsColumn = columnsClone.filter(
+      (column) => column.value === value
+    );
+
+    if (existsRow.length > 0 || existsColumn.length > 0) {
+      console.log("You cannot use this value");
+      return false;
+    }
+
+    //Update element
+    const sudokuObj = sudokuArr.find((su) => su.column === column && su.row === row);
+    sudokuObj.value = value;
+
+    return true;
+  };
+
+  const level = useSelector((state) => state.sudoku.level);
+
+  let uniqueNumbers = [];
+  const generteAnswers = () => {
+    while (uniqueNumbers.length < 52) {
+      let randomNumber = Math.floor(Math.random() * 81) + 1;
+      if (!uniqueNumbers.includes(randomNumber)) {
+        uniqueNumbers.push(randomNumber);
+      }
+    }
+    return uniqueNumbers;
+  };
+  generteAnswers();
 
   const generateFields = () => {
     const cellsSet = [];
+    let noOfCell = 1;
+
     for (let i = 0; i < 9; i++) {
       let cells = [];
       for (let j = 0; j < 9; j++) {
         cells.push(
           <div
-            key={j}
+            key={noOfCell}
             className={styles.cell}
-            style={{ 
+            style={{
               marginRight: j === 2 || j === 5 ? "10px" : "0px",
-              marginBottom: (i === 2 || i === 5) ? "10px" : "0px"
+              marginBottom: i === 2 || i === 5 ? "10px" : "0px",
             }}
-            contentEditable={true}
           >
-            
+            <input
+              type="number"
+              pattern="[1-9]"
+              // defaultValue={
+              //   uniqueNumbers.includes(noOfCell)
+              //     ? Math.floor(Math.random() * 9) + 1
+              //     : ""
+              // }
+              onInput={(e) => {
+                const inputValue = e.target.value;
+                const pattern = /^[1-9]$/;
+                if (!pattern.test(inputValue)) {
+                  e.target.value = "";
+                }
+              }}
+
+              onChange={(e) => {
+                checkSudoku(i, j, e.target.value)
+              }}
+            />
+            {/* {noOfCell} */}
+            {/* {uniqueNumbers.includes(noOfCell) ? Math.floor(Math.random() * 9) + 1: '' } */}
           </div>
         );
+        noOfCell++;
       }
       cellsSet.push(cells);
     }
-
     return cellsSet;
   };
 
