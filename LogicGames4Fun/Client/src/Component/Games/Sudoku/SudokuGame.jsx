@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SudokuGame.module.scss";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -57,58 +57,68 @@ class Sudoku {
   }
 }
 
-export const SudokuGame = () => {
-  const sudokuArr = [];
-  let box;
+const sudokuArr = [];
+let uniquePairsArr = [];
+let box;
 
-  //Generate sudoku object
-  for (let col = 0; col < 9; col++) {
-    for (let row = 0; row < 9; row++) {
-      box = Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1;
-      sudokuArr.push(new Sudoku(col, row, null, box));
+const generteAnswers = () => {
+  const uniquePairs = new Set();
+
+  while (uniquePairs.size < 60) {
+    const i = Math.floor(Math.random() * 9) + 1;
+    const j = Math.floor(Math.random() * 9) + 1; 
+    const pair = [i, j]; // Pair [i, j]
+
+    const pairString = JSON.stringify(pair);
+    if (!uniquePairs.has(pairString)) {
+      uniquePairs.add(pairString);
     }
   }
 
-  //Check if exists in array
-  const checkSudoku = function (column, row, value) {
-    //Clone columns
-    const columnsClone = sudokuArr.filter((su) => su.column === column);
-    //Clone rows
-    const rowsClone = sudokuArr.filter((su) => su.row === row);
+  const uniquePairsArray = Array.from(uniquePairs).map(pair => JSON.parse(pair));
 
-    // //Clone boxes
-    // const fakeArrayOfBoxes = sudokuArr.filter(su => su.row === fakeBox);
-    //Check if value exists in arrays
+  uniquePairsArr = Array.from(uniquePairsArray);
+}
+generteAnswers();
+uniquePairsArr.forEach((pair, i) => console.log(pair[0]))
+
+for (let col = 0; col < 9; col++) {
+  for (let row = 0; row < 9; row++) {
+    box = Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1;
+    sudokuArr.push(new Sudoku(col, row, null, box));
+  }
+}
+
+export const SudokuGame = () => {
+  const [isCorrect, setIsCorrect] = useState(true)
+
+  const checkSudoku = function (column, row, value) {
+
+    const sudokuObj = sudokuArr.find((su) => su.column === column && su.row === row);
+    const {box} = sudokuObj;
+
+    const columnsClone = sudokuArr.filter((su) => su.column === column);
+    const rowsClone = sudokuArr.filter((su) => su.row === row);
+    const boxClone = sudokuArr.filter((su) => su.box === box)
+
     const existsRow = rowsClone.filter((row) => row.value === value);
     const existsColumn = columnsClone.filter(
       (column) => column.value === value
     );
+    const existsBox = boxClone.filter((box) => box.value === value )
 
-    if (existsRow.length > 0 || existsColumn.length > 0) {
+    if (existsRow.length > 0 || existsColumn.length > 0 || existsBox.length > 0) {
       console.log("You cannot use this value");
       return false;
     }
 
-    //Update element
-    const sudokuObj = sudokuArr.find((su) => su.column === column && su.row === row);
     sudokuObj.value = value;
+    console.log(sudokuObj)
 
     return true;
   };
 
   const level = useSelector((state) => state.sudoku.level);
-
-  let uniqueNumbers = [];
-  const generteAnswers = () => {
-    while (uniqueNumbers.length < 52) {
-      let randomNumber = Math.floor(Math.random() * 81) + 1;
-      if (!uniqueNumbers.includes(randomNumber)) {
-        uniqueNumbers.push(randomNumber);
-      }
-    }
-    return uniqueNumbers;
-  };
-  generteAnswers();
 
   const generateFields = () => {
     const cellsSet = [];
@@ -124,16 +134,12 @@ export const SudokuGame = () => {
             style={{
               marginRight: j === 2 || j === 5 ? "10px" : "0px",
               marginBottom: i === 2 || i === 5 ? "10px" : "0px",
+              background: isCorrect ? '' : 'red'
             }}
           >
             <input
               type="number"
               pattern="[1-9]"
-              // defaultValue={
-              //   uniqueNumbers.includes(noOfCell)
-              //     ? Math.floor(Math.random() * 9) + 1
-              //     : ""
-              // }
               onInput={(e) => {
                 const inputValue = e.target.value;
                 const pattern = /^[1-9]$/;
@@ -141,13 +147,10 @@ export const SudokuGame = () => {
                   e.target.value = "";
                 }
               }}
-
               onChange={(e) => {
-                checkSudoku(i, j, e.target.value)
+                checkSudoku(i, j, e.target.value) ? setIsCorrect(true) : setIsCorrect(false)
               }}
             />
-            {/* {noOfCell} */}
-            {/* {uniqueNumbers.includes(noOfCell) ? Math.floor(Math.random() * 9) + 1: '' } */}
           </div>
         );
         noOfCell++;

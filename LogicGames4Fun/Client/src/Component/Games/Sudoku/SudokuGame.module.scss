@@ -136,7 +136,7 @@
       border: 0;
       outline: none;
       background-color: transparent;
-      -webkit-appearance: textfield;
+      appearance: textfield;
       max-width: 50px;
 
       &::-webkit-outer-spin-button,
