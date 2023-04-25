@@ -65,9 +65,9 @@ const generteAnswers = () => {
   const uniquePairs = new Set();
 
   while (uniquePairs.size < 60) {
-    const i = Math.floor(Math.random() * 9) + 1;
-    const j = Math.floor(Math.random() * 9) + 1; 
-    const pair = [i, j]; // Pair [i, j]
+    const i = Math.floor(Math.random() * 9);
+    const j = Math.floor(Math.random() * 9);
+    const pair = [i, j];
 
     const pairString = JSON.stringify(pair);
     if (!uniquePairs.has(pairString)) {
@@ -75,48 +75,86 @@ const generteAnswers = () => {
     }
   }
 
-  const uniquePairsArray = Array.from(uniquePairs).map(pair => JSON.parse(pair));
-
+  const uniquePairsArray = Array.from(uniquePairs).map((pair) =>
+    JSON.parse(pair)
+  );
   uniquePairsArr = Array.from(uniquePairsArray);
-}
+};
 generteAnswers();
-uniquePairsArr.forEach((pair, i) => console.log(pair[0]))
+console.log(sudokuArr);
 
+const checkSudoku = function (column, row, value) {
+  //Szuka elementu
+  const sudokuObj = sudokuArr.find(
+    (su) => su.column === column && su.row === row
+  );
+  console.log(sudokuObj)
+  const { box } = sudokuObj;
+
+  // Nie dziala
+  const columnsClone = sudokuArr.filter((su) => su.column === column);
+  const rowsClone = sudokuArr.filter((su) => su.row === row);
+  const boxClone = sudokuArr.filter((su) => su.box === box);
+
+  const existsRow = rowsClone.filter((row) => row.value === value);
+  const existsColumn = columnsClone.filter(
+    (column) => column.value === value
+  );
+  const existsBox = boxClone.filter((box) => box.value === value);
+
+  if (
+    existsRow.length > 0 ||
+    existsColumn.length > 0 ||
+    existsBox.length > 0
+  ) {
+    console.log("You cannot use this value");
+    return false;
+  }
+
+  sudokuObj.value = value;
+  return true;
+};
+
+const checkGeneratedValue = (row, col, value) => {
+  const columnsClone = sudokuArr.filter((su) => su.column === col);
+  const rowsClone = sudokuArr.filter((su) => su.row === row);
+  const boxClone = sudokuArr.filter((su) => su.box === box);
+
+  const existsRow = rowsClone.filter((row) => row.value === value);
+  const existsColumn = columnsClone.filter(
+    (column) => column.value === value
+  );
+  const existsBox = boxClone.filter((box) => box.value === value);
+
+  if (
+    existsRow.length > 0 ||
+    existsColumn.length > 0 ||
+    existsBox.length > 0
+  ) {
+    console.log("You cannot use this value");
+    return false;
+  }
+
+  return true;
+}
+
+let cellValue = null;
 for (let col = 0; col < 9; col++) {
   for (let row = 0; row < 9; row++) {
     box = Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1;
-    sudokuArr.push(new Sudoku(col, row, null, box));
+
+    //Fix it in the future
+
+    JSON.stringify(uniquePairsArr).includes(JSON.stringify([col, row]))
+      ? (cellValue = Math.floor(Math.random() * 9) + 1)
+      : (cellValue = null);
+
+    sudokuArr.push(new Sudoku(col, row, cellValue, box));
   }
 }
 
 export const SudokuGame = () => {
-  const [isCorrect, setIsCorrect] = useState(true)
-
-  const checkSudoku = function (column, row, value) {
-
-    const sudokuObj = sudokuArr.find((su) => su.column === column && su.row === row);
-    const {box} = sudokuObj;
-
-    const columnsClone = sudokuArr.filter((su) => su.column === column);
-    const rowsClone = sudokuArr.filter((su) => su.row === row);
-    const boxClone = sudokuArr.filter((su) => su.box === box)
-
-    const existsRow = rowsClone.filter((row) => row.value === value);
-    const existsColumn = columnsClone.filter(
-      (column) => column.value === value
-    );
-    const existsBox = boxClone.filter((box) => box.value === value )
-
-    if (existsRow.length > 0 || existsColumn.length > 0 || existsBox.length > 0) {
-      console.log("You cannot use this value");
-      return false;
-    }
-
-    sudokuObj.value = value;
-    console.log(sudokuObj)
-
-    return true;
-  };
+  const [isCorrect, setIsCorrect] = useState(true);
 
   const level = useSelector((state) => state.sudoku.level);
 
@@ -127,6 +165,9 @@ export const SudokuGame = () => {
     for (let i = 0; i < 9; i++) {
       let cells = [];
       for (let j = 0; j < 9; j++) {
+        const { value } = sudokuArr.find(
+          (sud) => sud.column === i && sud.row === j
+        );
         cells.push(
           <div
             key={noOfCell}
@@ -134,11 +175,12 @@ export const SudokuGame = () => {
             style={{
               marginRight: j === 2 || j === 5 ? "10px" : "0px",
               marginBottom: i === 2 || i === 5 ? "10px" : "0px",
-              background: isCorrect ? '' : 'red'
+              background: isCorrect ? "" : "red",
             }}
           >
             <input
               type="number"
+              defaultValue={value}
               pattern="[1-9]"
               onInput={(e) => {
                 const inputValue = e.target.value;
@@ -148,7 +190,9 @@ export const SudokuGame = () => {
                 }
               }}
               onChange={(e) => {
-                checkSudoku(i, j, e.target.value) ? setIsCorrect(true) : setIsCorrect(false)
+                checkSudoku(i, j, e.target.value)
+                  ? setIsCorrect(true)
+                  : setIsCorrect(false);
               }}
             />
           </div>
