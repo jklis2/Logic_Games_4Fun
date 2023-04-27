@@ -47,6 +47,13 @@ const tipsPop = (
   </Popover>
 );
 
+class Memory {
+  constructor(cardNumber, imgPath){
+    this.cardNumber = cardNumber;
+    this.imgPath = imgPath;
+  }
+}
+
 export const MemoryGame = () => {
   return (
     <>
@@ -92,17 +99,7 @@ export const MemoryGame = () => {
                 borderRadius: "7px",
                 padding: "0.5rem",
                 fontWeight: "bold",
-              }}
-            >
-              Time: 00:00:00
-            </Box>
-            <Box
-              sx={{
-                backgroundColor: "rgba(29, 125, 189, 0.753)",
-                color: "white",
-                borderRadius: "7px",
-                padding: "0.5rem",
-                fontWeight: "bold",
+                width: "200px"
               }}
             >
               Level: 123

@@ -19,28 +19,7 @@ class Sudoku {
 }
 
 const sudokuArr = [];
-let uniquePairsArr = [];
 let box;
-
-const generteAnswers = () => {
-  const uniquePairs = new Set();
-
-  while (uniquePairs.size < 60) {
-    const i = Math.floor(Math.random() * 9);
-    const j = Math.floor(Math.random() * 9);
-    const pair = [i, j];
-
-    const pairString = JSON.stringify(pair);
-    if (!uniquePairs.has(pairString)) {
-      uniquePairs.add(pairString);
-    }
-  }
-  const uniquePairsArray = Array.from(uniquePairs).map((pair) =>
-    JSON.parse(pair)
-  );
-  uniquePairsArr = Array.from(uniquePairsArray);
-};
-generteAnswers();
 
 const checkSudoku = function (column, row, value) {
   const sudokuObj = sudokuArr.find(
@@ -66,33 +45,43 @@ const checkSudoku = function (column, row, value) {
 };
 
 const checkGeneratedValue = (row, col, value) => {
-  const columnsClone = sudokuArr.filter((su) => su.column === col);
-  const rowsClone = sudokuArr.filter((su) => su.row === row);
-  const boxClone = sudokuArr.filter((su) => su.box === box);
+  if (value) {
+    const columnsClone = sudokuArr.filter((su) => su.column === col);
+    const rowsClone = sudokuArr.filter((su) => su.row === row);
+    const boxClone = sudokuArr.filter((su) => su.box === box);
 
-  const existsRow = rowsClone.filter((row) => row.value === value);
-  const existsColumn = columnsClone.filter((column) => column.value === value);
-  const existsBox = boxClone.filter((box) => box.value === value);
+    const existsRow = rowsClone.filter((row) => row.value === value);
+    const existsColumn = columnsClone.filter(
+      (column) => column.value === value
+    );
+    const existsBox = boxClone.filter((box) => box.value === value);
 
-  if (existsRow.length > 0 || existsColumn.length > 0 || existsBox.length > 0) {
-    return false;
+    if (
+      existsRow.length > 0 ||
+      existsColumn.length > 0 ||
+      existsBox.length > 0
+    ) {
+      return false;
+    }
   }
-
   return true;
 };
 
-let cellValue = null;
 for (let col = 0; col < 9; col++) {
   for (let row = 0; row < 9; row++) {
     box = Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1;
-    const testValue = (Math.floor(Math.random() * 9) + 1).toString()
+    const arrayWithNumbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    const shuffledArray = arrayWithNumbers.sort((a, b) => 0.5 - Math.random());
 
-    //Fix it in the future
-    JSON.stringify(uniquePairsArr).includes(JSON.stringify([col, row]))
-      ? (cellValue = testValue)
-      : (cellValue = null);
-
-    sudokuArr.push(new Sudoku(col, row, cellValue, box));
+    let randomValue = null;
+    shuffledArray.forEach((number) => {
+      if(checkGeneratedValue(col, row, number) === true){
+        randomValue = number;
+        return;
+      }
+    })
+    
+    sudokuArr.push(new Sudoku(col, row, randomValue, box));
   }
 }
 
@@ -145,6 +134,7 @@ export const SudokuGame = () => {
                 checkSudoku(i, j, e.target.value)
                   ? setIsCorrect(true)
                   : setIsCorrect(false);
+                  console.log(sudokuArr)
               }}
             />
           </div>
