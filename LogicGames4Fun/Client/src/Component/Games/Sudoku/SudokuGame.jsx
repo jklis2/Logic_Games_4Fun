@@ -1,52 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SudokuGame.module.scss";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
 import { Link } from "react-router-dom";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
-
-const howToPlayPop = (
-  <Popover id="popover-basic">
-    <Popover.Header as="h3">Sudoku Instruction</Popover.Header>
-    <Popover.Body>
-      Start with a blank 9x9 grid that has some of the cells already filled with
-      digits. Identify the row, column, and box where the given digit is already
-      present. Fill the empty cells in the same row, column, and box with the
-      remaining digits from 1 to 9. Repeat the above step for each given digit
-      until all the empty cells are filled. Ensure that each row, column, and
-      box contains digits from 1 to 9 only once. The game is won when all the
-      cells in the grid are filled with digits that satisfy the above
-      conditions.
-    </Popover.Body>
-  </Popover>
-);
-
-const tipsPop = (
-  <Popover id="popover-basic">
-    <Popover.Header as="h3">Sudoku Tips</Popover.Header>
-    <Popover.Body>
-      <ol>
-        <li>
-          Start by filling the easiest cells, i.e., the ones with the fewest
-          possible options. This will help you make progress quickly.
-        </li>
-        <li>
-          Use logic and deduction to eliminate possible options for each cell.
-          This will help you identify the correct digit for each cell.
-        </li>
-        <li>
-          Double-check your work to ensure that you have not made any mistakes.
-        </li>
-        <li>Practice regularly to improve your skills and speed.</li>
-      </ol>
-
-      <strong>Enjoy playing Sudoku!</strong>
-    </Popover.Body>
-  </Popover>
-);
+import { tipsPop } from "./tipsPop";
+import { howToPlayPop } from "./howToPlayPop";
 
 class Sudoku {
   constructor(row, column, value, box) {
@@ -74,39 +35,28 @@ const generteAnswers = () => {
       uniquePairs.add(pairString);
     }
   }
-
   const uniquePairsArray = Array.from(uniquePairs).map((pair) =>
     JSON.parse(pair)
   );
   uniquePairsArr = Array.from(uniquePairsArray);
 };
 generteAnswers();
-console.log(sudokuArr);
 
 const checkSudoku = function (column, row, value) {
-  //Szuka elementu
   const sudokuObj = sudokuArr.find(
     (su) => su.column === column && su.row === row
   );
-  console.log(sudokuObj)
   const { box } = sudokuObj;
 
-  // Nie dziala
   const columnsClone = sudokuArr.filter((su) => su.column === column);
   const rowsClone = sudokuArr.filter((su) => su.row === row);
   const boxClone = sudokuArr.filter((su) => su.box === box);
 
   const existsRow = rowsClone.filter((row) => row.value === value);
-  const existsColumn = columnsClone.filter(
-    (column) => column.value === value
-  );
+  const existsColumn = columnsClone.filter((column) => column.value === value);
   const existsBox = boxClone.filter((box) => box.value === value);
 
-  if (
-    existsRow.length > 0 ||
-    existsColumn.length > 0 ||
-    existsBox.length > 0
-  ) {
+  if (existsRow.length > 0 || existsColumn.length > 0 || existsBox.length > 0) {
     console.log("You cannot use this value");
     return false;
   }
@@ -121,32 +71,25 @@ const checkGeneratedValue = (row, col, value) => {
   const boxClone = sudokuArr.filter((su) => su.box === box);
 
   const existsRow = rowsClone.filter((row) => row.value === value);
-  const existsColumn = columnsClone.filter(
-    (column) => column.value === value
-  );
+  const existsColumn = columnsClone.filter((column) => column.value === value);
   const existsBox = boxClone.filter((box) => box.value === value);
 
-  if (
-    existsRow.length > 0 ||
-    existsColumn.length > 0 ||
-    existsBox.length > 0
-  ) {
-    console.log("You cannot use this value");
+  if (existsRow.length > 0 || existsColumn.length > 0 || existsBox.length > 0) {
     return false;
   }
 
   return true;
-}
+};
 
 let cellValue = null;
 for (let col = 0; col < 9; col++) {
   for (let row = 0; row < 9; row++) {
     box = Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1;
+    const testValue = (Math.floor(Math.random() * 9) + 1).toString()
 
     //Fix it in the future
-
     JSON.stringify(uniquePairsArr).includes(JSON.stringify([col, row]))
-      ? (cellValue = Math.floor(Math.random() * 9) + 1)
+      ? (cellValue = testValue)
       : (cellValue = null);
 
     sudokuArr.push(new Sudoku(col, row, cellValue, box));
@@ -154,6 +97,15 @@ for (let col = 0; col < 9; col++) {
 }
 
 export const SudokuGame = () => {
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime((prevSeconds) => prevSeconds + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  });
+
   const [isCorrect, setIsCorrect] = useState(true);
 
   const level = useSelector((state) => state.sudoku.level);
@@ -250,7 +202,9 @@ export const SudokuGame = () => {
                 fontWeight: "bold",
               }}
             >
-              Time: 00:00:00
+              Time: {String(Math.trunc(time / 3600)).padStart(2, 0)}:
+              {String(Math.trunc(time / 60)).padStart(2, 0)}:
+              {String(time % 60).padStart(2, 0)}
             </Box>
             <Box
               sx={{
@@ -274,20 +228,6 @@ export const SudokuGame = () => {
             >
               Level: {level}
             </Box>
-          </div>
-          <div className={styles["sudoku-keyboard-container"]}>
-            <div className={styles["sudoku-keyboard"]}>
-              <div className={styles.number}>1</div>
-              <div className={styles.number}>2</div>
-              <div className={styles.number}>3</div>
-              <div className={styles.number}>4</div>
-              <div className={styles.number}>5</div>
-              <div className={styles.number}>6</div>
-              <div className={styles.number}>7</div>
-              <div className={styles.number}>8</div>
-              <div className={styles.number}>9</div>
-              <div className={styles.delete}>X</div>
-            </div>
           </div>
         </div>
       </div>

@@ -66,42 +66,6 @@
   margin-top: 2.5rem;
 }
 
-.sudoku-keyboard-container {
-  @include center();
-}
-
-.sudoku-keyboard {
-  margin-top: 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  text-align: center;
-  grid-gap: 5px;
-  width: 50%;
-
-  .number {
-    // @include keys(#000, #f0f2f5);
-    @include keys(#000, #fff);
-
-    &:hover{
-      scale: 1.05;
-      background-color: #c2c2c2;
-      color: #000;
-      transition: 300ms;
-    }
-  }
-
-  .delete {
-    @include keys(#fff, #e91e63);
-
-    &:hover{
-      scale: 1.05;
-      background-color:#ff0162;
-      color: #fff;
-      transition: 300ms;
-    }
-  }
-}
-
 .back-link {
   font-size: 20px;
   text-decoration: none !important;

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialSudokuState = {
-    level: undefined
+    level: localStorage.getItem("lvl") || undefined
 }
 
 const sudokuSlice = createSlice({
@@ -12,6 +12,7 @@ const sudokuSlice = createSlice({
         selectLevel(state, action) {
             const {lvl} = action.payload;
             state.level = lvl; 
+            localStorage.setItem("lvl", lvl.toString())
         }
     }
 })
