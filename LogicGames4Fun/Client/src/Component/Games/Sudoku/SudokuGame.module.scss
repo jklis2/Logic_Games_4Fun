@@ -49,8 +49,8 @@
   }
 }
 
-.sudouku-board-container{
-    @include center();
+.sudouku-board-container {
+  @include center();
 }
 
 .sudouku-board {
@@ -94,7 +94,8 @@
     height: 50px;
     @include center();
 
-    input[type="number"]{
+    input[type="number"] {
+      color: inherit;
       text-align: center;
       font-weight: bold;
       border: 0;
@@ -104,19 +105,25 @@
       max-width: 50px;
 
       &::-webkit-outer-spin-button,
-      &::-webkit-inner-spin-button{
+      &::-webkit-inner-spin-button {
         -webkit-appearance: none;
-      margin: 0;
+        margin: 0;
       }
     }
 
-    &:hover{
-      scale: 1.10;
-      background-color: rgba(29, 125, 189, 0.753);
+    &:hover {
+      scale: 1.1;
+      background-color: rgba(29, 125, 189, 0.753) !important;
       color: white;
       transition: 300ms;
     }
-
-    
   }
+}
+
+.helper {
+  background-color: rgb(225, 241, 255) !important;
+}
+
+.error {
+  color: red !important;
 }
