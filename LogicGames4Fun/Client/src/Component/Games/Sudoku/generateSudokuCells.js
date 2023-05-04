@@ -32,7 +32,7 @@ export const generateFields = (sudokuArr, setMistakes, styles, checkSudoku) => {
                 }
               }}
               onChange={(e) => {
-
+                localStorage.setItem('board', JSON.stringify(sudokuArr));
                 const check = e.target.value !== '' && checkSudoku(sudokuArr, col, j, +e.target.value);
                 const { exists } = check;
 
@@ -42,7 +42,7 @@ export const generateFields = (sudokuArr, setMistakes, styles, checkSudoku) => {
                   (document.querySelector(`.col${existsRow[0].column}.row${existsRow[0].row}`)).classList.add(`${styles.error}`);
                   (document.querySelector(`.col${existsColumn[0].column}.row${existsColumn[0].row}`)).classList.add(`${styles.error}`);
                   (document.querySelector(`.col${existsBox[0].column}.row${existsBox[0].row}`)).classList.add(`${styles.error}`);
-                  setMistakes((mistakes) => mistakes+=1)
+                  setMistakes((mistakes) => mistakes+=1)             
                 }
 
                 if(!exists || e.target.value === '') {
@@ -51,10 +51,16 @@ export const generateFields = (sudokuArr, setMistakes, styles, checkSudoku) => {
                     element.classList.remove(`${styles.error}`);
                   });
                 }
-
-                console.log(sudokuArr)
               }}
               onFocus={() => {
+
+                //Middle cell?
+                const previous = (document.querySelector(`.${styles.focused}`));
+                previous && previous.classList.remove(`${styles.focused}`);
+                (document.querySelector(`.col${col}.row${j}`)).classList.add(`${styles.focused}`);
+
+
+                //Cell helpers
                 const helpRows = document.querySelectorAll(`.row${j}`);
                 const helpCols = document.querySelectorAll(`.col${col}`);
                 const helpBox = document.querySelectorAll(

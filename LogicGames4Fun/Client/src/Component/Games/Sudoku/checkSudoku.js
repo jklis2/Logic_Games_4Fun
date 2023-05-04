@@ -29,6 +29,7 @@ const checkSudoku = function (sudokuArr, column, row, value) {
   ) {
     return {
       exists: true,
+      error: true,
       existsRow,
       existsColumn,
       existsBox,
@@ -38,6 +39,7 @@ const checkSudoku = function (sudokuArr, column, row, value) {
   sudokuObj.value = value;
   return {
     exists: false,
+    error: false
   };
 };
 

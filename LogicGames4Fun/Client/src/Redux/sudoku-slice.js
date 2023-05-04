@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialSudokuState = {
-    level: localStorage.getItem("lvl") || undefined
+    level: localStorage.getItem("lvl") || undefined,
+    board: localStorage.getItem("board") || undefined,
+    mistakes: localStorage.getItem("mistakes") || undefined
 }
 
 const sudokuSlice = createSlice({

@@ -110,18 +110,18 @@
         margin: 0;
       }
     }
-
-    &:hover {
-      scale: 1.1;
-      background-color: rgba(29, 125, 189, 0.753) !important;
-      color: white;
-      transition: 300ms;
-    }
   }
 }
 
 .helper {
   background-color: rgb(225, 241, 255) !important;
+}
+
+.focused {
+  scale: 1.1;
+  background-color: rgba(29, 125, 189, 0.753) !important;
+  color: white;
+  transition: 100ms;
 }
 
 .error {

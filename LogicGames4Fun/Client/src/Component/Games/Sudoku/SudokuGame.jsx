@@ -13,19 +13,28 @@ import { howToPlayPop } from "./howToPlayPop";
 import { solveSudoku } from "./backtracking";
 import { generateFields } from "./generateSudokuCells";
 
-const sudokuArr = [];
-const solvedArray = solveSudoku();
-
-for (let col = 0; col < 9; col++) {
-  for (let row = 0; row < 9; row++) {
-    let box = Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1;
-
-    sudokuArr.push(new Sudoku(col, row, solvedArray[col][row], box));
-  }
-}
 export const SudokuGame = () => {
-  const [mistakes, setMistakes] = useState(0)
+  const level = useSelector((state) => state.sudoku.level);
+  const [mistakes, setMistakes] = useState(0);
   const [time, setTime] = useState(0);
+  const board = JSON.parse(localStorage.getItem("board"));
+  const [sudokuArr, setSudokuArr] = useState(board || []);
+
+  useEffect(() => {
+    const solvedArray = solveSudoku(level);
+    const newSudokuArr = [];
+
+    if (!board) {
+      for (let col = 0; col < 9; col++) {
+        for (let row = 0; row < 9; row++) {
+          let box = Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1;
+          newSudokuArr.push(new Sudoku(col, row, solvedArray[col][row], box));
+        }
+      }
+
+      setSudokuArr(newSudokuArr);
+    }
+  }, [level, board]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,8 +42,6 @@ export const SudokuGame = () => {
     }, 1000);
     return () => clearInterval(interval);
   });
-
-  const level = useSelector((state) => state.sudoku.level);
 
   return (
     <>
@@ -69,7 +76,10 @@ export const SudokuGame = () => {
 
           <div className={styles["sudouku-board-container"]}>
             <div className={styles["sudouku-board"]}>
-              <div className={styles["grid-cells"]}>{generateFields(sudokuArr, setMistakes, styles, checkSudoku)}</div>
+              <div className={styles["grid-cells"]}>
+                {sudokuArr.length > 0 &&
+                  generateFields(sudokuArr, setMistakes, styles, checkSudoku)}
+              </div>
             </div>
           </div>
           <div className={styles["sudoku-game-info"]}>

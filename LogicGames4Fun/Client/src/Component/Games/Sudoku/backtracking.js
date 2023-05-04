@@ -1,17 +1,43 @@
-export function solveSudoku() {
+export function solveSudoku(lvl) {
+  const findNumbers = difficulty();
+  const numbersToRemove = findNumbers.filter((num) => num.lvl === +lvl);
+  
   const board = new Array(9);
   for (let i = 0; i < 9; i++) {
     board[i] = new Array(9).fill(0);
   }
   backtrack(board, 0, 0);
-  
-  for (let i = 0; i < 10; i++) {
+
+  for (let i = 0; i < numbersToRemove[0].numbers; i++) {
     let row = Math.floor(Math.random() * 9);
     let col = Math.floor(Math.random() * 9);
     board[row][col] = null;
   }
 
   return board;
+}
+
+export function difficulty() {
+  const levelsNumbers = [Array.from({ length: 75 }, (_, i) => i + 1)];
+  const levels = [];
+
+  let numbers = 10;
+  levelsNumbers[0].forEach((lvl) => {
+    if (lvl === 6) numbers += 5;
+    if (lvl === 16) numbers += 10;
+    if (lvl === 26) numbers += 21;
+    if (lvl === 46) numbers += 3;
+    if (lvl === 61) numbers += 6;
+    if (lvl === 68) numbers += 4;
+    if (lvl === 73) numbers += 5;
+
+    levels.push({
+      lvl: lvl,
+      numbers,
+    });
+  });
+
+  return levels;
 }
 
 function backtrack(board, row, col) {
