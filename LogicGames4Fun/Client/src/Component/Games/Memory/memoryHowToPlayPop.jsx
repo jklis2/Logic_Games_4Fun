@@ -4,14 +4,25 @@ export const memoryHowToPlayPop = (
     <Popover id="popover-basic">
       <Popover.Header as="h3">Memory Instruction</Popover.Header>
       <Popover.Body>
-        Start with a blank 9x9 grid that has some of the cells already filled with
-        digits. Identify the row, column, and box where the given digit is already
-        present. Fill the empty cells in the same row, column, and box with the
-        remaining digits from 1 to 9. Repeat the above step for each given digit
-        until all the empty cells are filled. Ensure that each row, column, and
-        box contains digits from 1 to 9 only once. The game is won when all the
-        cells in the grid are filled with digits that satisfy the above
-        conditions.
+      <ol>
+          <li>
+            When the game starts, you will see a grid of cards with fruits on them. 
+            To start the game, click on the "Start Game" button.
+          </li>
+          <li>
+            Once the game starts, you can click on any card to flip it over and see the fruit. 
+            You can flip over two cards at a time.
+          </li>
+          <li>
+            If the two cards you flipped over have the same fruit, they will stay flipped over and you will earn a point.
+          </li>
+          <li>
+            If the two cards you flipped over do not have the same fruit, they will flip back over after a short delay.
+          </li>
+          <li>
+            Your goal is to match all pairs of cards as quickly as possible. The game ends when all pairs have been matched.
+          </li>
+      </ol>
       </Popover.Body>
     </Popover>
   );

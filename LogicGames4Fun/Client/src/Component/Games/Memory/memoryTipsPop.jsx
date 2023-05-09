@@ -6,17 +6,21 @@ export const memoryTipsPop = (
       <Popover.Body>
         <ol>
           <li>
-            Start by filling the easiest cells, i.e., the ones with the fewest
-            possible options. This will help you make progress quickly.
+            Pay attention to the cards you flip over. Try to remember where each card is located on the grid and what fruit 
+            is on each card. This will help you find matching pairs more quickly.
           </li>
           <li>
-            Use logic and deduction to eliminate possible options for each cell.
-            This will help you identify the correct digit for each cell.
+            Focus on flipping over one pair of cards at a time. 
+            If you try to flip over too many cards at once, it can be difficult to remember which ones you have already seen.
           </li>
           <li>
-            Double-check your work to ensure that you have not made any mistakes.
+            Use your short-term memory to your advantage. 
+            Try to memorize the location and fruit of each card you flip over, even if it doesn't match with another card.
           </li>
-          <li>Practice regularly to improve your skills and speed.</li>
+          <li>
+            Don't give up! With practice, you can improve your memory and increase your chances of 
+            finding matching pairs quickly.
+          </li>
         </ol>
   
         <strong>Enjoy playing Memory!</strong>
