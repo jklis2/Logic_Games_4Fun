@@ -14,9 +14,9 @@ export const DashboardForm = () => {
 
   //If level not exists redirect to dashboard 
 
-  const runGame = (lvl) => {
+  const runGame = (lvl, game) => {
     dispatch(sudokuActions.selectLevel({lvl}))
-    navigate('/games/sudoku')
+    navigate(`/games/${game}`)
   }
 
   const generateLevels = function (minLevel, maxLevel, game) {
@@ -34,7 +34,7 @@ export const DashboardForm = () => {
           aria-label="add"
         >
           
-          <span onClick={() => runGame(lvl)}>{lvl}</span>
+          <span onClick={() => runGame(lvl, game)}>{lvl}</span>
         </Fab>
       );
     }
@@ -189,7 +189,7 @@ export const DashboardForm = () => {
             </Carousel>
           </div>
 
-          {/* Quiz */}
+          {/* Memory */}
 
           <div className={styles["dashboard-game"]}>
             <div className="d-flex flex-center justify-content-center">
@@ -213,7 +213,7 @@ export const DashboardForm = () => {
                   <div>
                     <h2>Easy levels</h2>
                   </div>
-                  <div>{generateLevels(1, 26)}</div>
+                  <div>{generateLevels(1, 26, 'memory')}</div>
                 </div>
               </Carousel.Item>
 
@@ -222,7 +222,7 @@ export const DashboardForm = () => {
                   <div>
                     <h2>Medium levels</h2>
                   </div>
-                  <div>{generateLevels(26, 51)}</div>
+                  <div>{generateLevels(26, 51, 'memory')}</div>
                 </div>
               </Carousel.Item>
 
@@ -231,7 +231,7 @@ export const DashboardForm = () => {
                   <div>
                     <h2>Hard levels</h2>
                   </div>
-                  <div>{generateLevels(51, 76)}</div>
+                  <div>{generateLevels(51, 76, 'memory')}</div>
                 </div>
               </Carousel.Item>
             </Carousel>
