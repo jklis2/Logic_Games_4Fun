@@ -7,15 +7,16 @@ import Carousel from "react-bootstrap/Carousel";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux"
 import { sudokuActions } from "../../Redux/sudoku-slice";
+import { memoryActions } from "../../Redux/memory-slice";
 
 export const DashboardForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   //If level not exists redirect to dashboard 
-
   const runGame = (lvl, game) => {
-    dispatch(sudokuActions.selectLevel({lvl}))
+    if(game === 'sudoku') dispatch(sudokuActions.selectLevel({lvl}))
+    if(game === 'memory') dispatch(memoryActions.selectLevel({lvl}))
     navigate(`/games/${game}`)
   }
 

@@ -12,14 +12,16 @@ import { tipsPop } from "./tipsPop";
 import { howToPlayPop } from "./howToPlayPop";
 import { solveSudoku } from "./backtracking";
 import { generateFields } from "./generateSudokuCells";
+import Modal from "react-bootstrap/Modal";
 
 export const SudokuGame = () => {
   const level = useSelector((state) => state.sudoku.level);
   const [mistakes, setMistakes] = useState(0);
   const [time, setTime] = useState(0);
-  const board = JSON.parse(localStorage.getItem("board"));
-  const [sudokuArr, setSudokuArr] = useState(board || []);
+  const [sudokuArr, setSudokuArr] = useState([]);
+  const [modalShow, setModalShow] = useState(true);
 
+  const board = JSON.parse(localStorage.getItem("dwadaw"));
   useEffect(() => {
     const solvedArray = solveSudoku(level);
     const newSudokuArr = [];
@@ -31,7 +33,6 @@ export const SudokuGame = () => {
           newSudokuArr.push(new Sudoku(col, row, solvedArray[col][row], box));
         }
       }
-
       setSudokuArr(newSudokuArr);
     }
   }, [level, board]);
@@ -43,6 +44,31 @@ export const SudokuGame = () => {
     return () => clearInterval(interval);
   });
 
+  function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="md"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+          🎉 Congrats! 🎉
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            You have just successfully completed level! 🥳
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button style={{backgroundColor: "rgba(29, 125, 189, 0.753)", border: " 1px solid rgba(29, 125, 189, 0.753)"}} onClick={props.onHide}>Next level ➡️</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+
   return (
     <>
       <div className={styles["game-container"]}>
@@ -53,7 +79,6 @@ export const SudokuGame = () => {
                 <HiArrowLongLeft /> Back to games
               </Link>
             </div>
-
             <div>
               <OverlayTrigger
                 trigger="click"
@@ -73,12 +98,11 @@ export const SudokuGame = () => {
               </OverlayTrigger>
             </div>
           </div>
-
           <div className={styles["sudouku-board-container"]}>
             <div className={styles["sudouku-board"]}>
               <div className={styles["grid-cells"]}>
                 {sudokuArr.length > 0 &&
-                  generateFields(sudokuArr, setMistakes, styles, checkSudoku)}
+                  generateFields(sudokuArr, setSudokuArr, setMistakes, styles, checkSudoku)}
               </div>
             </div>
           </div>
@@ -121,6 +145,11 @@ export const SudokuGame = () => {
           </div>
         </div>
       </div>
+
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </>
   );
 };

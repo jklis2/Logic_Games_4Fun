@@ -8,37 +8,31 @@ import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
 import { memoryHowToPlayPop } from "./memoryHowToPlayPop";
 import { memoryTipsPop } from "./memoryTipsPop";
+import allImages from "./MemoryImages.json";
+import { useSelector } from "react-redux";
+import Modal from "react-bootstrap/Modal";
+// import "../../UI/Button/Button.scss";
 
-const imagesItems = [
-  {
-      "src": "/MemoryGameIcons/Airplane.png",
-      "matched": false
-  },
-  {
-      "src": "/MemoryGameIcons/Anubis.png",
-      "matched": false
-  },
-  {
-      "src": "/MemoryGameIcons/Beer.png",
-      "matched": false
-  },
-  {
-      "src": "/MemoryGameIcons/BigBen.png",
-      "matched": false
-  },
-  {
-      "src": "/MemoryGameIcons/Bull.png",
-      "matched": false
-  },
-  {
-      "src": "/MemoryGameIcons/Hydra.png",
-      "matched": false
+const generateLevels = () => {
+  let levelsWithDifficulty = [];
+  let pairs = 2;
+  for (let lvl = 1; lvl <= 75; lvl++) {
+    lvl % 4 === 0 ? lvl > 50 ? (pairs += 1) : (pairs += 2) : <></>;
+    levelsWithDifficulty.push({ lvl, pairs });
   }
-]
+  return levelsWithDifficulty;
+};
 
-function Card({ image, flipped, chooseCard }) {
+function Card({ image, flipped, chooseCard, modalShow, setModalShow }) {
   const cardClickHandle = (e) => {
     chooseCard(image);
+
+    const cards = document.querySelectorAll(`.${styles.card}`);
+    const cardsMatched = document.querySelectorAll(`.${styles.matched}`);
+
+    if (cardsMatched.length === cards.length) {
+      setModalShow(true);
+    }
   };
 
   return (
@@ -70,7 +64,41 @@ function Card({ image, flipped, chooseCard }) {
   );
 }
 
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+        🎉 Congrats! 🎉
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>
+          You have just successfully completed level! 🥳
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button style={{backgroundColor: "rgba(29, 125, 189, 0.753)", border: " 1px solid rgba(29, 125, 189, 0.753)"}} onClick={props.onHide}>Next level ➡️</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
 export const MemoryGame = () => {
+  const level = useSelector((state) => state.memory.memoryLvl);
+  const memLevels = generateLevels().filter((mem) => mem.lvl === +level);
+
+  const [modalShow, setModalShow] = useState(true);
+
+  const imagesItems = allImages
+    .sort((a, b) => 0.5 - Math.random())
+    .slice(0, memLevels[0].pairs);
+
   const [images, setImages] = useState([]);
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
@@ -101,7 +129,7 @@ export const MemoryGame = () => {
           });
         });
       }
-  
+
       setTimeout(() => {
         setImageOne(null);
         setImageTwo(null);
@@ -111,6 +139,11 @@ export const MemoryGame = () => {
 
   return (
     <>
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+
       <div className={styles["game-container"]}>
         <div className={styles["game-internal-container"]}>
           <div className={styles["memory-actions"]}>
@@ -143,15 +176,16 @@ export const MemoryGame = () => {
           <div className={styles["memory-board-container"]}>
             <div className={styles["memory-board"]}>
               <div className={styles["grid-cells"]}>
-
                 {images.length ? (
                   <>
-                    <div className={styles['game-block']}>
+                    <div className={styles["game-block"]}>
                       {images.map((image, key) => {
                         return (
                           <Card
                             key={key}
                             chooseCard={chooseCard}
+                            modalShow={modalShow}
+                            setModalShow={setModalShow}
                             flipped={
                               image === imageOne ||
                               image === imageTwo ||
@@ -163,8 +197,9 @@ export const MemoryGame = () => {
                       })}
                     </div>
                   </>
-                ) : <></>
-                }
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           </div>
@@ -179,7 +214,7 @@ export const MemoryGame = () => {
                 width: "200px",
               }}
             >
-              Level: 123
+              Level: {level}
             </Box>
           </div>
         </div>

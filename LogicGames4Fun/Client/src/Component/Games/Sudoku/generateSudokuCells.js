@@ -1,4 +1,4 @@
-export const generateFields = (sudokuArr, setMistakes, styles, checkSudoku) => {
+export const generateFields = (sudokuArr, setSudokuArr, setMistakes, styles, checkSudoku) => {
     const cellsSet = [];
     let noOfCell = 1;
 
@@ -35,7 +35,7 @@ export const generateFields = (sudokuArr, setMistakes, styles, checkSudoku) => {
                 localStorage.setItem('board', JSON.stringify(sudokuArr));
                 const check = e.target.value !== '' && checkSudoku(sudokuArr, col, j, +e.target.value);
                 const { exists } = check;
-
+                
                 if (exists) {
                   const { existsRow, existsColumn, existsBox } = check;
                   (document.querySelector(`.col${col}.row${j}`)).classList.add(`${styles.error}`);
