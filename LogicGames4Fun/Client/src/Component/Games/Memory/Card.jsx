@@ -1,15 +1,8 @@
 import styles from "./MemoryGame.module.scss";
 
-function Card({ image, flipped, chooseCard, setModalShow }) {
+function Card({ image, flipped, chooseCard }) {
   const cardClickHandle = () => {
     chooseCard(image);
-
-    const cards = document.querySelectorAll(`.${styles.card}`);
-    const cardsMatched = document.querySelectorAll(`.${styles.matched}`);
-
-    if (cardsMatched.length === cards.length) {
-      setModalShow(true);
-    }
   };
 
   return (

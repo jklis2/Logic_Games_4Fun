@@ -12,29 +12,27 @@ import { howToPlayPop } from "./howToPlayPop";
 import { solveSudoku } from "./backtracking";
 import { generateFields } from "./generateSudokuCells";
 import SudokuModal from "./SudokuModal";
+import ReactDOM from "react-dom";
 
 export const SudokuGame = () => {
-  const level = localStorage.getItem('sudokuLvl');
+  const level = localStorage.getItem("sudokuLvl");
   const [mistakes, setMistakes] = useState(0);
   const [time, setTime] = useState(0);
   const [sudokuArr, setSudokuArr] = useState([]);
   const [modalShow, setModalShow] = useState(true);
 
-  const board = JSON.parse(localStorage.getItem("dwadaw"));
   useEffect(() => {
     const solvedArray = solveSudoku(level);
     const newSudokuArr = [];
 
-    if (!board) {
-      for (let col = 0; col < 9; col++) {
-        for (let row = 0; row < 9; row++) {
-          let box = Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1;
-          newSudokuArr.push(new Sudoku(col, row, solvedArray[col][row], box));
-        }
+    for (let col = 0; col < 9; col++) {
+      for (let row = 0; row < 9; row++) {
+        let box = Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1;
+        newSudokuArr.push(new Sudoku(col, row, solvedArray[col][row], box));
       }
-      setSudokuArr(newSudokuArr);
     }
-  }, [level, board]);
+    setSudokuArr(newSudokuArr);
+  }, [level]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -76,7 +74,7 @@ export const SudokuGame = () => {
             <div className={styles["sudouku-board"]}>
               <div className={styles["grid-cells"]}>
                 {sudokuArr.length > 0 &&
-                  generateFields(sudokuArr, setSudokuArr, setMistakes, styles, checkSudoku)}
+                  generateFields(sudokuArr, setMistakes, styles, checkSudoku)}
               </div>
             </div>
           </div>
@@ -120,10 +118,14 @@ export const SudokuGame = () => {
         </div>
       </div>
 
-      <SudokuModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
+      {ReactDOM.createPortal(
+        <SudokuModal
+          show={modalShow}
+          setSudokuArr={setSudokuArr} 
+          onHide={() => setModalShow(false)}
+        />,
+        document.getElementById("modal-root")
+      )}
     </>
   );
 };

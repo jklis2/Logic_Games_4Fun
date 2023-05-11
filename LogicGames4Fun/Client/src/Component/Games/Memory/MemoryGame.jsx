@@ -12,11 +12,11 @@ import allImages from "./MemoryImages.json";
 import MemoryModal from "./MemoryModal";
 import Card from "./Card";
 import { generateMemoryLevels } from "./generateMemoryLevels";
-
+import ReactDOM from "react-dom";
 
 export const MemoryGame = () => {
   const level = localStorage.getItem('memoryLvl')
-  const memLevels = generateMemoryLevels().filter((mem) => mem.lvl === +level);
+  const [memLevels, setMemLevels] = useState(generateMemoryLevels().filter((mem) => mem.lvl === +level));
   const [modalShow, setModalShow] = useState(false);
 
   const imagesItems = allImages
@@ -24,8 +24,10 @@ export const MemoryGame = () => {
     .slice(0, memLevels[0].pairs);
 
   const [images, setImages] = useState([]);
+  
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
+  const [noOfMatched, setNoOfMatched] = useState(0)
 
   const chooseCard = (image) => {
     if (!image.matched && !imageOne && !imageTwo) {
@@ -36,18 +38,27 @@ export const MemoryGame = () => {
   };
 
   const initGame = () => {
+    const cards = memLevels[0].cards;
     const allImages = [...imagesItems, ...imagesItems]
       .sort(() => Math.random() - 0.5)
+      .slice(0, cards)
       .map((item) => ({ ...item, id: Math.random() }));
     setImages(allImages);
   };
-
+  
   // eslint-disable-next-line 
   useEffect(() => initGame(), []);
 
+
   useEffect(() => {
+    if(noOfMatched === imagesItems.length) {
+      setModalShow(true);
+    }
+
     if (imageOne && imageTwo) {
       if (imageOne.src === imageTwo.src) {
+        setNoOfMatched((no => no +=1))
+        console.log(noOfMatched, imagesItems.length)
         setImages((prevImages) => {
           return prevImages.map((item) => {
             if (item.src === imageOne.src) {
@@ -57,21 +68,28 @@ export const MemoryGame = () => {
             }
           });
         });
+   
       }
-
       setTimeout(() => {
         setImageOne(null);
         setImageTwo(null);
       }, 500);
     }
+    // eslint-disable-next-line 
   }, [imageOne, imageTwo]);
 
   return (
     <>
-      <MemoryModal
+      {ReactDOM.createPortal(
+        <MemoryModal
+        setMemLevels = {setMemLevels}
+        initGame={initGame}
+        setNoOfMatched={setNoOfMatched}
         show={modalShow}
+
         onHide={() => setModalShow(false)}
-      />
+      />, document.getElementById("modal-root")
+      )}
 
       <div className={styles["game-container"]}>
         <div className={styles["game-internal-container"]}>
@@ -109,12 +127,11 @@ export const MemoryGame = () => {
                   <>
                     <div className={styles["game-block"]}>
                       {images.map((image, key) => {
-                        return (
+                        return ( 
                           <Card
                             key={key}
                             chooseCard={chooseCard}
                             modalShow={modalShow}
-                            setModalShow={setModalShow}
                             flipped={
                               image === imageOne ||
                               image === imageTwo ||
