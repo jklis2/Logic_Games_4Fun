@@ -7,15 +7,14 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import { HiArrowLongLeft } from "react-icons/hi2";
-import { useSelector } from "react-redux";
 import { tipsPop } from "./tipsPop";
 import { howToPlayPop } from "./howToPlayPop";
 import { solveSudoku } from "./backtracking";
 import { generateFields } from "./generateSudokuCells";
-import Modal from "react-bootstrap/Modal";
+import SudokuModal from "./SudokuModal";
 
 export const SudokuGame = () => {
-  const level = useSelector((state) => state.sudoku.level);
+  const level = localStorage.getItem('sudokuLvl');
   const [mistakes, setMistakes] = useState(0);
   const [time, setTime] = useState(0);
   const [sudokuArr, setSudokuArr] = useState([]);
@@ -43,31 +42,6 @@ export const SudokuGame = () => {
     }, 1000);
     return () => clearInterval(interval);
   });
-
-  function MyVerticallyCenteredModal(props) {
-    return (
-      <Modal
-        {...props}
-        size="md"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-          🎉 Congrats! 🎉
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>
-            You have just successfully completed level! 🥳
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button style={{backgroundColor: "rgba(29, 125, 189, 0.753)", border: " 1px solid rgba(29, 125, 189, 0.753)"}} onClick={props.onHide}>Next level ➡️</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
 
   return (
     <>
@@ -146,7 +120,7 @@ export const SudokuGame = () => {
         </div>
       </div>
 
-      <MyVerticallyCenteredModal
+      <SudokuModal
         show={modalShow}
         onHide={() => setModalShow(false)}
       />

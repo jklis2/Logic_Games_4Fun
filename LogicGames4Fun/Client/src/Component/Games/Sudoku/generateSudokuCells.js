@@ -43,40 +43,46 @@ export const generateFields = (sudokuArr, setSudokuArr, setMistakes, styles, che
                   (document.querySelector(`.col${existsColumn[0].column}.row${existsColumn[0].row}`)).classList.add(`${styles.error}`);
                   (document.querySelector(`.col${existsBox[0].column}.row${existsBox[0].row}`)).classList.add(`${styles.error}`);
                   setMistakes((mistakes) => mistakes+=1)             
-                }
+                } else{
+                  console.log('No')
+                  document.querySelector(`.col${col}.row${j}`).classList.remove(`${styles.error}`);
 
-                if(!exists || e.target.value === '') {
-                  const errorElements = document.querySelectorAll(`.${styles.error}`);
-                  errorElements.forEach(element => {
-                    element.classList.remove(`${styles.error}`);
-                  });
-                }
-              }}
-              onFocus={() => {
+                  document.querySelector(`.col${col}`).classList.remove(`${styles.error}`);
+                  document.querySelector(`.row${j}`).classList.remove(`${styles.error}`);
+                  document.querySelector(`.box${Math.floor(col / 3) * 3 + Math.floor(j / 3) + 1}`).classList.remove(`${styles.error}`);
+                  // const errorElements = document.querySelectorAll(`.${styles.error}`);
+                  // errorElements.forEach(element => {
+                  //   element.classList.remove(`${styles.error}`);
+                  // });
+                }}
+            }
+            onFocus={() => {
 
-                //Middle cell?
-                const previous = (document.querySelector(`.${styles.focused}`));
-                previous && previous.classList.remove(`${styles.focused}`);
-                (document.querySelector(`.col${col}.row${j}`)).classList.add(`${styles.focused}`);
+              //Middle cell?
+              const previous = (document.querySelector(`.${styles.focused}`));
+              previous && previous.classList.remove(`${styles.focused}`);
+              (document.querySelector(`.col${col}.row${j}`)).classList.add(`${styles.focused}`);
 
 
-                //Cell helpers
-                const helpRows = document.querySelectorAll(`.row${j}`);
-                const helpCols = document.querySelectorAll(`.col${col}`);
-                const helpBox = document.querySelectorAll(
-                  `.box${Math.floor(col / 3) * 3 + Math.floor(j / 3) + 1}`
-                );
+              //Cell helpers
+              const helpRows = document.querySelectorAll(`.row${j}`);
+              const helpCols = document.querySelectorAll(`.col${col}`);
+              const helpBox = document.querySelectorAll(
+                `.box${Math.floor(col / 3) * 3 + Math.floor(j / 3) + 1}`
+              );
 
-                helpRows.forEach((row) => {
-                  row.classList.add(`${styles.helper}`);
-                });
-                helpCols.forEach((col) => {
-                  col.classList.add(`${styles.helper}`);
-                });
-                helpBox.forEach((box) => {
-                  box.classList.add(`${styles.helper}`);
-                });
-              }}
+              helpRows.forEach((row) => {
+                row.classList.add(`${styles.helper}`);
+              });
+              helpCols.forEach((col) => {
+                col.classList.add(`${styles.helper}`);
+              });
+              helpBox.forEach((box) => {
+                box.classList.add(`${styles.helper}`);
+              });
+            }}
+                    
+   
               onBlur={() => {
                 const rows = document.querySelectorAll(`.row${j}`);
                 const cols = document.querySelectorAll(`.col${col}`);
