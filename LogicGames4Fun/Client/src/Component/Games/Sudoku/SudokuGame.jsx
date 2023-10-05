@@ -2,24 +2,20 @@ import React, { useEffect, useState } from "react";
 import Sudoku from "./sudoku";
 import checkSudoku from "./checkSudoku";
 import styles from "./SudokuGame.module.scss";
-import Button from "react-bootstrap/Button";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import { HiArrowLongLeft } from "react-icons/hi2";
-import { tipsPop } from "./tipsPop";
-import { howToPlayPop } from "./howToPlayPop";
 import { solveSudoku } from "./backtracking";
 import { generateFields } from "./generateSudokuCells";
 import SudokuModal from "./SudokuModal";
 import ReactDOM from "react-dom";
 
 export const SudokuGame = () => {
-  const level = localStorage.getItem("sudokuLvl");
+  const level = localStorage.getItem("sudokuLvl") || 1;
   const [mistakes, setMistakes] = useState(0);
   const [time, setTime] = useState(0);
   const [sudokuArr, setSudokuArr] = useState([]);
-  const [modalShow, setModalShow] = useState(true);
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     const solvedArray = solveSudoku(level);
@@ -50,24 +46,6 @@ export const SudokuGame = () => {
               <Link to={`/Dashboard`} className={styles["back-link"]}>
                 <HiArrowLongLeft /> Back to games
               </Link>
-            </div>
-            <div>
-              <OverlayTrigger
-                trigger="click"
-                placement="bottom"
-                overlay={howToPlayPop}
-              >
-                <Button>How to play?</Button>
-              </OverlayTrigger>
-            </div>
-            <div>
-              <OverlayTrigger
-                trigger="click"
-                placement="bottom"
-                overlay={tipsPop}
-              >
-                <Button>Tips</Button>
-              </OverlayTrigger>
             </div>
           </div>
           <div className={styles["sudouku-board-container"]}>
@@ -117,7 +95,6 @@ export const SudokuGame = () => {
           </div>
         </div>
       </div>
-
       {ReactDOM.createPortal(
         <SudokuModal
           show={modalShow}

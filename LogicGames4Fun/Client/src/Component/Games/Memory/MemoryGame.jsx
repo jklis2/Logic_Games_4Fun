@@ -1,13 +1,9 @@
 import React from "react";
 import styles from "./MemoryGame.module.scss";
-import Button from "react-bootstrap/Button";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import { Link } from "react-router-dom";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
-import { memoryHowToPlayPop } from "./memoryHowToPlayPop";
-import { memoryTipsPop } from "./memoryTipsPop";
 import allImages from "./MemoryImages.json";
 import MemoryModal from "./MemoryModal";
 import Card from "./Card";
@@ -15,7 +11,7 @@ import { generateMemoryLevels } from "./generateMemoryLevels";
 import ReactDOM from "react-dom";
 
 export const MemoryGame = () => {
-  const level = localStorage.getItem('memoryLvl')
+  const level = localStorage.getItem('memoryLvl') || 1
   const [memLevels, setMemLevels] = useState(generateMemoryLevels().filter((mem) => mem.lvl === +level));
   const [modalShow, setModalShow] = useState(false);
 
@@ -49,7 +45,6 @@ export const MemoryGame = () => {
   // eslint-disable-next-line 
   useEffect(() => initGame(), []);
 
-
   useEffect(() => {
     if(noOfMatched === imagesItems.length) {
       setModalShow(true);
@@ -68,7 +63,6 @@ export const MemoryGame = () => {
             }
           });
         });
-   
       }
       setTimeout(() => {
         setImageOne(null);
@@ -86,11 +80,9 @@ export const MemoryGame = () => {
         initGame={initGame}
         setNoOfMatched={setNoOfMatched}
         show={modalShow}
-
         onHide={() => setModalShow(false)}
       />, document.getElementById("modal-root")
       )}
-
       <div className={styles["game-container"]}>
         <div className={styles["game-internal-container"]}>
           <div className={styles["memory-actions"]}>
@@ -99,27 +91,7 @@ export const MemoryGame = () => {
                 <HiArrowLongLeft /> Back to games
               </Link>
             </div>
-
-            <div>
-              <OverlayTrigger
-                trigger="click"
-                placement="bottom"
-                overlay={memoryHowToPlayPop}
-              >
-                <Button>How to play?</Button>
-              </OverlayTrigger>
-            </div>
-            <div>
-              <OverlayTrigger
-                trigger="click"
-                placement="bottom"
-                overlay={memoryTipsPop}
-              >
-                <Button>Tips</Button>
-              </OverlayTrigger>
-            </div>
           </div>
-
           <div className={styles["memory-board-container"]}>
             <div className={styles["memory-board"]}>
               <div className={styles["grid-cells"]}>

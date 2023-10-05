@@ -71,3 +71,77 @@
   background-color: rgba(29, 125, 189, 0.753);
   color: white;
 }
+
+
+
+.sudoku-logo-wrapper {
+  position: relative;
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .sudoku-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+
+.crossword-logo-wrapper {
+  position: relative;
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .crossword-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.memory-logo-wrapper {
+  position: relative;
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .memory-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+

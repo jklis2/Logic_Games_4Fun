@@ -13,7 +13,6 @@ import { Navigate } from "react-router-dom";
 import { Sudoku } from "./Routers/Sudoku";
 import { Crossword } from "./Routers/Crossword";
 import { Memory } from "./Routers/Memory";
-import { Puzzle } from "./Routers/Puzzle";
 
 import { Test } from "./Routers/Test";
 
@@ -33,12 +32,10 @@ function App() {
         <Route path="/games/sudoku" element={<Sudoku />} />
         <Route path="/games/crossword" element={<Crossword />} />
         <Route path="/games/memory" element={<Memory />} />
-        <Route path="/games/puzzle" element={<Puzzle />} />
 
         <Route path="/test" element={<Test />} />
       </Routes>
     </BrowserRouter>
   );
 }
-
 export default App;
