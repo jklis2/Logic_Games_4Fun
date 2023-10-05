@@ -13,6 +13,13 @@ import { Navigate } from "react-router-dom";
 import { Sudoku } from "./Routers/Sudoku";
 import { Crossword } from "./Routers/Crossword";
 import { Memory } from "./Routers/Memory";
+import { Game2048 } from "./Routers/Game2048";
+import { Minesweeper } from "./Routers/Minesweeper";
+import { Snake } from "./Routers/Snake";
+import { Maze } from "./Routers/Maze";
+import { BallInheHole } from "./Routers/BallInTheHole";
+import { Quiz } from "./Routers/Quiz";
+import { TicTacToe } from "./Routers/TicTacToe";
 
 import { Test } from "./Routers/Test";
 
@@ -32,6 +39,14 @@ function App() {
         <Route path="/games/sudoku" element={<Sudoku />} />
         <Route path="/games/crossword" element={<Crossword />} />
         <Route path="/games/memory" element={<Memory />} />
+        <Route path="/games/2048" element={<Game2048 />} />
+        <Route path="/games/minesweeper" element={<Minesweeper />} />
+        <Route path="/games/snake" element={<Snake />} />
+        <Route path="/games/maze" element={<Maze />} />
+        <Route path="/games/ballInTheHole" element={<BallInheHole />} />
+        <Route path="/games/Quiz" element={<Quiz />} />
+        <Route path="/games/ticTacToe" element={<TicTacToe />} />
+        
 
         <Route path="/test" element={<Test />} />
       </Routes>

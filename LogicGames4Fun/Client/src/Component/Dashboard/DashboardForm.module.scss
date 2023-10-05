@@ -7,21 +7,19 @@
 .dashboard-games {
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+  }
 
   .dashboard-game {
     margin-top: 1rem;
     width: 75%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
 
     @media screen and (max-width: 992px) {
-      grid-template-columns: repeat(1, 1fr);
-      justify-self: center;
-      align-items: center;
-
       img {
         margin-bottom: 0.5rem;
       }
@@ -72,8 +70,6 @@
   color: white;
 }
 
-
-
 .sudoku-logo-wrapper {
   position: relative;
 
@@ -96,7 +92,6 @@
     }
   }
 }
-
 
 .crossword-logo-wrapper {
   position: relative;
@@ -144,4 +139,163 @@
   }
 }
 
+.s2048-logo-wrapper {
+  position: relative;
 
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .s2048-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.minesweeper-logo-wrapper {
+  position: relative;
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .minesweeper-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.snake-logo-wrapper {
+  position: relative;
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .snake-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.maze-logo-wrapper {
+  position: relative;
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .maze-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.ballInTheHole-logo-wrapper {
+  position: relative;
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .ballInTheHole-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.quiz-logo-wrapper {
+  position: relative;
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .quiz-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.ticTacToe-logo-wrapper {
+  position: relative;
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .ticTacToe-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
