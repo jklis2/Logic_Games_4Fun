@@ -1,28 +1,24 @@
-.container{
+.container {
   min-height: 100vh;
-  background-color: rgba(0,0,0,0.31)
-
+  background-color: rgba(0, 0, 0, 0.31);
 }
 
-.title{
+.title {
   text-align: center;
-
-
 }
 
-.achievements{
+.achievements {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
   align-items: start;
 
-  @media screen and (max-width: 1150px){
-    grid-template-columns: repeat(2, 1fr)
-    
+  @media screen and (max-width: 1150px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.achievement{
+.achievement {
   width: 300px;
   height: 200px;
   background-color: red;

@@ -7,51 +7,51 @@ import ProgressBarValue from "./ProgressBarValue";
 export const AchievementsForm = () => {
   return (
     <>
-            <Navbar />
-        <div className={`${styles["achievements-title"]} mt-3`}>
-          <h1>Achievements</h1>
-        </div>
-        <div className={styles["user-achievements"]}>
-
+      <Navbar />
+      <h1 className="h1 text-center my-5">Achievements</h1>
+      <div className="container">
+        <div className="row justify-content-center">
           {/* Sudoku achievements */}
-          <div className={styles.achievement}>
-
-            <div className={styles["achievements-image"]}>
+          <div className="col-md-4 achievement-card bg-light p-3 row">
+            <div className="col-4 d-flex align-items-center">
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/SudokuImages/SudokuNoviceAchievement.png`}
                 alt="Sudoku Navoice"
+                className="w-100"
               ></img>
             </div>
-            <div className={styles["achievements-description"]}>
-              <p>Finish 25 easy levels of Sudoku</p>
-              <ProgressBarValue/>
+            <div className="col-8 d-flex justify-content-center flex-column">
+              <p className="fs-3">Finish 25 easy levels of Sudoku</p>
+              <ProgressBarValue />
             </div>
           </div>
+          {/* end */}
 
-
-          <div className={styles.achievement}>
-            <div className={styles["achievements-image"]}>
+          <div className="achievement-card bg-light p-3 col-md-4 row">
+            <div className="col-4 d-flex align-items-center">
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/SudokuImages/SudokuProficientAchievement.png`}
                 alt="Sudoku Proficient"
+                className="w-100"
               ></img>
             </div>
-            <div className={styles["achievements-description"]}>
-              <p>Finish 25 medium levels of Sudoku</p>
-              <ProgressBarValue/>
+            <div className="col-8 d-flex justify-content-center flex-column">
+              <p className="fs-3">Finish 25 medium levels of Sudoku</p>
+              <ProgressBarValue />
             </div>
           </div>
-          
-          <div className={styles.achievement}>
-            <div className={styles["achievements-image"]}>
+
+          <div className="achievement-card mx-1 bg-light p-3 col-md-4 row">
+            <div className="col-4 d-flex align-items-center">
               <img
                 src={`${process.env.PUBLIC_URL}/AchievementImages/SudokuImages/SudokuMasterAchievement.png`}
                 alt="Sudoku Master"
+                className="w-100"
               ></img>
             </div>
-            <div className={styles["achievements-description"]}>
-              <p>Finish 25 hard levels of Sudoku</p>
-              <ProgressBarValue/>
+            <div className="col-8 d-flex justify-content-center flex-column">
+              <p className="fs-3">Finish 25 hard levels of Sudoku</p>
+              <ProgressBarValue />
             </div>
           </div>
           <div className={styles.achievement}>
@@ -63,7 +63,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish all levels of Sudoku</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
 
@@ -77,7 +77,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish 25 easy levels of Crossword</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
           <div className={styles.achievement}>
@@ -89,7 +89,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish 25 medium levels of Crossword</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
           <div className={styles.achievement}>
@@ -101,7 +101,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish 25 hard levels of Crossword</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
           <div className={styles.achievement}>
@@ -113,7 +113,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish all levels of Crossword</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
 
@@ -127,7 +127,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish 25 easy levels of Puzzle</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
           <div className={styles.achievement}>
@@ -139,7 +139,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish 25 medium levels of Puzzle</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
           <div className={styles.achievement}>
@@ -151,7 +151,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish 25 hard levels of Puzzle</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
           <div className={styles.achievement}>
@@ -163,7 +163,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish all levels of Puzzle</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
 
@@ -177,7 +177,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish 25 easy levels of Quiz</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
           <div className={styles.achievement}>
@@ -189,7 +189,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish 25 medium levels of Quiz</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
           <div className={styles.achievement}>
@@ -201,7 +201,7 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish 25 hard levels of Quiz</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
           <div className={styles.achievement}>
@@ -213,11 +213,12 @@ export const AchievementsForm = () => {
             </div>
             <div className={styles["achievements-description"]}>
               <p>Finish all levels of Quiz</p>
-              <ProgressBarValue/>
+              <ProgressBarValue />
             </div>
           </div>
         </div>
-        <DashboardFooter/>
+      </div>
+      <DashboardFooter />
     </>
   );
 };

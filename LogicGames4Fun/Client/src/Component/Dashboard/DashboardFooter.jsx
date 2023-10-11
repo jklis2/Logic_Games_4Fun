@@ -1,9 +1,7 @@
-import styles from "./DashboardForm.module.scss";
-
 const DashboardFooter = () => {
   return (
-    <div className={styles['dashboard-footer']}>
-      <p>© 2023 Logic Games 4Fun</p>
+    <div className="footer fs-3 d-flex justify-content-center align-items-center mt-2">
+      <p className="p-0 m-0 ">© 2023 Logic Games 4Fun</p>
     </div>
   );
 };

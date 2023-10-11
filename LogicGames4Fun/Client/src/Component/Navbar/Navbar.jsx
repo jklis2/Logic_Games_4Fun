@@ -89,7 +89,7 @@ export const Navbar = () => {
                 style={{ width: "64px", height: "64px" }}
               ></img>
               <Typography
-                variant="h6"
+                variant="h4"
                 noWrap
                 component="a"
                 sx={{
@@ -97,7 +97,7 @@ export const Navbar = () => {
                   display: { xs: "none", md: "flex" },
                   fontFamily: "monospace",
                   fontWeight: 700,
-                  letterSpacing: ".3rem",
+                  letterSpacing: ".2rem",
                   color: "inherit",
                   textDecoration: "none",
                 }}

@@ -1,13 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,400&display=swap");
 
+@import "./Styles/abstracts/variables";
+
 @import "./Styles/base/base";
 
 @import "./Styles/components/fact-card";
 @import "./Styles/components/buttons";
+@import "./Styles/components/game-card";
+@import "./Styles/components/achievement-card";
+
+@import "./Styles/layout/footer";
 
 @import "./Styles/pages/home";
 @import "./Styles/pages/about";
 @import "./Styles/pages/contact";
+@import "./Styles/pages/dashboard";
+@import "./Styles/pages/profile";
 
-@import "./Styles/vendors/bootstrap"
+@import "./Styles/pages/sudoku";
+@import "./Styles/pages/achievements";
 
+@import "./Styles/vendors/bootstrap";

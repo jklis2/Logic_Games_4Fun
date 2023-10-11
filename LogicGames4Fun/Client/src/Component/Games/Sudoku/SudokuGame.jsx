@@ -39,8 +39,8 @@ export const SudokuGame = () => {
 
   return (
     <>
-      <div className={styles["game-container"]}>
-        <div className={styles["game-internal-container"]}>
+      <div className="w-100 d-flex justify-content-center align-items-center">
+        <div className="w-75 mt-5">
           <div className={styles["sudoku-actions"]}>
             <div>
               <Link to={`/Dashboard`} className={styles["back-link"]}>
