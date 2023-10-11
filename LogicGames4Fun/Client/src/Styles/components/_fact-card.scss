@@ -1,0 +1,13 @@
+.fact-card {
+  img {
+    width: 20%;
+
+    @media screen and (max-width: 992px) {
+      width: 20%;
+    }
+
+    @media screen and (max-width: 576px) {
+        width: 40%;
+      }
+  }
+}

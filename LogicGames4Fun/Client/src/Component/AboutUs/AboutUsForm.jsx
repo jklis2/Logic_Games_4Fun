@@ -1,24 +1,22 @@
 import React from "react";
-import styles from "./AboutUsForm.module.scss";
-import "../UI/Button/Button.scss";
 import { Link } from "react-router-dom";
 
 export const AboutUsForm = () => {
   return (
-    <div className={styles["aboutUs-container"]}>
-      <div className={`${styles["aboutUs-box"]} bg-light w-75`}>
-        <div className={styles["aboutUs-logo-text"]}>
-          <div id={styles["aboutUs-page-logo"]}>
+    <div className="about d-flex justify-content-center align-items-center">
+      <div className="about__box bg-light w-75">
+        <div className="row">
+          <div className="col-12 d-flex justify-content-center" >
             <img
               src={`${process.env.PUBLIC_URL}/Images/LogoLogicGames4Fun_smaller.png`}
               alt="Logic Games 4Fun Logo"
             ></img>
           </div>
-          <div id={styles["aboutUs-page-text"]}>
+          <div className="col-12 d-flex justify-content-center" >
             <h2>Nice to meet you!</h2>
           </div>
         </div>
-        <div className={styles["aboutUs-description"]}>
+        <p className="fs-4 mt-5 px-5">
           We're Mateusz and Kuba, IT students from Cracow and developers of
           Logic Games 4Fun. Our journey started when both us were trying to come
           up with an idea for an engineering thesis. Our startup that wants to
@@ -27,10 +25,10 @@ export const AboutUsForm = () => {
           their mind. Our logic games will be adapted to people of all ages,
           through different levels of difficulty. After a friend connected us,
           the rest is history.
-        </div>
-        <div className={styles["contact-buttons"]}>
+        </p>
+        <div className="fs-4 mx-5">
           <Link to="/Home">
-            <button className="m-3 button-light">Back to home</button>
+            <button className="mt-3 mb-5 button-light">Back to home</button>
           </Link>
         </div>
       </div>
