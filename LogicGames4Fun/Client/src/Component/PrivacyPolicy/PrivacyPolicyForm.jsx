@@ -1,13 +1,12 @@
 import React from "react";
-import styles from "./PrivacyPolicyForm.module.scss";
-import '../UI/Button/Button.scss'
+import { Link } from "react-router-dom";
 
 export const PrivacyPolicyForm = () => {
   return (
-    <>
-      <div className={styles["privacyPolicy-page-content"]}>
-        <div id={styles["privacy-policy"]}>
-          <div id={styles["center-text"]}>
+    <div className="policy d-flex align-items-center">
+      <div className="container policy__box bg-light vh-75">
+        <div className="px-5">
+          <div className="text-center mt-5">
             <h1>Privacy Policy</h1>
             <p>Last updated: February 07, 2023</p>
           </div>
@@ -471,12 +470,13 @@ export const PrivacyPolicyForm = () => {
             <li>By email: logicgames4fun@gmail.com</li>
           </ul>
         </div>
-        <div className={styles["back-to-login-button"]}>
-          <a href="/Login">
+
+        <div className="w-100 d-flex justify-content-center my-5">
+          <Link to="/Login">
             <button className="button-light">Back to login</button>
-          </a>
+          </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 };

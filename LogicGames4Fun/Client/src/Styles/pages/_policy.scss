@@ -1,3 +1,16 @@
 .policy {
   min-height: 100vh;
+
+  &__box {
+    height: 80vh;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    overflow: scroll;
+    overflow-x: hidden;
+    border-radius: 10px;
+  }
+
+  p,
+  ul > li {
+    font-size: 1.6rem;
+  }
 }
