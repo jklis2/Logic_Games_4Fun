@@ -1,9 +1,11 @@
 import React from "react";
+import MinesweeperLogic from "./MinesweeperLogic";
 
 export const MinesweeperGame = () => {
-    return (
-      <>
-        <div>Hello Minesweeper!</div>
-      </>
-    );
-  };
+  return (
+    <>
+      <h1>Minesweeper</h1>
+      <MinesweeperLogic />
+    </>
+  );
+};
