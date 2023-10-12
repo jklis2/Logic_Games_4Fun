@@ -1,0 +1,152 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 3px;
+    position: relative;
+    width: calc(36px * 10 + 3px * 9);
+    height: calc(36px * 10 + 3px * 9);
+    margin-bottom: 20px;
+}
+
+.tile {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    font-size: 18px; 
+    position: absolute;
+    transition: transform 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+/* Początek kolorów poszczególnych kafelków */
+
+.tile-2 {
+    background-color: #eee4da;
+}
+
+.tile-4 {
+    background-color: #ede0c8;
+}
+
+.tile-8 {
+    background-color: #f2b179;
+}
+
+.tile-16 {
+    background-color: #f59563;
+}
+
+.tile-32 {
+    background-color: #f67c5f;
+}
+
+.tile-64 {
+    background-color: #f65e3b;
+}
+
+.tile-128 {
+    background-color: #edcf72;
+}
+
+.tile-256 {
+    background-color: #edcc61;
+}
+
+.tile-512 {
+    background-color: #9c0;
+}
+
+.tile-1024 {
+    background-color: #33b5e5;
+}
+
+.tile-2048 {
+    background-color: #09c;
+}
+
+/* Koniec kolorów poszczególnych kafelków */
+
+.inner-tile {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes mergeAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.tile.merged .inner-tile {
+    animation: mergeAnimation 0.2s;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tile.new .inner-tile {
+    animation: appear 0.2s;
+}
+
+.win-message {
+    font-size: 24px;
+    color: green;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.start-screen h2 {
+    margin-bottom: 20px;
+}
+
+.loss-message {
+    font-size: 24px;
+    color: red;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.score-board {
+    font-size: 20px;
+    margin: 10px;
+}
+
+button{
+    margin: 10px;
+}
+
+.buttons {
+    margin-top: 18rem;
+}
