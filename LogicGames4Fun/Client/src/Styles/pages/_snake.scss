@@ -1,19 +1,6 @@
-div[style*="border: 1px solid black"] {
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
-    overflow: hidden;
-    border: none;
-}
-
-div[style*="backgroundColor: green"] {
-    background-color: #4caf50;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-div[style*="backgroundColor: red"] {
-    background-color: #ff5252;
-    border-radius: 50%; /* Makes the food circular */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.snake-board {
+  border-radius: 1rem;
+  box-shadow: 0 1.4rem 2.8rem rgba(0, 0, 0, 0.25),
+    0 1rem 1rem rgba(0, 0, 0, 0.22);
+  transition: all 0.5s;
 }

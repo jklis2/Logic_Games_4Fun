@@ -28,11 +28,12 @@ function SnakeBoard({ snake, foods, cellSize, numCols, numRows }) {
   };
 
   return (
-    <div
+    <div className="px-1"
       style={{
         width: numCols * cellSize,
         height: numRows * cellSize,
-        border: "1px solid black",
+        // border: "1px solid black",
+        borderRadius: "5px",
         position: "relative",
         fontSize: cellSize,
       }}

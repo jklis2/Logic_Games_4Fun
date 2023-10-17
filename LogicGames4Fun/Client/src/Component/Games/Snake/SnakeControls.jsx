@@ -9,26 +9,29 @@ function SnakeControls({
   onDifficultyChange,
 }) {
   return (
-    <div>
+    <>
       {!isGameStarted ? (
+        <div className="difficulty-card bg-light p-5 fs-4">
         <div>
-          <div>
-            <label>Difficulty: </label>
-            <select value={difficulty} onChange={onDifficultyChange}>
+          <h2 className="fw-300">Snake</h2>
+          <div className="mt-3 d-flex flex-column">
+            <label>Select a difficulty:</label>
+            <select className="mt-2 difficulty-card__select" value={difficulty} onChange={onDifficultyChange}>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
             </select>
           </div>
-          <button onClick={onGameStart}>Start</button>
+          <button onClick={onGameStart} className="button-light mt-4">Start</button>
         </div>
+      </div>
       ) : (
-        <>
-          <button onClick={onGameRestart}>Restart</button>
-          <button onClick={onMenuReturn}>Back to Menu</button>
-        </>
+        <div className="mt-3">
+          <button className="button-light" onClick={onGameRestart}>Restart</button>
+          <button className="button-light ms-3" onClick={onMenuReturn}>Back to Menu</button>
+        </div>
       )}
-    </div>
+      </>
   );
 }
 

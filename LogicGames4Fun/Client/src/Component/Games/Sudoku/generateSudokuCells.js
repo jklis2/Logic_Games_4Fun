@@ -109,8 +109,8 @@ export const generateFields = (
             Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1
           }`}
           style={{
-            marginRight: row === 2 || row === 5 ? "10px" : "0px",
-            marginBottom: col === 2 || col === 5 ? "10px" : "0px",
+            marginRight: row === 2 || row === 5 ? "2rem" : "0px",
+            marginBottom: col === 2 || col === 5 ? "1rem" : "0px",
           }}
         >
           <input

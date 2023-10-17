@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import SnakeBoard from './SnakeBoard';
-import SnakeControls from './SnakeControls';
+import React, { useState, useEffect, useCallback } from "react";
+import SnakeBoard from "./SnakeBoard";
+import SnakeControls from "./SnakeControls";
 
 const numRows = 20;
 const numCols = 20;
@@ -20,10 +20,10 @@ const difficultySpeeds = {
 
 export const SnakeGame = () => {
   const [snake, setSnake] = useState([{ row: 10, col: 10 }]);
-  const [dir, setDir] = useState('ArrowRight');
+  const [dir, setDir] = useState("ArrowRight");
   const [isGameOver, setIsGameOver] = useState(false);
   const [score, setScore] = useState(0);
-  const [difficulty, setDifficulty] = useState('medium');
+  const [difficulty, setDifficulty] = useState("medium");
   const [isGameStarted, setIsGameStarted] = useState(false);
 
   function generateSingleFood() {
@@ -33,8 +33,13 @@ export const SnakeGame = () => {
         row: Math.floor(Math.random() * numRows),
         col: Math.floor(Math.random() * numCols),
       };
-       // eslint-disable-next-line no-loop-func
-      if (!snake.some(s => s.row === foodPosition.row && s.col === foodPosition.col)) {
+      // eslint-disable-next-line no-loop-func
+      if (
+        !snake.some(
+          // eslint-disable-next-line no-loop-func
+          (s) => s.row === foodPosition.row && s.col === foodPosition.col
+        )
+      ) {
         break;
       }
     }
@@ -65,8 +70,8 @@ export const SnakeGame = () => {
     };
 
     if (
-      newHead.row < 0 || 
-      newHead.col < 0 || 
+      newHead.row < 0 ||
+      newHead.col < 0 ||
       newHead.row >= numRows ||
       newHead.col >= numCols
     ) {
@@ -106,7 +111,7 @@ export const SnakeGame = () => {
     setIsGameOver(false);
     setScore(0);
     setSnake([{ row: 10, col: 10 }]);
-    setDir('ArrowRight');
+    setDir("ArrowRight");
     setFoods(generateFoods());
   };
 
@@ -117,7 +122,7 @@ export const SnakeGame = () => {
       }
     };
 
-    window.addEventListener('keydown', handleKeydown);
+    window.addEventListener("keydown", handleKeydown);
 
     const gameInterval = setInterval(() => {
       if (!isGameOver) {
@@ -126,23 +131,45 @@ export const SnakeGame = () => {
     }, difficultySpeeds[difficulty]);
 
     return () => {
-      window.removeEventListener('keydown', handleKeydown);
+      window.removeEventListener("keydown", handleKeydown);
       clearInterval(gameInterval);
     };
   }, [isGameOver, moveSnake, difficulty]);
 
   return (
-    <div className="App">
-      <h1>Snake</h1>
+    <div className="container">
       {isGameStarted ? (
-        <>
-          <h2>Score: {score}</h2>
-          {isGameOver ? (
-            <h1>Game Over!</h1>
-          ) : (
-            <SnakeBoard snake={snake} foods={foods} cellSize={cellSize} numCols={numCols} numRows={numRows} />
-          )}
-          <SnakeControls 
+        <div className="container d-flex flex-column align-items-center">
+          <div className="h100 m my-3 p-4 d-flex flex-column justify-content-center align-items-center bg-light snake-board ">
+            <h2 className="fs-1">Score: {score}</h2>
+            {isGameOver ? (
+              <h1>Game Over!</h1>
+            ) : (
+              <SnakeBoard
+                snake={snake}
+                foods={foods}
+                cellSize={cellSize}
+                numCols={numCols}
+                numRows={numRows}
+              />
+            )}
+
+            <SnakeControls
+              isGameStarted={isGameStarted}
+              difficulty={difficulty}
+              onGameStart={() => {
+                setIsGameStarted(true);
+                restartGame();
+              }}
+              onGameRestart={restartGame}
+              onMenuReturn={() => setIsGameStarted(false)}
+              onDifficultyChange={(e) => setDifficulty(e.target.value)}
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="d-flex justify-content-center">
+          <SnakeControls
             isGameStarted={isGameStarted}
             difficulty={difficulty}
             onGameStart={() => {
@@ -153,21 +180,8 @@ export const SnakeGame = () => {
             onMenuReturn={() => setIsGameStarted(false)}
             onDifficultyChange={(e) => setDifficulty(e.target.value)}
           />
-        </>
-      ) : (
-        <SnakeControls 
-          isGameStarted={isGameStarted}
-          difficulty={difficulty}
-          onGameStart={() => {
-            setIsGameStarted(true);
-            restartGame();
-          }}
-          onGameRestart={restartGame}
-          onMenuReturn={() => setIsGameStarted(false)}
-          onDifficultyChange={(e) => setDifficulty(e.target.value)}
-        />
+        </div>
       )}
     </div>
   );
-
-  };
+};

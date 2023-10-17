@@ -37,25 +37,38 @@ export const SudokuGame = () => {
     return () => clearInterval(interval);
   });
 
+  const fields =  sudokuArr.length > 0 && generateFields(sudokuArr, setMistakes, styles, checkSudoku);
   return (
     <>
+      {/* <div className="test container my-5 d-flex justify-content-center">
+        <div className="row w-100">
+          {fields && fields.map(field => (
+            <div className="col-4 row">{field.map(cell => (
+              <div className="col-4">{cell}</div>
+            ))}</div>
+          ))}
+        </div>
+      </div> */}
+
       <div className="w-100 d-flex justify-content-center align-items-center">
-        <div className="w-75 mt-5">
-          <div className={styles["sudoku-actions"]}>
-            <div>
-              <Link to={`/Dashboard`} className={styles["back-link"]}>
+        <div className="container mt-5 ">
+          <div className="mx-5 my-2 row">
+            <div className="col-md-6">
+              <Link to={`/Dashboard`} className="fs-3">
                 <HiArrowLongLeft /> Back to games
               </Link>
             </div>
           </div>
-          <div className={styles["sudouku-board-container"]}>
+          <div className="d-flex justify-content-center">
             <div className={styles["sudouku-board"]}>
+            {/* <div className="d-flex justify-content-center align-items-center mt-3"> */}
               <div className={styles["grid-cells"]}>
                 {sudokuArr.length > 0 &&
                   generateFields(sudokuArr, setMistakes, styles, checkSudoku)}
               </div>
             </div>
           </div>
+
           <div className={styles["sudoku-game-info"]}>
             <Box
               sx={{
@@ -98,7 +111,7 @@ export const SudokuGame = () => {
       {ReactDOM.createPortal(
         <SudokuModal
           show={modalShow}
-          setSudokuArr={setSudokuArr} 
+          setSudokuArr={setSudokuArr}
           onHide={() => setModalShow(false)}
         />,
         document.getElementById("modal-root")
