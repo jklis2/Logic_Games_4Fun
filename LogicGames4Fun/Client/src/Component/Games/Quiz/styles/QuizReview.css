@@ -1,0 +1,15 @@
+.review {
+    text-align: center;
+}
+
+.review-question {
+    margin-bottom: 20px;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
