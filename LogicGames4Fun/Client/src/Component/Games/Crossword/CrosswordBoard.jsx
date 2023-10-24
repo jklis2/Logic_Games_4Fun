@@ -1,0 +1,132 @@
+import React, { useState, useEffect } from "react";
+import CrosswordCell from "./CrosswordCell";
+import CrosswordClue from "./CrosswordClue";
+import crosswordDictionary from "./crosswordDictionary"
+
+const numberOfWords = {
+  easy: 5,
+  medium: 8,
+  hard: 12,
+  impossible: 16,
+};
+
+function CrosswordBoard({ difficulty }) {
+  const [allWords] = useState(crosswordDictionary.map((entry) => entry.word));
+  const [selectedWords, setSelectedWords] = useState([]);
+  const [sampleBoard, setSampleBoard] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
+  const [resetTrigger, setResetTrigger] = useState(false);
+  const [filledCells, setFilledCells] = useState({});
+
+  useEffect(() => {
+    const filteredWords = crosswordDictionary
+      .filter((entry) => entry.difficulty === difficulty)
+      .map((entry) => entry.word);
+    const shuffledWords = [...filteredWords].sort(() => 0.5 - Math.random());
+
+    const selected = shuffledWords
+      .slice(0, numberOfWords[difficulty])
+      .map((word) => crosswordDictionary.find((entry) => entry.word === word));
+    setSelectedWords(selected);
+
+    const board = Array.from({ length: selected.length }).map((_, rowIndex) =>
+      Array.from({ length: 25 })
+        .map(
+          (
+            _,
+            cellIndex //If the word is larger than 10, we change the value
+          ) =>
+            selected[rowIndex] && cellIndex < selected[rowIndex].word.length
+              ? selected[rowIndex].word.charAt(cellIndex)
+              : null
+        )
+        .filter(Boolean)
+    );
+
+    setSampleBoard(board);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allWords]);
+
+  const resetGame = () => {
+    const filteredWords = crosswordDictionary
+      .filter((entry) => entry.difficulty === difficulty)
+      .map((entry) => entry.word);
+    const shuffledWords = [...filteredWords].sort(() => 0.5 - Math.random());
+
+    const selected = shuffledWords
+      .slice(0, numberOfWords[difficulty])
+      .map((word) => crosswordDictionary.find((entry) => entry.word === word));
+    setSelectedWords(selected);
+
+    const board = Array.from({ length: selected.length }).map((_, rowIndex) =>
+      Array.from({ length: 25 })
+        .map((_, cellIndex) =>
+          selected[rowIndex] && cellIndex < selected[rowIndex].word.length
+            ? selected[rowIndex].word.charAt(cellIndex)
+            : null
+        )
+        .filter(Boolean)
+    );
+
+    setSampleBoard(board);
+
+    setIsChecked(false);
+    setResetTrigger((prev) => !prev);
+  };
+
+  const checkAnswers = () => {
+    if (Object.keys(filledCells).length === sampleBoard.flat().length) {
+      setIsChecked(true);
+    } else {
+      alert("Please fill all the cells before checking.");
+    }
+  };
+  return (
+    <div className="board-container">
+      <div className="board">
+        {sampleBoard.map((row, rowIndex) => (
+          <div className="board-row" key={rowIndex}>
+            {row.map((cellData, cellIndex) => (
+              <CrosswordCell
+                key={cellIndex}
+                data={cellData}
+                expectedLetter={cellData}
+                checked={isChecked}
+                number={cellIndex === 0 ? rowIndex + 1 : null}
+                reset={resetTrigger}
+                onInputChange={(value) => {
+                  if (value) {
+                    setFilledCells((prev) => ({
+                      ...prev,
+                      [`${rowIndex}-${cellIndex}`]: true,
+                    }));
+                  } else {
+                    setFilledCells((prev) => {
+                      const updated = { ...prev };
+                      delete updated[`${rowIndex}-${cellIndex}`];
+                      return updated;
+                    });
+                  }
+                }}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+      <div className="clues">
+        <h3>Clues:</h3>
+        {selectedWords.map((entry, index) => (
+          <CrosswordClue key={index} data={entry} number={index + 1} />
+        ))}
+        <button onClick={checkAnswers} style={{ marginTop: "20px" }}>
+          Check
+        </button>
+        <button onClick={resetGame} style={{ marginLeft: "10px" }}>
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default CrosswordBoard;

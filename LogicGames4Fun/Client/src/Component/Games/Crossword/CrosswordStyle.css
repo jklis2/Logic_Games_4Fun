@@ -1,0 +1,67 @@
+.app-header {
+  margin-bottom: 20px;
+}
+
+.difficulty-selection, .start-button {
+  margin: 10px 0;
+}
+
+.correct {
+  color: green;
+  font-weight: bold;
+  
+}
+
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #333;
+  text-align: center;
+  line-height: 30px;
+  font-size: 16px;
+  margin: 2px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cell-container {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+.cell-number {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 10px;
+    color: #777;
+}
+
+.board-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.board {
+  width: 60%; 
+  margin-right: 10rem;
+}
+
+.clues {
+  width: 35%;
+}
+
+.input-group {
+  margin: 1rem;
+}
+
+.add-button {
+  margin-left: 1rem;
+}
