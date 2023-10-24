@@ -82,8 +82,8 @@ function CrosswordBoard({ difficulty }) {
     }
   };
   return (
-    <div className="board-container">
-      <div className="board">
+    <div className="row">
+      <div className="d-flex flex-column mt-1 justify-content-center col-md-8">
         {sampleBoard.map((row, rowIndex) => (
           <div className="board-row" key={rowIndex}>
             {row.map((cellData, cellIndex) => (
@@ -113,17 +113,19 @@ function CrosswordBoard({ difficulty }) {
           </div>
         ))}
       </div>
-      <div className="clues">
+      <div className="col-md-4 ">
         <h3>Clues:</h3>
         {selectedWords.map((entry, index) => (
           <CrosswordClue key={index} data={entry} number={index + 1} />
         ))}
-        <button onClick={checkAnswers} style={{ marginTop: "20px" }}>
+       <div className="d-flex mt-3">
+       <button className="btn btn-primary p-3 fs-4" onClick={checkAnswers}>
           Check
         </button>
-        <button onClick={resetGame} style={{ marginLeft: "10px" }}>
+        <button className="btn btn-primary p-3 fs-4 ms-1" onClick={resetGame}>
           Reset
         </button>
+       </div>
       </div>
     </div>
   );

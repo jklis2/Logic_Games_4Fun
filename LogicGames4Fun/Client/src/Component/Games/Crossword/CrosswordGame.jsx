@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./CrosswordStyle.css";
 import CrosswordBoard from "./CrosswordBoard";
 import CrosswordAddWord from "./CrosswordAddWord";
 
@@ -15,45 +14,50 @@ function CrosswordGame() {
 
   if (gameStarted) {
     return (
-      <div className="app">
-        <header className="app-header">
-          <h1>Crossword Puzzle - {difficulty}</h1>
-        </header>
-        <CrosswordBoard difficulty={difficulty} />
+      <div className="d-flex flex-column align-items-center container">
+        <div className="crossword bg-light m-5 p-5">
+          <h1 className="h1 text-center">Crossword Puzzle - {difficulty}</h1>
+          <CrosswordBoard difficulty={difficulty} />
+        </div>
       </div>
     );
   }
 
   if (showAddWord) {
     return (
-      <div className="app">
-        <CrosswordAddWord />
+      <div className="d-flex flex-column align-items-center container">
+        <div className="crossword bg-light m-5 p-5">
+          <CrosswordAddWord />
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>Crossword</h1>
-      </header>
-      <div className="difficulty-selection">
-        <select
-          value={difficulty}
-          onChange={(e) => setDifficulty(e.target.value)}
+    <div className="d-flex flex-column align-items-center container">
+      <div className="difficulty-card bg-light m-5 p-5">
+        <h1 className="h1 text-center">Crossword</h1>
+        <p className="fs-5 mt-3">Please select a difficulty.</p>
+          <select
+            value={difficulty}
+            onChange={(e) => setDifficulty(e.target.value)}
+            className="d-block mb-4 difficulty-card__select w-100 fs-4"
+          >
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="impossible">Impossible</option>
+          </select>
+        <button className="button-light" onClick={startGame}>
+          Start
+        </button>
+        <button
+          onClick={() => setShowAddWord(true)}
+          className="button-light ms-2" 
         >
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-          <option value="impossible">Impossible</option>
-        </select>
+          Add word to crossword
+        </button>
       </div>
-      <button onClick={startGame} className="start-button">
-        Start
-      </button>
-      <button onClick={() => setShowAddWord(true)} className="add-word-button">
-        Add word to crossword
-      </button>
     </div>
   );
 }

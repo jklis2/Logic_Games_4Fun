@@ -26,18 +26,18 @@ function CrosswordCell({ onInputChange,  data, word, checked, number, reset }) {
   }, [checked]);
 
   return (
-    <div className="cell-container">
-      {number && <span className="cell-number">{number}</span>}
+    <div className="crossword__cell-container">
+      {number && <span className="crossword__cell-number">{number}</span>}
       <input
         type="text"
         maxLength="1"
         value={inputValue}
         onChange={(e) => { setInputValue(e.target.value); onInputChange(e.target.value); }}
-        className={`cell ${
+        className={`crossword__cell ${
           checked && isCorrect !== null
             ? isCorrect
-              ? "correct"
-              : "incorrect"
+              ? "crossword__cell-correct"
+              : "crossword__cell-incorrect"
             : ""
         }`}
         id={word}

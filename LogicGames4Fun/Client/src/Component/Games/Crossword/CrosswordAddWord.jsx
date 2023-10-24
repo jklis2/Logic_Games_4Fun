@@ -9,34 +9,52 @@ function CrosswordAddWord() {
   };
 
   return (
-    <div className="add-word-container">
+    <div>
       <h2>Add word to crossword</h2>
 
-      <div className="input-group">
-        <label>Word:</label>
+      <div className="form-group">
+        <label className="fs-3" htmlFor="word">
+          Word:
+        </label>
         <input
           type="text"
+          className="form-control fs-3"
+          id="word"
           value={word}
           onChange={(e) => setWord(e.target.value)}
         />
       </div>
 
-      <div className="input-group">
-        <label>Definition:</label>
+      <div className="form-group mt-3">
+        <label className="fs-3" htmlFor="definition">
+          Definition:
+        </label>
         <input
           type="text"
+          className="form-control fs-3"
+          id="definition"
           value={definition}
           onChange={(e) => setDefinition(e.target.value)}
         />
       </div>
 
-      <div className="buttons-group">
-        <button onClick={() => window.location.reload()}>
-          Return to Main Menu
-        </button>
-        <button className="add-button" onClick={handleSubmit}>
-          Add
-        </button>
+      <div className="mt-4 row">
+        <div className="col-md-6">
+          <button
+            className="btn btn-primary fs-4 p-3 w-100"
+            onClick={() => window.location.reload()}
+          >
+            Return to Main Menu
+          </button>
+        </div>
+        <div className="col-md-6">
+          <button
+            className="btn btn-primary fs-4 p-3 w-100"
+            onClick={handleSubmit}
+          >
+            Add
+          </button>
+        </div>
       </div>
     </div>
   );

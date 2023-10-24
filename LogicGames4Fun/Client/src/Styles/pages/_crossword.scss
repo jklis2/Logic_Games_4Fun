@@ -1,0 +1,46 @@
+.crossword {
+  border-radius: 1rem;
+  box-shadow: 0 1.4rem 2.8rem rgba(0, 0, 0, 0.25),
+    0 1rem 1rem rgba(0, 0, 0, 0.22);
+  transition: all 0.5s;
+
+  &__select {
+    border: 0;
+  }
+
+  &__cell-container {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+  }
+
+  &__cell {
+    width: 3rem;
+    height: 3rem;
+    border: 0.1rem solid #333;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    margin: 2px;
+    padding: 0;
+  }
+
+  &__cell-number {
+    position: absolute;
+    top: 0.2rem;
+    left: 0.4rem;
+    font-size: 1rem;
+    color: #777;
+  }
+
+  &__cell-incorrect {
+    color: red;
+    font-weight: bold;
+  }
+
+  &__cell-correct {
+    color: green;
+    font-weight: bold;
+  }
+}
