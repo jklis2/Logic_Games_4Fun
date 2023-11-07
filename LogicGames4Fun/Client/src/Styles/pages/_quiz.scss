@@ -1,0 +1,13 @@
+.quiz {
+  &__review {
+    text-align: center;
+  }
+
+  &__correct {
+    color: green;
+  }
+
+  &__incorrect {
+    color: red;
+  }
+}

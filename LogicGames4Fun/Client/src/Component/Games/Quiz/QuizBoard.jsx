@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import quizDictionary from "./quizDictionary";
-import "./styles/QuizBoard.css";
 
 function QuizBoard({ category, setScreen, setQuestions, setUserAnswers }) {
   const [questions, setQuestionsState] = useState([]);
@@ -58,33 +57,50 @@ function QuizBoard({ category, setScreen, setQuestions, setUserAnswers }) {
     <div className="game-board">
       {showScore ? (
         <div>
-          <p>
+          <p className="text-center fs-4">
             You scored {calculateScore()} out of {questions.length}!
           </p>
-          <button onClick={() => setScreen("mainMenu")}>Back to Menu</button>
-          <button onClick={handlePlayAgain}>Play Again</button>
-          <button onClick={() => setScreen("review")}>Review</button>
+          <button
+            className="btn btn-primary p-3 fs-5"
+            onClick={() => setScreen("mainMenu")}
+          >
+            Back to Menu
+          </button>
+          <button
+            className="btn btn-primary mx-3 p-3 fs-5"
+            onClick={handlePlayAgain}
+          >
+            Play Again
+          </button>
+          <button
+            className="btn btn-primary p-3 fs-5"
+            onClick={() => setScreen("review")}
+          >
+            Review
+          </button>
         </div>
       ) : (
         questions.length > 0 && (
           <div>
-            <div className="question-section">
+            <div className="question-section fs-3">
               <p>
                 Question {currentQuestionIndex + 1}/{questions.length}:{" "}
                 {questions[currentQuestionIndex].question}
               </p>
             </div>
-            <div className="options-section">
+            <div className="row">
               {Object.entries(
                 shuffleAnswers(questions[currentQuestionIndex].options)
               ).map(([key, value]) => (
-                <button
-                  key={key}
-                  onClick={() => handleAnswerClick(key)}
-                  className="option-button"
-                >
-                  {key.toUpperCase()}: {value}
-                </button>
+                <div className="col-md-6">
+                  <button
+                    key={key}
+                    onClick={() => handleAnswerClick(key)}
+                    className="btn btn-primary fs-3 w-100 my-2"
+                  >
+                    {key.toUpperCase()}: {value}
+                  </button>
+                </div>
               ))}
             </div>
           </div>

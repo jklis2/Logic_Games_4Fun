@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import "./styles/QuizGame.css";
 import QuizMenu from "./QuizMenu";
 import QuizBoard from "./QuizBoard";
 import QuizQuestionForm from "./QuizQuestionForm";
 import QuizReview from "./QuizReview";
 
-const QuizGame = () =>  {
+const QuizGame = () => {
   const [screen, setScreen] = useState("mainMenu");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [questions, setQuestions] = useState([]);
@@ -34,30 +33,32 @@ const QuizGame = () =>  {
   };
 
   return (
-    <div className="App">
-      {screen === "mainMenu" && (
-        <QuizMenu setScreen={changeScreen} categories={categories} />
-      )}
-      {screen === "gameBoard" && (
-        <QuizBoard
-          category={selectedCategory}
-          setScreen={changeScreen}
-          setQuestions={setQuestions}
-          setUserAnswers={setUserAnswers}
-        />
-      )}
-      {screen === "questionForm" && (
-        <QuizQuestionForm setScreen={changeScreen} categories={categories} />
-      )}
-      {screen === "review" && (
-        <QuizReview
-          questions={questions}
-          userAnswers={userAnswers}
-          setScreen={setScreen}
-        />
-      )}
+    <div className="min-vh-100 d-flex justify-content-center align-items-center">
+      <div className="difficulty-card bg-light p-5 text-">
+        {screen === "mainMenu" && (
+          <QuizMenu setScreen={changeScreen} categories={categories} />
+        )}
+        {screen === "gameBoard" && (
+          <QuizBoard
+            category={selectedCategory}
+            setScreen={changeScreen}
+            setQuestions={setQuestions}
+            setUserAnswers={setUserAnswers}
+          />
+        )}
+        {screen === "questionForm" && (
+          <QuizQuestionForm setScreen={changeScreen} categories={categories} />
+        )}
+        {screen === "review" && (
+          <QuizReview
+            questions={questions}
+            userAnswers={userAnswers}
+            setScreen={setScreen}
+          />
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default QuizGame;

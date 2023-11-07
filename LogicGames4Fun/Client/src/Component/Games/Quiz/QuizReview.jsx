@@ -9,8 +9,8 @@ function QuizReview({ questions, userAnswers, setScreen }) {
   };
 
   return (
-    <div className="review">
-      <h1>
+    <div className="text-center">
+      <h1 className="text-center">
         Review - You scored {calculateScore()} out of {questions.length}
       </h1>
       {questions.map((question, index) => (

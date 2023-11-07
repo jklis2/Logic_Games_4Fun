@@ -3,6 +3,7 @@ import Tile2048 from "./Tile2048";
 
 function Board2048({ tiles }) {
   return (
+    <>
     <div className="board">
       {tiles.map((row, rowIndex) =>
         row.map((tile, colIndex) => (
@@ -16,6 +17,7 @@ function Board2048({ tiles }) {
         ))
       )}
     </div>
+    </>
   );
 }
 

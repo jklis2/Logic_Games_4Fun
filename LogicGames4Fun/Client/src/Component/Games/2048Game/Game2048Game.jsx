@@ -16,12 +16,14 @@ export const Game2048Game = () => {
   };
 
   return (
-    <div className="App">
-      {gameStarted ? (
+    <div className="min-vh-100 d-flex flex-column align-items-center justify-content-center">
+     <div className="difficulty-card bg-light p-5">
+     {gameStarted ? (
         <Logic2048 level={level} onReturnToStart={handleReturnToStart} />
       ) : (
         <StartScreen2048 onStart={handleStart} />
       )}
+     </div>
     </div>
   );
 }

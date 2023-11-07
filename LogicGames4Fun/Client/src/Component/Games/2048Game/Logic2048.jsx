@@ -195,7 +195,9 @@ function Logic2048({ level, onReturnToStart }) {
   }
 
   return (
-    <div className="game-container">
+    // <div className="game-container">
+    //   <div className="score-board">
+      <>
       <div className="score-board">
         <span>Punkty: {score}</span>
       </div>
@@ -208,7 +210,7 @@ function Logic2048({ level, onReturnToStart }) {
         <button onClick={resetGame}>Reset</button>
         <button onClick={onReturnToStart}>Powrót do menu</button>
       </div>
-    </div>
+    </>
   );
 }
 
