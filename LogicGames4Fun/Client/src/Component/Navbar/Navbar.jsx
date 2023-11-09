@@ -15,6 +15,7 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { SwitchThemeForm } from "../UI/SwitchTheme/SwitchTheme";
 import { Link } from "react-router-dom";
+import bg from './dragon-scales.svg'
 
 export const Navbar = () => {
   const settings = [
@@ -79,7 +80,7 @@ export const Navbar = () => {
       <div id="dashboard-page-content">
         <AppBar
           position="static"
-          style={{ background: "rgba(29, 125, 189, 0.753)" }}
+          style={{ background:'rgba(51, 13, 43, .75)' }}
         >
           <Container maxWidth="xl">
             <Toolbar disableGutters>
