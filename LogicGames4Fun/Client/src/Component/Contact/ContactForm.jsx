@@ -12,9 +12,9 @@ export const ContactForm = () => {
               alt="Logic Games 4Fun Logo"
             ></img>
           </div>
-          <h2 className="h2">Contact Us</h2>
+          <h2 className="h2 mx-4" >Contact Us</h2>
         </div>
-        <form onSubmit={(e) => e.preventDefault()} action="">
+        <form className="mt-5" onSubmit={(e) => e.preventDefault()} action="">
           <input
             className="contact__input"
             type="text"
