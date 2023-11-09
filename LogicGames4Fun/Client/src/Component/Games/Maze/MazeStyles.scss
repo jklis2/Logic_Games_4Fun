@@ -1,0 +1,74 @@
+.topWall {
+  border-top: 2px solid black;
+}
+
+.rightWall {
+  border-right: 2px solid black;
+}
+
+.bottomWall {
+  border-bottom: 2px solid black;
+}
+
+.leftWall {
+  border-left: 2px solid black;
+}
+
+.sol {
+  div {
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+    background: peachpuff;
+    display: inline-block;
+  }
+}
+
+.currentPosition.destination {
+  div {
+    animation: rainbowBall 5s infinite;
+  }
+}
+
+#maze {
+  margin-top: 15px;
+  border-collapse: collapse;
+  td {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100vh;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cheat-mode-info {
+  padding-left: 10px;
+  color: red;
+}
+
+.status-message {
+  color: green;
+  text-align: center;
+}
+
+#maze td {
+  min-width: 20px;
+  min-height: 20px;
+  width: 22px; //No effect of moving walls
+  height: 22px; //No effect of moving walls
+  text-align: center;
+  vertical-align: middle;
+}
