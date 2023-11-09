@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import CrosswordBoard from "./CrosswordBoard";
 import CrosswordAddWord from "./CrosswordAddWord";
+import { DifficultyMenu } from "../../DifficultyMenus/DifficultyMenu";
 
 function CrosswordGame() {
+  const difficultyList = ["easy", "medium", "hard", "impossible"];
+
   const [gameStarted, setGameStarted] = useState(false);
   const [difficulty, setDifficulty] = useState("easy");
   const [showAddWord, setShowAddWord] = useState(false);
@@ -35,29 +38,15 @@ function CrosswordGame() {
 
   return (
     <div className="d-flex flex-column align-items-center container">
-      <div className="difficulty-card bg-light m-5 p-5">
-        <h1 className="h1 text-center">Crossword</h1>
-        <p className="fs-5 mt-3">Please select a difficulty.</p>
-          <select
-            value={difficulty}
-            onChange={(e) => setDifficulty(e.target.value)}
-            className="d-block mb-4 difficulty-card__select w-100 fs-4"
-          >
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-            <option value="impossible">Impossible</option>
-          </select>
-        <button className="button-light" onClick={startGame}>
-          Start
-        </button>
-        <button
-          onClick={() => setShowAddWord(true)}
-          className="button-light ms-2" 
-        >
-          Add word to crossword
-        </button>
-      </div>
+      <DifficultyMenu
+        gameName="Crossoword"
+        diffList={difficultyList}
+        initialDiff={difficulty}
+        onDiffChange={(e) => setDifficulty(e.target.value)}
+        onGameStart={startGame}
+        optionalAction={() => setShowAddWord(true)}
+        optionalActionTitle="Add word to crossword"
+      />
     </div>
   );
 }

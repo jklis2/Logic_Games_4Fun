@@ -23,7 +23,7 @@ export const SnakeGame = () => {
   const [dir, setDir] = useState("ArrowRight");
   const [isGameOver, setIsGameOver] = useState(false);
   const [score, setScore] = useState(0);
-  const [difficulty, setDifficulty] = useState("medium");
+  const [difficulty, setDifficulty] = useState("easy");
   const [isGameStarted, setIsGameStarted] = useState(false);
 
   function generateSingleFood() {

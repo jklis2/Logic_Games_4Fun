@@ -1,3 +1,11 @@
-@mixin box {
-    
+@mixin input {
+  padding: 0.8rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  color: rgba(0, 0, 0, 0.52) !important;
+  border-radius: 1rem !important;
+  width: auto;
+  font-size: 2rem;
 }

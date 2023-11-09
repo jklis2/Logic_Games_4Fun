@@ -198,7 +198,9 @@ export default function MazeGame() {
   return (
     <>
       {showStartScreen ? (
+       <>
         <MazeStartScreen onStart={handleStart} />
+       </>
       ) : (
         <div
           className="App"

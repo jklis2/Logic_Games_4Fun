@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { TicTacToeMenu } from "../../DifficultyMenus/TicTacToeMenu";
 
 function DifficultPage({ setGameType, setPlayerNames, setDifficulty }) {
   const [player1, setPlayer1] = useState("");
@@ -17,7 +18,10 @@ function DifficultPage({ setGameType, setPlayerNames, setDifficulty }) {
   };
 
   return (
-    <div>
+    <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center">
+      <TicTacToeMenu 
+      
+      />
       <button onClick={startSinglePlayerGame}>Single Player</button>
       <input
         placeholder="Your Name"

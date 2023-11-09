@@ -3,15 +3,30 @@
   box-shadow: 0 1.4rem 2.8rem rgba(0, 0, 0, 0.25),
     0 1rem 1rem rgba(0, 0, 0, 0.22);
   transition: all 0.5s;
+  padding: 5rem;
+  width: auto !important;
+
+  &__title {
+    font-size: 5.5rem !important;
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  &__label {
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.55);
+  }
 
   &__select {
-    padding: 0.8rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: 1px solid rgba(0, 0, 0, 0.22);
-    color: rgba(0, 0, 0, 0.52) !important;
-    border-radius: 1rem;
+    @include input;
+  }
+
+  &__input {
+    @include input;
+  }
+
+  &__checkbox {
+    width: 3rem;
+    height: 3rem;
   }
 
   &:hover {

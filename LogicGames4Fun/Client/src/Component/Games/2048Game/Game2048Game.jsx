@@ -17,13 +17,13 @@ export const Game2048Game = () => {
 
   return (
     <div className="min-vh-100 d-flex flex-column align-items-center justify-content-center">
-     <div className="difficulty-card bg-light p-5">
-     {gameStarted ? (
-        <Logic2048 level={level} onReturnToStart={handleReturnToStart} />
+      {gameStarted ? (
+        <div className="difficulty-card bg-light p-5">
+          <Logic2048 level={level} onReturnToStart={handleReturnToStart} />
+        </div>
       ) : (
         <StartScreen2048 onStart={handleStart} />
       )}
-     </div>
     </div>
   );
-}
+};

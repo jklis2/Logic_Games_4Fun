@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MazeDifficultyMenu } from "../../DifficultyMenus/MazeDifficultyMenu";
 import "./MazeStyles.scss";
 
 const MazeStartScreen = ({ onStart }) => {
@@ -20,33 +21,13 @@ const MazeStartScreen = ({ onStart }) => {
 
   return (
     <div className="start-screen">
-      <h1>Maze Game</h1>
-      <div className="input-group">
-        <label htmlFor="size">Size of maze (5-40):</label>
-        <input
-          id="size"
-          type="number"
-          value={size}
-          onChange={handleSizeChange}
-          min="5"
-          max="40"
-        />
-      </div>
-      <div className="input-group">
-        <label htmlFor="cheatMode">Cheat mode:</label>
-        <input
-          id="cheatMode"
-          type="checkbox"
-          checked={cheatMode}
-          onChange={handleCheatModeChange}
-        />
-        {cheatMode && (
-          <span className="cheat-mode-info">
-            Your results will not be saved!
-          </span>
-        )}
-      </div>
-      <button onClick={handleStartGame}>Start Game</button>
+      <MazeDifficultyMenu 
+      size={size}
+      onChangeSize={handleSizeChange}
+      cheatMode={cheatMode}
+      onSelectCheatMode = {handleCheatModeChange}
+      onGameStart={handleStartGame}
+      />
     </div>
   );
 };

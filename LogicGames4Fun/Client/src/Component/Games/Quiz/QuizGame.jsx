@@ -34,29 +34,33 @@ const QuizGame = () => {
 
   return (
     <div className="min-vh-100 d-flex justify-content-center align-items-center">
-      <div className="difficulty-card bg-light p-5 text-">
-        {screen === "mainMenu" && (
-          <QuizMenu setScreen={changeScreen} categories={categories} />
-        )}
-        {screen === "gameBoard" && (
+      {screen === "mainMenu" && (
+        <QuizMenu setScreen={changeScreen} categories={categories} />
+      )}
+      {screen === "gameBoard" && (
+        <div className="difficulty-card bg-light p-5 text-">
           <QuizBoard
             category={selectedCategory}
             setScreen={changeScreen}
             setQuestions={setQuestions}
             setUserAnswers={setUserAnswers}
           />
-        )}
-        {screen === "questionForm" && (
+        </div>
+      )}
+      {screen === "questionForm" && (
+        <div className="difficulty-card bg-light p-5 text-">
           <QuizQuestionForm setScreen={changeScreen} categories={categories} />
-        )}
-        {screen === "review" && (
+        </div>
+      )}
+      {screen === "review" && (
+        <div className="difficulty-card bg-light p-5 text-">
           <QuizReview
             questions={questions}
             userAnswers={userAnswers}
             setScreen={setScreen}
           />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { generateHoles } from "./BallInTheHoleUtils";
-import StartScreen from "./BallInTheHoleStartScreen";
 import MathOperation, {
   generateMathOperation,
 } from "./MathOperationBallInTheHole";
+import { DifficultyMenu } from "../../DifficultyMenus/DifficultyMenu";
 
 const BallInTheHoleGame = () => {
+  const difficultyList = ["easy", "medium", "hard", "impossible"];
+
   const [ballPosition, setBallPosition] = useState({ top: 250, left: 250 });
   const [holes, setHoles] = useState([]);
   const [game, setGame] = useState(false);
@@ -106,14 +108,14 @@ const BallInTheHoleGame = () => {
     if (directions.ArrowRight) {
       newBallPosition.left = Math.min(newBallPosition.left + speed, maxX);
     }
-  
+
     const holeHitIndex = holes.findIndex((hole) => {
       const dx = newBallPosition.left - hole.left;
       const dy = newBallPosition.top - hole.top;
       const distance = Math.sqrt(dx * dx + dy * dy);
       return distance < 20;
     });
-  
+
     if (holeHitIndex !== -1) {
       if (holes[holeHitIndex].result === mathResult) {
         setScore((prevScore) => prevScore + 1);
@@ -135,7 +137,6 @@ const BallInTheHoleGame = () => {
     }
     setBallPosition(newBallPosition);
   };
-  
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -228,12 +229,14 @@ const BallInTheHoleGame = () => {
   }, [mathResult, difficulty, maxX, maxY]);
 
   return (
-    <div className="container">
+    <div className="min-vh-100 d-flex justify-content-center align-items-center">
       {!game ? (
-        <StartScreen
-          onStart={startGame}
-          difficulty={difficulty}
-          setDifficulty={setDifficulty}
+        <DifficultyMenu
+          gameName="Ball in the hole"
+          diffList={difficultyList}
+          initialDiff={difficulty}
+          onGameStart={startGame}
+          onDiffChange={(e) => setDifficulty(e.target.value)}
         />
       ) : (
         <div className="game-container">
