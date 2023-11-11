@@ -7,8 +7,9 @@ import {
   toggleFlag,
   checkGameOver,
   revealAllMines,
-} from "./minesweepersHelpers"
+} from "./minesweepersHelpers";
 import MinesweeperBoard from "./MinesweeperBoard";
+import MinesweeperStartScreen from "./MinesweeperStartScreen";
 
 const MinesweeperLogic = () => {
   const [difficulty, setDifficulty] = useState("easy");
@@ -58,38 +59,57 @@ const MinesweeperLogic = () => {
     }
   };
 
+  const [showStartScreen, setShowStartScreen] = useState(true);
+
+  const handleStartGame = () => {
+    setShowStartScreen(false);
+  };
+
   const resetBoard = () => {
     setBoard(initializeBoard(DIFFICULTIES[difficulty]));
     setFlagsPlaced(0);
     setGameStatus("ongoing");
   };
 
+  const handleBackToMenu = () => {
+    setShowStartScreen(true);
+    resetBoard();
+  };
+
   const minesLeft = DIFFICULTIES[difficulty].mines - flagsPlaced;
 
   return (
     <div className="custom-div">
-      <select
-        className="custom-select"
-        value={difficulty}
-        onChange={handleDifficultyChange}
-      >
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
-      <button className="reset-button" onClick={resetBoard}>
-        Reset
-      </button>
-      <div className="custom-div">Mines left: {minesLeft}</div>
-      {gameStatus === "lost" && <p>Game Over! Click "Reset" to play again.</p>}
-      {gameStatus === "won" && (
-        <p>Congratulations! You won! Click "Reset" to play again.</p>
+      {showStartScreen ? (
+        <MinesweeperStartScreen
+          onStart={handleStartGame}
+          onDifficultyChange={handleDifficultyChange}
+          difficulty={difficulty}
+        />
+      ) : (
+        <>
+          <div className="mines-left-display">Mines left: {minesLeft}</div>
+          <MinesweeperBoard
+            board={board}
+            onCellClick={handleCellClick}
+            onCellRightClick={handleCellRightClick}
+          />
+          <div className="button-group">
+            <button className="reset-button" onClick={resetBoard}>
+              Reset
+            </button>
+            <button className="back-to-menu-button" onClick={handleBackToMenu}>
+              Back to Menu
+            </button>
+          </div>
+          {gameStatus === "lost" && (
+            <p>Game Over! Click "Reset" to play again.</p>
+          )}
+          {gameStatus === "won" && (
+            <p>Congratulations! You won! Click "Reset" to play again.</p>
+          )}
+        </>
       )}
-      <MinesweeperBoard
-        board={board}
-        onCellClick={handleCellClick}
-        onCellRightClick={handleCellRightClick}
-      />
     </div>
   );
 };
