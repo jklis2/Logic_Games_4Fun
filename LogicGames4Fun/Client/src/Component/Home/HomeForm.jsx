@@ -69,7 +69,6 @@ export const HomeForm = () => {
           </div>
         </div>
 
-        {/* facts */}
         <div className="home__facts mt-4 justify-content-start mx-0 mx-md-5 row">
           <div className="fact-card d-flex flex-sm-row flex-column col-md-12 col-lg-6">
             <img

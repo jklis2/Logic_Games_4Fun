@@ -1,0 +1,38 @@
+.internal-navbar {
+  background-color: rgba(51, 13, 43, 0.75) !important;
+  color: #fff !important;
+  transition: all 0.4s;
+
+  &__title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0;
+
+    &:hover {
+      color: rgba(#fff, 0.7);
+      cursor: pointer;
+    }
+  }
+
+  &__icon {
+    width: 6.4rem;
+    height: 6.4rem;
+  }
+
+  .dropdown {
+    &-menu {
+      font-size: 1.6rem;
+    }
+
+    & > * {
+      outline: none !important;
+      border: 0 !important;
+    }
+
+    &-toggle-no-caret {
+      &::after {
+        display: none !important;
+      }
+    }
+  }
+}

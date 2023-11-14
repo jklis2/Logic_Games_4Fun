@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "../Navbar/Navbar";
+import { InternalNavbar } from "../InternalNavbar/InternalNavbar";
 import DashboardFooter from "./DashboardFooter";
 import { useNavigate } from "react-router-dom";
 import { SudokuHowToPlayPop } from "./Pops/SudokuHowToPlayPop";
@@ -17,7 +17,7 @@ export const DashboardForm = () => {
 
   return (
     <div className="dashboard ">
-      <Navbar />
+      <InternalNavbar />
       <div className="d-flex flex-column justify-content-center align-items-center ">
         <div className="my-5 py-5 ">
           <h2 className="h2 text-center mb-5">Logic games</h2>

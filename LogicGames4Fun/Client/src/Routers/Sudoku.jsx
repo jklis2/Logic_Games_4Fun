@@ -1,12 +1,12 @@
 import React from "react";
 import { SudokuGame } from "../Component/Games/Sudoku/SudokuGame";
-import { Navbar } from "../Component/Navbar/Navbar";
+import { InternalNavbar } from "../Component/InternalNavbar/InternalNavbar";
 import Footer from '../Component/Dashboard/DashboardFooter'
 
 export const Sudoku = () => {
   return (
     <>
-      <Navbar/>
+      <InternalNavbar/>
       <SudokuGame />
       <Footer/>
     </>

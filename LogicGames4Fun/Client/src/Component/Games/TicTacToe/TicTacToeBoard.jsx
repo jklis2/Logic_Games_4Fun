@@ -1,40 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import TicTacToeSquare from "./TicTacToeSquare";
-import { easyAI, mediumAI, hardAI } from "./AI";
+import { easyAI, mediumAI, hardAI } from "./utils/AI";
+import { checkWin } from "./utils/checkWin";
+import { checkTie } from "./utils/checkTie";
 
 function TicTacToeBoard({ gameType, setGameType, playerNames, difficulty }) {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState("X");
   const [winner, setWinner] = useState(null);
   const [isTied, setIsTied] = useState(false);
-
-  const checkWin = (board, player) => {
-    const winningCombinations = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-
-    for (let combination of winningCombinations) {
-      if (
-        board[combination[0]] === player &&
-        board[combination[1]] === player &&
-        board[combination[2]] === player
-      ) {
-        return true;
-      }
-    }
-    return false;
-  };
-
-  const checkTie = (board) => {
-    return board.every((square) => square);
-  };
 
   const makeMove = useCallback(
     (index) => {
@@ -79,8 +53,8 @@ function TicTacToeBoard({ gameType, setGameType, playerNames, difficulty }) {
   };
 
   return (
-    <div>
-      <div className="status">
+    <div className="difficulty-card bg-light d-flex flex-column align-items-center tictactoe">
+      <div className="tictactoe__status my-3">
         {winner
           ? `Winner: ${playerNames[winner === "X" ? "playerX" : "playerO"]}`
           : isTied
@@ -89,16 +63,20 @@ function TicTacToeBoard({ gameType, setGameType, playerNames, difficulty }) {
               playerNames[currentPlayer === "X" ? "playerX" : "playerO"]
             }`}
       </div>
-      <div className="TicTacToeBoard">
+      <div className="tictactoe__board">
         {board.map((value, index) => (
-          <TicTacToeSquare key={index} value={value} onClick={() => makeMove(index)} />
+          <TicTacToeSquare
+            key={index}
+            value={value}
+            onClick={() => makeMove(index)}
+          />
         ))}
       </div>
-      <div className="controls">
-        <button className="reset-button" onClick={resetGame}>
+      <div className="mt-5 d-flex ">
+        <button className="button-light" onClick={resetGame}>
           Reset Game
         </button>
-        <button className="back-button" onClick={() => setGameType(null)}>
+        <button className="button-light ms-2" onClick={() => setGameType(null)}>
           Back to Menu
         </button>
       </div>

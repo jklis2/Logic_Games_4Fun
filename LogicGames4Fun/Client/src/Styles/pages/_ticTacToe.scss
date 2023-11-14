@@ -1,17 +1,14 @@
-.TicTacToeBoard {
+.tictactoe {
+  &__board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
-    width: 200px;
-}  
+    gap: 0.5rem;
+    min-width: 200px;
+  }
 
-.TicTacToeSquare {
-    width: 60px;
-    height: 60px;
-    border: 1px solid black;
-    font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  &__status {
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
 }

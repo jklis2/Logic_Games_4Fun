@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import DifficultPage from "./DifficultPage";
 import TicTacToeBoard from "./TicTacToeBoard";
+import { TicTacToeMenu } from "../../DifficultyMenus/TicTacToeMenu";
 
 export const TicTacToeGame = () => {
   const [gameType, setGameType] = useState(null);
@@ -11,11 +11,12 @@ export const TicTacToeGame = () => {
   const [difficulty, setDifficulty] = useState("medium");
 
   return (
-    <div className="App">
+   <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center">
       {!gameType ? (
-        <DifficultPage
+        <TicTacToeMenu
           setGameType={setGameType}
           setPlayerNames={setPlayerNames}
+          difficulty={difficulty}
           setDifficulty={setDifficulty}
         />
       ) : (
@@ -28,4 +29,4 @@ export const TicTacToeGame = () => {
       )}
     </div>
   );
-  };
+};

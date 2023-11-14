@@ -15,9 +15,10 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { SwitchThemeForm } from "../UI/SwitchTheme/SwitchTheme";
 import { Link } from "react-router-dom";
-import bg from './dragon-scales.svg'
 
-export const Navbar = () => {
+
+//Remove it in the future!
+export const NavbarOld = () => {
   const settings = [
     "🪪 Profile",
     "🏠 Dashboard",

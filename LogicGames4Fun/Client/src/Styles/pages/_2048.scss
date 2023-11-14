@@ -13,8 +13,11 @@
     position: relative;
     width: calc(36px * 10 + 3px * 9);
     height: calc(36px * 10 + 3px * 9);
-    // margin-bottom: 20px;
 }
+
+//board-easy
+//board-medium
+//board-hard
 
 .tile {
     width: 36px;
@@ -28,8 +31,6 @@
     transition: transform 0.2s ease-in-out;
     overflow: hidden;
 }
-
-/* Początek kolorów poszczególnych kafelków */
 
 .tile-2 {
     background-color: #eee4da;

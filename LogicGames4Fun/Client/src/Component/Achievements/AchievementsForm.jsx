@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "../Navbar/Navbar";
+import { InternalNavbar } from "../InternalNavbar/InternalNavbar";
 import DashboardFooter from "../Dashboard/DashboardFooter";
 import ProgressBarValue from "./ProgressBarValue";
 import { achievementList } from "./achievementList";
@@ -7,7 +7,7 @@ import { achievementList } from "./achievementList";
 export const AchievementsForm = () => {
   return (
     <>
-      <Navbar />
+      <InternalNavbar />
       <h1 className="h1 text-center my-5">Achievements</h1>
       <div className="container">
         <div className="row">
