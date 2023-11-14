@@ -13,12 +13,13 @@
     width: 3rem;
     height: 3rem;
     display: inline-block;
+    margin: 0.2rem;
   }
 
   &__cell {
     width: 3rem;
     height: 3rem;
-    border: 0.1rem solid #333;
+    // border: 0.1rem solid #333;
     text-align: center;
     line-height: 30px;
     font-size: 16px;

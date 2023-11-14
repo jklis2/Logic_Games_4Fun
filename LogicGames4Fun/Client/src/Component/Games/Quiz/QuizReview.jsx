@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles/QuizReview.css";
 
 function QuizReview({ questions, userAnswers, setScreen }) {
   const calculateScore = () => {

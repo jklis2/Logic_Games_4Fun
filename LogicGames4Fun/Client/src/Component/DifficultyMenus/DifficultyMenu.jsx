@@ -33,7 +33,7 @@ export const DifficultyMenu = ({
         <div className="row mt-4">
           {optionalAction && (
             <>
-              <div className="col-md-6 d-flex justify-content-md-end justify-content-center">
+              <div className="col-md-6">
                 <button onClick={onGameStart} className="button-light w-100">
                   Start
                 </button>

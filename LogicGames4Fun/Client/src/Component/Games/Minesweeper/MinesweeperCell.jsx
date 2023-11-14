@@ -5,7 +5,9 @@ const MinesweeperCell = ({ cell, onClick, onContextMenu }) => {
   const cellStyle = {
     width: "30px",
     height: "30px",
-    border: "1px solid gray",
+    // border: "1px solid gray",
+    fontSize: "1.6rem",
+    margin: "0.2rem",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -25,7 +27,7 @@ const MinesweeperCell = ({ cell, onClick, onContextMenu }) => {
 
   return (
     <button
-      className="custom-button"
+      className="square"
       style={cellStyle}
       onClick={onClick}
       onContextMenu={onContextMenu}

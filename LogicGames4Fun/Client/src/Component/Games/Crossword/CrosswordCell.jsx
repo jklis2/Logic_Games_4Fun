@@ -1,8 +1,9 @@
 import React from "react";
+import { useEffect, useState } from "react";
 
 function CrosswordCell({ onInputChange,  data, word, checked, number, reset }) {
-  const [inputValue, setInputValue] = React.useState("");
-  const [isCorrect, setIsCorrect] = React.useState(null);
+  const [inputValue, setInputValue] = useState("");
+  const [isCorrect, setIsCorrect] = useState(null);
 
   const checkWord = () => {
     const expectedLetter = data;
@@ -14,11 +15,11 @@ function CrosswordCell({ onInputChange,  data, word, checked, number, reset }) {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setInputValue("");
   }, [reset]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (checked) {
       checkWord();
     }
@@ -33,7 +34,7 @@ function CrosswordCell({ onInputChange,  data, word, checked, number, reset }) {
         maxLength="1"
         value={inputValue}
         onChange={(e) => { setInputValue(e.target.value); onInputChange(e.target.value); }}
-        className={`crossword__cell ${
+        className={`crossword__cell square ${
           checked && isCorrect !== null
             ? isCorrect
               ? "crossword__cell-correct"
