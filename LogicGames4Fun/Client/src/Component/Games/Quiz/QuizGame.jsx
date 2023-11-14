@@ -9,12 +9,14 @@ const QuizGame = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [questions, setQuestions] = useState([]);
   const [userAnswers, setUserAnswers] = useState([]);
+
   const categories = [
-    "Geography",
-    "Animals",
-    "History",
-    "Science",
-    "Literature",
+    "random",
+    "geography",
+    "animals",
+    "history",
+    "science",
+    "literature",
   ];
 
   const getRandomCategory = () => {
@@ -23,7 +25,7 @@ const QuizGame = () => {
   };
 
   const changeScreen = (newScreen, category) => {
-    if (newScreen === "gameBoard" && !category) {
+    if (newScreen === "gameBoard" && category === "random") {
       const randomCategory = getRandomCategory();
       setSelectedCategory(randomCategory);
     } else {

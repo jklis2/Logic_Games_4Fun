@@ -12,9 +12,10 @@ function QuizMenu({ setScreen, categories }) {
     <DifficultyMenu
       gameName="Quiz"
       diffList={categories}
-      initialDiff=""
-      onDiffChange={setSelectedCategory}
+      initialDiff={selectedCategory}
+      onDiffChange={e => setSelectedCategory(e.target.value)}
       onGameStart={startGame}
+
       optionalAction={() => setScreen("questionForm")}
       optionalActionTitle="Add Question"
     ></DifficultyMenu>

@@ -9,12 +9,13 @@ export const DifficultyMenu = ({
   optionalAction,
   optionalActionTitle,
 }) => {
+  const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1);
   return (
     <div className="difficulty-card text-center bg-light p-5 fs-4">
       <div className="d-flex flex-column">
         <h1 className="difficulty-card__title mb-3">{gameName}</h1>
         <label htmlFor="difficulty" className="difficulty-card__label mb-2">
-          Select a {gameName === "Quiz" ? 'category' : 'difficulty'}
+          Select a {gameName === "Quiz" ? "category" : "difficulty"}
         </label>
         <select
           id="difficulty"
@@ -23,7 +24,9 @@ export const DifficultyMenu = ({
           onChange={onDiffChange}
         >
           {diffList.map((level, i) => (
-            <option key={i}>{level}</option>
+            <option key={i} value={level}>
+              {capitalize(level)}
+            </option>
           ))}
         </select>
 
