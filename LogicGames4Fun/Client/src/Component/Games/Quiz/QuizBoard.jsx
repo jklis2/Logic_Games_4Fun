@@ -61,19 +61,19 @@ function QuizBoard({ category, setScreen, setQuestions, setUserAnswers }) {
             You scored {calculateScore()} out of {questions.length}!
           </p>
           <button
-            className="btn btn-primary p-3 fs-5"
+            className="button-light p-3 fs-5"
             onClick={() => setScreen("mainMenu")}
           >
             Back to Menu
           </button>
           <button
-            className="btn btn-primary mx-3 p-3 fs-5"
+            className="button-light mx-3 p-3 fs-5"
             onClick={handlePlayAgain}
           >
             Play Again
           </button>
           <button
-            className="btn btn-primary p-3 fs-5"
+            className="button-light p-3 fs-5"
             onClick={() => setScreen("review")}
           >
             Review
@@ -83,7 +83,7 @@ function QuizBoard({ category, setScreen, setQuestions, setUserAnswers }) {
         questions.length > 0 && (
           <div>
             <div className="question-section fs-3">
-              <p>
+              <p> 
                 Question {currentQuestionIndex + 1}/{questions.length}:{" "}
                 {questions[currentQuestionIndex].question}
               </p>
@@ -96,7 +96,7 @@ function QuizBoard({ category, setScreen, setQuestions, setUserAnswers }) {
                   <button
                     key={key}
                     onClick={() => handleAnswerClick(key)}
-                    className="btn btn-primary fs-3 w-100 my-2"
+                    className="button-light fs-3 w-100 my-2"
                   >
                     {key.toUpperCase()}: {value}
                   </button>
