@@ -1,7 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { generateMaze, solve } from "./MazeUtils";
 import MazeStartScreen from "./MazeStartScreen";
-import "./MazeStyles.scss";
 
 export default function MazeGame() {
   const [gameId, setGameId] = useState(1);
@@ -198,12 +197,12 @@ export default function MazeGame() {
   return (
     <>
       {showStartScreen ? (
-       <>
-        <MazeStartScreen onStart={handleStart} />
-       </>
+        <>
+          <MazeStartScreen onStart={handleStart} />
+        </>
       ) : (
         <div
-          className="App"
+          className="difficulty-card d-flex flex-column bg-light"
           ref={gameAreaRef}
           onKeyDown={handleMove}
           onTouchStart={handleTouchStart}
@@ -255,8 +254,17 @@ export default function MazeGame() {
               ))}
             </tbody>
           </table>
-          <button onClick={() => setShowStartScreen(true)}>Back to Menu</button>
-          <button onClick={resetGame}>Reset Game</button>
+          <div className="mt-2">
+            <button
+              className="button-light"
+              onClick={() => setShowStartScreen(true)}
+            >
+              Back to Menu
+            </button>
+            <button className="button-light" onClick={resetGame}>
+              Reset Game
+            </button>
+          </div>
         </div>
       )}
     </>

@@ -137,7 +137,7 @@ export const SnakeGame = () => {
   }, [isGameOver, moveSnake, difficulty]);
 
   return (
-    <div className="container">
+    <div className="min-vh-100 d-flex flex-column justify-content-center">
       {isGameStarted ? (
         <div className="container d-flex flex-column align-items-center">
           <div className="h100 m my-3 p-4 d-flex flex-column justify-content-center align-items-center bg-light snake-board ">

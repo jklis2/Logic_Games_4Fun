@@ -1,0 +1,77 @@
+.ball-in-the-hole {
+  &__time {
+    font-size: 2.4rem;
+  }
+
+  &__score {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  &__operation {
+    font-size: 2rem;
+  }
+
+  &__field {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.22);
+    border-radius: 1rem;
+  }
+
+  &__ball {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    border-radius: 50%;
+    position: absolute;
+    background: radial-gradient(
+      circle at 50% 120%,
+      rgba(51, 13, 43, 0.05),
+      rgba(51, 13, 43, 0.1) 10%,
+      rgba(51, 13, 43, 0.8) 80%,
+      rgb(51, 13, 43) 100%
+    );
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 5%;
+      left: 25%;
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 50% 0px,
+        #ffffff,
+        rgba(255, 255, 255, 0) 58%
+      );
+      filter: blur(1px);
+      z-index: 2;
+    }
+  }
+
+  &__hole {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 50% 50%,
+      #000,
+      #000000e5,
+      #000000bd,
+      #00000059
+    );
+  }
+
+  &__result {
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+}

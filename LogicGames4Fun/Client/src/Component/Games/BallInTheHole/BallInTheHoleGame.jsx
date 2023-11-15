@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import { generateHoles } from "./BallInTheHoleUtils";
-import MathOperation, {
-  generateMathOperation,
-} from "./MathOperationBallInTheHole";
+import { generateHoles } from "./utils/generateHoles";
+import MathOperation from "./MathOperationBallInTheHole";
+import { generateMathOperation } from "./utils/generateMathOperation";
 import { DifficultyMenu } from "../../DifficultyMenus/DifficultyMenu";
 
 const BallInTheHoleGame = () => {
   const difficultyList = ["easy", "medium", "hard", "impossible"];
-
   const [ballPosition, setBallPosition] = useState({ top: 250, left: 250 });
   const [holes, setHoles] = useState([]);
   const [game, setGame] = useState(false);
   const [time, setTime] = useState(0);
   const [timerId, setTimerId] = useState(null);
-  const [records] = useState([]);
+  // const [records] = useState([]);
   const [difficulty, setDifficulty] = useState("easy");
   const [score, setScore] = useState(0);
   const [directions, setDirections] = useState({
@@ -91,6 +88,7 @@ const BallInTheHoleGame = () => {
       window.removeEventListener("deviceorientation", onDeviceMove);
       clearInterval(timerId);
     };
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [game]);
 
   const handleBallMovement = (newBallPosition) => {
@@ -146,6 +144,7 @@ const BallInTheHoleGame = () => {
     return () => {
       clearInterval(intervalId);
     };
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ballPosition, directions]);
 
   const startGame = () => {
@@ -239,17 +238,19 @@ const BallInTheHoleGame = () => {
           onDiffChange={(e) => setDifficulty(e.target.value)}
         />
       ) : (
-        <div className="game-container">
-          <div className="time">Time: {formatTime(time)}</div>
-          <div className="score">Score: {score}</div>
+        <div className="difficulty-card ball-in-the-hole text-center bg-light p-5 fs-4">
+          <div className="ball-in-the-hole__time mb-2">
+            Time: {formatTime(time)}
+          </div>
+          <div className="ball-in-the-hole__score mb-2">Score: {score}</div>
           <MathOperation
             difficulty={difficulty}
             setMathResult={setMathResult}
             trigger={trigger}
           />
-          <div className="field">
+          <div className="ball-in-the-hole__field">
             <div
-              className="ball"
+              className="ball-in-the-hole__ball"
               style={{
                 top: ballPosition.top + "px",
                 left: ballPosition.left + "px",
@@ -258,23 +259,28 @@ const BallInTheHoleGame = () => {
             {holes.map((hole, index) => (
               <div
                 key={index}
-                className="hole"
+                className="ball-in-the-hole__hole"
                 style={{ top: hole.top + "px", left: hole.left + "px" }}
               >
                 {hole.result !== null && (
-                  <span className="hole-result">{hole.result}</span>
+                  <span className="ball-in-the-hole__result text-danger">
+                    {hole.result}
+                  </span>
                 )}
               </div>
             ))}
           </div>
-          <button onClick={() => setGame(false)}>End Game</button>
+          <button className="button-light mt-3" onClick={() => setGame(false)}>
+            End Game
+          </button>
         </div>
       )}
-      <div className="scores">
+      {/* ??? */}
+      {/* <div className="scores">
         {records.map((record, index) => (
           <div key={index}>{record}</div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

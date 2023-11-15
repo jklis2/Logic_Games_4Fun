@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { MazeDifficultyMenu } from "../../DifficultyMenus/MazeDifficultyMenu";
-import "./MazeStyles.scss";
 
 const MazeStartScreen = ({ onStart }) => {
   const [size, setSize] = useState(10);

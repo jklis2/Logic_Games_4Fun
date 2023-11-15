@@ -119,10 +119,10 @@ function CrosswordBoard({ difficulty }) {
           <CrosswordClue key={index} data={entry} number={index + 1} />
         ))}
        <div className="d-flex mt-3">
-       <button className="btn btn-primary p-3 fs-4" onClick={checkAnswers}>
+       <button className="button-light p-3 fs-4" onClick={checkAnswers}>
           Check
         </button>
-        <button className="btn btn-primary p-3 fs-4 ms-1" onClick={resetGame}>
+        <button className="button-light  p-3 fs-4 ms-1" onClick={resetGame}>
           Reset
         </button>
        </div>
