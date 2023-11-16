@@ -11,7 +11,6 @@ const BallInTheHoleGame = () => {
   const [game, setGame] = useState(false);
   const [time, setTime] = useState(0);
   const [timerId, setTimerId] = useState(null);
-  // const [records] = useState([]);
   const [difficulty, setDifficulty] = useState("easy");
   const [score, setScore] = useState(0);
   const [directions, setDirections] = useState({
@@ -120,6 +119,7 @@ const BallInTheHoleGame = () => {
       } else {
         alert(`You have lost. Your result is: ${score}`);
         setGame(false);
+    resetGameState(); 
       }
       setTrigger((prev) => prev + 1);
       const newHoles = generateHoles(
@@ -147,7 +147,16 @@ const BallInTheHoleGame = () => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ballPosition, directions]);
 
-  const startGame = () => {
+const resetGameState = () => {
+  setBallPosition({ top: 250, left: 250 }); 
+  setDirections({                           
+    ArrowUp: false,
+    ArrowDown: false,
+    ArrowLeft: false,
+    ArrowRight: false,
+  });
+};
+const startGame = () => {
     setGame(true);
     setTime(0);
     let holesCount;
@@ -283,12 +292,6 @@ const BallInTheHoleGame = () => {
           </button>
         </div>
       )}
-      {/* ??? */}
-      {/* <div className="scores">
-        {records.map((record, index) => (
-          <div key={index}>{record}</div>
-        ))}
-      </div> */}
     </div>
   );
   
