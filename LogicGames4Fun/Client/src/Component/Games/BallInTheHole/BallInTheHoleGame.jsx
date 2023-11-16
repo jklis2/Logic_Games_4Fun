@@ -249,19 +249,27 @@ const BallInTheHoleGame = () => {
             trigger={trigger}
           />
           <div className="ball-in-the-hole__field">
-            <div
+            <img
+              src={`${process.env.PUBLIC_URL}/BallInTheHoleElements/Ball.png`} 
+              alt="Ball"
               className="ball-in-the-hole__ball"
               style={{
                 top: ballPosition.top + "px",
                 left: ballPosition.left + "px",
+                position: 'absolute'
               }}
-            ></div>
+            />
             {holes.map((hole, index) => (
               <div
                 key={index}
-                className="ball-in-the-hole__hole"
-                style={{ top: hole.top + "px", left: hole.left + "px" }}
+                className="ball-in-the-hole__hole-container"
+                style={{ top: hole.top + "px", left: hole.left + "px", position: 'absolute' }}
               >
+                <img
+                  src={`${process.env.PUBLIC_URL}/BallInTheHoleElements/Hole.png`}
+                  alt="Hole"
+                  className="ball-in-the-hole__hole"
+                />
                 {hole.result !== null && (
                   <span className="ball-in-the-hole__result text-danger">
                     {hole.result}
@@ -283,6 +291,7 @@ const BallInTheHoleGame = () => {
       </div> */}
     </div>
   );
+  
 };
 
 export default BallInTheHoleGame;

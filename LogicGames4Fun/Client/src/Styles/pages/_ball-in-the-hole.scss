@@ -26,13 +26,6 @@
     margin: 0;
     border-radius: 50%;
     position: absolute;
-    background: radial-gradient(
-      circle at 50% 120%,
-      rgba(51, 13, 43, 0.05),
-      rgba(51, 13, 43, 0.1) 10%,
-      rgba(51, 13, 43, 0.8) 80%,
-      rgb(51, 13, 43) 100%
-    );
 
     &::before {
       content: "";
@@ -57,13 +50,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: radial-gradient(
-      circle at 50% 50%,
-      #000,
-      #000000e5,
-      #000000bd,
-      #00000059
-    );
+
   }
 
   &__result {
