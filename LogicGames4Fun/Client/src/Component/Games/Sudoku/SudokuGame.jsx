@@ -36,20 +36,10 @@ export const SudokuGame = () => {
     }, 1000);
     return () => clearInterval(interval);
   });
-
+  // eslint-disable-next-line
   const fields =  sudokuArr.length > 0 && generateFields(sudokuArr, setMistakes, styles, checkSudoku);
   return (
     <>
-      {/* <div className="test container my-5 d-flex justify-content-center">
-        <div className="row w-100">
-          {fields && fields.map(field => (
-            <div className="col-4 row">{field.map(cell => (
-              <div className="col-4">{cell}</div>
-            ))}</div>
-          ))}
-        </div>
-      </div> */}
-
       <div className="w-100 d-flex justify-content-center align-items-center">
         <div className="container mt-5 ">
           <div className="mx-5 my-2 row">

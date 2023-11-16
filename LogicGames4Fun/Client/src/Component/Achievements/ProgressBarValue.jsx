@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import ProgressBar from "./ProgressBar";
 
 export default function ProgressBarValue() {
+  // eslint-disable-next-line
   const [progress, setProgress] = React.useState(10);
 
   return (
