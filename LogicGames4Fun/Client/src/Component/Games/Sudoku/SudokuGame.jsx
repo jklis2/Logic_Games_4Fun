@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Sudoku from "./sudoku";
 import checkSudoku from "./checkSudoku";
-import styles from "./SudokuGame.module.scss";
-import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
-import { HiArrowLongLeft } from "react-icons/hi2";
 import { solveSudoku } from "./backtracking";
 import { generateFields } from "./generateSudokuCells";
 import SudokuModal from "./SudokuModal";
 import ReactDOM from "react-dom";
+import Badge from "react-bootstrap/Badge";
 
 export const SudokuGame = () => {
   const level = localStorage.getItem("sudokuLvl") || 1;
   const [mistakes, setMistakes] = useState(0);
+  const [win, setWin] = useState(false);
   const [time, setTime] = useState(0);
   const [sudokuArr, setSudokuArr] = useState([]);
   const [modalShow, setModalShow] = useState(false);
+
+  useEffect(() => {
+    if (win) {
+      setModalShow(true);
+    }
+  }, [win]);
 
   useEffect(() => {
     const solvedArray = solveSudoku(level);
@@ -36,73 +40,49 @@ export const SudokuGame = () => {
     }, 1000);
     return () => clearInterval(interval);
   });
-  // eslint-disable-next-line
-  const fields =  sudokuArr.length > 0 && generateFields(sudokuArr, setMistakes, styles, checkSudoku);
+
   return (
     <>
-      <div className="w-100 d-flex justify-content-center align-items-center">
-        <div className="container mt-5 ">
-          <div className="mx-5 my-2 row">
-            <div className="col-md-6">
-              <Link to={`/Dashboard`} className="fs-3">
-                <HiArrowLongLeft /> Back to games
-              </Link>
-            </div>
-          </div>
+      <div className="sudoku min-vh-100 w-100 d-flex justify-content-center align-items-center">
+        <div className="container mt-5">
           <div className="d-flex justify-content-center">
-            <div className={styles["sudouku-board"]}>
-            {/* <div className="d-flex justify-content-center align-items-center mt-3"> */}
-              <div className={styles["grid-cells"]}>
+            <div className="sudoku__board d-flex justify-content-center align-items-center mt-2">
+              <div className="sudoku__grid w-100 h-md-100 text-center">
                 {sudokuArr.length > 0 &&
-                  generateFields(sudokuArr, setMistakes, styles, checkSudoku)}
+                  generateFields(sudokuArr, setMistakes, checkSudoku, setWin)}
               </div>
             </div>
           </div>
 
-          <div className={styles["sudoku-game-info"]}>
-            <Box
-              sx={{
-                backgroundColor: "rgba(29, 125, 189, 0.753)",
-                color: "white",
-                borderRadius: "7px",
-                padding: "0.5rem",
-                fontWeight: "bold",
-              }}
-            >
-              Time: {String(Math.trunc(time / 3600)).padStart(2, 0)}:
-              {String(Math.trunc(time / 60)).padStart(2, 0)}:
-              {String(time % 60).padStart(2, 0)}
-            </Box>
-            <Box
-              sx={{
-                backgroundColor: "rgba(29, 125, 189, 0.753)",
-                color: "white",
-                borderRadius: "7px",
-                padding: "0.5rem",
-                fontWeight: "bold",
-              }}
-            >
-              Mistakes: {mistakes}
-            </Box>
-            <Box
-              sx={{
-                backgroundColor: "rgba(29, 125, 189, 0.753)",
-                color: "white",
-                borderRadius: "7px",
-                padding: "0.5rem",
-                fontWeight: "bold",
-              }}
-            >
-              Level: {level}
-            </Box>
+          <div className="row mt-5">
+            <div className="col-md-4 p-1">
+              <Badge className="w-100 p-3" bg="">
+                Time: {String(Math.trunc(time / 3600)).padStart(2, 0)}:
+                {String(Math.trunc(time / 60)).padStart(2, 0)}:
+                {String(time % 60).padStart(2, 0)}
+              </Badge>
+            </div>
+
+            <div className="col-md-4 p-1">
+              <Badge className="w-100 col-md-4 p-3" bg="">
+                Mistakes: {mistakes}
+              </Badge>
+            </div>
+
+            <div className="col-md-4 p-1">
+              <Badge className="w-100 col-md-4 p-3" bg="">
+                Level: {level}
+              </Badge>
+            </div>
           </div>
         </div>
       </div>
       {ReactDOM.createPortal(
         <SudokuModal
           show={modalShow}
-          setSudokuArr={setSudokuArr}
-          onHide={() => setModalShow(false)}
+          resetArr={setSudokuArr}
+          onHide={setModalShow}
+          setTime={setTime}
         />,
         document.getElementById("modal-root")
       )}

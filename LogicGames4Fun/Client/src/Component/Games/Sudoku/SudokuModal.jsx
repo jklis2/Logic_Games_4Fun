@@ -2,21 +2,22 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
 
-const SudokuModal = (props) => {
+const SudokuModal = ({ show, resetArr, onHide, setTime, children }) => {
   const navigate = useNavigate();
 
   const nextLevelHandler = () => {
-    props.onHide();
-    const lvl = localStorage.getItem('sudokuLvl');
+    onHide();
+    const lvl = localStorage.getItem("sudokuLvl");
     const newlvl = +lvl + 1;
-    localStorage.setItem('sudokuLvl', newlvl.toString());
-    props.setSudokuArr([]);
-    navigate('/games/sudoku');
+    localStorage.setItem("sudokuLvl", newlvl.toString());
+    resetArr([]);
+    setTime(0);
+    navigate("/games/sudoku");
   };
 
   return (
     <Modal
-      {...props}
+      show={show}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered

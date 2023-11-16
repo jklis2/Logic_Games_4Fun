@@ -202,7 +202,7 @@ export default function MazeGame() {
         </>
       ) : (
         <div
-          className="difficulty-card d-flex flex-column bg-light"
+          className="difficulty-card d-flex align-items-center flex-column bg-light"
           ref={gameAreaRef}
           onKeyDown={handleMove}
           onTouchStart={handleTouchStart}
@@ -254,7 +254,7 @@ export default function MazeGame() {
               ))}
             </tbody>
           </table>
-          <div className="mt-2">
+          <div className="mt-3">
             <button
               className="button-light"
               onClick={() => setShowStartScreen(true)}

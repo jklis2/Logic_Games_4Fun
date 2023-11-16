@@ -65,7 +65,7 @@ export const DashboardForm = () => {
                   <div className="game-card">
                     <div className="game-card__overlay d-flex justify-content-center align-items-center flex-column">
                       <OverlayTrigger
-                        trigger="click"
+                      s  trigger="click"
                         placement="bottom"
                         overlay={MemoryHowToPlayPop}
                       >

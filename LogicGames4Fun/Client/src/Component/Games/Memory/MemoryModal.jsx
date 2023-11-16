@@ -12,6 +12,7 @@ const MemoryModal = (props) => {
     const newlvl = +lvl + 1;
     localStorage.setItem("memoryLvl", newlvl.toString());
     props.setNoOfMatched(0);
+    props.setLevel(newlvl);
     props.setMemLevels(generateMemoryLevels().filter((mem) => mem.lvl === +newlvl));
     props.initGame();
     navigate("/games/memory");

@@ -1,61 +1,61 @@
-export const generateFields = (
-  sudokuArr,
-  setMistakes,
-  styles,
-  checkSudoku
-) => {
+export const generateFields = (sudokuArr, setMistakes, checkSudoku, setWin) => {
   const cellChangeHandler = (e, col, row) => {
     const check =
-      e.target.value !== "" && checkSudoku(sudokuArr, col, row, +e.target.value);
-    const { exists } = check;
+      e.target.value !== "" &&
+      checkSudoku(sudokuArr, col, row, +e.target.value);
+    const { exists, error } = check;
+
+    if (sudokuArr.every((arr) => arr.value !== null) && !error) {
+      setWin((isWon) => !isWon);
+    }
 
     if (exists) {
       const { existsRow, existsColumn, existsBox } = check;
       document
         .querySelector(`.col${col}.row${row}`)
-        ?.classList.add(`${styles.error}`);
+        ?.classList.add(`text-danger`);
 
       document
         .querySelector(
           `.col${existsRow?.[0]?.column}.row${existsRow?.[0]?.row}`
         )
-        ?.classList.add(`${styles.error}`);
+        ?.classList.add(`text-danger`);
       document
         .querySelector(
           `.col${existsColumn?.[0]?.column}.row${existsColumn?.[0]?.row}`
         )
-        ?.classList.add(`${styles.error}`);
+        ?.classList.add(`text-danger`);
       document
         .querySelector(
           `.col${existsBox?.[0]?.column}.row${existsBox?.[0]?.row}`
         )
-        ?.classList.add(`${styles.error}`);
+        ?.classList.add(`text-danger`);
       setMistakes((mistakes) => (mistakes += 1));
     } else {
       // console.log(sudokuArr);
       document
         .querySelector(`.col${col}.row${row}`)
-        .classList.remove(`${styles.error}`);
+        .classList.remove(`text-danger`);
       document
         .querySelectorAll(`.col${col}`)
-        ?.forEach((colClass) => colClass.classList.remove(`${styles.error}`));
+        ?.forEach((colClass) => colClass.classList.remove(`text-danger`));
       document
         .querySelectorAll(`.row${row}`)
-        ?.forEach((rowClass) => rowClass.classList.remove(`${styles.error}`));
+        ?.forEach((rowClass) => rowClass.classList.remove(`text-danger`));
       document
         .querySelectorAll(
           `.box${Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1}`
         )
-        ?.forEach((boxClass) => boxClass.classList.remove(`${styles.error}`));
+        ?.forEach((boxClass) => boxClass.classList.remove(`text-danger`));
     }
   };
 
   const cellFocusHandler = (col, row) => {
-    const previous = document.querySelector(`.${styles.focused}`);
-    previous && previous.classList.remove(`${styles.focused}`);
+    const previous = document.querySelector(".sudoku__grid--focused");
+    previous && previous.classList.remove("sudoku__grid--focused");
     document
       .querySelector(`.col${col}.row${row}`)
-      .classList.add(`${styles.focused}`);
+      .classList.add(`sudoku__grid--focused`);
 
     const helpRows = document.querySelectorAll(`.row${row}`);
     const helpCols = document.querySelectorAll(`.col${col}`);
@@ -64,13 +64,13 @@ export const generateFields = (
     );
 
     helpRows.forEach((row) => {
-      row.classList.add(`${styles.helper}`);
+      row.classList.add(`sudoku__grid--helper`);
     });
     helpCols.forEach((col) => {
-      col.classList.add(`${styles.helper}`);
+      col.classList.add(`sudoku__grid--helper`);
     });
     helpBox.forEach((box) => {
-      box.classList.add(`${styles.helper}`);
+      box.classList.add(`sudoku__grid--helper`);
     });
   };
 
@@ -82,13 +82,13 @@ export const generateFields = (
     );
 
     rows.forEach((row) => {
-      row.classList.remove(`${styles.helper}`);
+      row.classList.remove(`sudoku__grid--helper`);
     });
     cols.forEach((col) => {
-      col.classList.remove(`${styles.helper}`);
+      col.classList.remove(`sudoku__grid--helper`);
     });
     helpBox.forEach((box) => {
-      box.classList.remove(`${styles.helper}`);
+      box.classList.remove(`sudoku__grid--helper`);
     });
   };
 
@@ -105,12 +105,12 @@ export const generateFields = (
       cells.push(
         <div
           key={noOfCell}
-          className={`${styles.cell} col${col} row${row} box${
+          className={`sudoku__grid__cell d-flex align-items-center col${col} row${row} box${
             Math.floor(col / 3) * 3 + Math.floor(row / 3) + 1
           }`}
           style={{
-            marginRight: row === 2 || row === 5 ? "2rem" : "0px",
-            marginBottom: col === 2 || col === 5 ? "1rem" : "0px",
+            marginRight: row === 2 || row === 5 ? "1.5rem" : "0px",
+            marginBottom: col === 2 || col === 5 ? "2rem" : "0px",
           }}
         >
           <input
@@ -126,7 +126,7 @@ export const generateFields = (
             }}
             onChange={(e) => cellChangeHandler(e, col, row)}
             onFocus={() => cellFocusHandler(col, row)}
-            onBlur = {() => cellLeaveHandler(col, row)}
+            onBlur={() => cellLeaveHandler(col, row)}
           />
         </div>
       );

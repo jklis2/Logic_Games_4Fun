@@ -1,124 +1,98 @@
 @mixin center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  @mixin gridCenter {
-    display: grid;
-    align-items: center;
-    text-align: center;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  
-  @mixin keys($color, $bgColor) {
-    height: 50px;
-    border-radius: 10px;
-    background-color: $bgColor;
-    color: $color;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: grid;
-    align-items: center;
-    font-weight: bold;
-  }
-  
-  .game-container {
-    width: 100%;
-    @include center();
-  }
-  
-  .game-internal-container {
-    margin-top: 1.5rem;
-    width: 75%;
-    display: grid;
-  }
-  
-  .memory-actions {
-    @include gridCenter();
-  
-    button {
-      background-color: rgba(29, 125, 189, 0.753);
-      border: 1px solid rgba(29, 125, 189, 0.753);
-  
-      &:hover,
-      &:focus {
-        background-color: rgba(29, 125, 189, 0.753);
-        border: 1px solid rgba(29, 125, 189, 0.753);
-      }
-    }
-  }
-  
-  .memory-board-container {
-    @include center();
-  }
-  
-  .memory-board {
-    @include center();
-    margin-top: 1.5rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  }
-  
-  .memory-game-info {
-    margin-top: 20px;
-    @include center();
-    text-align: center;
-  }
-  
-  .back-link {
-    font-size: 20px;
-    text-decoration: none !important;
+@mixin gridCenter {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@mixin keys($color, $bgColor) {
+  height: 50px;
+  border-radius: 10px;
+  background-color: $bgColor;
+  color: $color;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  font-weight: bold;
+}
+
+.game-container {
+  width: 100%;
+  @include center();
+}
+
+.memory-board-container {
+  @include center();
+}
+
+.memory-board {
+  @include center();
+  margin-top: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.memory-game-info {
+  margin-top: 20px;
+  @include center();
+  text-align: center;
+}
+
+.back-link {
+  font-size: 20px;
+  text-decoration: none !important;
+  color: #000 !important;
+
+  &:visited {
+    text-decoration: none;
     color: #000 !important;
-  
-    &:visited {
-      text-decoration: none;
-      color: #000 !important;
-    }
   }
+}
 
-  /// Game board
+.game-block {
+  padding: 10px;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+}
 
-  .game-block {
-    padding: 10px;
-    gap: 1rem;
-    display: grid;
+.card {
+  cursor: pointer;
+  width: 150px;
+  height: 170px;
 
-    grid-template-columns: repeat(4, auto)
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: transform 0.7s;
+  border: 1px solid rgba(160, 160, 160, 0.75);
+}
 
-  }
+.card.matched {
+  transform: rotateY(180deg);
+}
 
-  .card {
-    cursor: pointer;
-    width: 150px;
-    height: 170px;
+.card img,
+.card svg {
+  width: 70%;
+  position: absolute;
+  backface-visibility: hidden;
+  pointer-events: none;
+}
 
-    background-color: white;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform-style: preserve-3d;
-    transition: transform .7s;
-    border: 1px solid rgba(160, 160, 160, 0.75);
-  }
-  
-  .card.matched {
-    transform: rotateY(180deg);
-  }
-  
-  .card img,
-  .card svg {
-    width: 70%;
-    position: absolute;
-    backface-visibility: hidden;
-    pointer-events: none;
-  }
-  
-  .card svg {
-    width: 100px;
-    height: 100px;
-    opacity: .3;
-  }
+.card svg {
+  width: 100px;
+  height: 100px;
+  opacity: 0.3;
+}
