@@ -155,6 +155,7 @@ const resetGameState = () => {
     ArrowLeft: false,
     ArrowRight: false,
   });
+  setScore(0);
 };
 const startGame = () => {
     setGame(true);
