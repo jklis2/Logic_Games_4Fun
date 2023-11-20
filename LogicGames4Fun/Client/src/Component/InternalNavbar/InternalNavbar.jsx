@@ -12,6 +12,7 @@ export const InternalNavbar = () => {
     "🏠 Dashboard",
     "❤️ Favourite games",
     "🏆 Achievements",
+    "⚙️ Settings",
     "🐾 Logout",
   ];
 

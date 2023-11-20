@@ -8,6 +8,7 @@ import { AboutUs } from "./Routers/AboutUs";
 import { MyProfile } from "./Routers/Profile";
 import { PrivacyPolicy } from "./Routers/PrivacyPolicy";
 import { Achievements } from "./Routers/Achievements";
+import { Settings } from "./Routers/Settings";
 import { Navigate } from "react-router-dom";
 import { Sudoku } from "./Routers/Sudoku";
 import { Crossword } from "./Routers/Crossword";
@@ -34,6 +35,7 @@ function App() {
         <Route path="/profile" element={<MyProfile />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/achievements" element={<Achievements />} />
+        <Route path="/settings" element={<Settings/>} />
         <Route path="/games/sudoku" element={<Sudoku />} />
         <Route path="/games/crossword" element={<Crossword />} />
         <Route path="/games/memory" element={<Memory />} />
