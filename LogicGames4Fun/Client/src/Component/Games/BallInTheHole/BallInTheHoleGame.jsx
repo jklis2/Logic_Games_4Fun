@@ -129,7 +129,8 @@ const BallInTheHoleGame = () => {
         10,
         40,
         mathResult,
-        difficulty
+        difficulty,
+        ballPosition
       );
       setHoles(newHoles);
     }
@@ -186,7 +187,8 @@ const startGame = () => {
       10,
       40,
       mathOperation.result,
-      difficulty
+      difficulty,
+      ballPosition
     );
 
     setHoles(holes);
