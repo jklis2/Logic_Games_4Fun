@@ -8,11 +8,13 @@
 
 .board {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 3px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; // Twój obecny odstęp między kafelkami
+    padding: 10px;
+    background-color: #BBADA0;
     position: relative;
-    width: calc(36px * 10 + 3px * 9);
-    height: calc(36px * 10 + 3px * 9);
+    width: calc(100px * 4 + 10px * 3);
+    height: calc(100px * 4 + 10px * 3);
 }
 
 //board-easy
@@ -20,8 +22,11 @@
 //board-hard
 
 .tile {
-    width: 36px;
-    height: 36px;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid #BBADA0;
+    width: 100px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,3 +152,4 @@
 button{
     margin: 10px;
 }
+

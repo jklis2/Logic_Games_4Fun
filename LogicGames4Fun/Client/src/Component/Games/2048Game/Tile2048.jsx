@@ -2,9 +2,8 @@ import React from "react";
 
 function Tile2048({ value, x, y, merged, oldX, oldY, newTile }) {
   const positionStyle = {
-    transform: `translate(${y * 70}px, ${x * 70}px)`,
-    zIndex: value,
-  };
+    transform: `translate(${y * 110}px, ${x * 110}px)`,
+};
 
   const previousPositionStyle = {
     transform: `translate(${oldY * 70}px, ${oldX * 70}px)`,

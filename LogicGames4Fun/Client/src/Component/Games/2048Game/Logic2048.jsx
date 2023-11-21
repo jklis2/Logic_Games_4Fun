@@ -15,8 +15,6 @@ function Logic2048({ level, onReturnToStart }) {
         return 6;
       case "extreme":
         return 8;
-      case "impossible":
-        return 10;
       default:
         return 4;
     }
@@ -195,20 +193,22 @@ function Logic2048({ level, onReturnToStart }) {
   }
 
   return (
-    // <div className="game-container">
-    //   <div className="score-board">
-      <>
-      <div className="score-board">
-        <span>Punkty: {score}</span>
+    <>
+      <div className="score-board score-board d-flex justify-content-center align-items-center">
+        <span>Score: {score}</span>
       </div>
-      <Board2048 tiles={tiles} />
-      {hasWon && <div className="win-message">Gratulacje! Wygrałeś!</div>}
-      {hasLost && (
-        <div className="loss-message">Przegrałeś! Spróbuj ponownie.</div>
-      )}
-      <div className="buttons">
-        <button onClick={resetGame}>Reset</button>
-        <button onClick={onReturnToStart}>Powrót do menu</button>
+      <div className="d-flex justify-content-center align-items-center">
+        <Board2048 tiles={tiles} />
+      </div>
+      {hasWon && <div className="win-message">Congratulations! You won!</div>}
+      {hasLost && <div className="loss-message">You lost! Try again.</div>}
+      <div className="d-flex justify-content-around fs-3 mx-4">
+        <button className="mt-3 mb-5 button-light" onClick={resetGame}>
+          Reset
+        </button>
+        <button className="mt-3 mb-5 button-light" onClick={onReturnToStart}>
+          Back to menu
+        </button>
       </div>
     </>
   );
