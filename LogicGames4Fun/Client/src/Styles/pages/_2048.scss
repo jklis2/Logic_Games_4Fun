@@ -2,14 +2,14 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-gap: 1rem; 
+  grid-gap: 1rem;
   padding: 1rem;
   background-color: #bbada0;
   position: relative;
 
   &__easy {
-    width: calc(100px * 4 + 20px * 3);
-    height: calc(100px * 4 + 20px * 3);
+    width: calc(100px * 4 + 20px * 3 - 10px);
+    height: calc(100px * 4 + 20px * 3 - 10px);
   }
 
   &__medium {
@@ -18,8 +18,8 @@
   }
 
   &__hard {
-    width: calc(100px * 6 + 25px * 3);
-    height: calc(100px * 6 + 25px * 3);
+    width: calc(100px * 6 + 25px * 3 - 5px);
+    height: calc(100px * 6 + 25px * 3 - 5px);
   }
 }
 
@@ -38,6 +38,8 @@
   transition: transform 0.2s ease-in-out;
   overflow: hidden;
   margin: 1rem;
+
+  
 }
 
 .tile-2 {
