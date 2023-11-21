@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CrosswordCell from "./CrosswordCell";
 import CrosswordClue from "./CrosswordClue";
-import crosswordDictionary from "./crosswordDictionary"
+import crosswordDictionary from "./crosswordDictionary";
 
 const numberOfWords = {
   easy: 5,
@@ -17,6 +17,10 @@ function CrosswordBoard({ difficulty }) {
   const [isChecked, setIsChecked] = useState(false);
   const [resetTrigger, setResetTrigger] = useState(false);
   const [filledCells, setFilledCells] = useState({});
+  const gridSize = selectedWords.reduce(
+    (max, word) => Math.max(max, word.length),
+    0
+  );
 
   useEffect(() => {
     const filteredWords = crosswordDictionary
@@ -81,6 +85,7 @@ function CrosswordBoard({ difficulty }) {
       alert("Please fill all the cells before checking.");
     }
   };
+
   return (
     <div className="row">
       <div className="d-flex flex-column mt-1 justify-content-center col-md-8">
@@ -94,6 +99,9 @@ function CrosswordBoard({ difficulty }) {
                 checked={isChecked}
                 number={cellIndex === 0 ? rowIndex + 1 : null}
                 reset={resetTrigger}
+                row={rowIndex}
+                column={cellIndex}
+                gridSize={gridSize}
                 onInputChange={(value) => {
                   if (value) {
                     setFilledCells((prev) => ({
@@ -118,14 +126,14 @@ function CrosswordBoard({ difficulty }) {
         {selectedWords.map((entry, index) => (
           <CrosswordClue key={index} data={entry} number={index + 1} />
         ))}
-       <div className="d-flex mt-3">
-       <button className="button-light p-3 fs-4" onClick={checkAnswers}>
-          Check
-        </button>
-        <button className="button-light  p-3 fs-4 ms-1" onClick={resetGame}>
-          Reset
-        </button>
-       </div>
+        <div className="d-flex mt-3">
+          <button className="button-light p-3 fs-4" onClick={checkAnswers}>
+            Check
+          </button>
+          <button className="button-light p-3 fs-4 ms-1" onClick={resetGame}>
+            Reset
+          </button>
+        </div>
       </div>
     </div>
   );
