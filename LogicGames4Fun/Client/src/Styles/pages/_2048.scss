@@ -1,155 +1,145 @@
-.game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
 .board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px; // Twój obecny odstęp między kafelkami
-    padding: 10px;
-    background-color: #BBADA0;
-    position: relative;
-    width: calc(100px * 4 + 10px * 3);
-    height: calc(100px * 4 + 10px * 3);
-}
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 1rem; 
+  padding: 1rem;
+  background-color: #bbada0;
+  position: relative;
 
-//board-easy
-//board-medium
-//board-hard
+  &__easy {
+    width: calc(100px * 4 + 20px * 3);
+    height: calc(100px * 4 + 20px * 3);
+  }
+
+  &__medium {
+    width: calc(100px * 5 + 20px * 3);
+    height: calc(100px * 5 + 20px * 3);
+  }
+
+  &__hard {
+    width: calc(100px * 6 + 25px * 3);
+    height: calc(100px * 6 + 25px * 3);
+  }
+}
 
 .tile {
-    box-sizing: border-box;
-    position: relative;
-    border: 1px solid #BBADA0;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eee;
-    font-size: 18px; 
-    position: absolute;
-    transition: transform 0.2s ease-in-out;
-    overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #bbada0;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  font-size: 2.5rem;
+  position: absolute;
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  margin: 1rem;
 }
 
 .tile-2 {
-    background-color: #eee4da;
+  background-color: #eee4da;
 }
 
 .tile-4 {
-    background-color: #ede0c8;
+  background-color: #ede0c8;
 }
 
 .tile-8 {
-    background-color: #f2b179;
+  background-color: #f2b179;
 }
 
 .tile-16 {
-    background-color: #f59563;
+  background-color: #f59563;
 }
 
 .tile-32 {
-    background-color: #f67c5f;
+  background-color: #f67c5f;
 }
 
 .tile-64 {
-    background-color: #f65e3b;
+  background-color: #f65e3b;
 }
 
 .tile-128 {
-    background-color: #edcf72;
+  background-color: #edcf72;
 }
 
 .tile-256 {
-    background-color: #edcc61;
+  background-color: #edcc61;
 }
 
 .tile-512 {
-    background-color: #9c0;
+  background-color: #9c0;
 }
 
 .tile-1024 {
-    background-color: #33b5e5;
+  background-color: #33b5e5;
 }
 
 .tile-2048 {
-    background-color: #09c;
+  background-color: #09c;
 }
 
-/* Koniec kolorów poszczególnych kafelków */
-
 .inner-tile {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.2s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes mergeAnimation {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .tile.merged .inner-tile {
-    animation: mergeAnimation 0.2s;
+  animation: mergeAnimation 0.2s;
 }
 
 @keyframes appear {
-    from {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .tile.new .inner-tile {
-    animation: appear 0.2s;
+  animation: appear 0.2s;
 }
 
 .win-message {
-    font-size: 24px;
-    color: green;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.start-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-.start-screen h2 {
-    margin-bottom: 20px;
+  font-size: 24px;
+  color: green;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .loss-message {
-    font-size: 24px;
-    color: red;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  font-size: 24px;
+  color: red;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .score-board {
-    font-size: 20px;
-    margin: 10px;
+  font-size: 20px;
+  margin: 10px;
 }
-
-button{
-    margin: 10px;
-}
-

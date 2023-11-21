@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DifficultyMenu } from "../../DifficultyMenus/DifficultyMenu";
 
 function StartScreen2048({ onStart }) {
-  const difficultyList = ["easy", "medium", "hard", "extreme"];
+  const difficultyList = ["easy", "medium", "hard"];
   const [selectedLevel, setSelectedLevel] = useState("easy");
 
   return (

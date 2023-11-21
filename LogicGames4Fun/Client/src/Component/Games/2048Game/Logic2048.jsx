@@ -13,8 +13,6 @@ function Logic2048({ level, onReturnToStart }) {
         return 5;
       case "hard":
         return 6;
-      case "extreme":
-        return 8;
       default:
         return 4;
     }
@@ -194,11 +192,12 @@ function Logic2048({ level, onReturnToStart }) {
 
   return (
     <>
+    {console.log(level)}
       <div className="score-board score-board d-flex justify-content-center align-items-center">
         <span>Score: {score}</span>
       </div>
       <div className="d-flex justify-content-center align-items-center">
-        <Board2048 tiles={tiles} />
+        <Board2048 tiles={tiles} level={level}/>
       </div>
       {hasWon && <div className="win-message">Congratulations! You won!</div>}
       {hasLost && <div className="loss-message">You lost! Try again.</div>}

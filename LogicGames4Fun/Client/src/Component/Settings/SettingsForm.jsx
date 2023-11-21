@@ -29,19 +29,22 @@ export const SettingsForm = () => {
             <option value="Polish">Polish</option>
           </select>
 
-        <div className="d-flex align-items-center mt-2">
-        <label className="difficulty-card__label" htmlFor="flexSwitchCheckDefault">
-            Music in games:
-          </label>
-          <div className="difficulty-card__check form-check form-switch ms-2">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault"
-            />
+          <div className="d-flex align-items-center mt-2">
+            <label
+              className="difficulty-card__label"
+              htmlFor="flexSwitchCheckDefault"
+            >
+              Music in games:
+            </label>
+            <div className="difficulty-card__check form-check form-switch ms-2">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+            </div>
           </div>
-        </div>
         </div>
         <div className="d-flex align-items-center justify-content-around fs-3 mx-4">
           <Link to="/Dashboard">
