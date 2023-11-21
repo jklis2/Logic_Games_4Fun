@@ -1,9 +1,12 @@
 import React from "react";
 
-function Tile2048({ value, x, y, merged, oldX, oldY, newTile }) {
+function Tile2048({ value, x, y, merged, oldX, oldY, newTile, level }) {
   const positionStyle = {
-    transform: `translate(${y * 110}px, ${x * 110}px)`,
-};
+    transform:
+      level === "hard"
+        ? `translate(${y * (80 + 10)}px, ${x * (80 + 10)}px)`
+        : `translate(${y * 110}px, ${x * 110}px)`,
+  };
 
   const previousPositionStyle = {
     transform: `translate(${oldY * 70}px, ${oldX * 70}px)`,
@@ -16,7 +19,7 @@ function Tile2048({ value, x, y, merged, oldX, oldY, newTile }) {
       }`}
       style={positionStyle}
     >
-      <div className="inner-tile" style={previousPositionStyle}>
+      <div className="inner-tile w-100 h-100 d-flex justify-content-center align-items-center" style={previousPositionStyle}>
         {value !== 0 ? value : ""}
       </div>
     </div>
