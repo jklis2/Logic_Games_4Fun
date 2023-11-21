@@ -1,5 +1,3 @@
-import styles from "./MemoryGame.module.scss";
-
 function Card({ image, flipped, chooseCard }) {
   const cardClickHandle = () => {
     chooseCard(image);
@@ -7,7 +5,7 @@ function Card({ image, flipped, chooseCard }) {
 
   return (
     <div
-      className={`${styles.card} ${flipped ? `${styles.matched}` : ""}`}
+      className={`memory-card bg-white d-flex align-items-center justify-content-center ${flipped ? `memory-card__matched` : ""}`}
       onClick={cardClickHandle}
     >
       <img

@@ -9,37 +9,41 @@ export const SettingsForm = () => {
   };
 
   return (
-    <div className="about d-flex justify-content-center align-items-center">
-      <div className="about__box bg-light w-50">
-        <div className="text-center">
-          <h1>Settings</h1>
-        </div>
+    <div className="min-vh-100 d-flex justify-content-center align-items-center">
+      <div className="difficulty-card bg-light w-50">
+        <h1 className="text-center">Settings</h1>
         <div className="mx-3 my-5">
-          <div>Player ID:</div>
-          <div>
-            Language:
-            <select
-              className="mx-2"
-              value={language}
-              onChange={handleLanguageChange}
-            >
-              <option value="English">English</option>
-              <option value="Polish">Polish</option>
-            </select>
+          <div className="difficulty-card__text">
+            Player ID: <span>A123B456</span>
           </div>
-          <div class="form-check form-switch">
-            <label class="form-check-label" for="flexSwitchCheckDefault">
-              Music in games:
-            </label>
+          <label className="difficulty-card__label" htmlFor="language">
+            Language:
+          </label>
+          <select
+            id="language"
+            className="difficulty-card__select mt-2"
+            value={language}
+            onChange={handleLanguageChange}
+          >
+            <option value="English">English</option>
+            <option value="Polish">Polish</option>
+          </select>
+
+        <div className="d-flex align-items-center mt-2">
+        <label className="difficulty-card__label" htmlFor="flexSwitchCheckDefault">
+            Music in games:
+          </label>
+          <div className="difficulty-card__check form-check form-switch ms-2">
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               role="switch"
               id="flexSwitchCheckDefault"
             />
           </div>
         </div>
-        <div className="d-flex justify-content-around fs-3 mx-4">
+        </div>
+        <div className="d-flex align-items-center justify-content-around fs-3 mx-4">
           <Link to="/Dashboard">
             <button className="mt-3 mb-5 button-light">
               Back to dashboard

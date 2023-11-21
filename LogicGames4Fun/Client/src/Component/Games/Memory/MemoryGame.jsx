@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./MemoryGame.module.scss";
 import Badge from "react-bootstrap/Badge";
 import { useState, useEffect } from "react";
 import allImages from "./MemoryImages.json";
@@ -22,7 +21,6 @@ export const MemoryGame = () => {
     .slice(0, memLevels[0].pairs);
 
   const [images, setImages] = useState([]);
-
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
   const [noOfMatched, setNoOfMatched] = useState(0);
@@ -41,8 +39,6 @@ export const MemoryGame = () => {
   };
 
   const initGame = () => {
-    console.log(memLevels[0]);
-
     const cards = memLevels[0].pairs;
     const allImages = [...imagesItems, ...imagesItems]
       .sort(() => Math.random() - 0.5)
@@ -94,31 +90,27 @@ export const MemoryGame = () => {
         />,
         document.getElementById("modal-root")
       )}
-      <div className="min-vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
-        <div className={styles["memory-board"]}>
-          <div className={styles["grid-cells"]}>
-            {images.length ? (
-              <div className={styles["game-block"]}>
-                {images.map((image, key) => {
-                  return (
-                    <Card
-                      key={key}
-                      chooseCard={chooseCard}
-                      modalShow={modalShow}
-                      flipped={
-                        image === imageOne ||
-                        image === imageTwo ||
-                        image.matched
-                      }
-                      image={image}
-                    />
-                  );
-                })}
-              </div>
-            ) : (
-              <></>
-            )}
-          </div>
+      <div className="memory min-vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
+        <div className="memory__board bg-white p-2">
+          {images.length ? (
+            <div className="memory__grid p-3">
+              {images.map((image, key) => {
+                return (
+                  <Card
+                    key={key}
+                    chooseCard={chooseCard}
+                    modalShow={modalShow}
+                    flipped={
+                      image === imageOne || image === imageTwo || image.matched
+                    }
+                    image={image}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
         <div className="d-flex  justify-content-center mt-5">
           <Badge className="px-5 p-3" bg="">

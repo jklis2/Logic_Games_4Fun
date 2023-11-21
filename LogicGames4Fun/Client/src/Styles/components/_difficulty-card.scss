@@ -12,6 +12,11 @@
     color: rgba(0, 0, 0, 0.75);
   }
 
+  &__text {
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.55);
+  }
+
   &__label {
     font-size: 2rem;
     color: rgba(0, 0, 0, 0.55);
@@ -24,6 +29,11 @@
 
   &__input {
     @include input;
+  }
+
+  &__check {
+    font-size: 2rem;
+    width: 3.5rem !important;
   }
 
   &__checkbox {
