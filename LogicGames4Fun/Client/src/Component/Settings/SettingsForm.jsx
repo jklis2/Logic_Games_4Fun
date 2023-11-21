@@ -27,6 +27,17 @@ export const SettingsForm = () => {
               <option value="Polish">Polish</option>
             </select>
           </div>
+          <div class="form-check form-switch">
+            <label class="form-check-label" for="flexSwitchCheckDefault">
+              Music in games:
+            </label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+            />
+          </div>
         </div>
         <div className="d-flex justify-content-around fs-3 mx-4">
           <Link to="/Dashboard">
