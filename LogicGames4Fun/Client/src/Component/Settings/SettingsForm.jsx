@@ -1,10 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+  updateMusicSettings,
+  playMusic,
+  initializeMusic,
+} from "../../Redux/music-slice";
 
 export const SettingsForm = () => {
+  const dispatch = useDispatch();
+  const musicSettings = useSelector((state) => state.music);
+
   const [language, setLanguage] = useState("English");
-  const [selectedSong, setSelectedSong] = useState("AsianEthnicJapaneseWorldSweetMedia");
-  const [isMusicEnabled, setIsMusicEnabled] = useState(false);
+  const [selectedSong, setSelectedSong] = useState(musicSettings.song);
+  const [isMusicEnabled, setIsMusicEnabled] = useState(musicSettings.enabled);
 
   const audioRef = useRef(new Audio());
 
@@ -15,37 +24,57 @@ export const SettingsForm = () => {
 
     if (savedLanguage) setLanguage(savedLanguage);
     if (savedSong) setSelectedSong(savedSong);
-    if (savedMusicEnabled !== null) setIsMusicEnabled(JSON.parse(savedMusicEnabled));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    return () => audioRef.current.pause();
-  }, []);
+    if (savedMusicEnabled !== null)
+      setIsMusicEnabled(JSON.parse(savedMusicEnabled));
+
+    dispatch(
+      updateMusicSettings({
+        song: savedSong,
+        enabled: JSON.parse(savedMusicEnabled),
+      })
+    );
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isMusicEnabled && selectedSong) {
+      audioRef.current.src = `/Songs/${selectedSong}.m4a`;
+      audioRef.current.play();
+      audioRef.current.loop = true;
+    } else {
+      audioRef.current.pause();
+    }
+  }, [selectedSong, isMusicEnabled]);
+
+  useEffect(() => {
+    dispatch(initializeMusic());
+  }, [dispatch]);
 
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
   };
 
   const handleSongChange = (event) => {
-    const songValue = event.target.value;
-    setSelectedSong(songValue);
-
-    audioRef.current.src = `/Songs/${songValue}.m4a`;
-    audioRef.current.play();
-
-    setTimeout(() => {
-      audioRef.current.pause();
-    }, 10000);
+    audioRef.current.pause();
+    setSelectedSong(event.target.value);
   };
 
   const handleMusicToggle = (event) => {
     setIsMusicEnabled(event.target.checked);
+    if (!event.target.checked) {
+      audioRef.current.pause();
+    }
   };
 
   const handleSaveChanges = () => {
     localStorage.setItem("language", language);
     localStorage.setItem("selectedSong", selectedSong);
     localStorage.setItem("isMusicEnabled", JSON.stringify(isMusicEnabled));
-  };
 
+    dispatch(
+      updateMusicSettings({ song: selectedSong, enabled: isMusicEnabled })
+    );
+    dispatch(playMusic({ song: selectedSong, enabled: isMusicEnabled }));
+  };
   return (
     <div className="min-vh-100 d-flex justify-content-center align-items-center">
       <div className="difficulty-card bg-light w-50">
@@ -98,11 +127,21 @@ export const SettingsForm = () => {
                 value={selectedSong}
                 onChange={handleSongChange}
               >
-                <option value="AsianEthnicJapaneseWorldSweetMedia">Asian Ethnic Japanese World - Sweet Media</option>
-                <option value="CillCityBopperBeats">Cill City - Bopper Beats</option>
-                <option value="AlohaFatimaMhedden">Aloha - Fatima Mhedden</option>
-                <option value="HappyEncounterChristianPetermann">Happy Encounter - Christian Petermann</option>
-                <option value="XmasShoppinMikeFranklyn">Xmas Shoppin - Mike Franklyn</option>
+                <option value="AsianEthnicJapaneseWorldSweetMedia">
+                  Asian Ethnic Japanese World - Sweet Media
+                </option>
+                <option value="CillCityBopperBeats">
+                  Cill City - Bopper Beats
+                </option>
+                <option value="AlohaFatimaMhedden">
+                  Aloha - Fatima Mhedden
+                </option>
+                <option value="HappyEncounterChristianPetermann">
+                  Happy Encounter - Christian Petermann
+                </option>
+                <option value="XmasShoppinMikeFranklyn">
+                  Xmas Shoppin - Mike Franklyn
+                </option>
               </select>
             </div>
           )}
