@@ -5,7 +5,7 @@ import User from "../models/user.js";
 const router = Router();
 const repository = new Repository();
 
-repository.users = [
+const users = [
   new User("test", "test123", "test123@test.test", 'Michael', 'Winter', 'male', new Date(2000, 10, 10)),
   new User("1", "2", "3@3.z"),
 ];
