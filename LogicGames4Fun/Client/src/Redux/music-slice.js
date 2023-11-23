@@ -5,15 +5,19 @@ export const playMusic = createAsyncThunk(
   async ({ song, enabled }, { dispatch, getState }) => {
     const state = getState();
     if (state.music.audioRef) {
-      state.music.audioRef.pause();
+      await state.music.audioRef.pause();
       state.music.audioRef = null;
     }
 
     if (enabled) {
       const audio = new Audio(`/Songs/${song}.m4a`);
-      audio.play();
+      audio.play().catch((e) => console.error("Error with playing audio:", e));
       audio.loop = true;
       dispatch(setAudioRef(audio));
+
+      localStorage.setItem("playingSong", song);
+    } else {
+      localStorage.removeItem("playingSong");
     }
   }
 );
@@ -21,7 +25,7 @@ export const playMusic = createAsyncThunk(
 export const initializeMusic = createAsyncThunk(
   "music/initializeMusic",
   async (_, { dispatch }) => {
-    const savedSong = localStorage.getItem("selectedSong");
+    const savedSong = localStorage.getItem("playingSong");
     const savedMusicEnabled = localStorage.getItem("isMusicEnabled") === "true";
 
     if (savedSong && savedMusicEnabled) {

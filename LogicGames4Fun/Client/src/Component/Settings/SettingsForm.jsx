@@ -14,6 +14,7 @@ export const SettingsForm = () => {
   const [language, setLanguage] = useState("English");
   const [selectedSong, setSelectedSong] = useState(musicSettings.song);
   const [isMusicEnabled, setIsMusicEnabled] = useState(musicSettings.enabled);
+  const [saveStatus, setSaveStatus] = useState("");
 
   const audioRef = useRef(new Audio());
 
@@ -59,10 +60,19 @@ export const SettingsForm = () => {
   };
 
   const handleMusicToggle = (event) => {
-    setIsMusicEnabled(event.target.checked);
-    if (!event.target.checked) {
+    const enabled = event.target.checked;
+    setIsMusicEnabled(enabled);
+
+    if (enabled && selectedSong) {
+      audioRef.current.src = `/Songs/${selectedSong}.m4a`;
+      audioRef.current.play();
+      localStorage.setItem("musicInitialized", "true");
+    } else {
       audioRef.current.pause();
+      localStorage.removeItem("musicInitialized");
     }
+
+    localStorage.setItem("isMusicEnabled", JSON.stringify(enabled));
   };
 
   const handleSaveChanges = () => {
@@ -74,6 +84,10 @@ export const SettingsForm = () => {
       updateMusicSettings({ song: selectedSong, enabled: isMusicEnabled })
     );
     dispatch(playMusic({ song: selectedSong, enabled: isMusicEnabled }));
+
+    setSaveStatus("Changes saved");
+
+    setTimeout(() => setSaveStatus(""), 3000);
   };
   return (
     <div className="min-vh-100 d-flex justify-content-center align-items-center">
@@ -159,6 +173,11 @@ export const SettingsForm = () => {
               Save changes
             </button>
           </div>
+          {saveStatus && (
+            <div className="save-status d-flex justify-content-center fs-3 mx-4">
+              {saveStatus}
+            </div>
+          )}
         </div>
       </div>
     </div>

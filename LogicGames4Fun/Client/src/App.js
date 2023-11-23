@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./Routers/Home";
 import { Dashboard } from "./Routers/Dashboard";
@@ -20,8 +21,22 @@ import { Maze } from "./Routers/Maze";
 import { BallInheHole } from "./Routers/BallInTheHole";
 import { Quiz } from "./Routers/Quiz";
 import { TicTacToe } from "./Routers/TicTacToe";
+import { initializeMusic, playMusic } from "./Redux/music-slice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const isMusicEnabled = localStorage.getItem("isMusicEnabled") === "true";
+    const selectedSong = localStorage.getItem("selectedSong");
+
+    if (isMusicEnabled && selectedSong) {
+      dispatch(playMusic({ song: selectedSong, enabled: isMusicEnabled }));
+    } else {
+      dispatch(initializeMusic());
+    }
+  }, [dispatch]);
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -34,7 +49,7 @@ function App() {
         <Route path="/profile" element={<MyProfile />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/achievements" element={<Achievements />} />
-        <Route path="/settings" element={<Settings/>} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="/games/sudoku" element={<Sudoku />} />
         <Route path="/games/crossword" element={<Crossword />} />
         <Route path="/games/memory" element={<Memory />} />
