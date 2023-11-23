@@ -1,24 +1,28 @@
-import User from "../models/user.js";
 import { Router } from "express";
+import UserModel from "../models/user.js";
+import bcrypt from "bcrypt";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  try{
-    res.status(200).json('')
-  }
-  catch(err){
-    res.status(500).json(err)
-  }
-});
-
-router.post("/", (req, res) => {
-  const newUser = new User({
-    id: Date.now(),
-  });
+router.post("/", async (req, res) => {
   try {
-    repository.users.push(newUser);
-    res.status(201).json(` Successfuly registered: ${newUser}`);
+    const { login, email, password, gender } = req.body;
+
+    const isUserExists = await UserModel.find({ login });
+    if (isUserExists) return res.status(400).json("User exists.");
+
+    const encryptedPassword = await bcrypt.hash(password, 10);
+
+    await new UserModel({
+      login,
+      password: encryptedPassword,
+      email,
+      gender,
+      dateOfBirth: "01-01-2020",
+      achievements: [],
+    }).save();
+
+    return res.status(201).json("Successfully registered!");
   } catch (err) {
     res.status(500).json(err);
   }

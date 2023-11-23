@@ -1,18 +1,6 @@
-// export default class User {
-//     constructor(login, password, email, name, surname, gender, dateOfBirth){
-//         this.login = login;
-//         this.password = password;
-//         this.email = email;
-//         this.name = name;
-//         this.surname = surname;
-//         this.gender = gender;
-//         this.dateOfBirth = dateOfBirth;
-//     }
-// }
-
 import mongoose from "mongoose";
 
-export const User = new mongoose.Schema({
+export const UserSchema = new mongoose.Schema({
   login: {
     type: String,
     required: true,
@@ -23,12 +11,12 @@ export const User = new mongoose.Schema({
     type: String,
     required: true,
     minLength: 8,
-    maxLength: 16,
-    validator: function (password) {
-      const passwordRegex =
-        "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,16}$";
-      return passwordRegex.test(password);
-    },
+    // maxLength: 16,
+    // validator: function (password) {
+    //   const passwordRegex =
+    //     "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,16}$";
+    //   return passwordRegex.test(password);
+    // },
     message:
       "The password must contain at least 8 characters, at least one lowercase letter, one uppercase letter, one number and one special character  ",
   },
@@ -54,3 +42,6 @@ export const User = new mongoose.Schema({
     type: Array,
   },
 });
+
+const UserModel = mongoose.model("User", UserSchema);
+export default UserModel;
