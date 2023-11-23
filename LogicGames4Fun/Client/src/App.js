@@ -20,7 +20,6 @@ import { Maze } from "./Routers/Maze";
 import { BallInheHole } from "./Routers/BallInTheHole";
 import { Quiz } from "./Routers/Quiz";
 import { TicTacToe } from "./Routers/TicTacToe";
-import { Test } from "./Routers/Test";
 
 function App() {
   return (
@@ -46,7 +45,6 @@ function App() {
         <Route path="/games/ballInTheHole" element={<BallInheHole />} />
         <Route path="/games/Quiz" element={<Quiz />} />
         <Route path="/games/ticTacToe" element={<TicTacToe />} />
-        <Route path="/test" element={<Test />} />
       </Routes>
     </BrowserRouter>
   );
