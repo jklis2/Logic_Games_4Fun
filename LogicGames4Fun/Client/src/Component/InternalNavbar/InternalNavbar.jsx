@@ -5,9 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import "../UI/Button/Button.scss";
 import { Link } from "react-router-dom";
-import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
-
-polyfillCountryFlagEmojis();
 
 export const InternalNavbar = () => {
   const settings = [
