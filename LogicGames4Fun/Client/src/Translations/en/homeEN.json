@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "aboutUs": "About Us",
+    "contact": "Contact"
+  },
+  "content": {
+    "description": "We're a startup that wants to show people that browser games don't have to be violent, addictive, or pointless. Logic Games 4Fun is created to encourage people to practice their mind. Our logic games will be adapted to people of all ages, through different levels of difficulty."
+  },
+  "buttons": {
+    "getStarted": "Get started"
+  },
+  "facts": {
+    "fact1": "Logical games help in developing mathematical cunning, teach predicting the effects of one's own decisions and strategic planning.",
+    "fact2": "Logical games support analysis and synthesis, teach how to read facts, force you to think and look for the best solutions."
+  }
+}

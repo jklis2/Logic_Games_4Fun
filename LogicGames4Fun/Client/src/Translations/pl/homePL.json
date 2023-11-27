@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "home": "Strona Główna",
+    "dashboard": "Gry",
+    "login": "Logowanie",
+    "aboutUs": "O Nas",
+    "contact": "Kontakt"
+  },
+  "content": {
+    "description": "Jesteśmy startupem, który chce pokazać ludziom, że gry przeglądarkowe nie muszą być przemocowe, uzależniające czy bezcelowe. Logic Games 4Fun zostały stworzone, aby zachęcać ludzi do ćwiczenia umysłu. Nasze gry logiczne będą dostosowane do osób w każdym wieku, na różnych poziomach trudności."
+  },
+  "buttons": {
+    "getStarted": "Rozpocznij"
+  },
+  "facts": {
+    "fact1": "Gry logiczne pomagają w rozwijaniu matematycznego sprytu, uczą przewidywania skutków własnych decyzji i planowania strategicznego.",
+    "fact2": "Gry logiczne wspierają analizę i syntezę, uczą jak czytać fakty, zmuszają do myślenia i szukania najlepszych rozwiązań."
+  }
+}

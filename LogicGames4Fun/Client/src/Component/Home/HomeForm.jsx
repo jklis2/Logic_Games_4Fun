@@ -4,8 +4,12 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../UI/Button/Button.scss";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const HomeForm = () => {
+  const [t] = useTranslation(["translation", "home"]);
+  console.log(t);
+
   return (
     <div className="home d-flex justify-content-center align-items-center">
       <div className="home__box container-xxl w-75 bg-light">
@@ -23,19 +27,19 @@ export const HomeForm = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
                 <Nav.Link as={Link} to="/Home" className="fs-2">
-                  Home
+                  {t("nav.home")}
                 </Nav.Link>
                 <Nav.Link as={Link} to="/dashboard" className="fs-2">
-                  Dashboard
+                  {t("nav.dashboard")}
                 </Nav.Link>
                 <Nav.Link as={Link} to="/login" className="fs-2">
-                  Login
+                  {t("nav.login")}
                 </Nav.Link>
                 <Nav.Link as={Link} to="/aboutus" className="fs-2">
-                  About Us
+                  {t("nav.aboutUs")}
                 </Nav.Link>
                 <Nav.Link as={Link} to="/contact" className="fs-2">
-                  Contact
+                  {t("nav.contact")}
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -47,15 +51,11 @@ export const HomeForm = () => {
           <div className="col-md-12 col-lg-6">
             <div className="p-3">
               <h2 className="h2 mt-5">Logic Games 4Fun</h2>
-              <p className="mt-4 fs-4">
-                We're a startup that wants to show people that browser games
-                don't have to be violent, addictive or pointless. Logic Games
-                4Fun is created to encourage people to practice their mind. Our
-                logic games will be adapted to people of all ages, through
-                different levels of difficulty.
-              </p>
+              <p className="mt-4 fs-4">{t("content.description")}</p>
               <Link to="/Login">
-                <button className="button-light">Get started</button>
+                <button className="button-light">
+                  {t("buttons.getStarted")}
+                </button>
               </Link>
             </div>
           </div>
@@ -79,9 +79,7 @@ export const HomeForm = () => {
               className="fs-4 mx-4 d-flex align-items-center"
               style={{ textAlign: "justify" }}
             >
-              Logical games help in developing mathematical cunning, teach
-              predicting the effects of one's own decisions and strategic
-              planning.
+              {t("facts.fact1")}
             </p>
           </div>
           <div className="fact-card d-flex flex-sm-row flex-column col-md-12 col-lg-6">
@@ -93,8 +91,7 @@ export const HomeForm = () => {
               className="fs-4 mx-4 d-flex align-items-center"
               style={{ textAlign: "justify" }}
             >
-              Logical games support analysis and synthesis, teach how to read
-              facts, force you to think and look for the best solutions.
+              {t("facts.fact2")}
             </p>
           </div>
         </div>

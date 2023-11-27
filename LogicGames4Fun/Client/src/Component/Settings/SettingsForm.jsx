@@ -6,6 +6,7 @@ import {
   playMusic,
   initializeMusic,
 } from "../../Redux/music-slice";
+import i18n from "i18next";
 
 export const SettingsForm = () => {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ export const SettingsForm = () => {
 
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
+    i18n.changeLanguage(event.target.value);
   };
 
   const handleSongChange = (event) => {
@@ -107,8 +109,8 @@ export const SettingsForm = () => {
             value={language}
             onChange={handleLanguageChange}
           >
-            <option value="English">English</option>
-            <option value="Polish">Polish</option>
+            <option value="en">English</option>
+            <option value="pl">Polish</option>
           </select>
 
           <div className="d-flex align-items-center mt-2">
