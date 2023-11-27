@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "settingsTitle": "Ustawienia",
+    "playerID": "ID Gracza:",
+    "languageLabel": "Język:",
+    "languageEnglish": "Angielski",
+    "languagePolish": "Polski",
+    "musicInGames": "Muzyka w grach:",
+    "selectASong": "Wybierz piosenkę:",
+    "backToDashboardButton": "Powrót do gier",
+    "saveChangesButton": "Zapisz zmiany"
+  }
+}

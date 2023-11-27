@@ -5,15 +5,18 @@ import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import "../UI/Button/Button.scss";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const InternalNavbar = () => {
+  const [t] = useTranslation(["translation", "navbar"]);
+
   const settings = [
-    "🪪 Profile",
-    "🏠 Dashboard",
-    "❤️ Favourite games",
-    "🏆 Achievements",
-    "⚙️ Settings",
-    "🐾 Logout",
+    { label: t("navbar.profile"), path: "/profile" },
+    { label: t("navbar.dashboard"), path: "/dashboard" },
+    { label: t("navbar.favouriteGames"), path: "/favouritegames" },
+    { label: t("navbar.achievements"), path: "/achievements" },
+    { label: t("navbar.settings"), path: "/settings" },
+    { label: t("navbar.logout"), path: "/logout" },
   ];
 
   return (
@@ -52,10 +55,9 @@ export const InternalNavbar = () => {
                 <Dropdown.Item key={setting}>
                   <Link
                     style={{ textDecoration: "none", color: "black" }}
-                    to={`/${setting.slice(2).replaceAll(" ", "")}`}
+                    to={setting.path}
                   >
-                    {" "}
-                    {setting}
+                    {setting.label}
                   </Link>
                 </Dropdown.Item>
               ))}

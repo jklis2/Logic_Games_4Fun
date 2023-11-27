@@ -1,0 +1,10 @@
+{
+  "contact": {
+    "header": "Contact Us",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "backToHomeButton": "Back to home",
+    "sendMessageButton": "Send message"
+  }
+}

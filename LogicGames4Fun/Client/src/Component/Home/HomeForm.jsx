@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 
 export const HomeForm = () => {
   const [t] = useTranslation(["translation", "home"]);
-  console.log(t);
 
   return (
     <div className="home d-flex justify-content-center align-items-center">

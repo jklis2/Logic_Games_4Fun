@@ -1,0 +1,10 @@
+{
+  "navbar": {
+    "profile": "🪪 Mój Profil",
+    "dashboard": "🎮 Gry",
+    "favouriteGames": "❤️ Ulubione gry",
+    "achievements": "🏆 Osiągnięcia",
+    "settings": "⚙️ Ustawienia",
+    "logout": "🐾 Wyloguj się"
+  }
+}

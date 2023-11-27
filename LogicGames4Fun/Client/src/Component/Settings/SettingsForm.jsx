@@ -7,8 +7,10 @@ import {
   initializeMusic,
 } from "../../Redux/music-slice";
 import i18n from "i18next";
+import { useTranslation } from "react-i18next";
 
 export const SettingsForm = () => {
+  const [t] = useTranslation(["translation", "settings"]);
   const dispatch = useDispatch();
   const musicSettings = useSelector((state) => state.music);
 
@@ -94,14 +96,14 @@ export const SettingsForm = () => {
   return (
     <div className="min-vh-100 d-flex justify-content-center align-items-center">
       <div className="difficulty-card bg-light w-50">
-        <h1 className="text-center">Settings</h1>
+        <h1 className="text-center">{t("settings.settingsTitle")}</h1>
         <div className="mx-3 my-5">
           <div className="difficulty-card__text">
-            Player ID: <span>A123B456</span>
+          {t("settings.playerID")} <span>A123B456</span>
           </div>
 
           <label className="difficulty-card__label" htmlFor="language">
-            Language:
+          {t("settings.languageLabel")}
           </label>
           <select
             id="language"
@@ -109,8 +111,8 @@ export const SettingsForm = () => {
             value={language}
             onChange={handleLanguageChange}
           >
-            <option value="en">English</option>
-            <option value="pl">Polish</option>
+            <option value="en">{t("settings.languageEnglish")}</option>
+            <option value="pl">{t("settings.languagePolish")}</option>
           </select>
 
           <div className="d-flex align-items-center mt-2">
@@ -118,7 +120,7 @@ export const SettingsForm = () => {
               className="difficulty-card__label"
               htmlFor="flexSwitchCheckDefault"
             >
-              Music in games:
+              {t("settings.musicInGames")}
             </label>
             <div className="difficulty-card__check form-check form-switch ms-2">
               <input
@@ -135,7 +137,7 @@ export const SettingsForm = () => {
           {isMusicEnabled && (
             <div className="song-list">
               <label className="difficulty-card__label" htmlFor="song">
-                Select a song:
+              {t("settings.selectASong")}
               </label>
               <select
                 id="song"
@@ -165,14 +167,14 @@ export const SettingsForm = () => {
           <div className="d-flex align-items-center justify-content-around fs-3 mx-4">
             <Link to="/Dashboard">
               <button className="mt-3 mb-5 button-light">
-                Back to dashboard
+              {t("settings.backToDashboardButton")}
               </button>
             </Link>
             <button
               className="mt-3 mb-5 button-light"
               onClick={handleSaveChanges}
             >
-              Save changes
+              {t("settings.saveChangesButton")}
             </button>
           </div>
           {saveStatus && (
