@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DIFFICULTIES } from "./utils/minesweeperDifficulties";
 import {
   revealCell,
@@ -13,10 +13,30 @@ import { useTranslation } from "react-i18next";
 
 export const MinesweeperGame = () => {
   const [t] = useTranslation(["translation", "minesweeper"]);
+  const [showAlert, setShowAlert] = useState(false);
   const [difficulty, setDifficulty] = useState("easy");
   const [board, setBoard] = useState(initializeBoard(DIFFICULTIES[difficulty]));
   const [flagsPlaced, setFlagsPlaced] = useState(0);
   const [gameStatus, setGameStatus] = useState("ongoing");
+
+  useEffect(() => {
+    let timeout;
+    if (showAlert) {
+      timeout = setTimeout(() => {
+        setShowAlert(false);
+      }, 10000);
+    }
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [showAlert, gameStatus]);
+
+  const updateGameStatus = (newStatus) => {
+    setGameStatus(newStatus);
+    setShowAlert(true);
+  };
 
   const handleDifficultyChange = (event) => {
     setDifficulty(event.target.value);
@@ -32,13 +52,11 @@ export const MinesweeperGame = () => {
     let newBoard = revealCell(board, row, col);
     if (newBoard[row][col].isMine) {
       newBoard = revealAllMines(newBoard);
-      setGameStatus("lost");
-      alert("Boom! You hit a mine!");
+      updateGameStatus("lost");
     } else {
       const status = checkGameOver(newBoard);
       if (status === "won") {
-        setGameStatus("won");
-        alert("Congratulations! You won!");
+        updateGameStatus("won");
       }
     }
     setBoard(newBoard);
@@ -107,9 +125,23 @@ export const MinesweeperGame = () => {
               {t("minesweeper.backToMenuButton")}
             </button>
           </div>
-          {gameStatus === "lost" && <p>{t("minesweeper.gameOverMessage")}</p>}
-          {gameStatus === "won" && (
-            <p>{t("minesweeper.congratulationsMessage")}</p>
+          {showAlert && gameStatus === "lost" && (
+            <div
+              className="alert alert-danger fs-3 fixed-top w-50 mx-auto d-flex justify-content-center"
+              role="alert"
+              style={{ left: "50%", transform: "translateX(-50%)" }}
+            >
+              {t("minesweeper.gameOverMessage")}
+            </div>
+          )}
+          {showAlert && gameStatus === "won" && (
+            <div
+              className="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-center"
+              role="alert"
+              style={{ left: "50%", transform: "translateX(-50%)" }}
+            >
+              {t("minesweeper.congratulationsMessage")}
+            </div>
           )}
         </div>
       )}

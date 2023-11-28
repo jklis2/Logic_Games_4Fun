@@ -2,7 +2,7 @@
   "ticTacToe": {
     "winnerMessage": "Winner:",
     "tieMessage": "It's a Tie!",
-    "nextPlayerMessage": "Next Player:",
+    "nextPlayerMessage": "Player:",
     "resetGameButton": "Reset Game",
     "backToMenuButton": "Back to Menu"
   }

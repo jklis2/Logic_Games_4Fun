@@ -8,6 +8,7 @@ function Logic2048({ level, onReturnToStart }) {
   const [hasWon, setHasWon] = useState(false);
   const [hasLost, setHasLost] = useState(false);
   const [score, setScore] = useState(0);
+  const [showAlert, setShowAlert] = useState(false);
 
   function getSizeForLevel(level) {
     switch (level) {
@@ -192,22 +193,49 @@ function Logic2048({ level, onReturnToStart }) {
     return tiles;
   }
 
+  useEffect(() => {
+    setShowAlert(true);
+    const timer = setTimeout(() => {
+      setShowAlert(false);
+    }, 10000);
+    return () => clearTimeout(timer);
+  }, [hasWon, hasLost]);
+
   return (
     <>
       <div className="score-board score-board d-flex justify-content-center align-items-center">
-        <span>{t("game2048.scoreLabel")} {score}</span>
+        <span>
+          {t("game2048.scoreLabel")} {score}
+        </span>
       </div>
       <div className="d-flex justify-content-center align-items-center">
-        <Board2048 tiles={tiles} level={level}/>
+        <Board2048 tiles={tiles} level={level} />
       </div>
-      {hasWon && <div className="win-message my-3 text-danger text-success">{t("game2048.congratulationsMessage")}</div>}
-      {hasLost && <div className="loss-message my-3 text-danger text-center">{t("game2048.tryAgainMessage")}</div>}
+      {hasWon && showAlert && (
+        <div
+          className="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-center"
+          role="alert"
+          style={{ left: "50%", transform: "translateX(-50%)" }}
+        >
+          {t("game2048.congratulationsMessage")}
+        </div>
+      )}
+      {hasLost && showAlert && (
+        <div
+          className="alert alert-danger fs-3 fixed-top w-50 mx-auto d-flex justify-content-center"
+          role="alert"
+          style={{ left: "50%", transform: "translateX(-50%)" }}
+        >
+          {t("game2048.tryAgainMessage")}
+        </div>
+      )}
+
       <div className="d-flex justify-content-around fs-3 mx-4">
         <button className="mt-3 mb-5 button-light" onClick={resetGame}>
-        {t("game2048.resetButton")}
+          {t("game2048.resetButton")}
         </button>
         <button className="mt-3 mb-5 button-light" onClick={onReturnToStart}>
-        {t("game2048.backToMenuButton")}
+          {t("game2048.backToMenuButton")}
         </button>
       </div>
     </>

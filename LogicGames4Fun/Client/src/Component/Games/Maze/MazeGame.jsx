@@ -27,6 +27,7 @@ export default function MazeGame() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const maze = useMemo(() => generateMaze(size, size), [size, gameId]);
+  const [showAlert, setShowAlert] = useState(false);
   const solution = useMemo(() => {
     const s = new Set();
     const solutionPath = solve(maze, userPosition[0], userPosition[1]);
@@ -196,6 +197,17 @@ export default function MazeGame() {
 
   const difficulty = getDifficultyLevel(size);
 
+  useEffect(() => {
+    if (status === "won") {
+      setShowAlert(true);
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
   return (
     <>
       {showStartScreen ? (
@@ -212,20 +224,16 @@ export default function MazeGame() {
           onTouchEnd={handleTouchEnd}
           tabIndex={-1}
         >
-          <div className="status-message">
-            {status === "won" ? (
-              <>
-                <div>{t("maze.congratulationsMessage")}</div>
-                <div>
-                  {t("maze.scoreMessagePrefix")} {difficulty}{" "}
-                  {t("maze.scoreMessageSuffix")} {moveCount}{" "}
-                  {t("maze.scoreMessageMoves")}
-                </div>
-              </>
-            ) : (
-              t("maze.feedTheRabbitMessage")
-            )}
-          </div>
+          {showAlert && (
+            <div
+              class="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-center"
+              role="alert"
+            >
+              {t("maze.congratulationsMessage")} {t("maze.scoreMessagePrefix")}{" "}
+              {difficulty} {t("maze.scoreMessageSuffix")} {moveCount}{" "}
+              {t("maze.scoreMessageMoves")}
+            </div>
+          )}
           <table id="maze">
             <tbody>
               {maze.map((row, i) => (

@@ -1,8 +1,8 @@
 {
   "game2048": {
     "scoreLabel": "Score:",
-    "congratulationsMessage": "Congratulations! You won!",
-    "tryAgainMessage": "You lost! Try again.",
+    "congratulationsMessage": "Congratulations! You won! Click \"Reset\" to play again.",
+    "tryAgainMessage": "You lost! Click \"Reset\" to play again.",
     "resetButton": "Reset",
     "backToMenuButton": "Back to menu"
   }
