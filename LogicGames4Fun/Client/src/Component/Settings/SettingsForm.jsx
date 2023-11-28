@@ -17,7 +17,7 @@ export const SettingsForm = () => {
   const [language, setLanguage] = useState("English");
   const [selectedSong, setSelectedSong] = useState(musicSettings.song);
   const [isMusicEnabled, setIsMusicEnabled] = useState(musicSettings.enabled);
-  const [saveStatus, setSaveStatus] = useState("");
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
 
   const audioRef = useRef(new Audio());
 
@@ -89,21 +89,22 @@ export const SettingsForm = () => {
     );
     dispatch(playMusic({ song: selectedSong, enabled: isMusicEnabled }));
 
-    setSaveStatus("Changes saved");
+    setIsAlertVisible(true);
 
-    setTimeout(() => setSaveStatus(""), 3000);
+    setTimeout(() => setIsAlertVisible(false), 3000);
   };
+
   return (
     <div className="min-vh-100 d-flex justify-content-center align-items-center">
       <div className="difficulty-card bg-light w-50">
         <h1 className="text-center">{t("settings.settingsTitle")}</h1>
         <div className="mx-3 my-5">
           <div className="difficulty-card__text">
-          {t("settings.playerID")} <span>A123B456</span>
+            {t("settings.playerID")} <span>A123B456</span>
           </div>
 
           <label className="difficulty-card__label" htmlFor="language">
-          {t("settings.languageLabel")}
+            {t("settings.languageLabel")}
           </label>
           <select
             id="language"
@@ -137,7 +138,7 @@ export const SettingsForm = () => {
           {isMusicEnabled && (
             <div className="song-list">
               <label className="difficulty-card__label" htmlFor="song">
-              {t("settings.selectASong")}
+                {t("settings.selectASong")}
               </label>
               <select
                 id="song"
@@ -167,7 +168,7 @@ export const SettingsForm = () => {
           <div className="d-flex align-items-center justify-content-around fs-3 mx-4">
             <Link to="/Dashboard">
               <button className="mt-3 mb-5 button-light">
-              {t("settings.backToDashboardButton")}
+                {t("settings.backToDashboardButton")}
               </button>
             </Link>
             <button
@@ -177,9 +178,12 @@ export const SettingsForm = () => {
               {t("settings.saveChangesButton")}
             </button>
           </div>
-          {saveStatus && (
-            <div className="save-status d-flex justify-content-center fs-3 mx-4">
-              {saveStatus}
+          {isAlertVisible && (
+            <div
+              className="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-center"
+              role="alert"
+            >
+              {t("settings.saveInfo")}
             </div>
           )}
         </div>
