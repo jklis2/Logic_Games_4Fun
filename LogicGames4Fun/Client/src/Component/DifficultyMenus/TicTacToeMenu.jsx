@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export const TicTacToeMenu = ({
   setGameType,
@@ -6,6 +7,7 @@ export const TicTacToeMenu = ({
   difficulty,
   setDifficulty,
 }) => {
+  const [t] = useTranslation(["translation", "ticTacToeDifficultyMenu"]);
   const [player1, setPlayer1] = useState("");
   const [playerX, setPlayerX] = useState("");
   const [playerO, setPlayerO] = useState("");
@@ -24,14 +26,14 @@ export const TicTacToeMenu = ({
   
       <div className="difficulty-card text-center bg-light p-5 fs-4">
         <div className="d-flex flex-column">
-          <h1 className="difficulty-card__title mb-3">Tic Tac Toe</h1>
+          <h1 className="difficulty-card__title mb-3">{t("ticTacToeDifficultyMenu.title")}</h1>
 
           <div className="mx-4 d-flex flex-column">
             <label
               htmlFor="singlePlayer"
               className="difficulty-card__label mb-2 d-flex align-items-center align-items-center"
             >
-              Your name
+              {t("ticTacToeDifficultyMenu.yourNameLabel")}
             </label>
             <input
               id="singlePlayer"
@@ -44,31 +46,31 @@ export const TicTacToeMenu = ({
               htmlFor="difficulty"
               className="difficulty-card__label mb-2 mt-3 d-flex align-items-center align-items-center"
             >
-              Select a difficulty
+              {t("ticTacToeDifficultyMenu.selectDifficultyLabel")}
             </label>
 
             <select id="difficulty" value={difficulty} onChange={e => setDifficulty(e.target.value)} className="difficulty-card__select">
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
+              <option value="easy">{t("ticTacToeDifficultyMenu.easyOption")}</option>
+              <option value="medium">{t("ticTacToeDifficultyMenu.mediumOption")}</option>
+              <option value="hard">{t("ticTacToeDifficultyMenu.hardOption")}</option>
             </select>
 
             <button
               className="button-light mt-3"
               onClick={startSinglePlayerGame}
             >
-              Play with AI
+              {t("ticTacToeDifficultyMenu.playWithAILabel")}
             </button>
           </div>
 
-          <div className="my-3">Or play with someone:</div>
+          <div className="my-3">{t("ticTacToeDifficultyMenu.orPlayWithSomeone")}</div>
 
           <div className="mx-4 d-flex flex-column">
             <label
               htmlFor="firstPlayer"
               className="difficulty-card__label mb-2 d-flex align-items-center align-items-center"
             >
-              Player X name
+              {t("ticTacToeDifficultyMenu.playerXNameLabel")}
             </label>
             <input
               id="firstPlayer"
@@ -82,7 +84,7 @@ export const TicTacToeMenu = ({
               htmlFor="secondPlayer"
               className="difficulty-card__label mb-2 mt-3 d-flex align-items-center align-items-center"
             >
-              Player O name
+              {t("ticTacToeDifficultyMenu.playerONameLabel")}
             </label>
             <input
               id="secondPlayer"
@@ -96,7 +98,7 @@ export const TicTacToeMenu = ({
               className="button-light mt-3"
               onClick={startMultiplayerGame}
             >
-              Play with another player
+              {t("ticTacToeDifficultyMenu.playWithAnotherPlayer")}
             </button>
           </div>
         </div>

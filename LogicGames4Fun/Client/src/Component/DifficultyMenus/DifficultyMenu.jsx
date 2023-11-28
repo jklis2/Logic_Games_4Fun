@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export const DifficultyMenu = ({
   gameName,
@@ -9,13 +10,15 @@ export const DifficultyMenu = ({
   optionalAction,
   optionalActionTitle,
 }) => {
+  const [t] = useTranslation(["translation", "difficultyMenu"]);
   const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1);
   return (
     <div className="difficulty-card text-center bg-light p-5 fs-4">
       <div className="d-flex flex-column">
         <h1 className="difficulty-card__title mb-3">{gameName}</h1>
         <label htmlFor="difficulty" className="difficulty-card__label mb-2">
-          Select a {gameName === "Quiz" ? "category" : "difficulty"}
+        {t("difficultyMenu.select")} {gameName === "Quiz" ? t("difficultyMenu.selectCategory") : t("difficultyMenu.selectDifficulty")}
+
         </label>
         <select
           id="difficulty"
@@ -35,7 +38,7 @@ export const DifficultyMenu = ({
             <>
               <div className="col-md-6">
                 <button onClick={onGameStart} className="button-light w-100 h-100">
-                  Start
+                {t("difficultyMenu.start")}
                 </button>
               </div>
 
@@ -50,7 +53,7 @@ export const DifficultyMenu = ({
           {!optionalAction && (
             <div className="col d-flex justify-content-md-end justify-content-center">
               <button onClick={onGameStart} className="button-light w-100">
-                Start
+              {t("difficultyMenu.start")}
               </button>
             </div>
           )}

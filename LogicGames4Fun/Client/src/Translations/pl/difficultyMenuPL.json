@@ -1,0 +1,8 @@
+{
+  "difficultyMenu": {
+    "select": "Wybierz",
+    "selectCategory": "kategorię",
+    "selectDifficulty": "poziom trudności",
+    "start": "Rozpocznij grę"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "difficultyMenu": {
+    "select":"Select a",
+    "selectCategory": "category",
+    "selectDifficulty": "difficulty",
+    "start": "Start"
+  }
+}

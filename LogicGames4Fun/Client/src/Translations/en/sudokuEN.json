@@ -1,0 +1,8 @@
+{
+  "sudoku": {
+    "time": "Time:",
+    "mistakes": "Mistakes:",
+    "level": "Level:"
+
+  }
+}

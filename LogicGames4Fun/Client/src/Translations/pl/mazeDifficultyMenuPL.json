@@ -1,0 +1,9 @@
+{
+  "mazeDifficultyMenu": {
+    "title": "Labirynt",
+    "enterSizeLabel": "Wprowadź rozmiar labiryntu od 5 do 40",
+    "cheatModeLabel": "Tryb oszukiwania:",
+    "cheatModeWarning": "Twoje wyniki nie zostaną zapisane!",
+    "startButton": "Rozpocznij"
+  }
+}

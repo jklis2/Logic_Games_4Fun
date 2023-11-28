@@ -6,12 +6,24 @@ import homeEN from "./Translations/en/homeEN.json";
 import homePL from "./Translations/pl/homePL.json";
 import aboutUsEN from "./Translations/en/aboutUsEN.json";
 import aboutUsPL from "./Translations/pl/aboutUsPL.json";
-import contactEN from "./Translations/en/contactEN.json"
-import contactPL from "./Translations/pl/contactPL.json"
-import navbarEN from "./Translations/en/navbarEN.json"
-import navbarPL from "./Translations/pl/navbarPL.json"
-import settingsEN from "./Translations/en/settingsEN.json"
-import settingsPL from "./Translations/pl/settingsPL.json"
+import contactEN from "./Translations/en/contactEN.json";
+import contactPL from "./Translations/pl/contactPL.json";
+import navbarEN from "./Translations/en/navbarEN.json";
+import navbarPL from "./Translations/pl/navbarPL.json";
+import settingsEN from "./Translations/en/settingsEN.json";
+import settingsPL from "./Translations/pl/settingsPL.json";
+import dashboardEN from "./Translations/en/dashboardEN.json";
+import dashboardPL from "./Translations/pl/dashboardPL.json";
+import sudokuEN from "./Translations/en/sudokuEN.json";
+import sudokuPL from "./Translations/pl/sudokuPL.json";
+import memoryEN from "./Translations/en/memoryEN.json";
+import memoryPL from "./Translations/pl/memoryPL.json";
+import difficultyMenuEN from "./Translations/en/difficultyMenuEN.json";
+import difficultyMenuPL from "./Translations/pl/difficultyMenuPL.json";
+import MazeDifficultyMenuEN from "./Translations/en/mazeDifficultyMenuEN.json";
+import MazeDifficultyMenuPL from "./Translations/pl/mazeDifficultyMenuPL.json";
+import ticTacToeDifficultyMenuEN from "./Translations/en/ticTacToeDifficultyMenuEN.json";
+import ticTacToeDifficultyMenuPL from "./Translations/pl/ticTacToeDifficultyMenuPL.json";
 
 
 const resources = {
@@ -21,7 +33,13 @@ const resources = {
       ...aboutUsEN,
       ...contactEN,
       ...navbarEN,
-      ...settingsEN
+      ...settingsEN,
+      ...dashboardEN,
+      ...sudokuEN,
+      ...memoryEN,
+      ...difficultyMenuEN,
+      ...MazeDifficultyMenuEN,
+      ...ticTacToeDifficultyMenuEN
     }
   },
   pl: {
@@ -30,7 +48,13 @@ const resources = {
       ...aboutUsPL,
       ...contactPL,
       ...navbarPL,
-      ...settingsPL
+      ...settingsPL,
+      ...dashboardPL,
+      ...sudokuPL,
+      ...memoryPL,
+      ...difficultyMenuPL,
+      ...MazeDifficultyMenuPL,
+      ...ticTacToeDifficultyMenuPL
     }
   }
 };

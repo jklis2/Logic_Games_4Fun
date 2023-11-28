@@ -1,0 +1,15 @@
+{
+  "ticTacToeDifficultyMenu": {
+    "title": "Tic Tac Toe",
+    "yourNameLabel": "Your name",
+    "selectDifficultyLabel": "Select a difficulty",
+    "easyOption": "Easy",
+    "mediumOption": "Medium",
+    "hardOption": "Hard",
+    "playWithAILabel": "Play with AI",
+    "orPlayWithSomeone": "Or play with someone:",
+    "playerXNameLabel": "Player X name",
+    "playerONameLabel": "Player O name",
+    "playWithAnotherPlayer": "Play with another player"
+  }
+}

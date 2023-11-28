@@ -6,8 +6,10 @@ import MemoryModal from "./MemoryModal";
 import Card from "./Card";
 import { generateMemoryLevels } from "./generateMemoryLevels";
 import ReactDOM from "react-dom";
+import { useTranslation } from "react-i18next";
 
 export const MemoryGame = () => {
+  const [t] = useTranslation(["translation", "memory"]);
   const [level, setLevel] = useState(
     Number(localStorage.getItem("memoryLvl")) || 1
   );
@@ -114,7 +116,7 @@ export const MemoryGame = () => {
         </div>
         <div className="d-flex  justify-content-center mt-5">
           <Badge className="px-5 p-3" bg="">
-            Level: {level}
+            {t("memory.level")} {level}
           </Badge>
         </div>
       </div>

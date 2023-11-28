@@ -1,0 +1,9 @@
+{
+  "mazeDifficultyMenu": {
+    "title": "Maze",
+    "enterSizeLabel": "Enter the size of the maze from 5 to 40",
+    "cheatModeLabel": "Cheat mode:",
+    "cheatModeWarning": "Your results will not be saved!",
+    "startButton": "Start"
+  }
+}

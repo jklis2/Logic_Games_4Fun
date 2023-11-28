@@ -1,0 +1,15 @@
+{
+  "ticTacToeDifficultyMenu": {
+    "title": "Kółko krzyżyk",
+    "yourNameLabel": "Twoje imię",
+    "selectDifficultyLabel": "Wybierz poziom trudności",
+    "easyOption": "Łatwy",
+    "mediumOption": "Średni",
+    "hardOption": "Trudny",
+    "playWithAILabel": "Graj z SI",
+    "orPlayWithSomeone": "Albo graj z innym graczem:",
+    "playerXNameLabel": "Imię gracza X",
+    "playerONameLabel": "Imię gracza O",
+    "playWithAnotherPlayer": "Graj z innym graczem"
+  }
+}

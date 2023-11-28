@@ -1,0 +1,9 @@
+{
+  "dashboard": {
+    "logicGames": "Gry logiczne",
+    "scoreGames": "Gry punktowe",
+    "howToPlay": "Zasady gry",
+    "tips": "Wskazówki",
+    "startGame": "Zagraj"
+  }
+}

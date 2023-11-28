@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export const MazeDifficultyMenu = ({
   size,
@@ -7,14 +8,20 @@ export const MazeDifficultyMenu = ({
   onSelectCheatMode,
   onGameStart,
 }) => {
+  const [t] = useTranslation(["translation", "mazeDifficultyMenu"]);
   return (
     <div className="difficulty-card text-center bg-light p-5 fs-4">
       <div className="d-flex flex-column">
-        <h1 className="difficulty-card__title mb-3">Maze</h1>
+        <h1 className="difficulty-card__title mb-3">
+          {t("mazeDifficultyMenu.title")}
+        </h1>
 
         <div className="input-group mx-4">
-          <label htmlFor="difficulty" className="difficulty-card__label mb-2 d-flex align-items-center">
-            Enter the size of the maze from 5 to 40
+          <label
+            htmlFor="difficulty"
+            className="difficulty-card__label mb-2 d-flex align-items-center"
+          >
+            {t("mazeDifficultyMenu.enterSizeLabel")}
           </label>
 
           <input
@@ -30,7 +37,7 @@ export const MazeDifficultyMenu = ({
 
         <div className="input-group mx-4">
           <label htmlFor="cheatMode" className="difficulty-card__label mb-2">
-            Cheat mode:
+            {t("mazeDifficultyMenu.cheatModeLabel")}
           </label>
           <input
             id="cheatMode"
@@ -41,7 +48,7 @@ export const MazeDifficultyMenu = ({
           />
           {cheatMode && (
             <span className="text-danger d-flex align-items-center">
-              Your results will not be saved!
+              {t("mazeDifficultyMenu.cheatModeWarning")}
             </span>
           )}
         </div>
@@ -49,7 +56,7 @@ export const MazeDifficultyMenu = ({
         <div className="row mt-4">
           <div className="col d-flex justify-content-md-end justify-content-center">
             <button onClick={onGameStart} className="button-light w-100">
-              Start
+              {t("mazeDifficultyMenu.startButton")}
             </button>
           </div>
         </div>

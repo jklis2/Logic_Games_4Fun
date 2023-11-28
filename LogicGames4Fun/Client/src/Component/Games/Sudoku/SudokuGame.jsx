@@ -6,8 +6,10 @@ import { generateFields } from "./generateSudokuCells";
 import SudokuModal from "./SudokuModal";
 import ReactDOM from "react-dom";
 import Badge from "react-bootstrap/Badge";
+import { useTranslation } from "react-i18next";
 
 export const SudokuGame = () => {
+  const [t] = useTranslation(["translation", "sudoku"]);
   const level = localStorage.getItem("sudokuLvl") || 1;
   const [mistakes, setMistakes] = useState(0);
   const [win, setWin] = useState(false);
@@ -57,7 +59,7 @@ export const SudokuGame = () => {
           <div className="row mt-5">
             <div className="col-md-4 p-1">
               <Badge className="w-100 p-3" bg="">
-                Time: {String(Math.trunc(time / 3600)).padStart(2, 0)}:
+              {t("sudoku.time")} {String(Math.trunc(time / 3600)).padStart(2, 0)}:
                 {String(Math.trunc(time / 60)).padStart(2, 0)}:
                 {String(time % 60).padStart(2, 0)}
               </Badge>
@@ -65,13 +67,13 @@ export const SudokuGame = () => {
 
             <div className="col-md-4 p-1">
               <Badge className="w-100 col-md-4 p-3" bg="">
-                Mistakes: {mistakes}
+              {t("sudoku.mistakes")} {mistakes}
               </Badge>
             </div>
 
             <div className="col-md-4 p-1">
               <Badge className="w-100 col-md-4 p-3" bg="">
-                Level: {level}
+              {t("sudoku.level")} {level}
               </Badge>
             </div>
           </div>

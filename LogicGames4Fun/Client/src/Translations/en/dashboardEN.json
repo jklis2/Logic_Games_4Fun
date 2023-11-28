@@ -1,0 +1,9 @@
+{
+  "dashboard": {
+    "logicGames": "Logic games",
+    "scoreGames": "Score games",
+    "howToPlay": "How to play?",
+    "tips": "Tips",
+    "startGame": "Start game"
+  }
+}
