@@ -1,0 +1,9 @@
+{
+  "minesweeper": {
+    "minesLeftLabel": "Pozostałe miny:",
+    "resetButton": "Resetuj",
+    "backToMenuButton": "Powrót do Menu",
+    "gameOverMessage": "Koniec gry! Kliknij \"Resetuj\" żeby zagrać ponownie.",
+    "congratulationsMessage": "Gratulacje! Wygrałeś! Kliknij \"Resetuj\" żeby zagrać ponownie."
+  }
+}

@@ -1,8 +1,10 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { generateMaze, solve } from "./MazeUtils";
 import MazeStartScreen from "./MazeStartScreen";
+import { useTranslation } from "react-i18next";
 
 export default function MazeGame() {
+  const [t] = useTranslation(["translation", "maze"]);
   const [gameId, setGameId] = useState(1);
   const [showStartScreen, setShowStartScreen] = useState(true);
   const [status, setStatus] = useState("playing");
@@ -213,13 +215,15 @@ export default function MazeGame() {
           <div className="status-message">
             {status === "won" ? (
               <>
-                <div>Congratulations! The rabbit won't starve to death.</div>
+                <div>{t("maze.congratulationsMessage")}</div>
                 <div>
-                  Your score on {difficulty} level is: {moveCount} moves.
+                  {t("maze.scoreMessagePrefix")} {difficulty}{" "}
+                  {t("maze.scoreMessageSuffix")} {moveCount}{" "}
+                  {t("maze.scoreMessageMoves")}
                 </div>
               </>
             ) : (
-              "Feed the rabbit"
+              t("maze.feedTheRabbitMessage")
             )}
           </div>
           <table id="maze">
@@ -259,10 +263,10 @@ export default function MazeGame() {
               className="button-light"
               onClick={() => setShowStartScreen(true)}
             >
-              Back to Menu
+              {t("maze.backToMenuButton")}
             </button>
             <button className="button-light" onClick={resetGame}>
-              Reset Game
+              {t("maze.resetGameButton")}
             </button>
           </div>
         </div>

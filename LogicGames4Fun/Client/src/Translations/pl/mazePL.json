@@ -1,0 +1,11 @@
+{
+  "maze": {
+    "congratulationsMessage": "Gratulacje! Królik nie umrze z głodu.",
+    "scoreMessagePrefix": "Twój wynik na",
+    "scoreMessageSuffix": "poziomie to:",
+    "scoreMessageMoves": "ruchów.",
+    "feedTheRabbitMessage": "Nakarm królika",
+    "backToMenuButton": "Powrót do Menu",
+    "resetGameButton": "Zresetuj Grę"
+  }
+}

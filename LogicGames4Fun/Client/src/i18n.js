@@ -24,6 +24,18 @@ import MazeDifficultyMenuEN from "./Translations/en/mazeDifficultyMenuEN.json";
 import MazeDifficultyMenuPL from "./Translations/pl/mazeDifficultyMenuPL.json";
 import ticTacToeDifficultyMenuEN from "./Translations/en/ticTacToeDifficultyMenuEN.json";
 import ticTacToeDifficultyMenuPL from "./Translations/pl/ticTacToeDifficultyMenuPL.json";
+import game2048EN from "./Translations/en/game2048EN.json";
+import game2048PL from "./Translations/pl/game2048PL.json";
+import minesweeperEN from "./Translations/en/minesweeperEN.json";
+import minesweeperPL from "./Translations/pl/minesweeperPL.json";
+import snakeEN from "./Translations/en/snakeEN.json";
+import snakePL from "./Translations/pl/snakePL.json";
+import mazeEN from "./Translations/en/mazeEN.json";
+import mazePL from "./Translations/pl/mazePL.json";
+import ticTacToeEN from "./Translations/en/ticTacToeEN.json";
+import ticTacToePL from "./Translations/pl/ticTacToePL.json";
+import ballInTheHoleEN from "./Translations/en/ballInTheHoleEN.json";
+import ballInTheHolePL from "./Translations/pl/ballInTheHolePL.json";
 
 
 const resources = {
@@ -39,7 +51,13 @@ const resources = {
       ...memoryEN,
       ...difficultyMenuEN,
       ...MazeDifficultyMenuEN,
-      ...ticTacToeDifficultyMenuEN
+      ...ticTacToeDifficultyMenuEN,
+      ...game2048EN,
+      ...minesweeperEN,
+      ...snakeEN,
+      ...mazeEN,
+      ...ticTacToeEN,
+      ...ballInTheHoleEN
     }
   },
   pl: {
@@ -54,7 +72,13 @@ const resources = {
       ...memoryPL,
       ...difficultyMenuPL,
       ...MazeDifficultyMenuPL,
-      ...ticTacToeDifficultyMenuPL
+      ...ticTacToeDifficultyMenuPL,
+      ...game2048PL,
+      ...minesweeperPL,
+      ...snakePL,
+      ...mazePL,
+      ...ticTacToePL,
+      ...ballInTheHolePL
     }
   }
 };

@@ -1,0 +1,11 @@
+{
+  "maze": {
+    "congratulationsMessage": "Congratulations! The rabbit won't starve to death.",
+    "scoreMessagePrefix": "Your score on",
+    "scoreMessageSuffix": "level is:",
+    "scoreMessageMoves": "moves.",
+    "feedTheRabbitMessage": "Feed the rabbit",
+    "backToMenuButton": "Back to Menu",
+    "resetGameButton": "Reset Game"
+  }
+}

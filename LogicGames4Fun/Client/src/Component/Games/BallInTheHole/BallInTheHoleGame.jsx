@@ -3,8 +3,10 @@ import { generateHoles } from "./utils/generateHoles";
 import MathOperation from "./MathOperationBallInTheHole";
 import { generateMathOperation } from "./utils/generateMathOperation";
 import { DifficultyMenu } from "../../DifficultyMenus/DifficultyMenu";
+import { useTranslation } from "react-i18next";
 
 const BallInTheHoleGame = () => {
+  const [t] = useTranslation(["translation", "ballInTheHole"]);
   const difficultyList = ["easy", "medium", "hard", "impossible"];
   const [ballPosition, setBallPosition] = useState({ top: 250, left: 250 });
   const [holes, setHoles] = useState([]);
@@ -119,7 +121,7 @@ const BallInTheHoleGame = () => {
       } else {
         alert(`You have lost. Your result is: ${score}`);
         setGame(false);
-    resetGameState(); 
+        resetGameState();
       }
       setTrigger((prev) => prev + 1);
       const newHoles = generateHoles(
@@ -148,17 +150,17 @@ const BallInTheHoleGame = () => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ballPosition, directions]);
 
-const resetGameState = () => {
-  setBallPosition({ top: 250, left: 250 }); 
-  setDirections({                           
-    ArrowUp: false,
-    ArrowDown: false,
-    ArrowLeft: false,
-    ArrowRight: false,
-  });
-  setScore(0);
-};
-const startGame = () => {
+  const resetGameState = () => {
+    setBallPosition({ top: 250, left: 250 });
+    setDirections({
+      ArrowUp: false,
+      ArrowDown: false,
+      ArrowLeft: false,
+      ArrowRight: false,
+    });
+    setScore(0);
+  };
+  const startGame = () => {
     setGame(true);
     setTime(0);
     let holesCount;
@@ -252,9 +254,11 @@ const startGame = () => {
       ) : (
         <div className="difficulty-card ball-in-the-hole text-center bg-light p-5 fs-4">
           <div className="ball-in-the-hole__time mb-2">
-            Time: {formatTime(time)}
+            {t("ballInTheHole.timeLabel")} {formatTime(time)}
           </div>
-          <div className="ball-in-the-hole__score mb-2">Score: {score}</div>
+          <div className="ball-in-the-hole__score mb-2">
+            {t("ballInTheHole.scoreLabel")} {score}
+          </div>
           <MathOperation
             difficulty={difficulty}
             setMathResult={setMathResult}
@@ -262,20 +266,24 @@ const startGame = () => {
           />
           <div className="ball-in-the-hole__field">
             <img
-              src={`${process.env.PUBLIC_URL}/BallInTheHoleElements/Ball.png`} 
+              src={`${process.env.PUBLIC_URL}/BallInTheHoleElements/Ball.png`}
               alt="Ball"
               className="ball-in-the-hole__ball"
               style={{
                 top: ballPosition.top + "px",
                 left: ballPosition.left + "px",
-                position: 'absolute'
+                position: "absolute",
               }}
             />
             {holes.map((hole, index) => (
               <div
                 key={index}
                 className="ball-in-the-hole__hole-container"
-                style={{ top: hole.top + "px", left: hole.left + "px", position: 'absolute' }}
+                style={{
+                  top: hole.top + "px",
+                  left: hole.left + "px",
+                  position: "absolute",
+                }}
               >
                 <img
                   src={`${process.env.PUBLIC_URL}/BallInTheHoleElements/Hole.png`}
@@ -291,13 +299,12 @@ const startGame = () => {
             ))}
           </div>
           <button className="button-light mt-3" onClick={() => setGame(false)}>
-            End Game
+            {t("ballInTheHole.endGameButton")}
           </button>
         </div>
       )}
     </div>
   );
-  
 };
 
 export default BallInTheHoleGame;

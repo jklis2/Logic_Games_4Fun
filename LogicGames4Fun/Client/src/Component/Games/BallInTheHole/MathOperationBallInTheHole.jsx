@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { generateMathOperation } from "./utils/generateMathOperation";
+import { useTranslation } from "react-i18next";
 
 export const MathOperationBallInTheHole = ({
   difficulty,
   setMathResult,
   trigger,
 }) => {
+  const [t] = useTranslation(["translation", "ballInTheHole"]);
   const [operation, setOperation] = useState("");
   const [result, setResult] = useState(null);
 
@@ -23,7 +25,7 @@ export const MathOperationBallInTheHole = ({
 
   return (
     <div className="ball-in-the-hole__operation mb-2">
-      Find a hole with the result: {operation} ={" "}
+      {t("ballInTheHole.findHoleMessage")} {operation} ={" "}
       {result !== null ? result : "?"}
     </div>
   );

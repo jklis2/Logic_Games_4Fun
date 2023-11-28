@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Board2048 from "./Board2048";
+import { useTranslation } from "react-i18next";
 
 function Logic2048({ level, onReturnToStart }) {
+  const [t] = useTranslation(["translation", "game2048"]);
   const [tiles, setTiles] = useState(initialState());
   const [hasWon, setHasWon] = useState(false);
   const [hasLost, setHasLost] = useState(false);
@@ -193,19 +195,19 @@ function Logic2048({ level, onReturnToStart }) {
   return (
     <>
       <div className="score-board score-board d-flex justify-content-center align-items-center">
-        <span>Score: {score}</span>
+        <span>{t("game2048.scoreLabel")} {score}</span>
       </div>
       <div className="d-flex justify-content-center align-items-center">
         <Board2048 tiles={tiles} level={level}/>
       </div>
-      {hasWon && <div className="win-message my-3 text-danger text-success">Congratulations! You won!</div>}
-      {hasLost && <div className="loss-message my-3 text-danger text-center">You lost! Try again.</div>}
+      {hasWon && <div className="win-message my-3 text-danger text-success">{t("game2048.congratulationsMessage")}</div>}
+      {hasLost && <div className="loss-message my-3 text-danger text-center">{t("game2048.tryAgainMessage")}</div>}
       <div className="d-flex justify-content-around fs-3 mx-4">
         <button className="mt-3 mb-5 button-light" onClick={resetGame}>
-          Reset
+        {t("game2048.resetButton")}
         </button>
         <button className="mt-3 mb-5 button-light" onClick={onReturnToStart}>
-          Back to menu
+        {t("game2048.backToMenuButton")}
         </button>
       </div>
     </>

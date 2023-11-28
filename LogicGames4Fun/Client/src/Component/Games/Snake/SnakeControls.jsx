@@ -1,5 +1,6 @@
 import React from "react";
 import { DifficultyMenu } from "../../DifficultyMenus/DifficultyMenu";
+import { useTranslation } from "react-i18next";
 
 function SnakeControls({
   isGameStarted,
@@ -9,6 +10,7 @@ function SnakeControls({
   onMenuReturn,
   onDifficultyChange,
 }) {
+  const [t] = useTranslation(["translation", "sanke"]);
   const difficultyList = ["easy", "medium", "hard"];
   return (
     <>
@@ -23,10 +25,10 @@ function SnakeControls({
       ) : (
         <div className="mt-3">
           <button className="button-light" onClick={onGameRestart}>
-            Restart
+            {t("snake.restartButton")}
           </button>
           <button className="button-light ms-3" onClick={onMenuReturn}>
-            Back to Menu
+            {t("snake.backToMenuButton")}
           </button>
         </div>
       )}

@@ -1,0 +1,8 @@
+{
+  "ballInTheHole": {
+    "timeLabel": "Time:",
+    "scoreLabel": "Score:",
+    "endGameButton": "End Game",
+    "findHoleMessage": "Find a hole with the result:"
+  }
+}

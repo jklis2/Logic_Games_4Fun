@@ -1,0 +1,8 @@
+{
+  "snake": {
+    "restartButton": "Restartuj",
+    "backToMenuButton": "Powrót do Menu",
+    "scoreLabel": "Wynik:",
+    "gameOverMessage": "Koniec gry!"
+  }
+}

@@ -9,8 +9,10 @@ import {
 import MinesweeperBoard from "./MinesweeperBoard";
 import { initializeBoard } from "./utils/initializeBoard";
 import { DifficultyMenu } from "../../DifficultyMenus/DifficultyMenu";
+import { useTranslation } from "react-i18next";
 
 export const MinesweeperGame = () => {
+  const [t] = useTranslation(["translation", "minesweeper"]);
   const [difficulty, setDifficulty] = useState("easy");
   const [board, setBoard] = useState(initializeBoard(DIFFICULTIES[difficulty]));
   const [flagsPlaced, setFlagsPlaced] = useState(0);
@@ -89,7 +91,9 @@ export const MinesweeperGame = () => {
         />
       ) : (
         <div className="difficulty-card d-flex flex-column align-items-center bg-light ">
-          <div className="fs-3 mb-3">Mines left: {minesLeft}</div>
+          <div className="fs-3 mb-3">
+            {t("minesweeper.minesLeftLabel")} {minesLeft}
+          </div>
           <MinesweeperBoard
             board={board}
             onCellClick={handleCellClick}
@@ -97,17 +101,15 @@ export const MinesweeperGame = () => {
           />
           <div className="button-group mt-3 d-flex justify-content-center">
             <button className="button-light" onClick={resetBoard}>
-              Reset
+              {t("minesweeper.resetButton")}
             </button>
             <button className="button-light ms-2" onClick={handleBackToMenu}>
-              Back to Menu
+              {t("minesweeper.backToMenuButton")}
             </button>
           </div>
-          {gameStatus === "lost" && (
-            <p>Game Over! Click "Reset" to play again.</p>
-          )}
+          {gameStatus === "lost" && <p>{t("minesweeper.gameOverMessage")}</p>}
           {gameStatus === "won" && (
-            <p>Congratulations! You won! Click "Reset" to play again.</p>
+            <p>{t("minesweeper.congratulationsMessage")}</p>
           )}
         </div>
       )}

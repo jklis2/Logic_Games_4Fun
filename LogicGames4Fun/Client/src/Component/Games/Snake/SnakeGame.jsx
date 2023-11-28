@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import SnakeBoard from "./SnakeBoard";
 import SnakeControls from "./SnakeControls";
+import { useTranslation } from "react-i18next";
 
 const numRows = 20;
 const numCols = 20;
@@ -19,6 +20,7 @@ const difficultySpeeds = {
 };
 
 export const SnakeGame = () => {
+  const [t] = useTranslation(["translation", "sanke"]);
   const [snake, setSnake] = useState([{ row: 10, col: 10 }]);
   const [dir, setDir] = useState("ArrowRight");
   const [isGameOver, setIsGameOver] = useState(false);
@@ -141,9 +143,11 @@ export const SnakeGame = () => {
       {isGameStarted ? (
         <div className="container d-flex flex-column align-items-center">
           <div className="h100 m my-3 p-4 d-flex flex-column justify-content-center align-items-center bg-light snake-board ">
-            <h2 className="fs-1">Score: {score}</h2>
+            <h2 className="fs-1">
+              {t("snake.scoreLabel")} {score}
+            </h2>
             {isGameOver ? (
-              <h1>Game Over!</h1>
+              <h1>{t("snake.gameOverMessage")}</h1>
             ) : (
               <SnakeBoard
                 snake={snake}
