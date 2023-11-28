@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
-import dotenv from 'dotenv';
-dotenv.config('./.env')
-
-// const connectionString = "mongodb+srv://Admin:Projekt123$@logicgames4fun.0r26d1s.mongodb.net/?";
+import dotenv from "dotenv";
+dotenv.config("./.env");
 
 export async function connect() {
-  console.log("Connection to database");
-  mongoose.connect(process.env.CONNECTION_STRING);
-  console.log("Connected!");
+  mongoose
+    .connect(process.env.CONNECTION_STRING)
+    .then(() => console.log('Connected!'))
+    .catch((err) => console.log(err));
 }

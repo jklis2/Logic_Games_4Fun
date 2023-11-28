@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./Routers/Home";
 import { Dashboard } from "./Routers/Dashboard";
-import { LoginAndRegister } from "./Routers/LoginAndRegister";
+import { Auth } from './Routers/Auth'
 import { Contact } from "./Routers/Contact";
 import { AboutUs } from "./Routers/AboutUs";
 import { MyProfile } from "./Routers/Profile";
@@ -47,7 +47,7 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/login" element={<LoginAndRegister />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/profile" element={<MyProfile />} />

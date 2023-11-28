@@ -1,0 +1,35 @@
+.form {
+  &__title {
+    font-size: 5rem !important;
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  &__text {
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.55);
+  }
+
+  &__label {
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.55);
+  }
+
+  &__select {
+    @include input;
+    width: 100%;
+  }
+
+  &__input {
+    @include input;
+  }
+
+  &__check {
+    font-size: 2rem;
+    width: 3.5rem !important;
+  }
+
+  &__checkbox {
+    width: 3rem;
+    height: 3rem;
+  }
+}

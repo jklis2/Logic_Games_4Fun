@@ -13,11 +13,13 @@
 @import "./Styles/components/difficulty-card";
 @import "./Styles/components/square";
 @import "./Styles/components/memory-card";
+@import "./Styles/components/form";
 
 @import "./Styles/layout/footer";
 @import "./Styles/layout/internal-navbar";
 
 @import "./Styles/pages/home";
+@import "./Styles/pages/auth";
 @import "./Styles/pages/about";
 @import "./Styles/pages/contact";
 @import "./Styles/pages/dashboard";
@@ -36,6 +38,6 @@
 @import "./Styles/pages/sudoku";
 @import "./Styles/pages/achievements";
 
-@import './Styles/themes/theme';
+@import "./Styles/themes/theme";
 
 @import "./Styles/vendors/bootstrap";
