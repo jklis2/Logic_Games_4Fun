@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function QuizReview({ questions, userAnswers, setScreen }) {
+  const [t] = useTranslation(["translation", "quiz"]);
   const calculateScore = () => {
     return userAnswers.filter(
       (answer, index) => answer === questions[index].correctAnswer
@@ -10,12 +12,12 @@ function QuizReview({ questions, userAnswers, setScreen }) {
   return (
     <div className="quiz text-center fs-4">
       <h1 className="difficulty-card__title">
-        Review - You scored {calculateScore()} out of {questions.length}
+      {t("quiz.reviewTitle")} {calculateScore()} {t("quiz.reviewTitleOutFor")} {questions.length}
       </h1>
       {questions.map((question, index) => (
         <div key={index} className="review-question">
           <p>
-            Question {index + 1}/{questions.length}: {question.question}
+          {t("quiz.reviewQuestion")} {index + 1}/{questions.length}: {question.question}
           </p>
           <p
             className={
@@ -24,16 +26,16 @@ function QuizReview({ questions, userAnswers, setScreen }) {
                 : "quiz__incorrect"
             }
           >
-            Your answer: {question.options[userAnswers[index]]}
+            {t("quiz.yourAnswer")} {question.options[userAnswers[index]]}
           </p>
           {userAnswers[index] !== question.correctAnswer && (
             <p className="quiz__correct">
-              Correct answer: {question.options[question.correctAnswer]}
+              {t("quiz.correctAnswer")} {question.options[question.correctAnswer]}
             </p>
           )}
         </div>
       ))}
-      <button className="button-light" onClick={() => setScreen("mainMenu")}>Back to Menu</button>
+      <button className="button-light" onClick={() => setScreen("mainMenu")}>{t("quiz.backToMenuButton")}</button>
     </div>
   );
 }

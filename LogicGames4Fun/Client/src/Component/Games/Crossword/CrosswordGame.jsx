@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import CrosswordBoard from "./CrosswordBoard";
 import CrosswordAddWord from "./CrosswordAddWord";
 import { DifficultyMenu } from "../../DifficultyMenus/DifficultyMenu";
+import { useTranslation } from "react-i18next";
 
 function CrosswordGame() {
+  const [t] = useTranslation(["translation", "crossword"]);
   const difficultyList = ["easy", "medium", "hard", "impossible"];
 
   const [gameStarted, setGameStarted] = useState(false);
@@ -19,7 +21,7 @@ function CrosswordGame() {
     return (
       <div className="d-flex flex-column align-items-center container">
         <div className="crossword bg-light m-5 p-5">
-          <h1 className="h1 text-center">Crossword Puzzle - {difficulty}</h1>
+          <h1 className="h1 text-center">{t("crossword.crosswordTitle")} {difficulty}</h1>
           <CrosswordBoard difficulty={difficulty} />
         </div>
       </div>
@@ -45,7 +47,7 @@ function CrosswordGame() {
         onDiffChange={(e) => setDifficulty(e.target.value)}
         onGameStart={startGame}
         optionalAction={() => setShowAddWord(true)}
-        optionalActionTitle="Add word to crossword"
+        optionalActionTitle={t("crossword.optionalActionTitle")}
       />
     </div>
   );

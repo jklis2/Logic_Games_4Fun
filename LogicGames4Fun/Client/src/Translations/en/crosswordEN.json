@@ -1,0 +1,14 @@
+{
+  "crossword": {
+    "title": "Add word to crossword",
+    "wordLabel": "Word:",
+    "definitionLabel": "Definition:",
+    "returnToMainMenu": "Return to Main Menu",
+    "addButton": "Add",
+    "crosswordTitle": "Crossword -",
+    "optionalActionTitle": "Add word to crossword",
+    "cluesTitle": "Clues:",
+    "checkButton": "Check",
+    "resetButton": "Reset"
+  }
+}

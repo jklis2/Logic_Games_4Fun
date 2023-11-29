@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function CrosswordAddWord() {
+  const [t] = useTranslation(["translation", "crossword"]);
   const [word, setWord] = useState("");
   const [definition, setDefinition] = useState("");
 
@@ -10,11 +12,11 @@ function CrosswordAddWord() {
 
   return (
     <div>
-      <h2>Add word to crossword</h2>
+      <h2>{t("crossword.title")}</h2>
 
       <div className="form-group">
         <label className="fs-3" htmlFor="word">
-          Word:
+          {t("crossword.wordLabel")}
         </label>
         <input
           type="text"
@@ -27,7 +29,7 @@ function CrosswordAddWord() {
 
       <div className="form-group mt-3">
         <label className="fs-3" htmlFor="definition">
-          Definition:
+          {t("crossword.definitionLabel")}
         </label>
         <input
           type="text"
@@ -44,7 +46,7 @@ function CrosswordAddWord() {
             className="btn btn-primary fs-4 p-3 w-100"
             onClick={() => window.location.reload()}
           >
-            Return to Main Menu
+            {t("crossword.returnToMainMenu")}
           </button>
         </div>
         <div className="col-md-6">
@@ -52,7 +54,7 @@ function CrosswordAddWord() {
             className="btn btn-primary fs-4 p-3 w-100"
             onClick={handleSubmit}
           >
-            Add
+            {t("crossword.addButton")}
           </button>
         </div>
       </div>

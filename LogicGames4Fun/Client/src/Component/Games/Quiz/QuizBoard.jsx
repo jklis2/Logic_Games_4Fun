@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import quizDictionary from "./quizDictionary";
+import { useTranslation } from "react-i18next";
 
 function QuizBoard({ category, setScreen, setQuestions, setUserAnswers }) {
+  const [t] = useTranslation(["translation", "quiz"]);
   const [questions, setQuestionsState] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswersState, setUserAnswersState] = useState([]);
@@ -58,34 +60,35 @@ function QuizBoard({ category, setScreen, setQuestions, setUserAnswers }) {
       {showScore ? (
         <div>
           <p className="text-center fs-4">
-            You scored {calculateScore()} out of {questions.length}!
+            {t("quiz.scoredMessage")} {calculateScore()}{" "}
+            {t("quiz.scoredMessageOutOf")} {questions.length}!
           </p>
           <button
             className="button-light p-3 fs-5"
             onClick={() => setScreen("mainMenu")}
           >
-            Back to Menu
+            {t("quiz.backToMenuButton")}
           </button>
           <button
             className="button-light mx-3 p-3 fs-5"
             onClick={handlePlayAgain}
           >
-            Play Again
+            {t("quiz.playAgainButton")}
           </button>
           <button
             className="button-light p-3 fs-5"
             onClick={() => setScreen("review")}
           >
-            Review
+            {t("quiz.reviewButton")}
           </button>
         </div>
       ) : (
         questions.length > 0 && (
           <div>
             <div className="question-section fs-3">
-              <p> 
-                Question {currentQuestionIndex + 1}/{questions.length}:{" "}
-                {questions[currentQuestionIndex].question}
+              <p>
+                {t("quiz.reviewQuestion")} {currentQuestionIndex + 1}/
+                {questions.length}: {questions[currentQuestionIndex].question}
               </p>
             </div>
             <div className="row">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CrosswordCell from "./CrosswordCell";
 import CrosswordClue from "./CrosswordClue";
 import crosswordDictionary from "./crosswordDictionary";
+import { useTranslation } from "react-i18next";
 
 const numberOfWords = {
   easy: 5,
@@ -11,6 +12,7 @@ const numberOfWords = {
 };
 
 function CrosswordBoard({ difficulty }) {
+  const [t] = useTranslation(["translation", "crossword"]);
   const [allWords] = useState(crosswordDictionary.map((entry) => entry.word));
   const [selectedWords, setSelectedWords] = useState([]);
   const [sampleBoard, setSampleBoard] = useState([]);
@@ -122,16 +124,16 @@ function CrosswordBoard({ difficulty }) {
         ))}
       </div>
       <div className="col-md-4 ">
-        <h3>Clues:</h3>
+        <h3>{t("crossword.cluesTitle")}</h3>
         {selectedWords.map((entry, index) => (
           <CrosswordClue key={index} data={entry} number={index + 1} />
         ))}
         <div className="d-flex mt-3">
           <button className="button-light p-3 fs-4" onClick={checkAnswers}>
-            Check
+          {t("crossword.checkButton")}
           </button>
           <button className="button-light p-3 fs-4 ms-1" onClick={resetGame}>
-            Reset
+          {t("crossword.resetButton")}
           </button>
         </div>
       </div>

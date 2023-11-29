@@ -1,0 +1,27 @@
+{
+  "quiz": {
+    "optionalActionTitle": "Add Question",
+    "addQuestionTitle": "Add Question",
+    "categoryLabel": "Category:",
+    "selectCategory": "Select a category",
+    "questionLabel": "Question:",
+    "optionALabel": "Option A:",
+    "optionBLabel": "Option B:",
+    "optionCLabel": "Option C:",
+    "optionDLabel": "Option D:",
+    "correctAnswerLabel": "Correct Answer:",
+    "selectCorrectAnswer": "Select correct answer",
+    "backButton": "Back",
+    "addQuestionButton": "Add Question",
+    "reviewTitle": "Review - You scored",
+    "reviewTitleOutFor": "out for",
+    "reviewQuestion": "Question",
+    "yourAnswer": "Your answer:",
+    "correctAnswer": "Correct answer:",
+    "backToMenuButton": "Back to Menu",
+    "scoredMessage": "You scored",
+    "scoredMessageOutOf": "out of",
+    "playAgainButton": "Play Again",
+    "reviewButton": "Review"
+  }
+}

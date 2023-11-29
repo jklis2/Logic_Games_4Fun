@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1);
 
 function QuizQuestionForm({ setScreen, categories }) {
+  const [t] = useTranslation(["translation", "quiz"]);
   const [question, setQuestion] = useState("");
   const [optionA, setOptionA] = useState("");
   const [optionB, setOptionB] = useState("");
@@ -26,11 +28,13 @@ function QuizQuestionForm({ setScreen, categories }) {
 
   return (
     <div className="d-flex flex-column">
-      <h1 className="difficulty-card__title text-center mb-3">Add Question</h1>
+      <h1 className="difficulty-card__title text-center mb-3">
+        {t("quiz.addQuestionTitle")}
+      </h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="category" className="difficulty-card__label mb-2">
-            Category:
+            {t("quiz.categoryLabel")}
           </label>
 
           <select
@@ -41,7 +45,7 @@ function QuizQuestionForm({ setScreen, categories }) {
             required
           >
             <option value="" disabled>
-              Select a category
+              {t("quiz.selectCategory")}
             </option>
             {categories.map((category) => (
               <option key={category} value={category.toLowerCase()}>
@@ -51,7 +55,9 @@ function QuizQuestionForm({ setScreen, categories }) {
           </select>
         </div>
         <div>
-          <label className="difficulty-card__label mt-2">Question:</label>
+          <label className="difficulty-card__label mt-2">
+            {t("quiz.questionLabel")}
+          </label>
           <input
             type="text"
             className="difficulty-card__input w-100"
@@ -62,7 +68,7 @@ function QuizQuestionForm({ setScreen, categories }) {
         </div>
         <div>
           <label htmlFor="optionA" className="difficulty-card__label mt-2">
-            Option A:
+            {t("quiz.optionALabel")}
           </label>
           <input
             type="text"
@@ -75,7 +81,7 @@ function QuizQuestionForm({ setScreen, categories }) {
         </div>
         <div>
           <label htmlFor="optionB" className="difficulty-card__label mt-2">
-            Option B:
+            {t("quiz.optionBLabel")}
           </label>
 
           <input
@@ -89,7 +95,7 @@ function QuizQuestionForm({ setScreen, categories }) {
         </div>
         <div>
           <label htmlFor="optionC" className="difficulty-card__label  mt-2">
-            Option C:
+            {t("quiz.optionCLabel")}
           </label>
           <input
             id="optionC"
@@ -102,7 +108,7 @@ function QuizQuestionForm({ setScreen, categories }) {
         </div>
         <div>
           <label htmlFor="optionD" className="difficulty-card__label mt-2">
-            Option D:
+            {t("quiz.optionDLabel")}
           </label>
 
           <input
@@ -115,7 +121,9 @@ function QuizQuestionForm({ setScreen, categories }) {
           />
         </div>
         <div>
-          <label className="difficulty-card__label mt-2">Correct Answer:</label>
+          <label className="difficulty-card__label mt-2">
+            {t("quiz.correctAnswerLabel")}
+          </label>
 
           <select
             value={correctAnswer}
@@ -124,7 +132,7 @@ function QuizQuestionForm({ setScreen, categories }) {
             required
           >
             <option value="" disabled>
-              Select correct answer
+              {t("quiz.selectCorrectAnswer")}
             </option>
             <option value="A">A</option>
             <option value="B">B</option>
@@ -140,13 +148,13 @@ function QuizQuestionForm({ setScreen, categories }) {
               className="button-light w-100 h-100"
               onClick={() => setScreen("mainMenu")}
             >
-              Back
+              {t("quiz.backButton")}
             </button>
           </div>
 
           <div className="col-md-6">
             <button type="submit" className="button-light">
-              Add Question
+              {t("quiz.addQuestionButton")}
             </button>
           </div>
         </div>

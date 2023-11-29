@@ -1,0 +1,27 @@
+{
+  "quiz": {
+    "optionalActionTitle": "Dodaj Pytanie",
+    "addQuestionTitle": "Dodaj Pytanie",
+    "categoryLabel": "Kategoria:",
+    "selectCategory": "Wybierz kategorię",
+    "questionLabel": "Pytanie:",
+    "optionALabel": "Odpowiedź A:",
+    "optionBLabel": "Odpowiedź B:",
+    "optionCLabel": "Odpowiedź C:",
+    "optionDLabel": "Odpowiedź D:",
+    "correctAnswerLabel": "Poprawna Odpowiedź:",
+    "selectCorrectAnswer": "Wybierz poprawną odpowiedź",
+    "backButton": "Wstecz",
+    "addQuestionButton": "Dodaj Pytanie",
+    "reviewTitle": "Podsumowanie - Twój wynik:",
+    "reviewTitleOutFor": "z",
+    "reviewQuestion": "Pytanie ",
+    "yourAnswer": "Twoja odpowiedź:",
+    "correctAnswer": "Poprawna odpowiedź:",
+    "backToMenuButton": "Powrót do Menu",
+    "scoredMessage": "Twój wynik:",
+    "scoredMessageOutOf": "z",
+    "playAgainButton": "Zagraj Ponownie",
+    "reviewButton": "Podsumowanie"
+  }
+}

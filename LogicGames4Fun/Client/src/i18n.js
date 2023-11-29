@@ -36,7 +36,10 @@ import ticTacToeEN from "./Translations/en/ticTacToeEN.json";
 import ticTacToePL from "./Translations/pl/ticTacToePL.json";
 import ballInTheHoleEN from "./Translations/en/ballInTheHoleEN.json";
 import ballInTheHolePL from "./Translations/pl/ballInTheHolePL.json";
-
+import quizEN from "./Translations/en/quizEN.json";
+import quizPL from "./Translations/pl/quizPL.json";
+import crosswordEN from "./Translations/en/crosswordEN.json";
+import crosswordPL from "./Translations/pl/crosswordPL.json";
 
 const resources = {
   en: {
@@ -57,7 +60,9 @@ const resources = {
       ...snakeEN,
       ...mazeEN,
       ...ticTacToeEN,
-      ...ballInTheHoleEN
+      ...ballInTheHoleEN,
+      ...quizEN,
+      ...crosswordEN
     }
   },
   pl: {
@@ -78,7 +83,9 @@ const resources = {
       ...snakePL,
       ...mazePL,
       ...ticTacToePL,
-      ...ballInTheHolePL
+      ...ballInTheHolePL,
+      ...quizPL,
+      ...crosswordPL
     }
   }
 };

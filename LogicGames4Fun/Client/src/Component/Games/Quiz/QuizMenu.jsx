@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { DifficultyMenu } from "../../DifficultyMenus/DifficultyMenu";
+import { useTranslation } from "react-i18next";
 
 function QuizMenu({ setScreen, categories }) {
+  const [t] = useTranslation(["translation", "quiz"]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const startGame = () => {
@@ -17,7 +19,7 @@ function QuizMenu({ setScreen, categories }) {
       onGameStart={startGame}
 
       optionalAction={() => setScreen("questionForm")}
-      optionalActionTitle="Add Question"
+      optionalActionTitle= {t("quiz.optionalActionTitle")}
     ></DifficultyMenu>
   );
 }

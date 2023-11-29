@@ -1,0 +1,14 @@
+{
+  "crossword": {
+    "title": "Dodaj słowo do krzyżówki",
+    "wordLabel": "Słowo:",
+    "definitionLabel": "Definicja:",
+    "returnToMainMenu": "Powrót do menu głównego",
+    "addButton": "Dodaj",
+    "crosswordTitle": "Krzyżówka -",
+    "optionalActionTitle": "Dodaj słowo do krzyżówki",
+    "cluesTitle": "Podpowiedzi:",
+    "checkButton": "Sprawdź",
+    "resetButton": "Resetuj"
+  }
+}
