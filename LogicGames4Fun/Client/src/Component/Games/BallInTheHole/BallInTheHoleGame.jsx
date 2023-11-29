@@ -32,7 +32,6 @@ const BallInTheHoleGame = () => {
   const handleLoss = () => {
     setShowModal(true);
     setGame(false);
-    resetGameState();
   };
 
   useEffect(() => {
@@ -316,6 +315,7 @@ const BallInTheHoleGame = () => {
         score={score}
         nextLevelHandler={() => {
           setShowModal(false);
+          resetGameState();
           startGame();
         }}
       />
