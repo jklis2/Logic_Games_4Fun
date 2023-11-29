@@ -226,12 +226,26 @@ export default function MazeGame() {
         >
           {showAlert && (
             <div
-              class="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-center"
+              className="alert alert-success fs-3 alert-dismissible fade show fixed-top w-50 d-flex justify-content-between"
               role="alert"
+              style={{
+                left: "50%",
+                transform: "translateX(-50%)",
+                fontSize: "2rem",
+              }}
             >
               {t("maze.congratulationsMessage")} {t("maze.scoreMessagePrefix")}{" "}
               {difficulty} {t("maze.scoreMessageSuffix")} {moveCount}{" "}
               {t("maze.scoreMessageMoves")}
+              <button
+                type="button"
+                className="close"
+                data-dismiss="alert"
+                aria-label="Close"
+                onClick={() => setShowAlert(false)}
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
           )}
           <table id="maze">

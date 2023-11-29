@@ -213,20 +213,46 @@ function Logic2048({ level, onReturnToStart }) {
       </div>
       {hasWon && showAlert && (
         <div
-          className="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-center"
+          className="alert alert-success fs-3 alert-dismissible fade show fixed-top w-50 d-flex justify-content-between"
           role="alert"
-          style={{ left: "50%", transform: "translateX(-50%)" }}
+          style={{
+            left: "50%",
+            transform: "translateX(-50%)",
+            fontSize: "2rem",
+          }}
         >
           {t("game2048.congratulationsMessage")}
+          <button
+            type="button"
+            className="close"
+            data-dismiss="alert"
+            aria-label="Close"
+            onClick={() => setShowAlert(false)}
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
       )}
       {hasLost && showAlert && (
         <div
-          className="alert alert-danger fs-3 fixed-top w-50 mx-auto d-flex justify-content-center"
+          className="alert alert-danger alert-dismissible fade show fixed-top w-50 d-flex justify-content-between"
           role="alert"
-          style={{ left: "50%", transform: "translateX(-50%)" }}
+          style={{
+            left: "50%",
+            transform: "translateX(-50%)",
+            fontSize: "2rem",
+          }}
         >
           {t("game2048.tryAgainMessage")}
+          <button
+            type="button"
+            className="close"
+            data-dismiss="alert"
+            aria-label="Close"
+            onClick={() => setShowAlert(false)}
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
       )}
 
