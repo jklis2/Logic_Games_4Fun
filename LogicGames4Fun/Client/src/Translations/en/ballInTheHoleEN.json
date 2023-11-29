@@ -3,6 +3,9 @@
     "timeLabel": "Time:",
     "scoreLabel": "Score:",
     "endGameButton": "End Game",
-    "findHoleMessage": "Find a hole with the result:"
+    "findHoleMessage": "Find a hole with the result:",
+    "lostMessage": "You have lost!",
+    "lostScore": "Your result is:",
+    "restartButton": "Restart"
   }
 }

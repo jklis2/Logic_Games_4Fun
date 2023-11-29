@@ -3,6 +3,7 @@ import { generateHoles } from "./utils/generateHoles";
 import MathOperation from "./MathOperationBallInTheHole";
 import { generateMathOperation } from "./utils/generateMathOperation";
 import { DifficultyMenu } from "../../DifficultyMenus/DifficultyMenu";
+import GameOverModal from "./BallInTheHoleModal";
 import { useTranslation } from "react-i18next";
 
 const BallInTheHoleGame = () => {
@@ -23,9 +24,17 @@ const BallInTheHoleGame = () => {
   });
   const [mathResult, setMathResult] = useState(null);
   const [trigger, setTrigger] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   const maxX = 480;
   const maxY = 480;
+
+  const handleLoss = () => {
+    setShowModal(true);
+    setGame(false);
+    resetGameState();
+  };
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (directions[event.key] !== undefined) {
@@ -119,9 +128,7 @@ const BallInTheHoleGame = () => {
       if (holes[holeHitIndex].result === mathResult) {
         setScore((prevScore) => prevScore + 1);
       } else {
-        alert(`You have lost. Your result is: ${score}`);
-        setGame(false);
-        resetGameState();
+        handleLoss();
       }
       setTrigger((prev) => prev + 1);
       const newHoles = generateHoles(
@@ -303,6 +310,15 @@ const BallInTheHoleGame = () => {
           </button>
         </div>
       )}
+      <GameOverModal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        score={score}
+        nextLevelHandler={() => {
+          setShowModal(false);
+          startGame();
+        }}
+      />
     </div>
   );
 };
