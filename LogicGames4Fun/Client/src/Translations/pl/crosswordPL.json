@@ -9,6 +9,7 @@
     "optionalActionTitle": "Dodaj słowo do krzyżówki",
     "cluesTitle": "Podpowiedzi:",
     "checkButton": "Sprawdź",
-    "resetButton": "Resetuj"
+    "resetButton": "Resetuj",
+    "pleaseFillCellsMessage": "Please fill all the cells before checking"
   }
 }

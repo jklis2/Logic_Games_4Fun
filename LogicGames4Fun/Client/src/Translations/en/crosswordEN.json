@@ -9,6 +9,7 @@
     "optionalActionTitle": "Add word to crossword",
     "cluesTitle": "Clues:",
     "checkButton": "Check",
-    "resetButton": "Reset"
+    "resetButton": "Reset",
+    "pleaseFillCellsMessage": "Proszę wypełnić wszystkie komórki przed sprawdzeniem"
   }
 }

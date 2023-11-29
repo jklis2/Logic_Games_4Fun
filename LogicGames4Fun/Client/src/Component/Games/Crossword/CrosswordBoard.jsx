@@ -13,6 +13,7 @@ const numberOfWords = {
 
 function CrosswordBoard({ difficulty }) {
   const [t] = useTranslation(["translation", "crossword"]);
+  const [showAlert, setShowAlert] = useState(false);
   const [allWords] = useState(crosswordDictionary.map((entry) => entry.word));
   const [selectedWords, setSelectedWords] = useState([]);
   const [sampleBoard, setSampleBoard] = useState([]);
@@ -53,6 +54,16 @@ function CrosswordBoard({ difficulty }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allWords]);
 
+  useEffect(() => {
+    let timeout;
+    if (showAlert) {
+      timeout = setTimeout(() => {
+        setShowAlert(false);
+      }, 10000);
+    }
+    return () => clearTimeout(timeout);
+  }, [showAlert]);
+
   const resetGame = () => {
     const filteredWords = crosswordDictionary
       .filter((entry) => entry.difficulty === difficulty)
@@ -84,7 +95,7 @@ function CrosswordBoard({ difficulty }) {
     if (Object.keys(filledCells).length === sampleBoard.flat().length) {
       setIsChecked(true);
     } else {
-      alert("Please fill all the cells before checking.");
+      setShowAlert(true);
     }
   };
 
@@ -130,13 +141,35 @@ function CrosswordBoard({ difficulty }) {
         ))}
         <div className="d-flex mt-3">
           <button className="button-light p-3 fs-4" onClick={checkAnswers}>
-          {t("crossword.checkButton")}
+            {t("crossword.checkButton")}
           </button>
           <button className="button-light p-3 fs-4 ms-1" onClick={resetGame}>
-          {t("crossword.resetButton")}
+            {t("crossword.resetButton")}
           </button>
         </div>
       </div>
+      {showAlert && (
+        <div
+          className="alert alert-warning alert-dismissible fade show fixed-top w-50 d-flex justify-content-between"
+          role="alert"
+          style={{
+            left: "50%",
+            transform: "translateX(-50%)",
+            fontSize: "2rem",
+          }}
+        >
+          {t("crossword.pleaseFillCellsMessage")}
+          <button
+            type="button"
+            className="close"
+            data-dismiss="alert"
+            aria-label="Close"
+            onClick={() => setShowAlert(false)}
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
