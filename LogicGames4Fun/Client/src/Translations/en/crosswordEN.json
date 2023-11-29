@@ -10,6 +10,6 @@
     "cluesTitle": "Clues:",
     "checkButton": "Check",
     "resetButton": "Reset",
-    "pleaseFillCellsMessage": "Proszę wypełnić wszystkie komórki przed sprawdzeniem"
+    "pleaseFillCellsMessage": "Please fill all the cells before checking"
   }
 }
