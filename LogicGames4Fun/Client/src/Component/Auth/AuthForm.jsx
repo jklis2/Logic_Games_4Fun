@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import styles from "./LoginAndRegisterForm.module.scss";
 import RegisterForm from "./RegisterForm";
 import Overlay from "./Overlay";
 import LoginForm from "./LoginForm";
@@ -70,19 +69,14 @@ export const AuthForm = () => {
           </div>
         ) : (
           <div
-            className={`${styles.container} ${
-              registerVisibility && styles["right-panel-active"]
+            className={`auth__container ${
+              registerVisibility && "right-panel-active"
             }`}
-            id={styles.container}
           >
-            <div
-              className={`${styles["form-container"]} ${styles["sign-up-container"]}`}
-            >
+            <div className="form-container sign-up-container">
               <RegisterForm />
             </div>
-            <div
-              className={`${styles["form-container"]} ${styles["sign-in-container"]}`}
-            >
+            <div className="form-container sign-in-container">
               <LoginForm
                 onLogin={onLogin}
                 setNickname={setNickname}

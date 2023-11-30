@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
       },
       secretKey,
       {
-        expiresIn: "1h",
+        expiresIn: "4h",
       }
     );
 

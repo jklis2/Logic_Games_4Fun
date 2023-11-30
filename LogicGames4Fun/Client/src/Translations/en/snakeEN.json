@@ -2,7 +2,7 @@
   "snake": {
     "restartButton": "Restart",
     "backToMenuButton": "Back to Menu",
-    "scoreLabel": "Score: {{score}}",
+    "scoreLabel": "Score: ",
     "gameOverMessage": "Game Over!"
   }
 }

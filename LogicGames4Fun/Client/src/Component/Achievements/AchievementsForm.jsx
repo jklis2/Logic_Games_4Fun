@@ -10,18 +10,18 @@ export const AchievementsForm = () => {
       <InternalNavbar />
       <h1 className="h1 text-center my-5">Achievements</h1>
       <div className="container">
-        <div className="row">
+      <div className="row">
           {achievementList.map((achievement) => (
-            <div key={achievement.id} className="col-md-3 p-5">
-              <div className="bg-light achievement-card row">
-                <div className="col-4 p-4 d-flex align-items-center">
+            <div key={achievement.id} className="col-md-3 p-4">
+              <div className="bg-light h-100 d-flex flex-column justify-content-around achievement-card p-5 text-center">
+                <div className="p-4">
                   <img
                     src={achievement.img}
                     alt={achievement.alt}
                     className="w-100"
                   ></img>
                 </div>
-                <div className="col-8 d-flex justify-content-center flex-column">
+                <div className=" d-flex flex-column">
                   <p className="fs-3">{achievement.name}</p>
                   <ProgressBarValue />
                 </div>

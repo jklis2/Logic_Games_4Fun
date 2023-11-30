@@ -51,7 +51,7 @@ const RegisterForm = () => {
           Select an avatar
         </label>
 
-        <div className="d-flex ">
+        <div className="auth__register d-flex justify-content-center flex-wrap">
           <div
             className={`${
               selectedAvatar === "avatar1"
