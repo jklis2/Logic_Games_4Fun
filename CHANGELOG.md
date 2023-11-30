@@ -85,3 +85,94 @@
 	
 - **0.0.20** (`2023/03/28`)
 	- Added responsiveness to Dashboard Page
+
+- **0.0.21** (`2023/03/30`)
+	- Added responsiveness to Profil Page
+
+- **0.0.22** (`2023/04/13`)
+	- Added Sudoku design
+
+- **0.0.23** (`2023/04/18`)
+	- Changed games logos
+   	- Added level select
+	- Added pages for Memory, Crossword and Puzzle games
+
+- **0.0.24** (`2023/04/24`)
+	- Added Sudoku validation
+   	- Added generating values in Sudoku
+	- Added checking answers in square in sudoku
+
+- **0.0.25** (`2023/05/07`)
+	- Fixed some errors in sudoku and moved arr to state
+   	- Finished Sudoku Game
+	- Create Memory Game
+ 	- Added memory images in JSON file
+ 	- Added tipsPop and howToPlayPop
+  	- Added levels in Memory
+ 
+- **0.0.26** (`2023/05/11`)
+	- Changed levels in Memory and Sudoku
+   	- Fxied errors with rendering and localstorage
+ 
+- **0.0.27** (`2023/10/05`)
+	- Redesigned Dashboard
+   	- Added routers for more games
+ 
+- **0.0.28** (`2023/10/11`)
+	- Created folder for styles and moved main styles
+   	- Updated styling for pages\
+ 
+- **0.0.29** (`2023/10/12`)
+	- Updated achievements styles
+   	- Upaded privacy policy styles
+	- Game 2048 - Done
+ 	- TicTacToe - Done
+ 	- Snake - Done
+  	- Minesweeper - Done
+ 
+- **0.0.30** (`2023/10/17`)
+	- Restyled Snake
+
+- **0.0.31** (`2023/10/24`)
+	- Quiz - Done
+ 	- Crossword - Done
+  	- Created Crossword design
+ 
+- **0.0.32** (`2023/11/07`)
+	- Created Quiz styles
+ 	- Ball in the hole - Done
+ 
+- **0.0.33** (`2023/11/09`)
+	- Maze Game - Done
+   	- Change layout colors
+	- Created game menu styles
+ 	- Changed color of logo
+ 
+- **0.0.34** (`2023/11/11`)
+	- Edited startScreen of Minesweeper
+
+- **0.0.35** (`2023/11/14`)
+	- Created menu for TicTacToe and Recreated navbar
+   	- Fixed background 
+	- Fixed bug with quiz category selection
+ 	- Changed Crossword and Minesweeper cells
+  	- Quiz - Done
+ 
+- **0.0.36** (`2023/11/15`)
+	- Changed number generation mechanism
+
+- **0.0.37** (`2023/11/16`)
+	- Created styles for Maze and Ball in the hole
+   	- Removed warnings 
+	- Changed colors of the numbers in Minesweeper
+ 	- Fixed repeatable bugs with holes
+  	- Added images for ball and hole
+  	- Fixed infinity issue in Ball in the hole
+  	- After losing the ball moves correctly
+  	- Fixed bugs in Sudoku and Memory
+
+ - **0.0.38** (`2023/11/20`)
+	- Added settingsForm
+   	- Score reset after losing a game in ball in the hole
+	- The ball does not generate in the hole
+
