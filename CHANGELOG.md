@@ -176,3 +176,42 @@
    	- Score reset after losing a game in ball in the hole
 	- The ball does not generate in the hole
 
+- **0.1.0** (`2023/11/21`)
+	- Added checkbox for music in games
+   	- Edited 2048 game
+	- Created styles for settings
+ 	- Fixed escaping cells in 2048
+  	- Fixed 2048 board on easy and hard level
+  	- Changed size of hard level
+  	- Added automatic cursor movement after entering a letter
+  	- Added music selection to settings
+ 
+- **0.1.1** (`2023/11/23`)
+	- Added music to all pages
+   	- Fixed icons in navbar
+	- Cleaned project
+ 	- Clean server project
+  	- Create .gitignore on server
+  	- Updated music in pages
+  	- Added alert for music
+  	- Create user registration
+ 
+- **0.1.2** (`2023/11/27`)
+	- Added translations to project
+
+- **0.1.3** (`2023/11/28`)
+	- Changed design of sudoku and memory modals
+   	- Edited alerts in games
+	- Create mobile auth form, rename to auth
+ 	- Added alert to settings
+
+- **0.1.4** (`2023/11/29`)
+	- Added close button to alerts
+   	- Added alert to Crossword
+	- Added modal to ball in the hole
+ 	- Fixed alert translation in crossword
+  	- Fixed result updating in the modal\
+ 
+- **0.1.5** (`2023/11/30`)
+	- Removed all css modules
+
