@@ -138,13 +138,11 @@ export const MinesweeperGame = () => {
               {t("minesweeper.gameOverMessage")}
               <button
                 type="button"
-                className="close"
+                className="btn-close"
                 data-dismiss="alert"
                 aria-label="Close"
                 onClick={() => setShowAlert(false)}
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+              ></button>
             </div>
           )}
           {showAlert && gameStatus === "won" && (
@@ -160,13 +158,11 @@ export const MinesweeperGame = () => {
               {t("minesweeper.congratulationsMessage")}
               <button
                 type="button"
-                className="close"
+                className="btn-close"
                 data-dismiss="alert"
                 aria-label="Close"
                 onClick={() => setShowAlert(false)}
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+              ></button>
             </div>
           )}
         </div>

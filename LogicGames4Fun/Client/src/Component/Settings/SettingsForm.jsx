@@ -180,10 +180,17 @@ export const SettingsForm = () => {
           </div>
           {isAlertVisible && (
             <div
-              className="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-center"
+              className="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-between"
               role="alert"
             >
               {t("settings.saveInfo")}
+              <button
+                type="button"
+                className="btn-close"
+                data-dismiss="alert"
+                aria-label="Close"
+                onClick={() => setIsAlertVisible(false)}
+              ></button>
             </div>
           )}
         </div>

@@ -12,6 +12,7 @@ function QuizQuestionForm({ setScreen, categories }) {
   const [optionD, setOptionD] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [category, setCategory] = useState("");
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +25,18 @@ function QuizQuestionForm({ setScreen, categories }) {
       correctAnswer,
       category,
     });
+    setIsAlertVisible(true);
+    setQuestion("");
+    setOptionA("");
+    setOptionB("");
+    setOptionC("");
+    setOptionD("");
+    setCorrectAnswer("");
+    setCategory("");
+
+    setTimeout(() => {
+      setIsAlertVisible(false);
+    }, 10000);
   };
 
   return (
@@ -159,6 +172,21 @@ function QuizQuestionForm({ setScreen, categories }) {
           </div>
         </div>
       </form>
+      {isAlertVisible && (
+        <div
+          className="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-between"
+          role="alert"
+        >
+          {t("quiz.alertSentQuestion")}
+          <button
+            type="button"
+            className="btn-close"
+            data-dismiss="alert"
+            aria-label="Close"
+            onClick={() => setIsAlertVisible(false)}
+          ></button>
+        </div>
+      )}
     </div>
   );
 }

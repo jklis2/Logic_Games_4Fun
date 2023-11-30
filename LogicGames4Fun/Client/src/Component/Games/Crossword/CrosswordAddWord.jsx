@@ -5,9 +5,14 @@ function CrosswordAddWord() {
   const [t] = useTranslation(["translation", "crossword"]);
   const [word, setWord] = useState("");
   const [definition, setDefinition] = useState("");
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsAlertVisible(true);
+    setTimeout(() => {
+      setIsAlertVisible(false);
+    }, 10000);
   };
 
   return (
@@ -58,6 +63,21 @@ function CrosswordAddWord() {
           </button>
         </div>
       </div>
+      {isAlertVisible && (
+        <div
+          className="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-between"
+          role="alert"
+        >
+          {t("crossword.sendWordAlert")}
+          <button
+            type="button"
+            className="btn-close"
+            data-dismiss="alert"
+            aria-label="Close"
+            onClick={() => setIsAlertVisible(false)}
+          ></button>
+        </div>
+      )}
     </div>
   );
 }

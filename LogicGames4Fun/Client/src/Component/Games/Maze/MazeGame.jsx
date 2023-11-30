@@ -239,13 +239,11 @@ export default function MazeGame() {
               {t("maze.scoreMessageMoves")}
               <button
                 type="button"
-                className="close"
+                className="btn-close"
                 data-dismiss="alert"
                 aria-label="Close"
                 onClick={() => setShowAlert(false)}
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+              ></button>
             </div>
           )}
           <table id="maze">

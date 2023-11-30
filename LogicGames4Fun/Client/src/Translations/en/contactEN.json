@@ -5,6 +5,7 @@
     "emailPlaceholder": "Your Email",
     "messagePlaceholder": "Your Message",
     "backToHomeButton": "Back to home",
-    "sendMessageButton": "Send message"
+    "sendMessageButton": "Send message",
+    "sendMessageAlert": "Message sent!"
   }
 }

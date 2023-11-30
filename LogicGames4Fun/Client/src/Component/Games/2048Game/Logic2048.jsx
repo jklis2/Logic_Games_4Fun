@@ -224,13 +224,11 @@ function Logic2048({ level, onReturnToStart }) {
           {t("game2048.congratulationsMessage")}
           <button
             type="button"
-            className="close"
+            className="btn-close"
             data-dismiss="alert"
             aria-label="Close"
             onClick={() => setShowAlert(false)}
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
+          ></button>
         </div>
       )}
       {hasLost && showAlert && (
@@ -246,13 +244,11 @@ function Logic2048({ level, onReturnToStart }) {
           {t("game2048.tryAgainMessage")}
           <button
             type="button"
-            className="close"
+            className="btn-close"
             data-dismiss="alert"
             aria-label="Close"
             onClick={() => setShowAlert(false)}
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
+          ></button>
         </div>
       )}
 

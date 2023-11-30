@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export const ContactForm = () => {
-
   const [t] = useTranslation(["translation", "contact"]);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Tu możesz dodać logikę wysłania wiadomości lub inne działania
+
+    // Pokaż komunikat przez 10 sekund
+    setShowSuccessAlert(true);
+    setTimeout(() => {
+      setShowSuccessAlert(false);
+    }, 10000); // 10 sekund (10000 milisekund)
+  };
 
   return (
     <div className="contact d-flex justify-content-center align-items-center">
@@ -18,7 +29,7 @@ export const ContactForm = () => {
           </div>
           <h2 className="h2 mx-4">{t("contact.header")}</h2>
         </div>
-        <form className="mt-5" onSubmit={(e) => e.preventDefault()} action="">
+        <form className="mt-5" onSubmit={handleSubmit}>
           <input
             className="contact__input"
             type="text"
@@ -35,16 +46,41 @@ export const ContactForm = () => {
             placeholder={t("contact.messagePlaceholder")}
           ></textarea>
         </form>
+        {showSuccessAlert && (
+          <div
+            className="alert alert-success fs-3 alert-dismissible fade show fixed-top w-50 d-flex justify-content-between"
+            role="alert"
+            style={{
+              left: "50%",
+              transform: "translateX(-50%)",
+              fontSize: "2rem",
+            }}
+          >
+            {t("contact.sendMessageAlert")}
+            <button
+              type="button"
+              className="btn-close"
+              data-dismiss="alert"
+              aria-label="Close"
+              onClick={() => setShowSuccessAlert(false)}
+            ></button>
+          </div>
+        )}
         <div className="row mt-5">
           <div className="col-md-6 d-flex justify-content-md-end justify-content-center">
             <Link to="/Home">
               <button as={Link} className="button-light">
-              {t("contact.backToHomeButton")}
+                {t("contact.backToHomeButton")}
               </button>
             </Link>
           </div>
           <div className="col-md-6 d-flex justify-content-center justify-content-md-start">
-            <button className="button-light mt-5 mt-md-0">{t("contact.sendMessageButton")}</button>
+            <button
+              className="button-light mt-5 mt-md-0"
+              onClick={handleSubmit}
+            >
+              {t("contact.sendMessageButton")}
+            </button>
           </div>
         </div>
       </div>
