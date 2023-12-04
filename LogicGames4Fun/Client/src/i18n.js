@@ -40,6 +40,8 @@ import quizEN from "./Translations/en/quizEN.json";
 import quizPL from "./Translations/pl/quizPL.json";
 import crosswordEN from "./Translations/en/crosswordEN.json";
 import crosswordPL from "./Translations/pl/crosswordPL.json";
+import achievementEN from "./Translations/en/achievementEN.json";
+import achievementPL from "./Translations/pl/achievementPL.json";
 
 const resources = {
   en: {
@@ -62,8 +64,9 @@ const resources = {
       ...ticTacToeEN,
       ...ballInTheHoleEN,
       ...quizEN,
-      ...crosswordEN
-    }
+      ...crosswordEN,
+      ...achievementEN,
+    },
   },
   pl: {
     translation: {
@@ -85,11 +88,11 @@ const resources = {
       ...ticTacToePL,
       ...ballInTheHolePL,
       ...quizPL,
-      ...crosswordPL
-    }
-  }
+      ...crosswordPL,
+      ...achievementPL,
+    },
+  },
 };
-
 
 i18n
   .use(Backend)

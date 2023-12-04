@@ -3,7 +3,7 @@ export const achievementList = [
     id: 1,
     name: "Finish 25 easy levels of Sudoku",
     img: `${process.env.PUBLIC_URL}/AchievementImages/SudokuImages/Sudoku_brown.png`,
-    alt: "Brown Sudoku Achievement ",
+    alt: "Brown Sudoku Achievement",
   },
   {
     id: 2,

@@ -3,14 +3,18 @@ import { InternalNavbar } from "../InternalNavbar/InternalNavbar";
 import DashboardFooter from "../Dashboard/DashboardFooter";
 import ProgressBarValue from "./ProgressBarValue";
 import { achievementList } from "./achievementList";
+import { useTranslation } from "react-i18next";
 
 export const AchievementsForm = () => {
+  const { t } = useTranslation();
   return (
     <>
       <InternalNavbar />
-      <h1 className="h1 text-center my-5">Achievements</h1>
+      <h1 className="h1 text-center my-5">
+        {t("achievements.achievementTitle")}
+      </h1>
       <div className="container">
-      <div className="row">
+        <div className="row">
           {achievementList.map((achievement) => (
             <div key={achievement.id} className="col-md-3 p-4">
               <div className="bg-light h-100 d-flex flex-column justify-content-around achievement-card p-5 text-center">
