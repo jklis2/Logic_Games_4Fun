@@ -1,14 +1,36 @@
 import "../UI/Button/Button.scss";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../Redux/auth-slice";
 
 const RegisterForm = () => {
+  const [login, setLogin] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const dispatch = useDispatch();
 
   const handleAvatarClick = (avatar) => {
     setSelectedAvatar(avatar);
   };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      authActions.register({
+        login,
+        email,
+        password,
+        gender: "male",
+      })
+    );
+  };
+
   return (
-    <form className="form register d-flex align-items-center justify-content-center flex-column h-100 bg-white">
+    <form
+      className="form register d-flex align-items-center justify-content-center flex-column h-100 bg-white"
+      onSubmit={handleFormSubmit}
+    >
       <h2 className="form__title text-center mb-3 ">Create Account</h2>
 
       <div className="auth__social">
@@ -26,7 +48,13 @@ const RegisterForm = () => {
         <label className="form__label" htmlFor="login">
           Login
         </label>
-        <input type="text" id="login" className="form__input mt-2 px-3" />
+        <input
+          type="text"
+          id="login"
+          className="form__input mt-2 px-3"
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
+        />
 
         <label className="form__label mt-3" htmlFor="email">
           Email
@@ -36,15 +64,19 @@ const RegisterForm = () => {
           id="email"
           className="form__input mt-2 px-3"
           autoComplete="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
 
         <label className="form__label  mt-3" htmlFor="password">
           Password
         </label>
         <input
-          type="text"
+          type="password"
           id="password"
           className="form__input w-100 mt-2 px-3"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <label className="form__label  mt-3" htmlFor="password">

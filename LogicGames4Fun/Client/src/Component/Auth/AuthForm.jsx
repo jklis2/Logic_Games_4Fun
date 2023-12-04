@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import RegisterForm from "./RegisterForm";
 import Overlay from "./Overlay";
 import LoginForm from "./LoginForm";
 
 export const AuthForm = () => {
-  const [nickname, setNickname] = useState("");
-  const [password, setPassword] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [registerVisibility, setRegisterVisibility] = useState(false);
@@ -26,23 +23,6 @@ export const AuthForm = () => {
       window.removeEventListener("resize", handleWindowSizeChange);
     };
   }, []);
-  const login = function () {
-    axios
-      .post("//localhost:3001/login", {
-        login: nickname,
-        password: password,
-      })
-      .then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data));
-        setIsValid(true);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const onLogin = (e) => {
-    e.preventDefault();
-    login();
-  };
 
   return (
     <>
@@ -55,9 +35,6 @@ export const AuthForm = () => {
           <div className="auth__container-mobile p-5">
             {!registerVisibility && (
               <LoginForm
-                onLogin={onLogin}
-                setNickname={setNickname}
-                setPassword={setPassword}
                 isValid={isValid}
                 registerVisibility={registerVisibility}
                 setRegisterVisibility={setRegisterVisibility}
@@ -78,9 +55,6 @@ export const AuthForm = () => {
             </div>
             <div className="form-container sign-in-container">
               <LoginForm
-                onLogin={onLogin}
-                setNickname={setNickname}
-                setPassword={setPassword}
                 isValid={isValid}
                 registerVisibility={registerVisibility}
                 setRegisterVisibility={setRegisterVisibility}

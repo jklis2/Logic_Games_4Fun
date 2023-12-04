@@ -40,8 +40,30 @@ router.post("/", async (req, res) => {
         expiresIn: "4h",
       }
     );
+    const refreshToken = jwt.sign(
+      { login: foundUser.login, email: foundUser.email },
+      secretKey
+    );
 
-    return res.status(200).json(token);
+    return res.status(200).json({ token, refreshToken });
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+});
+
+router.post("/refresh", async (req, res) => {
+  try {
+    const { refreshToken } = req.body;
+    if (!refreshToken) return res.sendStatus(401);
+
+    jwt.verify(refreshToken, secretKey, (err, user) => {
+      if (err) return res.sendStatus(403);
+      const accessToken = generateAccessToken({
+        login: user.login,
+        email: user.email,
+      });
+      return res.status(200).json({ accessToken });
+    });
   } catch (err) {
     return res.status(500).json(err);
   }
