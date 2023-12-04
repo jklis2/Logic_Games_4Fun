@@ -3,6 +3,8 @@ import { InternalNavbar } from "../InternalNavbar/InternalNavbar";
 import DashboardFooter from "../Dashboard/DashboardFooter";
 import ProgressBarValue from "./ProgressBarValue";
 import { achievementList } from "./achievementList";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 export const AchievementsForm = () => {
@@ -18,6 +20,10 @@ export const AchievementsForm = () => {
           {achievementList.map((achievement) => (
             <div key={achievement.id} className="col-md-3 p-4">
               <div className="bg-light h-100 d-flex flex-column justify-content-around achievement-card p-5 text-center">
+                <div className="d-flex justify-content-between align-items-center w-100">
+                  <FaArrowLeft />
+                  <FaArrowRight />
+                </div>
                 <div className="p-4">
                   <img
                     src={achievement.img}
