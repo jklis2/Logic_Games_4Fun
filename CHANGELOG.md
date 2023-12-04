@@ -214,4 +214,12 @@
  
 - **0.1.5** (`2023/11/30`)
 	- Removed all css modules
+ 	- Added modals to Quiz and Crossword
+ 
+- **0.1.6** (`2023/12/04`)
+	- Added achievements for all games
+   	- Added translation files of achievement
+	- Added arrows to achievement cards
+ 	- Changed achievement images
+  	- Added token refresh
 
