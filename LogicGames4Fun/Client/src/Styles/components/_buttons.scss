@@ -1,7 +1,7 @@
 .button-light {
   border-radius: 20px;
-  border: 1px solid $button-color-light !important;
-  background-color: $button-color-light !important;
+  border: 1px solid $color-purple-light !important;
+  background-color: $color-purple-light !important;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -12,8 +12,8 @@
 
   &:hover {
     
-    border: 1px solid $button-color-dark;
-    background-color: $button-color-dark;
+    border: 1px solid $color-purple-dark;
+    background-color: $color-purple-dark;
   }
 
   @media screen and (min-width: 3840px) {
