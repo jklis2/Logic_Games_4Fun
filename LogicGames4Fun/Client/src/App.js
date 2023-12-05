@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./Routers/Home";
 import { Dashboard } from "./Routers/Dashboard";
-import { Auth } from './Routers/Auth'
+import { Auth } from "./Routers/Auth";
 import { Contact } from "./Routers/Contact";
 import { AboutUs } from "./Routers/AboutUs";
 import { MyProfile } from "./Routers/Profile";
@@ -22,6 +22,7 @@ import { BallInheHole } from "./Routers/BallInTheHole";
 import { Quiz } from "./Routers/Quiz";
 import { TicTacToe } from "./Routers/TicTacToe";
 import { playMusic, updateMusicSettings } from "./Redux/music-slice";
+import { fetchUserData } from "./Redux/auth-slice";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function App() {
   useEffect(() => {
     const isMusicEnabled = localStorage.getItem("isMusicEnabled") === "true";
     const selectedSong = localStorage.getItem("selectedSong");
-  
+
     if (isMusicEnabled && selectedSong) {
       const userResponse = window.confirm("Do you want to keep playing music?");
       if (userResponse) {
@@ -40,7 +41,14 @@ function App() {
       }
     }
   }, [dispatch]);
-  
+
+  useEffect(() => {
+    async function getUser() {
+      dispatch(fetchUserData());
+    }
+    getUser();
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Routes>

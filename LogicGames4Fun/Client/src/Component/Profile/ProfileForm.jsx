@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { EditProfileForm } from "../EditData/EditProfileForm";
 import { EditPhotoForm } from "../EditData/EditPhotoForm";
 import { EditPasswordForm } from "../EditData/EditPasswordForm";
 import ReactDOM from "react-dom";
-
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 export const ProfileForm = () => {
-  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    const userFromAPI = localStorage.getItem("user");
-    userFromAPI && setUser(JSON.parse(userFromAPI));
-  }, []);
+  //Replace guard in the future
+  if (!user) {
+    navigate("/auth");
+  }
 
   // Edit profile
   const [openEditProfile, setOpenEditProfile] = useState(false);
@@ -65,7 +67,7 @@ export const ProfileForm = () => {
               <div className="d-flex justify-content-center">
                 <img
                   onClick={handleClickOpenEditPhoto}
-                  src={`${process.env.PUBLIC_URL}/UserAvatars/UserAvatar1.png`}
+                  src={`${process.env.PUBLIC_URL}${user?.path}`}
                   alt="User avatar"
                 ></img>
               </div>
@@ -86,7 +88,7 @@ export const ProfileForm = () => {
                   {" "}
                   <button
                     onClick={handleClickOpenEditProfile}
-                    className="btn btn-primary w-100 h-100 fs-3 p-3"
+                    className="button-light w-100 h-100 fs-3 p-3"
                   >
                     Edit profile
                   </button>
@@ -95,7 +97,7 @@ export const ProfileForm = () => {
                   {" "}
                   <button
                     onClick={handleClickOpenEditPassword}
-                    className="btn btn-primary w-100 fs-3 p-3 my-3 my-md-0"
+                    className="button-light w-100 fs-3 p-3 my-3 my-md-0"
                   >
                     Change password
                   </button>
@@ -103,7 +105,7 @@ export const ProfileForm = () => {
                 <div className="col-lg-4">
                   {" "}
                   <a href="/Dashboard">
-                    <button className="btn btn-primary w-100 fs-3  p-3">
+                    <button className="button-light w-100 fs-3  p-3">
                       Back to dashboard
                     </button>
                   </a>

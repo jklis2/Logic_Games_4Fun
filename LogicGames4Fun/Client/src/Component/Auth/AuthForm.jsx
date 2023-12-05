@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import RegisterForm from "./RegisterForm";
 import Overlay from "./Overlay";
 import LoginForm from "./LoginForm";
+import { useNavigate } from "react-router-dom";
 
 export const AuthForm = () => {
+  const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
-  const [isValid, setIsValid] = useState(false);
+  const [isValid] = useState(false);
   const [registerVisibility, setRegisterVisibility] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -13,6 +15,10 @@ export const AuthForm = () => {
     setScreenWidth(window.innerWidth);
     if (window.innerWidth < 992) setIsMobile(true);
     else setIsMobile(false);
+  };
+
+  const redirect = () => {
+    navigate("/profile");
   };
 
   useEffect(() => {
@@ -37,8 +43,9 @@ export const AuthForm = () => {
               <LoginForm
                 isValid={isValid}
                 registerVisibility={registerVisibility}
-                setRegisterVisibility={setRegisterVisibility}
                 isMobile={isMobile}
+                setRegisterVisibility={setRegisterVisibility}
+                redirect={redirect}
               />
             )}
 
@@ -57,8 +64,9 @@ export const AuthForm = () => {
               <LoginForm
                 isValid={isValid}
                 registerVisibility={registerVisibility}
-                setRegisterVisibility={setRegisterVisibility}
                 isMobile={isMobile}
+                setRegisterVisibility={setRegisterVisibility}
+                redirect={redirect}
               />
             </div>
             <Overlay setRegisterVisibility={setRegisterVisibility} />

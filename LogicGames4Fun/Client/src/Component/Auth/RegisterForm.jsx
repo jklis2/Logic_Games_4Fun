@@ -7,11 +7,14 @@ const RegisterForm = () => {
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [selectedGender, setSelectedGender] = useState(null);
+  const [path, setPath] = useState(null);
+  
   const dispatch = useDispatch();
 
-  const handleAvatarClick = (avatar) => {
-    setSelectedAvatar(avatar);
+  const handleAvatarClick = (avatar, path) => {
+    setSelectedGender(avatar);
+    setPath(path);
   };
 
   const handleFormSubmit = (e) => {
@@ -21,7 +24,8 @@ const RegisterForm = () => {
         login,
         email,
         password,
-        gender: "male",
+        gender: selectedGender,
+        path,
       })
     );
   };
@@ -86,21 +90,21 @@ const RegisterForm = () => {
         <div className="auth__register d-flex justify-content-center flex-wrap">
           <div
             className={`${
-              selectedAvatar === "avatar1"
-                ? ""
-                : "auth__register__avatar-rejected"
+              selectedGender === "male" ? "" : "auth__register__avatar-rejected"
             }`}
           >
             <img
               className="w-100"
               src={`${process.env.PUBLIC_URL}/UserAvatars/UserAvatar1.png`}
               alt=""
-              onClick={() => handleAvatarClick("avatar1")}
+              onClick={() =>
+                handleAvatarClick("male", "/UserAvatars/UserAvatar1.png")
+              }
             />
           </div>
           <div
             className={`${
-              selectedAvatar === "avatar2"
+              selectedGender === "female"
                 ? ""
                 : "auth__register__avatar-rejected"
             }`}
@@ -109,7 +113,9 @@ const RegisterForm = () => {
               className="w-100"
               src={`${process.env.PUBLIC_URL}/UserAvatars/UserAvatar2.png`}
               alt=""
-              onClick={() => handleAvatarClick("avatar2")}
+              onClick={() => {
+                handleAvatarClick("female", "/UserAvatars/UserAvatar2.png");
+              }}
             />
           </div>
         </div>

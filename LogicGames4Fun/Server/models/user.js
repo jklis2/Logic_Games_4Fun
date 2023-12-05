@@ -38,8 +38,14 @@ export const UserSchema = new mongoose.Schema({
   dateOfBirth: {
     type: Date,
   },
+  path: {
+    type: String,
+  },
   achievements: {
     type: Array,
+  },
+  isAdmin: {
+    type: Boolean,
   },
 });
 

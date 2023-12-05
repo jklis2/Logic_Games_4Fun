@@ -1,9 +1,8 @@
 import express from "express";
 import cors from "cors";
 import { connect } from "./database.js";
-import register from "./routers/register.js";
-import login from './routers/login.js';
 
+import auth from "./routers/auth.js";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -19,5 +18,4 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
-app.use("/register", register);
-app.use('/login', login)
+app.use("/auth", auth);

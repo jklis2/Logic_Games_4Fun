@@ -19,7 +19,53 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/register", async (req, res) => {
+  try {
+    const { login, email, password, gender, path } = req.body;
+    console.log(req.body);
+
+    if (!(login && email && password)) {
+      res.status(400).send("All input is required");
+    }
+
+    const isUserExists = await UserModel.findOne({ login });
+
+    if (isUserExists) return res.status(409).json("User exists.");
+
+    const encryptedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = await new UserModel({
+      login,
+      password: encryptedPassword,
+      email,
+      gender,
+      path,
+      dateOfBirth: "01-01-2020",
+      achievements: [],
+      isAdmin: false,
+    }).save();
+
+    const token = jwt.sign(
+      {
+        login: newUser.login,
+        email: newUser.email,
+        path: newUser.path,
+      },
+      secretKey,
+      {
+        expiresIn: "4h",
+      }
+    );
+
+    return res
+      .status(201)
+      .json({ message: "Successfully registered!", token, login });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post("/login", async (req, res) => {
   try {
     const { login, password } = req.body;
     const foundUser = await UserModel.findOne({ login });
@@ -34,6 +80,7 @@ router.post("/", async (req, res) => {
       {
         login: foundUser.login,
         email: foundUser.email,
+        path: foundUser.path,
       },
       secretKey,
       {
@@ -41,7 +88,7 @@ router.post("/", async (req, res) => {
       }
     );
     const refreshToken = jwt.sign(
-      { login: foundUser.login, email: foundUser.email },
+      { login: foundUser.login, email: foundUser.email, path: foundUser.path },
       secretKey
     );
 

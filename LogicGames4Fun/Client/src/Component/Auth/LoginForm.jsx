@@ -1,9 +1,23 @@
 import "../UI/Button/Button.scss";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../Redux/auth-slice";
+import { useState } from "react";
 
 const LoginForm = (props) => {
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+
+  const submitLogin = (e) => {
+    e.preventDefault();
+    dispatch(authActions.login({ login, password }));
+  };
   return (
     <>
-      <form className="d-flex align-items-center justify-content-center flex-column h-100 bg-white">
+      <form
+        className="d-flex align-items-center justify-content-center flex-column h-100 bg-white"
+        onSubmit={submitLogin}
+      >
         <h2 className="form__title mb-3">Sign in</h2>
 
         <div className="auth__social">
@@ -21,15 +35,23 @@ const LoginForm = (props) => {
           <label className="form__label " htmlFor="login">
             Login
           </label>
-          <input type="text" id="login" className="form__input mt-2 px-3" />
+          <input
+            type="text"
+            id="login"
+            className="form__input mt-2 px-3"
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
+          />
 
           <label className="form__label  mt-3" htmlFor="password">
             Password
           </label>
           <input
-            type="text"
+            type="password"
             id="password"
             className="form__input w-100 mt-2 px-3"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
@@ -42,7 +64,9 @@ const LoginForm = (props) => {
         </button>
 
         {props.isMobile && (
-          <span onClick={() => props.setRegisterVisibility(true)}>Mobile view!!</span>
+          <span onClick={() => props.setRegisterVisibility(true)}>
+            Mobile view!!
+          </span>
         )}
       </form>
     </>
