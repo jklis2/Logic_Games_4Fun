@@ -3,8 +3,7 @@ import { InternalNavbar } from "../InternalNavbar/InternalNavbar";
 import DashboardFooter from "../Dashboard/DashboardFooter";
 import ProgressBarValue from "./ProgressBarValue";
 import { achievementList } from "./achievementList";
-import { FaArrowRight } from "react-icons/fa";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 export const AchievementsForm = () => {
@@ -39,15 +38,18 @@ export const AchievementsForm = () => {
   return (
     <>
       <InternalNavbar />
-      <h1 className="h1 text-center my-5">
-        {t("achievements.achievementTitle")}
-      </h1>
+      <h1 className="h1 text-center my-5">{t("achievementsTitle")}</h1>
       <div className="container">
         <div className="row">
           {achievementList.map((achievement) => {
             const currentLevel = achievementLevels[achievement.id];
             const achievementImage = achievement.images[currentLevel];
-            const achievementName = achievement.levels[currentLevel];
+            const achievementLevelText = t(
+              `achievementList.${achievement.id}.levels.${currentLevel}`
+            );
+            const achievementAltText = t(
+              `achievementList.${achievement.id}.alt`
+            );
 
             return (
               <div key={achievement.id} className="col-md-3 p-4">
@@ -81,12 +83,12 @@ export const AchievementsForm = () => {
                   <div className="p-4">
                     <img
                       src={achievementImage}
-                      alt={achievement.alt}
+                      alt={achievementAltText}
                       className="w-100"
                     />
                   </div>
-                  <div className=" d-flex flex-column">
-                    <p className="fs-3">{achievementName}</p>
+                  <div className="d-flex flex-column">
+                    <p className="fs-3">{achievementLevelText}</p>
                     <ProgressBarValue />
                   </div>
                 </div>

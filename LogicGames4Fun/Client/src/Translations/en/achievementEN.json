@@ -1,45 +1,105 @@
 {
-  "achievements": {
-    "achievementTitle": "Achievements",
-    "finishEasySudoku": "Finish 25 easy levels of Sudoku",
-    "finishMediumSudoku": "Finish 50 medium levels of Sudoku",
-    "finishHardSudoku": "Finish 75 hard levels of Sudoku",
-    "finishLevelsSudoku": "Finish 100 levels of Sudoku",
-    "finishEasyCrossword": "Finish 10 easy levels of Crossword",
-    "finishMediumCrossword": "Finish 20 medium levels of Crossword",
-    "finishHardCrossword": "Finish 30 hard levels of Crossword",
-    "finishImpossibleCrossword": "Finish 40 impossible levels of Crossword",
-    "finishMemoryLevels": "Finish 25 levels of Memory",
-    "finishMoreMemoryLevels": "Finish 50 levels of Memory",
-    "finishManyMemoryLevels": "Finish 75 levels of Memory",
-    "finishTotalMemoryLevels": "Finish 100 levels of Memory",
-    "finishEasy2048": "Finish 10 easy levels of 2048",
-    "finishMedium2048": "Finish 20 medium levels of 2048",
-    "finishHard2048": "Finish 30 hard levels of 2048",
-    "finishMoreHard2048": "Finish 50 hard levels of 2048",
-    "finishEasyMinesweeper": "Finish 10 easy levels of Minesweeper",
-    "finishMediumMinesweeper": "Finish 20 medium levels of Minesweeper",
-    "finishHardMinesweeper": "Finish 20 medium levels of Minesweeper",
-    "finishManyHardMinesweeper": "Finish 50 hard levels of Minesweeper",
-    "scoreSnake": "Score 30 points in Snake",
-    "scoreMoreSnake": "Score 50 points in Snake",
-    "scoreManySnake": "Score 70 points in Snake",
-    "scoreTotalSnake": "Score 100 points in Snake",
-    "completeMaze": "Complete 25 levels of Maze with a minimum board size of 5x5",
-    "completeMoreMaze": "Complete 20 levels of Maze with a minimum board size of 20x20",
-    "completeManyMaze": "Complete 15 levels of Maze with a minimum board size of 30x30",
-    "completeTotalMaze": "Complete 10 levels of Maze with a minimum board size of 35x35",
-    "scoreBallHole": "Score 50 points in Ball in the hole",
-    "scoreMoreBallHole": "Score 40 points in Ball in the hole",
-    "scoreManyBallHole": "Score 30 points in Ball in the hole",
-    "scoreTotalBallHole": "Score 20 points in Ball in the hole",
-    "answerQuiz": "Answer 40 Quiz questions correctly",
-    "answerMoreQuiz": "Answer 80 Quiz questions correctly",
-    "answerManyQuiz": "Answer 120 Quiz questions correctly",
-    "answerTotalQuiz": "Answer 200 Quiz questions correctly",
-    "winTicTacToe": "Win 10 games of Tic Tac Toe",
-    "winMoreTicTacToe": "Win 20 games of Tic Tac Toe",
-    "winManyTicTacToe": "Win 40 games of Tic Tac Toe",
-    "winTotalTicTacToe": "Win 80 games of Tic Tac Toe"
+  "achievementsTitle": "Achievements",
+  "achievementList": {
+    "1": {
+      "name": "Finish levels of Sudoku",
+      "alt": "Sudoku Achievement",
+      "levels": {
+        "brown": "Finish 25 levels of Sudoku",
+        "silver": "Finish 50 levels of Sudoku",
+        "gold": "Finish 75 levels of Sudoku",
+        "diamond": "Finish 100 levels of Sudoku"
+      }
+    },
+    "2": {
+      "name": "Finish levels of Crossword",
+      "alt": "Crossword Achievement",
+      "levels": {
+        "brown": "Finish 10 easy levels of Crossword",
+        "silver": "Finish 20 medium levels of Crossword",
+        "gold": "Finish 30 hard levels of Crossword",
+        "diamond": "Finish 40 impossible levels of Crossword"
+      }
+    },
+    "3": {
+      "name": "Finish levels of Memory",
+      "alt": "Memory Achievement",
+      "levels": {
+        "brown": "Finish 25 levels of Memory",
+        "silver": "Finish 50 levels of Memory",
+        "gold": "Finish 75 levels of Memory",
+        "diamond": "Finish 100 levels of Memory"
+      }
+    },
+    "4": {
+      "name": "Finish levels of 2048",
+      "alt": "2048 Game Achievement",
+      "levels": {
+        "brown": "Finish 10 easy levels of 2048",
+        "silver": "Finish 20 medium levels of 2048",
+        "gold": "Finish 30 hard levels of 2048",
+        "diamond": "Finish 50 hard levels of 2048"
+      }
+    },
+    "5": {
+      "name": "Finish levels of Minesweeper",
+      "alt": "Minesweeper Game Achievement",
+      "levels": {
+        "brown": "Finish 10 easy levels of Minesweeper",
+        "silver": "Finish 20 medium levels of Minesweeper",
+        "gold": "Finish 30 hard levels of Minesweeper",
+        "diamond": "Finish 50 hard levels of Minesweeper"
+      }
+    },
+    "6": {
+      "name": "Score in Snake",
+      "alt": "Snake Game Achievement",
+      "levels": {
+        "brown": "Score 30 points in Snake",
+        "silver": "Score 50 points in Snake",
+        "gold": "Score 70 points in Snake",
+        "diamond": "Score 100 points in Snake"
+      }
+    },
+    "7": {
+      "name": "Complete Maze levels",
+      "alt": "Maze Game Achievement",
+      "levels": {
+        "brown": "Complete 25 levels of Maze with a minimum board size of 5x5",
+        "silver": "Complete 20 levels of Maze with a minimum board size of 20x20",
+        "gold": "Complete 15 levels of Maze with a minimum board size of 30x30",
+        "diamond": "Complete 10 levels of Maze with a minimum board size of 35x35"
+      }
+    },
+    "8": {
+      "name": "Score in Ball in the hole",
+      "alt": "Ball in the Hole Game Achievement",
+      "levels": {
+        "brown": "Score 50 points in Ball in the hole",
+        "silver": "Score 40 points in Ball in the hole",
+        "gold": "Score 30 points in Ball in the hole",
+        "diamond": "Score 20 points in Ball in the hole"
+      }
+    },
+    "9": {
+      "name": "Answer Quiz questions correctly",
+      "alt": "Quiz Game Achievement",
+      "levels": {
+        "brown": "Answer 40 Quiz questions correctly",
+        "silver": "Answer 80 Quiz questions correctly",
+        "gold": "Answer 120 Quiz questions correctly",
+        "diamond": "Answer 200 Quiz questions correctly"
+      }
+    },
+    "10": {
+      "name": "Win games of Tic Tac Toe",
+      "alt": "Tic Tac Toe Game Achievement",
+      "levels": {
+        "brown": "Win 10 games of Tic Tac Toe",
+        "silver": "Win 20 games of Tic Tac Toe",
+        "gold": "Win 40 games of Tic Tac Toe",
+        "diamond": "Win 80 games of Tic Tac Toe"
+      }
+    }
   }
 }

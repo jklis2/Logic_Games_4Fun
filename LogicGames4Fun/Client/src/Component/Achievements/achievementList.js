@@ -10,9 +10,9 @@ export const achievementList = [
     },
     alt: "Sudoku Achievement",
     levels: {
-      brown: "Finish 25 easy levels of Sudoku",
-      silver: "Finish 50 medium levels of Sudoku",
-      gold: "Finish 75 hard levels of Sudoku",
+      brown: "Finish 25 levels of Sudoku",
+      silver: "Finish 50 levels of Sudoku",
+      gold: "Finish 75 levels of Sudoku",
       diamond: "Finish 100 levels of Sudoku",
     },
   },

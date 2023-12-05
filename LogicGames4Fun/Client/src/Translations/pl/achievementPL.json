@@ -1,45 +1,105 @@
 {
-  "achievements": {
-    "achievementTitle": "Osiągnięcia",
-    "finishEasySudoku": "Ukończ 25 łatwych poziomów Sudoku",
-    "finishMediumSudoku": "Ukończ 50 średnich poziomów Sudoku",
-    "finishHardSudoku": "Ukończ 75 trudnych poziomów Sudoku",
-    "finishLevelsSudoku": "Ukończ 100 poziomów Sudoku",
-    "finishEasyCrossword": "Ukończ 10 łatwych poziomów Krzyżówki",
-    "finishMediumCrossword": "Ukończ 20 średnich poziomów Krzyżówki",
-    "finishHardCrossword": "Ukończ 30 trudnych poziomów Krzyżówki",
-    "finishImpossibleCrossword": "Ukończ 40 niemożliwych poziomów Krzyżówki",
-    "finishMemoryLevels": "Ukończ 25 poziomów Memory",
-    "finishMoreMemoryLevels": "Ukończ 50 poziomów Memory",
-    "finishManyMemoryLevels": "Ukończ 75 poziomów Memory",
-    "finishTotalMemoryLevels": "Ukończ 100 poziomów Memory",
-    "finishEasy2048": "Ukończ 10 łatwych poziomów 2048",
-    "finishMedium2048": "Ukończ 20 średnich poziomów 2048",
-    "finishHard2048": "Ukończ 30 trudnych poziomów 2048",
-    "finishMoreHard2048": "Ukończ 50 trudnych poziomów 2048",
-    "finishEasyMinesweeper": "Ukończ 10 łatwych poziomów Saper",
-    "finishMediumMinesweeper": "Ukończ 20 średnich poziomów Saper",
-    "finishHardMinesweeper": "Ukończ 20 średnich poziomów Saper",
-    "finishManyHardMinesweeper": "Ukończ 50 trudnych poziomów Saper",
-    "scoreSnake": "Zdobyj 30 punktów w grze Snake",
-    "scoreMoreSnake": "Zdobyj 50 punktów w grze Snake",
-    "scoreManySnake": "Zdobyj 70 punktów w grze Snake",
-    "scoreTotalSnake": "Zdobyj 100 punktów w grze Snake",
-    "completeMaze": "Ukończ 25 poziomów Labiryntu z minimalnym rozmiarem planszy 5x5",
-    "completeMoreMaze": "Ukończ 20 poziomów Labiryntu z minimalnym rozmiarem planszy 20x20",
-    "completeManyMaze": "Ukończ 15 poziomów Labiryntu z minimalnym rozmiarem planszy 30x30",
-    "completeTotalMaze": "Ukończ 10 poziomów Labiryntu z minimalnym rozmiarem planszy 35x35",
-    "scoreBallHole": "Zdobyj 50 punktów w grze Piłka w dołku",
-    "scoreMoreBallHole": "Zdobyj 40 punktów w grze Piłka w dołku",
-    "scoreManyBallHole": "Zdobyj 30 punktów w grze Piłka w dołku",
-    "scoreTotalBallHole": "Zdobyj 20 punktów w grze Piłka w dołku",
-    "answerQuiz": "Poprawnie odpowiedz na 40 pytań quizu",
-    "answerMoreQuiz": "Poprawnie odpowiedz na 80 pytań quizu",
-    "answerManyQuiz": "Poprawnie odpowiedz na 120 pytań quizu",
-    "answerTotalQuiz": "Poprawnie odpowiedz na 200 pytań quizu",
-    "winTicTacToe": "Wygraj 10 gier w Kółko i Krzyżyk",
-    "winMoreTicTacToe": "Wygraj 20 gier w Kółko i Krzyżyk",
-    "winManyTicTacToe": "Wygraj 40 gier w Kółko i Krzyżyk",
-    "winTotalTicTacToe": "Wygraj 80 gier w Kółko i Krzyżyk"
+  "achievementsTitle": "Osiągnięcia",
+  "achievementList": {
+    "1": {
+      "name": "Ukończ poziomy Sudoku",
+      "alt": "Osiągnięcie Sudoku",
+      "levels": {
+        "brown": "Ukończ 25 poziomów Sudoku",
+        "silver": "Ukończ 50 poziomów Sudoku",
+        "gold": "Ukończ 75 poziomów Sudoku",
+        "diamond": "Ukończ 100 poziomów Sudoku"
+      }
+    },
+    "2": {
+      "name": "Ukończ poziomy Krzyżówki",
+      "alt": "Osiągnięcie Krzyżówka",
+      "levels": {
+        "brown": "Ukończ 10 łatwych poziomów Krzyżówki",
+        "silver": "Ukończ 20 średnich poziomów Krzyżówki",
+        "gold": "Ukończ 30 trudnych poziomów Krzyżówki",
+        "diamond": "Ukończ 40 niemożliwych poziomów Krzyżówki"
+      }
+    },
+    "3": {
+      "name": "Ukończ poziomy Memory",
+      "alt": "Osiągnięcie Memory",
+      "levels": {
+        "brown": "Ukończ 25 poziomów Memory",
+        "silver": "Ukończ 50 poziomów Memory",
+        "gold": "Ukończ 75 poziomów Memory",
+        "diamond": "Ukończ 100 poziomów Memory"
+      }
+    },
+    "4": {
+      "name": "Ukończ poziomy 2048",
+      "alt": "Osiągnięcie 2048",
+      "levels": {
+        "brown": "Ukończ 10 łatwych poziomów 2048",
+        "silver": "Ukończ 20 średnich poziomów 2048",
+        "gold": "Ukończ 30 trudnych poziomów 2048",
+        "diamond": "Ukończ 50 trudnych poziomów 2048"
+      }
+    },
+    "5": {
+      "name": "Ukończ poziomy Saper",
+      "alt": "Osiągnięcie Saper",
+      "levels": {
+        "brown": "Ukończ 10 łatwych poziomów Sapera",
+        "silver": "ZakUkończończ 20 średnich poziomów Sapera",
+        "gold": "Ukończ 30 trudnych poziomów Sapera",
+        "diamond": "Ukończ 50 trudnych poziomów Sapera"
+      }
+    },
+    "6": {
+      "name": "Osiągnij wynik w Snake",
+      "alt": "Osiągnięcie w Snake",
+      "levels": {
+        "brown": "Osiągnij wynik 30 punktów w Snake",
+        "silver": "Osiągnij wynik 50 punktów w Snake",
+        "gold": "Osiągnij wynik 70 punktów w Snake",
+        "diamond": "Osiągnij wynik 100 punktów w Snake"
+      }
+    },
+    "7": {
+      "name": "Ukończ poziomy Labiryntu",
+      "alt": "Osiągnięcie Labirynt",
+      "levels": {
+        "brown": "Ukończ 25 poziomów Labiryntu z minimalnym rozmiarem planszy 5x5",
+        "silver": "Ukończ 20 poziomów Labiryntu z minimalnym rozmiarem planszy 20x20",
+        "gold": "Ukończ 15 poziomów Labiryntu z minimalnym rozmiarem planszy 30x30",
+        "diamond": "Ukończ 10 poziomów Labiryntu z minimalnym rozmiarem planszy 35x35"
+      }
+    },
+    "8": {
+      "name": "Osiągnij wynik w Ball in the Hole",
+      "alt": "Osiągnięcie w Ball in the Hole",
+      "levels": {
+        "brown": "Osiągnij wynik 50 punktów w Ball in the Hole",
+        "silver": "Osiągnij wynik 40 punktów w Ball in the Hole",
+        "gold": "Osiągnij wynik 30 punktów w Ball in the Hole",
+        "diamond": "Osiągnij wynik 20 punktów w Ball in the Hole"
+      }
+    },
+    "9": {
+      "name": "Odpowiedz poprawnie na pytania w quizie",
+      "alt": "Osiągnięcie w Quizie",
+      "levels": {
+        "brown": "Odpowiedz poprawnie na 40 pytań w quizie",
+        "silver": "Odpowiedz poprawnie na 80 pytań w quizie",
+        "gold": "Odpowiedz poprawnie na 120 pytań w quizie",
+        "diamond": "Odpowiedz poprawnie na 200 pytań w quizie"
+      }
+    },
+    "10": {
+      "name": "Wygraj gry w kółko i krzyżyk",
+      "alt": "Osiągnięcie w kółko i krzyżyk",
+      "levels": {
+        "brown": "Wygraj 10 gier w kółko i krzyżyk",
+        "silver": "Wygraj 20 gier w kółko i krzyżyk",
+        "gold": "Wygraj 40 gier w kółko i krzyżyk",
+        "diamond": "Wygraj 80 gier w kółko i krzyżyk"
+      }
+    }
   }
 }
