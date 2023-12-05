@@ -472,7 +472,7 @@ export const PrivacyPolicyForm = () => {
         </div>
 
         <div className="w-100 d-flex justify-content-center my-5">
-          <Link to="/Login">
+          <Link to="/auth">
             <button className="button-light">Back to login</button>
           </Link>
         </div>
