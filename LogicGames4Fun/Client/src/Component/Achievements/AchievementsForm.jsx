@@ -36,10 +36,6 @@ export const AchievementsForm = () => {
     });
   };
 
-  const bronzeAchievements = achievementList.filter((achievement) =>
-    achievement.img.includes("brown")
-  );
-
   return (
     <>
       <InternalNavbar />
@@ -48,24 +44,24 @@ export const AchievementsForm = () => {
       </h1>
       <div className="container">
         <div className="row">
-          {bronzeAchievements.map((achievement) => {
+          {achievementList.map((achievement) => {
             const currentLevel = achievementLevels[achievement.id];
-            const isBronze = currentLevel === "brown";
-            const isDiamond = currentLevel === "diamond";
+            const achievementImage = achievement.images[currentLevel];
+            const achievementName = achievement.levels[currentLevel];
 
             return (
               <div key={achievement.id} className="col-md-3 p-4">
                 <div className="bg-light h-100 d-flex flex-column justify-content-around achievement-card p-5 text-center">
                   <div
                     className={`d-flex ${
-                      isBronze
+                      currentLevel === "brown"
                         ? "justify-content-end"
-                        : isDiamond
+                        : currentLevel === "diamond"
                         ? "justify-content-start"
                         : "justify-content-between"
                     } align-items-center w-100`}
                   >
-                    {!isBronze && (
+                    {currentLevel !== "brown" && (
                       <FaArrowLeft
                         style={{ fontSize: "2rem" }}
                         onClick={() =>
@@ -73,7 +69,7 @@ export const AchievementsForm = () => {
                         }
                       />
                     )}
-                    {!isDiamond && (
+                    {currentLevel !== "diamond" && (
                       <FaArrowRight
                         style={{ fontSize: "2rem" }}
                         onClick={() =>
@@ -84,13 +80,13 @@ export const AchievementsForm = () => {
                   </div>
                   <div className="p-4">
                     <img
-                      src={achievement.img.replace("brown", currentLevel)}
+                      src={achievementImage}
                       alt={achievement.alt}
                       className="w-100"
-                    ></img>
+                    />
                   </div>
                   <div className=" d-flex flex-column">
-                    <p className="fs-3">{achievement.name}</p>
+                    <p className="fs-3">{achievementName}</p>
                     <ProgressBarValue />
                   </div>
                 </div>
