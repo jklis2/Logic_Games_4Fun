@@ -210,7 +210,7 @@
    	- Added alert to Crossword
 	- Added modal to ball in the hole
  	- Fixed alert translation in crossword
-  	- Fixed result updating in the modal\
+  	- Fixed result updating in the modal
  
 - **0.1.5** (`2023/11/30`)
 	- Removed all css modules
@@ -222,4 +222,13 @@
 	- Added arrows to achievement cards
  	- Changed achievement images
   	- Added token refresh
+ 
+- **0.1.7** (`2023/12/05`)
+	- Added new profile images
+   	- Repaired achievement cards
+	- Change colors of Auth Page
+ 	- Added translations in Achievement
+  	- Added image for profile placeholder
+  	- Add authentication to Front-end
+
 
