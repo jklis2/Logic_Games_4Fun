@@ -5,9 +5,11 @@ import Navbar from "react-bootstrap/Navbar";
 import "../UI/Button/Button.scss";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 export const HomeForm = () => {
   const [t] = useTranslation(["translation", "home"]);
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <div className="home d-flex justify-content-center align-items-center">
@@ -31,9 +33,11 @@ export const HomeForm = () => {
                 <Nav.Link as={Link} to="/dashboard" className="fs-2">
                   {t("nav.dashboard")}
                 </Nav.Link>
-                <Nav.Link as={Link} to="/auth" className="fs-2">
-                  {t("nav.login")}
-                </Nav.Link>
+                {!user && (
+                  <Nav.Link as={Link} to="/auth" className="fs-2">
+                    {t("nav.login")}
+                  </Nav.Link>
+                )}
                 <Nav.Link as={Link} to="/aboutus" className="fs-2">
                   {t("nav.aboutUs")}
                 </Nav.Link>

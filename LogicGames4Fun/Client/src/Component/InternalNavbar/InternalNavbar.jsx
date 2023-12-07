@@ -11,14 +11,36 @@ import { useSelector } from "react-redux";
 export const InternalNavbar = () => {
   const [t] = useTranslation(["translation", "navbar"]);
   const { user } = useSelector((state) => state.auth);
-  
+
   const settings = [
-    { label: t("navbar.profile"), path: "/profile", allowedForLoggedInUser: true },
-    { label: t("navbar.dashboard"), path: "/dashboard", allowedForLoggedInUser: true },
-    { label: t("navbar.favouriteGames"), path: "/favouritegames", allowedForLoggedInUser: false },
-    { label: t("navbar.achievements"), path: "/achievements", allowedForLoggedInUser: false },
-    { label: t("navbar.settings"), path: "/settings", allowedForLoggedInUser: true },
-    { label: t("navbar.logout"), path: "/logout", allowedForLoggedInUser: true },
+    {
+      label: t("navbar.profile"),
+      path: "/profile",
+      allowedForLoggedInUser: true,
+    },
+    {
+      label: t("navbar.dashboard"),
+      path: "/dashboard",
+    },
+    {
+      label: t("navbar.favouriteGames"),
+      path: "/favouritegames",
+      allowedForLoggedInUser: true,
+    },
+    {
+      label: t("navbar.achievements"),
+      path: "/achievements",
+      allowedForLoggedInUser: true,
+    },
+    {
+      label: t("navbar.settings"),
+      path: "/settings",
+    },
+    {
+      label: t("navbar.logout"),
+      path: "/logout",
+      allowedForLoggedInUser: true,
+    },
   ];
 
   return (
@@ -35,6 +57,7 @@ export const InternalNavbar = () => {
             </p>
           </div>
         </Navbar.Brand>
+
         <Navbar.Toggle className="d-none" aria-controls="basic-navbar-nav" />
         <Nav className="ms-auto">
           <Dropdown>
@@ -55,16 +78,21 @@ export const InternalNavbar = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              {settings.map((setting) => (
-                <Dropdown.Item key={setting}>
-                  <Link
-                    style={{ textDecoration: "none", color: "black" }}
-                    to={setting.path}
-                  >
-                    {setting.label}
-                  </Link>
-                </Dropdown.Item>
-              ))}
+              {settings.map((setting) => {
+                if (!user && setting.allowedForLoggedInUser) {
+                  return null;
+                }
+                return (
+                  <Dropdown.Item as="div" key={setting.path}>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to={setting.path}
+                    >
+                      {setting.label}
+                    </Link>
+                  </Dropdown.Item>
+                );
+              })}
             </Dropdown.Menu>
           </Dropdown>
         </Nav>

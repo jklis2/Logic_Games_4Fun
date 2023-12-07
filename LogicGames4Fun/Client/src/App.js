@@ -47,9 +47,7 @@ function App() {
     dispatch(fetchUserData());
   }, [dispatch]);
 
-  const requireAuth = (element) => {
-    return user ? element : <Navigate to="/auth" />;
-  };
+  const requireAuth = (element) => (user ? element : <Navigate to="/auth" />);
 
   const requireGuest = (element) =>
     !user ? element : <Navigate to="/profile" />;

@@ -20,7 +20,7 @@ export const DashboardForm = () => {
       <InternalNavbar />
       <div className="d-flex flex-column justify-content-center align-items-center ">
         <div className="my-5 py-5 ">
-          <h2 className="h2 text-center mb-5">{t("dashboard.logicGames")}</h2>
+          <h2 className="dashboard__title text-center mb-5">{t("dashboard.logicGames")}</h2>
           <div className="row container-xxl">
             {logicGames.map((game) => (
               <div key={game.id} className="col-md-4 mt-5">
@@ -62,7 +62,7 @@ export const DashboardForm = () => {
         </div>
 
         <div className="my-5 py-5 ">
-          <h2 className="h2 text-center mb-5">{t("dashboard.scoreGames")}</h2>
+          <h2 className="dashboard__title text-center mb-5">{t("dashboard.scoreGames")}</h2>
           <div className="row container-xxl">
             {scoreGames.map((game) => (
               <div key={game.id} className="col-md-4 mt-5">
