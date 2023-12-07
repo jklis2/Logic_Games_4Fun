@@ -230,5 +230,9 @@
  	- Added translations in Achievement
   	- Added image for profile placeholder
   	- Add authentication to Front-end
+ 
+- **0.1.8** (`2023/12/07`)
+	- Added dynamic redirect after login
+ 	- Changed vievs for unauthenticated users
 
 
