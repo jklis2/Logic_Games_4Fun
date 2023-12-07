@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./Routers/Home";
 import { Dashboard } from "./Routers/Dashboard";
@@ -26,6 +26,7 @@ import { fetchUserData } from "./Redux/auth-slice";
 
 function App() {
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     const isMusicEnabled = localStorage.getItem("isMusicEnabled") === "true";
@@ -43,11 +44,15 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    async function getUser() {
-      dispatch(fetchUserData());
-    }
-    getUser();
+    dispatch(fetchUserData());
   }, [dispatch]);
+
+  const requireAuth = (element) => {
+    return user ? element : <Navigate to="/auth" />;
+  };
+
+  const requireGuest = (element) =>
+    !user ? element : <Navigate to="/profile" />;
 
   return (
     <BrowserRouter>
@@ -55,12 +60,12 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/auth" element={requireGuest(<Auth />)} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/profile" element={<MyProfile />} />
+        <Route path="/profile" element={requireAuth(<MyProfile />)} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-        <Route path="/achievements" element={<Achievements />} />
+        <Route path="/achievements" element={requireAuth(<Achievements />)} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/games/sudoku" element={<Sudoku />} />
         <Route path="/games/crossword" element={<Crossword />} />
@@ -70,7 +75,7 @@ function App() {
         <Route path="/games/snake" element={<Snake />} />
         <Route path="/games/maze" element={<Maze />} />
         <Route path="/games/ballInTheHole" element={<BallInheHole />} />
-        <Route path="/games/Quiz" element={<Quiz />} />
+        <Route path="/games/quiz" element={<Quiz />} />
         <Route path="/games/ticTacToe" element={<TicTacToe />} />
       </Routes>
     </BrowserRouter>

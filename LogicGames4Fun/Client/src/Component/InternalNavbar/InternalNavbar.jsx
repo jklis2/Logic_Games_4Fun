@@ -6,17 +6,19 @@ import Dropdown from "react-bootstrap/Dropdown";
 import "../UI/Button/Button.scss";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 export const InternalNavbar = () => {
   const [t] = useTranslation(["translation", "navbar"]);
-
+  const { user } = useSelector((state) => state.auth);
+  
   const settings = [
-    { label: t("navbar.profile"), path: "/profile" },
-    { label: t("navbar.dashboard"), path: "/dashboard" },
-    { label: t("navbar.favouriteGames"), path: "/favouritegames" },
-    { label: t("navbar.achievements"), path: "/achievements" },
-    { label: t("navbar.settings"), path: "/settings" },
-    { label: t("navbar.logout"), path: "/logout" },
+    { label: t("navbar.profile"), path: "/profile", allowedForLoggedInUser: true },
+    { label: t("navbar.dashboard"), path: "/dashboard", allowedForLoggedInUser: true },
+    { label: t("navbar.favouriteGames"), path: "/favouritegames", allowedForLoggedInUser: false },
+    { label: t("navbar.achievements"), path: "/achievements", allowedForLoggedInUser: false },
+    { label: t("navbar.settings"), path: "/settings", allowedForLoggedInUser: true },
+    { label: t("navbar.logout"), path: "/logout", allowedForLoggedInUser: true },
   ];
 
   return (
@@ -43,7 +45,9 @@ export const InternalNavbar = () => {
             >
               <div className="internal-navbar__icon">
                 <img
-                  src={`${process.env.PUBLIC_URL}/UserAvatars/UserAvatar1.png`}
+                  src={`${process.env.PUBLIC_URL}${
+                    user ? user.path : "/UserAvatars/UserPlaceholder.png"
+                  }`}
                   alt=""
                   className="w-100"
                 />

@@ -1,16 +1,24 @@
 import "../UI/Button/Button.scss";
 import { useDispatch } from "react-redux";
-import { authActions } from "../../Redux/auth-slice";
 import { useState } from "react";
+import { fetchUserData, loginUser } from "../../Redux/auth-slice";
+import { useNavigate } from "react-router-dom";
 
-const LoginForm = (props) => {
+const LoginForm = ({ isMobile, setRegisterVisibility }) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const submitLogin = (e) => {
+  const submitLogin = async (e) => {
     e.preventDefault();
-    dispatch(authActions.login({ login, password }));
+    try {
+      await dispatch(loginUser({ login, password }));
+      await dispatch(fetchUserData());
+      navigate("/profile");
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
   };
   return (
     <>
@@ -59,13 +67,11 @@ const LoginForm = (props) => {
           Forgot your password?
         </a>
 
-        <button className="button-light" onClick={props.onLogin}>
-          Sign in
-        </button>
+        <button className="button-light">Sign in</button>
 
-        {props.isMobile && (
-          <span onClick={() => props.setRegisterVisibility(true)}>
-            Mobile view!!
+        {isMobile && (
+          <span className="mt-3" onClick={() => setRegisterVisibility(true)}>
+            Or Register
           </span>
         )}
       </form>

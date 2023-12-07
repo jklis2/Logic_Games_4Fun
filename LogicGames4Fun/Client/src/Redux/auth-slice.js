@@ -12,9 +12,10 @@ const initialAuthState = {
 
 export const fetchUserData = createAsyncThunk(
   "user/fetchUserData",
-  async () => {
+  async (_, { getState }) => {
+    const state = getState();
     const headers = {
-      Authorization: `Bearer ${initialAuthState.token}`,
+      Authorization: `Bearer ${state.auth.token}`,
       "Content-Type": "application/json",
     };
     try {
@@ -30,50 +31,33 @@ export const fetchUserData = createAsyncThunk(
   }
 );
 
+export const loginUser = createAsyncThunk(
+  "user/login",
+  async ({ login, password }) => {
+    try {
+      const response = await axios.post(`${API_URL}/auth/login`, {
+        login,
+        password,
+      });
+      const { token } = response.data;
+      localStorage.setItem("token", token);
+      return token;
+    } catch (error) {
+      console.error("Login failed:", error);
+      throw error;
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "authentication",
   initialState: initialAuthState,
   reducers: {
-    getUser(state) {
-      const headers = {
-        Authorization: `Bearer ${state.token}`,
-        "Content-Type": "application/json",
-      };
-
-      axios
-        .get(`${API_URL}/auth/`, {
-          headers,
-        })
-        .then((res) => {
-          if (res.status !== 200) {
-            throw new Error("Cannot get user data.");
-          }
-          return res.data;
-        })
-        .then((data) => {
-          return data;
-        })
-        .catch((err) => console.log(err));
-    },
-
-    register(_, action) {
+    register(state, action) {
       const data = action.payload;
 
       axios
         .post(`${API_URL}/auth/register`, data)
-        .then((res) => {
-          const { token } = res.data;
-          localStorage.setItem("token", token);
-        })
-        .catch((err) => console.log(err));
-    },
-    login(_, action) {
-      const { login, password } = action.payload;
-      axios
-        .post(`${API_URL}/auth/login`, {
-          login,
-          password,
-        })
         .then((res) => {
           const { token } = res.data;
           localStorage.setItem("token", token);
@@ -86,6 +70,10 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(loginUser.fulfilled, (state, action) => {
+      state.token = action.payload;
+      state.isAuthenticated = true;
+    });
     builder.addCase(fetchUserData.pending, (state) => {
       state.loading = true;
     });
@@ -95,7 +83,6 @@ const authSlice = createSlice({
       state.isAuthenticated = true;
     });
     builder.addCase(fetchUserData.rejected, (state, action) => {
-      console.log(state.error);
       state.loading = false;
     });
   },

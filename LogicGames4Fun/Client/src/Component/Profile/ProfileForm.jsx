@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { EditProfileForm } from "../EditData/EditProfileForm";
 import { EditPhotoForm } from "../EditData/EditPhotoForm";
 import { EditPasswordForm } from "../EditData/EditPasswordForm";
 import ReactDOM from "react-dom";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-export const ProfileForm = () => {
-  const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserData } from "../../Redux/auth-slice";
 
-  //Replace guard in the future
-  if (!user) {
-    navigate("/auth");
-  }
+export const ProfileForm = () => {
+  const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (token) dispatch(fetchUserData());
+  }, [dispatch, token]);
+
+  const { user } = useSelector((state) => state.auth);
 
   // Edit profile
   const [openEditProfile, setOpenEditProfile] = useState(false);
