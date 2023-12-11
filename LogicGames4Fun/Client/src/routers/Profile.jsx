@@ -1,6 +1,6 @@
 import React from "react";
-import { ProfileForm } from "../Component/Profile/ProfileForm";
+import { ProfileCard } from "../Component/Profile/ProfileCard";
 
 export const MyProfile = () => {
-  return <ProfileForm />;
+  return <ProfileCard />;
 };

@@ -2,7 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
 
-const SudokuModal = ({ show, resetArr, onHide, setTime, children }) => {
+const SudokuModal = ({ show, resetArr, onHide, setTime }) => {
   const navigate = useNavigate();
 
   const nextLevelHandler = () => {

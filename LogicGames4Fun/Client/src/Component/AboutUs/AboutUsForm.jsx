@@ -7,7 +7,7 @@ export const AboutUsForm = () => {
 
   return (
     <div className="about d-flex justify-content-center align-items-center">
-      <div className="about__box bg-light w-75">
+      <div className="about__box bg-light py-5 w-75">
         <div className="row">
           <div className="col-12 d-flex justify-content-center">
             <img
@@ -20,7 +20,7 @@ export const AboutUsForm = () => {
           </div>
         </div>
         <p className="fs-4 mt-5 px-5">{t("aboutUs.introduction")}</p>
-        <div className="fs-4 mx-5">
+        <div className="fs-4 mx-5 d-flex justify-content-center">
           <Link to="/Home">
             <button className="mt-3 mb-5 button-light">
               {t("aboutUs.backToHomeButton")}

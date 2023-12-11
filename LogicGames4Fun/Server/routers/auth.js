@@ -76,13 +76,12 @@ router.post("/login", async (req, res) => {
       return res.status(403).json("Incorrect password");
     }
 
-    const token = jwt.sign(
-      {
+    const token = jwt.sign({
         login: foundUser.login,
         email: foundUser.email,
         path: foundUser.path,
       },
-      secretKey,
+      secretKey, 
       {
         expiresIn: "4h",
       }

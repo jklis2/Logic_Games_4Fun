@@ -4,9 +4,9 @@ import { EditPhotoForm } from "../EditData/EditPhotoForm";
 import { EditPasswordForm } from "../EditData/EditPasswordForm";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserData } from "../../Redux/auth-slice";
+import { fetchUserData } from "../../Redux/thunks/fetchUserData";
 
-export const ProfileForm = () => {
+export const ProfileCard = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
 
@@ -32,7 +32,7 @@ export const ProfileForm = () => {
   const handleCloseEditPhoto = () => setOpenEditPhoto(false);
 
   return (
-    <div>
+    <>
       {ReactDOM.createPortal(
         <EditProfileForm
           open={openEditProfile}
@@ -95,11 +95,11 @@ export const ProfileForm = () => {
                     Edit profile
                   </button>
                 </div>
-                <div className="col-lg-4">
+                <div className="col-lg-4 my-3 my-xl-0">
                   {" "}
                   <button
                     onClick={handleClickOpenEditPassword}
-                    className="button-light w-100 fs-3 p-3 my-3 my-md-0"
+                    className="button-light w-100 fs-3 p-3 my-md-0"
                   >
                     Change password
                   </button>
@@ -123,6 +123,6 @@ export const ProfileForm = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

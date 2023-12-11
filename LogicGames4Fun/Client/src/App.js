@@ -22,7 +22,7 @@ import { BallInheHole } from "./Routers/BallInTheHole";
 import { Quiz } from "./Routers/Quiz";
 import { TicTacToe } from "./Routers/TicTacToe";
 import { playMusic, updateMusicSettings } from "./Redux/music-slice";
-import { fetchUserData } from "./Redux/auth-slice";
+import { fetchUserData } from "./Redux/thunks/fetchUserData";
 
 function App() {
   const dispatch = useDispatch();

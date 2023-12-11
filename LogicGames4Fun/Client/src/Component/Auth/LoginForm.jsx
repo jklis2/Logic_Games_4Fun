@@ -1,8 +1,9 @@
 import "../UI/Button/Button.scss";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { fetchUserData, loginUser } from "../../Redux/auth-slice";
 import { useNavigate } from "react-router-dom";
+import { fetchUserData } from "../../Redux/thunks/fetchUserData";
+import { loginUser } from "../../Redux/thunks/loginUser";
 
 const LoginForm = ({ isMobile, setRegisterVisibility }) => {
   const [login, setLogin] = useState("");

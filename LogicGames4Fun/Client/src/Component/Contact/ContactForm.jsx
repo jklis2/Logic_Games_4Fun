@@ -8,13 +8,10 @@ export const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Tu możesz dodać logikę wysłania wiadomości lub inne działania
-
-    // Pokaż komunikat przez 10 sekund
     setShowSuccessAlert(true);
     setTimeout(() => {
       setShowSuccessAlert(false);
-    }, 10000); // 10 sekund (10000 milisekund)
+    }, 10000);
   };
 
   return (

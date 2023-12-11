@@ -4,13 +4,21 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import "../UI/Button/Button.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../Redux/thunks/logoutUser";
 
 export const InternalNavbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [t] = useTranslation(["translation", "navbar"]);
   const { user } = useSelector((state) => state.auth);
+
+  const logoutHandler = () => {
+    dispatch(logoutUser());
+    navigate("/home");
+  };
 
   const settings = [
     {
@@ -38,7 +46,7 @@ export const InternalNavbar = () => {
     },
     {
       label: t("navbar.logout"),
-      path: "/logout",
+      path: "/home",
       allowedForLoggedInUser: true,
     },
   ];
@@ -82,14 +90,23 @@ export const InternalNavbar = () => {
                 if (!user && setting.allowedForLoggedInUser) {
                   return null;
                 }
-                return (
-                  <Dropdown.Item as="div" key={setting.path}>
-                    <Link
-                      style={{ textDecoration: "none", color: "black" }}
-                      to={setting.path}
+                if (
+                  setting.path === "/home" &&
+                  setting.allowedForLoggedInUser
+                ) {
+                  return (
+                    <Dropdown.Item
+                      as="div"
+                      key={setting.path}
+                      onClick={logoutHandler}
                     >
                       {setting.label}
-                    </Link>
+                    </Dropdown.Item>
+                  );
+                }
+                return (
+                  <Dropdown.Item as="div" key={setting.path}>
+                    <Link to={setting.path}>{setting.label}</Link>
                   </Dropdown.Item>
                 );
               })}

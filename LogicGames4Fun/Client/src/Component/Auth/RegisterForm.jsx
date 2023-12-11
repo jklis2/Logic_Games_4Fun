@@ -1,33 +1,42 @@
 import "../UI/Button/Button.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { authActions } from "../../Redux/auth-slice";
+import { useNavigate } from "react-router-dom";
+import { registerUser } from "../../Redux/thunks/registerUser";
+import { fetchUserData } from "../../Redux/thunks/fetchUserData";
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [selectedGender, setSelectedGender] = useState(null);
   const [path, setPath] = useState(null);
-  
-  const dispatch = useDispatch();
 
   const handleAvatarClick = (avatar, path) => {
     setSelectedGender(avatar);
     setPath(path);
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    dispatch(
-      authActions.register({
-        login,
-        email,
-        password,
-        gender: selectedGender,
-        path,
-      })
-    );
+    try {
+     await dispatch(
+        registerUser({
+          login,
+          email,
+          password,
+          gender: selectedGender,
+          path,
+        })
+      );
+      await dispatch(fetchUserData());
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
