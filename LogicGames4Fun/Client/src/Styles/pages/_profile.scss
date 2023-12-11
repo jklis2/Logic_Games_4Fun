@@ -9,4 +9,20 @@
   &__info {
     color: rgb(97, 97, 97);
   }
+
+  &__achievement {
+    filter: grayscale(100%);
+    opacity: 0.5;
+    
+    &-gained {
+      opacity: 1;
+      filter: none;
+    }
+  }
+
+  &__avatar {
+    &-selected {
+      background-color: rgba($color-purple-light, 0.3);
+    }
+  }
 }

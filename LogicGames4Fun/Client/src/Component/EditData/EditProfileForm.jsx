@@ -12,12 +12,25 @@ export const EditProfileForm = (props) => {
     <>
       <div>
         <Dialog open={props.open} onClose={props.handleClose}>
-          <DialogTitle sx={{display: "flex", justifyContent: "center", fontWeight: "bold"}}>Edit profile</DialogTitle>
+          <DialogTitle
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              fontWeight: "bold",
+            }}
+          >
+            Edit profile
+          </DialogTitle>
           <DialogContent>
             <Box
               component="form"
               sx={{
-                "& > :not(style)": { m: 2, width: "25ch", display: "flex", justifyContent: "center" },
+                "& > :not(style)": {
+                  m: 2,
+                  width: "25ch",
+                  display: "flex",
+                  justifyContent: "center",
+                },
               }}
               noValidate
               autoComplete="off"
@@ -46,14 +59,10 @@ export const EditProfileForm = (props) => {
                 variant="outlined"
                 type="text"
               />
-              <TextField
-                id="outlined-basic"
-                label="E-mail"
-                type="email"
-              />
+              <TextField id="outlined-basic" label="E-mail" type="email" />
             </Box>
           </DialogContent>
-          <DialogActions sx={{display: "flex", justifyContent: "center"}}>
+          <DialogActions sx={{ display: "flex", justifyContent: "center" }}>
             <Button onClick={props.handleClose}>Cancel</Button>
             <Button onClick={props.handleClose}>Save changes</Button>
           </DialogActions>

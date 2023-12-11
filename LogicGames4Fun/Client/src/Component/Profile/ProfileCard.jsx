@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { EditProfileForm } from "../EditData/EditProfileForm";
-import { EditPhotoForm } from "../EditData/EditPhotoForm";
 import { EditPasswordForm } from "../EditData/EditPasswordForm";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../../Redux/thunks/fetchUserData";
+import ProfileModal from "./ProfileModal";
+import { ProfileAchievements } from "./ProfileAchievements";
 
 export const ProfileCard = () => {
   const dispatch = useDispatch();
@@ -26,11 +27,7 @@ export const ProfileCard = () => {
   const handleClickOpenEditPassword = () => setOpenEditPassword(true);
   const handleCloseEditPassword = () => setOpenEditPassword(false);
 
-  // Edit photo
-  const [openEditPhoto, setOpenEditPhoto] = useState(false);
-  const handleClickOpenEditPhoto = () => setOpenEditPhoto(true);
-  const handleCloseEditPhoto = () => setOpenEditPhoto(false);
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       {ReactDOM.createPortal(
@@ -53,30 +50,26 @@ export const ProfileCard = () => {
       )}
 
       {ReactDOM.createPortal(
-        <EditPhotoForm
-          open={openEditPhoto}
-          setOpen={setOpenEditPhoto}
-          handleClickOpen={handleClickOpenEditPhoto}
-          handleClose={handleCloseEditPhoto}
-        />,
+        <ProfileModal setShow={setShowModal} show={showModal} />,
         document.getElementById("modal-root")
       )}
 
       <div className="profile d-flex align-items-center">
         <div className="container profile__box bg-light">
           <div className="row py-5">
-            <div className="col-md-6">
+            <div className="col-md-6 d-flex flex-column justify-content-center">
               <div className="d-flex justify-content-center">
                 <img
-                  onClick={handleClickOpenEditPhoto}
+                  // onClick={handleClickOpenEditPhoto}
+                  onClick={() => setShowModal(true)}
                   src={`${process.env.PUBLIC_URL}${user?.path}`}
                   alt="User avatar"
                 ></img>
               </div>
-              <div className="d-flex justify-content-center fs-4">
+              <div className="d-flex justify-content-center fs-4 mt-3">
                 <span className="profile__info px-2">{user?.login}</span>
                 <span>|</span>
-                <span className="profile__info px-2">Online</span>
+                <span className="profile__info text-success px-2">Online</span>
               </div>
               <div className="mt-4 fs-4 px-3 py-1">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
@@ -87,7 +80,6 @@ export const ProfileCard = () => {
 
               <div className="row mt-3 py-2 px-3">
                 <div className="col-lg-4">
-                  {" "}
                   <button
                     onClick={handleClickOpenEditProfile}
                     className="button-light w-100 h-100 fs-3 p-3"
@@ -95,17 +87,15 @@ export const ProfileCard = () => {
                     Edit profile
                   </button>
                 </div>
-                <div className="col-lg-4 my-3 my-xl-0">
-                  {" "}
+                <div className="col-lg-4 my-3 my-lg-0">
                   <button
                     onClick={handleClickOpenEditPassword}
-                    className="button-light w-100 fs-3 p-3 my-md-0"
+                    className="button-light w-100 fs-3 p-3 "
                   >
                     Change password
                   </button>
                 </div>
                 <div className="col-lg-4">
-                  {" "}
                   <a href="/Dashboard">
                     <button className="button-light w-100 fs-3  p-3">
                       Back to dashboard
@@ -115,10 +105,7 @@ export const ProfileCard = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="text-center">
-                <h1>My achievements</h1>
-                <div>Some achievements</div>
-              </div>
+              <ProfileAchievements />
             </div>
           </div>
         </div>
