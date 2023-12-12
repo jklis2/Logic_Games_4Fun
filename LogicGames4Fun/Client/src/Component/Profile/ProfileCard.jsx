@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { EditProfileForm } from "../EditData/EditProfileForm";
-import { EditPasswordForm } from "../EditData/EditPasswordForm";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../../Redux/thunks/fetchUserData";
@@ -16,41 +14,17 @@ export const ProfileCard = () => {
   }, [dispatch, token]);
 
   const { user } = useSelector((state) => state.auth);
+  const [type, setType] = useState("");
 
-  // Edit profile
-  const [openEditProfile, setOpenEditProfile] = useState(false);
-  const handleClickOpenEditProfile = () => setOpenEditProfile(true);
-  const handleCloseEditProfile = () => setOpenEditProfile(false);
-
-  // Edit password
-  const [openEditPassword, setOpenEditPassword] = useState(false);
-  const handleClickOpenEditPassword = () => setOpenEditPassword(true);
-  const handleCloseEditPassword = () => setOpenEditPassword(false);
-
+  const modalHandler = (type) => {
+    setType(type);
+    setShowModal(true);
+  };
   const [showModal, setShowModal] = useState(false);
   return (
     <>
       {ReactDOM.createPortal(
-        <EditProfileForm
-          open={openEditProfile}
-          setOpen={setOpenEditProfile}
-          handleClickOpen={handleClickOpenEditProfile}
-          handleClose={handleCloseEditProfile}
-        />,
-        document.getElementById("modal-root")
-      )}
-      {ReactDOM.createPortal(
-        <EditPasswordForm
-          open={openEditPassword}
-          setOpen={setOpenEditPassword}
-          handleClickOpen={handleClickOpenEditPassword}
-          handleClose={handleCloseEditPassword}
-        />,
-        document.getElementById("modal-root")
-      )}
-
-      {ReactDOM.createPortal(
-        <ProfileModal setShow={setShowModal} show={showModal} />,
+        <ProfileModal setShow={setShowModal} show={showModal} type={type} />,
         document.getElementById("modal-root")
       )}
 
@@ -60,8 +34,7 @@ export const ProfileCard = () => {
             <div className="col-md-6 d-flex flex-column justify-content-center">
               <div className="d-flex justify-content-center">
                 <img
-                  // onClick={handleClickOpenEditPhoto}
-                  onClick={() => setShowModal(true)}
+                  onClick={() => modalHandler("avatar")}
                   src={`${process.env.PUBLIC_URL}${user?.path}`}
                   alt="User avatar"
                 ></img>
@@ -81,7 +54,7 @@ export const ProfileCard = () => {
               <div className="row mt-3 py-2 px-3">
                 <div className="col-lg-4">
                   <button
-                    onClick={handleClickOpenEditProfile}
+                    onClick={() => modalHandler("profile")}
                     className="button-light w-100 h-100 fs-3 p-3"
                   >
                     Edit profile
@@ -89,7 +62,7 @@ export const ProfileCard = () => {
                 </div>
                 <div className="col-lg-4 my-3 my-lg-0">
                   <button
-                    onClick={handleClickOpenEditPassword}
+                    onClick={() => modalHandler("password")}
                     className="button-light w-100 fs-3 p-3 "
                   >
                     Change password

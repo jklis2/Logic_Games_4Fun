@@ -23,7 +23,7 @@ const RegisterForm = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-     await dispatch(
+      await dispatch(
         registerUser({
           login,
           email,

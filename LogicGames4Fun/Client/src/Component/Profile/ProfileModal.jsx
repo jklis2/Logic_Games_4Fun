@@ -1,16 +1,12 @@
 import Modal from "react-bootstrap/Modal";
-import { userAvatars } from "./userAvatars";
-import { useState } from "react";
+import { AvatarForm } from "./AvatarForm";
+import { PasswordForm } from "./PasswordForm";
+import { ProfileForm } from "./ProfileForm";
 
-const ProfileModal = ({ show, setShow }) => {
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
-  const handleAvatarClick = (avatarId) => {
-    setSelectedAvatar(avatarId);
-  };
-
+const ProfileModal = ({ show, setShow, type }) => {
   return (
     <Modal
-      size="xl"
+      size={type === "avatar" ? "xl" : "md"}
       centered
       className="w-100"
       show={show}
@@ -21,17 +17,9 @@ const ProfileModal = ({ show, setShow }) => {
       </Modal.Header>
 
       <Modal.Body className="d-flex flex-wrap justify-content-center ">
-        {userAvatars.map((avatar) => (
-          <div
-            key={avatar.id}
-            className={
-              selectedAvatar === avatar.id ? "profile__avatar-selected" : ""
-            }
-            onClick={() => handleAvatarClick(avatar.id)}
-          >
-            <img className="w-100" src={avatar.src} alt={avatar.alt} />
-          </div>
-        ))}
+        {type === "profile" && <ProfileForm />}
+        {type === "password" && <PasswordForm />}
+        {type === "avatar" && <AvatarForm />}
       </Modal.Body>
 
       <Modal.Footer>
@@ -39,7 +27,7 @@ const ProfileModal = ({ show, setShow }) => {
           Close
         </button>
         <button className="button-light" onClick={() => setShow(false)}>
-          Save Changes
+          Save
         </button>
       </Modal.Footer>
     </Modal>
