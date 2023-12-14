@@ -234,5 +234,16 @@
 - **0.1.8** (`2023/12/07`)
 	- Added dynamic redirect after login
  	- Changed vievs for unauthenticated users
+ 
+- **0.1.9** (`2023/12/11`)
+	- Added register redirect to profile after success
+ 	- Added achievements to profile
+ 
+- **0.1.10** (`2023/12/12`)
+	- Refactored modal on profile
+
+- **0.1.11** (`2023/12/14`)
+	- Removed result of math operation
+ 	- Fixed error with flicker auth form
 
 
