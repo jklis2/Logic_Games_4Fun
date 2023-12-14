@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
     const header = req.headers["authorization"]?.split(" ")[1];
     console.log(header);
     const user = jwt.decode(header, process.env.secret);
+    console.log(user)
     res.status(200).json(user);
   } catch (err) {
     res.status(500).json(err);

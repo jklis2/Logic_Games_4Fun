@@ -23,10 +23,13 @@ import { Quiz } from "./Routers/Quiz";
 import { TicTacToe } from "./Routers/TicTacToe";
 import { playMusic, updateMusicSettings } from "./Redux/music-slice";
 import { fetchUserData } from "./Redux/thunks/fetchUserData";
+import { useState } from "react";
+import { Loader } from "./Component/Loader/Loader";
 
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+  const [isLoading, setIsLoading] = useState(true); // New loading state
 
   useEffect(() => {
     const isMusicEnabled = localStorage.getItem("isMusicEnabled") === "true";
@@ -44,13 +47,24 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchUserData());
+    dispatch(fetchUserData()).finally(() => {
+      setIsLoading(false); 
+    });
   }, [dispatch]);
 
-  const requireAuth = (element) => (user ? element : <Navigate to="/auth" />);
+  const requireAuth = (element) => {
+    if (isLoading) {
+      return <Loader />; // Show loading while checking auth status
+    }
+    return user ? element : <Navigate to="/auth" />;
+  };
 
-  const requireGuest = (element) =>
-    !user ? element : <Navigate to="/profile" />;
+  const requireGuest = (element) => {
+    if (isLoading) {
+      return <Loader />; // Show loading while checking auth status
+    }
+    return !user ? element : <Navigate to="/profile" />;
+  };
 
   return (
     <BrowserRouter>
