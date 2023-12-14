@@ -9,6 +9,7 @@ export const MathOperationBallInTheHole = ({
 }) => {
   const [t] = useTranslation(["translation", "ballInTheHole"]);
   const [operation, setOperation] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [result, setResult] = useState(null);
 
   useEffect(() => {
@@ -25,8 +26,7 @@ export const MathOperationBallInTheHole = ({
 
   return (
     <div className="ball-in-the-hole__operation mb-2">
-      {t("ballInTheHole.findHoleMessage")} {operation} ={" "}
-      {result !== null ? result : "?"}
+      {t("ballInTheHole.findHoleMessage")} {operation} {" "}
     </div>
   );
 };
