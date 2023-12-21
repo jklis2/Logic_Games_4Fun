@@ -3,10 +3,18 @@ import axios from "axios";
 
 export const updateProfilePath = createAsyncThunk(
   "user/updateProfilePath",
-  async (userLogin, thunkAPI) => {
+  async (path, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const headers = {
+      Authorization: `Bearer ${state.auth.token}`,
+      "Content-Type": "application/json",
+    };
+
     try {
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/auth/`
+        `${process.env.REACT_APP_API_URL}/auth/`,
+        { path },
+        { headers }
       );
       return response.data;
     } catch (error) {

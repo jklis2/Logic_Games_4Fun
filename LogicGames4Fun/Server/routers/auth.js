@@ -11,12 +11,25 @@ console.log(secretKey);
 router.get("/", async (req, res) => {
   try {
     const header = req.headers["authorization"]?.split(" ")[1];
-    console.log(header);
+    if (!header) {
+      return res.status(401).json({ message: "No token provided" });
+    }
+
     const user = jwt.decode(header, process.env.secret);
-    console.log(user);
-    res.status(200).json(user);
+    if (!user || !user.login) {
+      return res.status(403).json({ message: "Invalid token" });
+    }
+
+    const { login } = user;
+    const userFromDatabase = await UserModel.findOne({ login });
+
+    if (!userFromDatabase) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json(userFromDatabase);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({ message: err.message });
   }
 });
 
@@ -49,8 +62,6 @@ router.post("/register", async (req, res) => {
     const token = jwt.sign(
       {
         login: newUser.login,
-        email: newUser.email,
-        path: newUser.path,
       },
       secretKey,
       {
@@ -133,7 +144,7 @@ router.put("/", async (req, res, next) => {
     );
 
     next();
-    res.status(200).json({message: "Successfuly updated user!"});
+    res.status(200).json({ message: "Successfuly updated user!" });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
