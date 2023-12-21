@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     const header = req.headers["authorization"]?.split(" ")[1];
     console.log(header);
     const user = jwt.decode(header, process.env.secret);
-    console.log(user)
+    console.log(user);
     res.status(200).json(user);
   } catch (err) {
     res.status(500).json(err);
@@ -77,12 +77,13 @@ router.post("/login", async (req, res) => {
       return res.status(403).json("Incorrect password");
     }
 
-    const token = jwt.sign({
+    const token = jwt.sign(
+      {
         login: foundUser.login,
         email: foundUser.email,
         path: foundUser.path,
       },
-      secretKey, 
+      secretKey,
       {
         expiresIn: "4h",
       }
@@ -113,6 +114,28 @@ router.post("/refresh", async (req, res) => {
     });
   } catch (err) {
     return res.status(500).json(err);
+  }
+});
+
+router.put("/", async (req, res, next) => {
+  try {
+    const header = req.headers["authorization"]?.split(" ")[1];
+    if (!header) throw new Error("No token provided");
+
+    const user = jwt.decode(header, process.env.secret);
+    console.log(req.body.path);
+    if (!user) throw new Error("Invalid token");
+
+    await UserModel.findOneAndUpdate(
+      { login: user.login },
+      { path: req.body.path },
+      { new: true }
+    );
+
+    next();
+    res.status(200).json({message: "Successfuly updated user!"});
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 });
 

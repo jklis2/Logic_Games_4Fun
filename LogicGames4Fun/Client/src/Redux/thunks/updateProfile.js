@@ -3,9 +3,11 @@ import axios from "axios";
 
 export const updateProfilePath = createAsyncThunk(
   "user/updateProfilePath",
-  async (userId, thunkAPI) => {
+  async (userLogin, thunkAPI) => {
     try {
-      const response = await axios.put(`/api/user/${userId}/updatePath`);
+      const response = await axios.put(
+        `${process.env.REACT_APP_API_URL}/auth/`
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
