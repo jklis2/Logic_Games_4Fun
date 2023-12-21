@@ -42,6 +42,8 @@ import crosswordEN from "./Translations/en/crosswordEN.json";
 import crosswordPL from "./Translations/pl/crosswordPL.json";
 import achievementEN from "./Translations/en/achievementEN.json";
 import achievementPL from "./Translations/pl/achievementPL.json";
+import authEN from "./Translations/en/authEN.json";
+import authPL from "./Translations/pl/authPL.json"
 
 const resources = {
   en: {
@@ -66,6 +68,7 @@ const resources = {
       ...quizEN,
       ...crosswordEN,
       ...achievementEN,
+      ...authEN
     },
   },
   pl: {
@@ -90,6 +93,7 @@ const resources = {
       ...quizPL,
       ...crosswordPL,
       ...achievementPL,
+      ...authPL
     },
   },
 };

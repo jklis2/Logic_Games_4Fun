@@ -1,0 +1,21 @@
+{
+  "auth": {
+    "signIn": "Sign in",
+    "signInWith": "or use your account",
+    "login": "Login",
+    "password": "Password",
+    "forgotPassword": "Forgot your password?",
+    "orRegister": "Or Register",
+    "welcomeBack": "Welcome!",
+    "welcomeBackText": "To keep playing please login with your personal info",
+    "hello": "Hello!",
+    "joinUsText": "Enter your personal details and join to us!",
+    "createAccount": "Create Account",
+    "registerWith": "or use your email for registration",
+    "email": "E-mail",
+    "selectAvatar": "Select an avatar",
+    "termsOfService": "By creating an account, you agree to the",
+    "termsLinkText": "Terms of Service",
+    "signUp": "Sign Up"
+  }
+}

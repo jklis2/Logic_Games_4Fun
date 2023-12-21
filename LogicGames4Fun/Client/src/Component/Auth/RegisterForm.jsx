@@ -1,14 +1,15 @@
 import "../UI/Button/Button.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../Redux/thunks/registerUser";
 import { fetchUserData } from "../../Redux/thunks/fetchUserData";
+import { useTranslation } from "react-i18next";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const [t] = useTranslation(["translation", "auth"]);
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,7 +45,9 @@ const RegisterForm = () => {
       className="form register d-flex align-items-center justify-content-center flex-column h-100 bg-white"
       onSubmit={handleFormSubmit}
     >
-      <h2 className="form__title text-center mb-3 ">Create Account</h2>
+      <h2 className="form__title text-center mb-3 ">
+        {t("auth.createAccount")}
+      </h2>
 
       <div className="auth__social">
         <a href="#/" className="auth__social-icon m-1">
@@ -55,11 +58,11 @@ const RegisterForm = () => {
         </a>
       </div>
 
-      <span>or use your email for registration</span>
+      <span>{t("auth.registerWith")}</span>
 
       <div className="d-flex flex-column w-75 px-5 mt-3">
         <label className="form__label" htmlFor="login">
-          Login
+          {t("auth.login")}
         </label>
         <input
           type="text"
@@ -70,7 +73,7 @@ const RegisterForm = () => {
         />
 
         <label className="form__label mt-3" htmlFor="email">
-          Email
+          {t("auth.email")}
         </label>
         <input
           type="email"
@@ -82,7 +85,7 @@ const RegisterForm = () => {
         />
 
         <label className="form__label  mt-3" htmlFor="password">
-          Password
+          {t("auth.password")}
         </label>
         <input
           type="password"
@@ -93,7 +96,7 @@ const RegisterForm = () => {
         />
 
         <label className="form__label  mt-3" htmlFor="password">
-          Select an avatar
+          {t("auth.selectAvatar")}
         </label>
 
         <div className="auth__register d-flex justify-content-center flex-wrap">
@@ -131,13 +134,13 @@ const RegisterForm = () => {
       </div>
 
       <span className="p-3 text-center">
-        By creating an account, you agree to the{" "}
+        {t("auth.termsOfService")}{" "}
         <span className="text-decoration-underline">
-          <a href={`/PrivacyPolicy`}>Terms of Service</a>
+          <Link to="/PrivacyPolicy">{t("auth.termsLinkText")}</Link>
         </span>
         .
       </span>
-      <button className="mt-3 button-light">Sign Up</button>
+      <button className="mt-3 button-light">{t("auth.signUp")}</button>
     </form>
   );
 };

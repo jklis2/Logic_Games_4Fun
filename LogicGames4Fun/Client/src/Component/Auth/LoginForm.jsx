@@ -4,12 +4,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchUserData } from "../../Redux/thunks/fetchUserData";
 import { loginUser } from "../../Redux/thunks/loginUser";
+import { useTranslation } from "react-i18next";
 
 const LoginForm = ({ isMobile, setRegisterVisibility }) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [t] = useTranslation(["translation", "auth"]);
 
   const submitLogin = async (e) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ const LoginForm = ({ isMobile, setRegisterVisibility }) => {
         className="d-flex align-items-center justify-content-center flex-column h-100 bg-white"
         onSubmit={submitLogin}
       >
-        <h2 className="form__title mb-3">Sign in</h2>
+        <h2 className="form__title mb-3">{t("auth.signIn")}</h2>
 
         <div className="auth__social">
           <a href="#/" className="auth__social-icon m-2">
@@ -38,11 +40,11 @@ const LoginForm = ({ isMobile, setRegisterVisibility }) => {
           </a>
         </div>
 
-        <span>or use your account</span>
+        <span>{t("auth.signInWith")}</span>
 
         <div className="d-flex flex-column w-75 px-5 mt-3">
           <label className="form__label " htmlFor="login">
-            Login
+            {t("auth.login")}
           </label>
           <input
             type="text"
@@ -53,7 +55,7 @@ const LoginForm = ({ isMobile, setRegisterVisibility }) => {
           />
 
           <label className="form__label  mt-3" htmlFor="password">
-            Password
+            {t("auth.password")}
           </label>
           <input
             type="password"
@@ -65,14 +67,14 @@ const LoginForm = ({ isMobile, setRegisterVisibility }) => {
         </div>
 
         <a className="my-4 text-dark" href="#/">
-          Forgot your password?
+          {t("auth.forgotPassword")}
         </a>
 
-        <button className="button-light">Sign in</button>
+        <button className="button-light">{t("auth.signIn")}</button>
 
         {isMobile && (
           <span className="mt-3" onClick={() => setRegisterVisibility(true)}>
-            Or Register
+            {t("auth.orRegister")}
           </span>
         )}
       </form>

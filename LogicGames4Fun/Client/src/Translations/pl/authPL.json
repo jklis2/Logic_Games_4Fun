@@ -1,0 +1,21 @@
+{
+  "auth": {
+    "signIn": "Zaloguj się",
+    "signInWith": "lub użyj swojego konta",
+    "login": "Login",
+    "password": "Hasło",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "orRegister": "Lub zarejestruj się",
+    "welcomeBack": "Witamy ponownie!",
+    "welcomeBackText": "Aby kontynuować, zaloguj się przy użyciu swoich danych",
+    "hello": "Cześć!",
+    "joinUsText": "Wprowadź swoje dane i dołącz do nas!",
+    "createAccount": "Utwórz konto",
+    "registerWith": "lub użyj swojego e-maila do rejestracji",
+    "email": "E-mail",
+    "selectAvatar": "Wybierz awatar",
+    "termsOfService": "Tworząc konto, zgadzasz się na",
+    "termsLinkText": "Politykę prywatności",
+    "signUp": "Zarejestruj się"
+  }
+}
