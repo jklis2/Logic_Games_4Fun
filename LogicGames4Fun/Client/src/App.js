@@ -21,28 +21,27 @@ import { Maze } from "./Routers/Maze";
 import { BallInheHole } from "./Routers/BallInTheHole";
 import { Quiz } from "./Routers/Quiz";
 import { TicTacToe } from "./Routers/TicTacToe";
-import { playMusic, updateMusicSettings } from "./Redux/music-slice";
+import { initializeMusic } from "./Redux/music-slice";
 import { fetchUserData } from "./Redux/thunks/fetchUserData";
 import { Loader } from "./Component/Loader/Loader";
 
 function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const isMusicEnabled = localStorage.getItem("isMusicEnabled") === "true";
-    const selectedSong = localStorage.getItem("selectedSong");
-
-    if (isMusicEnabled && selectedSong) {
-      const userResponse = window.confirm("Do you want to keep playing music?");
-      if (userResponse) {
-        dispatch(playMusic({ song: selectedSong, enabled: true }));
-      } else {
-        localStorage.setItem("isMusicEnabled", "false");
-        dispatch(updateMusicSettings({ song: selectedSong, enabled: false }));
-      }
-    }
+    const initializeWithMouseMovement = () => {
+      dispatch(initializeMusic());
+      document.body.removeEventListener("mousemove", initializeWithMouseMovement);
+    };
+  
+    document.body.addEventListener("mousemove", initializeWithMouseMovement);
+  
+    return () => {
+      document.body.removeEventListener("mousemove", initializeWithMouseMovement);
+    };
   }, [dispatch]);
 
   useEffect(() => {

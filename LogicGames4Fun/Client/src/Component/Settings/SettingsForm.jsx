@@ -1,56 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  updateMusicSettings,
-  playMusic,
-  initializeMusic,
-} from "../../Redux/music-slice";
+import { playMusic } from "../../Redux/music-slice";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 
 export const SettingsForm = () => {
-  const [t] = useTranslation(["translation", "settings"]);
   const dispatch = useDispatch();
-  const musicSettings = useSelector((state) => state.music);
 
+  const [t] = useTranslation(["translation", "settings"]);
   const [language, setLanguage] = useState("English");
-  const [selectedSong, setSelectedSong] = useState(musicSettings.song);
-  const [isMusicEnabled, setIsMusicEnabled] = useState(musicSettings.enabled);
-  const [isAlertVisible, setIsAlertVisible] = useState(false);
 
-  const audioRef = useRef(new Audio());
+  const { song, enabled } = useSelector((state) => state.music);
+
+  //Usuń ten stan później, wykorzystaj selektor...
+  const [isMusicEnabled, setIsMusicEnabled] = useState(enabled);
+  const [selectedSong, setSelectedSong] = useState(song);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language");
-    const savedSong = localStorage.getItem("selectedSong");
-    const savedMusicEnabled = localStorage.getItem("isMusicEnabled");
-
     if (savedLanguage) setLanguage(savedLanguage);
-    if (savedSong) setSelectedSong(savedSong);
-    if (savedMusicEnabled !== null)
-      setIsMusicEnabled(JSON.parse(savedMusicEnabled));
-
-    dispatch(
-      updateMusicSettings({
-        song: savedSong,
-        enabled: JSON.parse(savedMusicEnabled),
-      })
-    );
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (isMusicEnabled && selectedSong) {
-      audioRef.current.src = `/Songs/${selectedSong}.m4a`;
-      audioRef.current.play();
-      audioRef.current.loop = true;
-    } else {
-      audioRef.current.pause();
-    }
-  }, [selectedSong, isMusicEnabled]);
-
-  useEffect(() => {
-    dispatch(initializeMusic());
   }, [dispatch]);
 
   const handleLanguageChange = (event) => {
@@ -58,40 +27,22 @@ export const SettingsForm = () => {
     i18n.changeLanguage(event.target.value);
   };
 
-  const handleSongChange = (event) => {
-    audioRef.current.pause();
-    setSelectedSong(event.target.value);
+  const handleSongChange = (e) => {
+    setSelectedSong(e.target.value);
+    console.log(e.target.value);
   };
 
   const handleMusicToggle = (event) => {
     const enabled = event.target.checked;
     setIsMusicEnabled(enabled);
-
-    if (enabled && selectedSong) {
-      audioRef.current.src = `/Songs/${selectedSong}.m4a`;
-      audioRef.current.play();
-      localStorage.setItem("musicInitialized", "true");
-    } else {
-      audioRef.current.pause();
-      localStorage.removeItem("musicInitialized");
-    }
-
-    localStorage.setItem("isMusicEnabled", JSON.stringify(enabled));
   };
 
   const handleSaveChanges = () => {
-    localStorage.setItem("language", language);
-    localStorage.setItem("selectedSong", selectedSong);
-    localStorage.setItem("isMusicEnabled", JSON.stringify(isMusicEnabled));
-
-    dispatch(
-      updateMusicSettings({ song: selectedSong, enabled: isMusicEnabled })
-    );
     dispatch(playMusic({ song: selectedSong, enabled: isMusicEnabled }));
 
-    setIsAlertVisible(true);
-
-    setTimeout(() => setIsAlertVisible(false), 3000);
+    if (isMusicEnabled)
+      dispatch(playMusic({ song: selectedSong, enabled: isMusicEnabled }));
+    else dispatch(playMusic({ song: "", enabled: false }));
   };
 
   return (
@@ -178,21 +129,6 @@ export const SettingsForm = () => {
               {t("settings.saveChangesButton")}
             </button>
           </div>
-          {isAlertVisible && (
-            <div
-              className="alert alert-success fs-3 fixed-top w-50 mx-auto d-flex justify-content-between"
-              role="alert"
-            >
-              {t("settings.saveInfo")}
-              <button
-                type="button"
-                className="btn-close"
-                data-dismiss="alert"
-                aria-label="Close"
-                onClick={() => setIsAlertVisible(false)}
-              ></button>
-            </div>
-          )}
         </div>
       </div>
     </div>
