@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { playMusic } from "../../Redux/music-slice";
+import { muteMusic, playMusic } from "../../Redux/music-slice";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 
@@ -38,11 +38,11 @@ export const SettingsForm = () => {
   };
 
   const handleSaveChanges = () => {
-    dispatch(playMusic({ song: selectedSong, enabled: isMusicEnabled }));
-
-    if (isMusicEnabled)
+    if (isMusicEnabled) {
       dispatch(playMusic({ song: selectedSong, enabled: isMusicEnabled }));
-    else dispatch(playMusic({ song: "", enabled: false }));
+    } else {
+      dispatch(muteMusic());
+    }
   };
 
   return (

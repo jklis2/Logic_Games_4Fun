@@ -31,11 +31,15 @@ export const playMusic = createAsyncThunk(
       console.log({ song, enabled });
       return { song, enabled };
     }
-    // else {
-    //   console.log("something");
-    //   localStorage.removeItem("musicState");
-    //   return { song: null, enabled: false };
-    // }
+  }
+);
+
+export const muteMusic = createAsyncThunk(
+  "music/muteMusic",
+  async (_, { getState }) => {
+    const state = getState().music;
+    state.audioRef.pause();
+    localStorage.removeItem("musicState");
   }
 );
 
@@ -63,6 +67,13 @@ export const musicSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(muteMusic.fulfilled, (state, action) => {
+      state.song = null;
+      state.enabled = false;
+      state.songRef = null;
+      state.loading = false;
+    });
+
     builder.addCase(playMusic.fulfilled, (state, action) => {
       state.song = action.payload.song;
       state.enabled = action.payload.enabled;
