@@ -10,7 +10,6 @@ export const SettingsForm = () => {
 
   const [t] = useTranslation(["translation", "settings"]);
   const [language, setLanguage] = useState("English");
-
   const { song, enabled } = useSelector((state) => state.music);
 
   //Usuń ten stan później, wykorzystaj selektor...
@@ -27,10 +26,7 @@ export const SettingsForm = () => {
     i18n.changeLanguage(event.target.value);
   };
 
-  const handleSongChange = (e) => {
-    setSelectedSong(e.target.value);
-    console.log(e.target.value);
-  };
+  const handleSongChange = (e) => setSelectedSong(e.target.value);
 
   const handleMusicToggle = (event) => {
     const enabled = event.target.checked;

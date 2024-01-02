@@ -15,7 +15,6 @@ export const playMusic = createAsyncThunk(
     const state = getState().music;
 
     if (enabled) {
-      console.log(enabled);
       const audio = new Audio(`/Songs/${song}.m4a`);
 
       audio.play().catch((e) => console.error("Error with playing audio:", e));
@@ -28,7 +27,6 @@ export const playMusic = createAsyncThunk(
       dispatch(setAudioRef(audio));
 
       localStorage.setItem("musicState", JSON.stringify({ song, enabled }));
-      console.log({ song, enabled });
       return { song, enabled };
     }
   }

@@ -11,7 +11,7 @@ export const fetchUserData = createAsyncThunk(
     };
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/auth/`,
+        `${process.env.REACT_APP_API_URL}/user/`,
         { headers }
       );
       if (response.status !== 200) {

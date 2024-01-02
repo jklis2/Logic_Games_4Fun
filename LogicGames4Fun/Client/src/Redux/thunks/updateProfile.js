@@ -12,7 +12,7 @@ export const updateProfilePath = createAsyncThunk(
 
     try {
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/auth/`,
+        `${process.env.REACT_APP_API_URL}/user/`,
         { path },
         { headers }
       );

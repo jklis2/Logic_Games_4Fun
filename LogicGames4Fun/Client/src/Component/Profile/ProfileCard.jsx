@@ -48,10 +48,9 @@ export const ProfileCard = () => {
                 <span className="profile__info text-success px-2">Online</span>
               </div>
               <div className="mt-4 fs-4 px-3 py-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                fuga repellendus cupiditate, blanditiis necessitatibus vero
-                provident dignissimos, fugit nisi explicabo aut ab deleniti
-                laboriosam voluptatum distinctio. Quasi atque blanditiis fugit.
+                {user?.description
+                  ? <p>{user?.description}</p>
+                  : <p className="text-secondary">Description has not been added yet.</p>}
               </div>
 
               <div className="row mt-3 py-2 px-3">
