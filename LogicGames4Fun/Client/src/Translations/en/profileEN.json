@@ -1,0 +1,17 @@
+{
+  "profile": {
+    "currentPasswordLabel": "Current password",
+    "newPasswordLabel": "New password",
+    "confirmPasswordLabel": "Confirm password",
+    "myAchievements": "My achievements",
+    "editProfileButton": "Edit profile",
+    "changePasswordButton": "Change password",
+    "backToDashboardButton": "Back to dashboard",
+    "dateOfBirthLabel": "Date of birth",
+    "emailLabel": "E-mail",
+    "descriptionLabel": "Description",
+    "selectAvatarModalTitle": "Select an avatar",
+    "closeButton": "Close",
+    "saveButton": "Save"
+  }
+}

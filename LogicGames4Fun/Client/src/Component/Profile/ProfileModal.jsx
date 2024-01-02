@@ -6,11 +6,12 @@ import { useDispatch } from "react-redux";
 import { updateProfilePath } from "../../Redux/thunks/updateProfile";
 import { fetchUserData } from "../../Redux/thunks/fetchUserData";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const ProfileModal = ({ show, setShow, type }) => {
   const dispatch = useDispatch();
   const [selectedAvatar, setSelectedAvatar] = useState(null);
-
+  const [t] = useTranslation(["translation", "profile"]);
   return (
     <Modal
       size={type === "avatar" ? "xl" : "md"}
@@ -36,7 +37,7 @@ const ProfileModal = ({ show, setShow, type }) => {
 
       <Modal.Footer>
         <button className="button-light" onClick={() => setShow(false)}>
-          Close
+          {t("profile.closeButton")}
         </button>
         <button
           className="button-light"
@@ -46,7 +47,7 @@ const ProfileModal = ({ show, setShow, type }) => {
               .then(() => setShow(false));
           }}
         >
-          Save
+          {t("profile.saveButton")}
         </button>
       </Modal.Footer>
     </Modal>

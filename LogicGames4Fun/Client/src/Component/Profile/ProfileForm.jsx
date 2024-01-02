@@ -1,10 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export const ProfileForm = () => {
+  const [t] = useTranslation(["translation", "profile"]);
   return (
     <form className="form d-flex flex-column w-100 px-3">
       <label htmlFor="dateOfBirth" className="form__label">
-        Date of birth
+      {t("profile.dateOfBirthLabel")}
       </label>
       <input
         type="date"
@@ -14,7 +16,7 @@ export const ProfileForm = () => {
       />
 
       <label htmlFor="email" className="form__label mt-3">
-        Email
+      {t("profile.emailLabel")}
       </label>
       <input
         type="email"
@@ -25,7 +27,7 @@ export const ProfileForm = () => {
       />
 
       <label htmlFor="description" className="form__label mt-3">
-        Description
+      {t("profile.descriptionLabel")}
       </label>
       <textarea
         className="form__input"

@@ -1,9 +1,12 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SudokuModal = ({ show, resetArr, onHide, setTime }) => {
   const navigate = useNavigate();
+
+  const [t] = useTranslation(["translation", "sudoku"]);
 
   const nextLevelHandler = () => {
     onHide();
@@ -28,16 +31,14 @@ const SudokuModal = ({ show, resetArr, onHide, setTime }) => {
           className="text-center"
           style={{ fontSize: "2.1rem" }}
         >
-          🎉 Congrats! 🎉
+          {t("sudoku.congratsModalTitle")}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body
         className="text-center d-flex align-items-center"
         style={{ fontSize: "2.1rem", padding: "2rem 1rem" }}
       >
-        <p className="w-100 m-0">
-          You have just successfully completed the level! 🥳
-        </p>
+        <p className="w-100 m-0">{t("sudoku.completedLevelMessage")}</p>
       </Modal.Body>
 
       <Modal.Footer
@@ -56,7 +57,7 @@ const SudokuModal = ({ show, resetArr, onHide, setTime }) => {
             borderRadius: "3rem",
           }}
         >
-          Next level
+          {t("sudoku.nextLevelButton")}
         </Button>
       </Modal.Footer>
     </Modal>

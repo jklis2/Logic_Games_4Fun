@@ -4,10 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../../Redux/thunks/fetchUserData";
 import ProfileModal from "./ProfileModal";
 import { ProfileAchievements } from "./ProfileAchievements";
+import { useTranslation } from "react-i18next";
 
 export const ProfileCard = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
+
+  const [t] = useTranslation(["translation", "profile"]);
 
   useEffect(() => {
     if (token) dispatch(fetchUserData());
@@ -57,7 +60,7 @@ export const ProfileCard = () => {
                     onClick={() => modalHandler("profile")}
                     className="button-light w-100 h-100 fs-3 p-3"
                   >
-                    Edit profile
+                    {t("profile.editProfileButton")}
                   </button>
                 </div>
                 <div className="col-lg-4 my-3 my-lg-0">
@@ -65,13 +68,13 @@ export const ProfileCard = () => {
                     onClick={() => modalHandler("password")}
                     className="button-light w-100 fs-3 p-3 "
                   >
-                    Change password
+                    {t("profile.changePasswordButton")}
                   </button>
                 </div>
                 <div className="col-lg-4">
                   <a href="/Dashboard">
                     <button className="button-light w-100 fs-3  p-3">
-                      Back to dashboard
+                      {t("profile.backToDashboardButton")}
                     </button>
                   </a>
                 </div>

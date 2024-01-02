@@ -1,0 +1,17 @@
+{
+  "profile": {
+    "currentPasswordLabel": "Aktualne hasło",
+    "newPasswordLabel": "Nowe hasło",
+    "confirmPasswordLabel": "Potwierdź hasło",
+    "myAchievements": "Moje osiągnięcia",
+    "editProfileButton": "Edytuj profil",
+    "changePasswordButton": "Zmień hasło",
+    "backToDashboardButton": "Powrót do gier",
+    "dateOfBirthLabel": "Data urodzenia",
+    "emailLabel": "E-mail",
+    "descriptionLabel": "Opis",
+    "selectAvatarModalTitle": "Wybierz awatar",
+    "closeButton": "Zamknij",
+    "saveButton": "Zapisz"
+  }
+}

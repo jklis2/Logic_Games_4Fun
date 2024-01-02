@@ -2,9 +2,12 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
 import { generateMemoryLevels } from "./generateMemoryLevels";
+import { useTranslation } from "react-i18next";
 
 const MemoryModal = (props) => {
   const navigate = useNavigate();
+
+  const [t] = useTranslation(["translation", "memory"]);
 
   const nextLevelHandler = () => {
     props.onHide();
@@ -33,16 +36,14 @@ const MemoryModal = (props) => {
           className="text-center"
           style={{ fontSize: "2.1rem" }}
         >
-          🎉 Congrats! 🎉
+          {t("memory.congratsModalTitle")}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body
         className="text-center d-flex align-items-center"
         style={{ fontSize: "2.1rem", padding: "2rem 1rem" }}
       >
-        <p className="w-100 m-0">
-          You have just successfully completed the level! 🥳
-        </p>
+        <p className="w-100 m-0">{t("memory.completedLevelMessage")}</p>
       </Modal.Body>
 
       <Modal.Footer
@@ -61,7 +62,7 @@ const MemoryModal = (props) => {
             borderRadius: "3rem",
           }}
         >
-          Next level
+          {t("memory.nextLevelButton")}
         </Button>
       </Modal.Footer>
     </Modal>

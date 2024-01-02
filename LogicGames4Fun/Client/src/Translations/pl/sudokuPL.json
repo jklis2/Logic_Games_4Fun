@@ -2,6 +2,9 @@
   "sudoku": {
     "time": "Czas:",
     "mistakes": "Błędy:",
-    "level": "Poziom:"
+    "level": "Poziom:",
+    "congratsModalTitle": "🎉 Gratulacje! 🎉",
+    "completedLevelMessage": "Właśnie ukończyłeś poziom! 🥳",
+    "nextLevelButton": "Następny poziom"
   }
 }
