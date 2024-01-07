@@ -16,6 +16,16 @@ export const AchievementSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  // description: {
+  //   type: String,
+  //   required: true,
+  //   minLength: 4,
+  //   maxLength: 255,
+  // },
+  requiredScore: {
+    type: Number,
+    requred: true,
+  },
   imgPath: {
     type: String,
     required: true,

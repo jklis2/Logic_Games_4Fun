@@ -62,7 +62,6 @@ export async function login(req, res) {
       {
         login: foundUser.login,
         email: foundUser.email,
-        path: foundUser.path,
       },
       secretKey,
       {

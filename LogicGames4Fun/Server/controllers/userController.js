@@ -32,7 +32,6 @@ export async function updateUser(req, res) {
     if (!header) throw new Error("No token provided");
 
     const user = jwt.decode(header, process.env.secret);
-    console.log(req.body.path);
     if (!user) throw new Error("Invalid token");
 
     await UserModel.findOneAndUpdate(
@@ -41,7 +40,6 @@ export async function updateUser(req, res) {
       { new: true }
     );
 
-    next();
     res.status(200).json({ message: "Successfuly updated user!" });
   } catch (err) {
     res.status(500).json({ message: err.message });
