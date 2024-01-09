@@ -9,7 +9,8 @@ import { isAuth } from "../utils/authentication.js";
 
 const router = Router();
 
-router.get("/", isAuth, getAchievements);
+// router.get("/", isAuth, getAchievements);
+router.get("/", getAchievements);
 router.post("/", addAchievement);
 router.post("/award", awardAchievement);
 router.delete("/", removeAchievement);

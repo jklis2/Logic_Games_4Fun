@@ -2,7 +2,7 @@ import AchievementModel from "../models/achievement.js";
 
 export async function getAchievements(_, res) {
   try {
-    const achievements = await AchievementModel.find().populate("Game");
+    const achievements = await AchievementModel.find().populate("game");
     return res.status(200).json(achievements);
   } catch (err) {
     return res.status(500).json({ message: err.message });
@@ -27,6 +27,8 @@ export async function addAchievement(req, res) {
   }
 }
 
-export async function awardAchievement(req, res) {}
+export async function awardAchievement(req, res) {
+
+}
 
 export async function removeAchievement(req, res) {}
