@@ -1,0 +1,12 @@
+{
+  "minesweeperPop": {
+    "instructionTitle": "Instrukcja Saper",
+    "step1": "Wybierz poziom trudności i rozpocznij grę.",
+    "step2": "Kliknij na pole, aby je odkryć. Jeśli pole zawiera minę, gra kończy się przegraną. Jeśli pole jest puste, odsłoni się obszar wolny od min.",
+    "step3": "Jeśli odkryte pole ma sąsiadujące miny, liczba na polu wskaże, ile min znajduje się w ośmiu polach dookoła niego.",
+    "step4": "Kliknij prawym przyciskiem myszy na polu, aby oznaczyć je flagą, jeśli podejrzewasz, że znajduje się tam mina.",
+    "step5": "Używaj informacji o liczbie min dookoła odkrytych pól, aby logicznie wydedukować, gdzie znajdują się miny.",
+    "step6": "Aby wygrać, odkryj wszystkie pola, które nie zawierają min.",
+    "enjoy": "Miłej zabawy w saperze!"
+  }
+}

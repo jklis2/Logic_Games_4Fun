@@ -1,0 +1,11 @@
+{
+  "quizPop": {
+    "instructionTitle": "Quiz Instructions",
+    "step1": "On the start screen, select the quiz category and start the game.",
+    "step2": "Choose one of the available answers in each question.",
+    "step3": "Go through each question, answering them. Your responses will be recorded.",
+    "step4": "At the end of the quiz, you will be taken to a review screen where you can see your answers and overall score.",
+    "step5": "You can also create your own quiz questions.",
+    "enjoy": "Enjoy playing Quiz!"
+  }
+}

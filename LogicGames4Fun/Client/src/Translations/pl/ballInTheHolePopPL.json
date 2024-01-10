@@ -1,0 +1,10 @@
+{
+  "ballInTheHolePop": {
+    "instructionTitle": "Ball in the Hole Instructions",
+    "step1": "Select the difficulty level and start the game.",
+    "step2": "At the beginning of each round, a mathematical operation will be displayed. Your task is to find the correct result.",
+    "step3": "Lead the ball so that it falls into the hole corresponding to the correct result of the mathematical operation.",
+    "step4": "The game ends when the ball falls into the wrong hole or when you complete all levels.",
+    "enjoy": "Enjoy playing Ball in the Hole!"
+  }
+}

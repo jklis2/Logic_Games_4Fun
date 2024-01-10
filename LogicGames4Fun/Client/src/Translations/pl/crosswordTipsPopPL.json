@@ -1,0 +1,10 @@
+{
+  "crosswordTipsPop": {
+    "header": "Wskazówki do Krzyżówki",
+    "tip1": "Zacznij od wypełnienia najłatwiejszych komórek, czyli tych z najmniejszą liczbą możliwych opcji. To pomoże Ci szybko postępować.",
+    "tip2": "Użyj logiki i dedukcji, aby eliminować możliwe opcje dla każdej komórki. To pomoże Ci zidentyfikować poprawną cyfrę dla każdej komórki.",
+    "tip3": "Dwukrotnie sprawdź swoją pracę, aby upewnić się, że nie popełniłeś żadnych błędów.",
+    "tip4": "Regularnie ćwicz, aby poprawić swoje umiejętności i szybkość.",
+    "enjoy": "Miłej zabawy w Krzyżówkę!"
+  }
+}

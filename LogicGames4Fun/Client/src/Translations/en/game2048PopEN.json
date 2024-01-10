@@ -1,0 +1,12 @@
+{
+  "game2048Pop": {
+    "instructionsTitle": "2048 Instructions",
+    "selectDifficulty": "Select the difficulty level and start the game on the start screen.",
+    "useArrows": "Use the arrow keys on your keyboard to move tiles on the board up, down, left, or right.",
+    "combineTiles": "When two tiles of the same value collide during a move, they will combine into one tile with the value being the sum of these two tiles.",
+    "newTile": "After each move, a new tile with a value of 2 or 4 appears in a random empty spot on the board.",
+    "winGame": "You win the game when you create a tile with the number 2048.",
+    "loseGame": "The game ends in a loss when there are no more free spaces on the board and no moves left that could combine tiles.",
+    "enjoyPlaying": "Enjoy playing 2048!"
+  }
+}

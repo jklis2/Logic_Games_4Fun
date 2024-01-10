@@ -1,0 +1,6 @@
+{
+  "sudokuHowToPlayPop": {
+    "header": "Instrukcje do Sudoku",
+    "instructions": "Zacznij od pustej siatki 9x9, w której niektóre komórki są już wypełnione cyframi. Zidentyfikuj wiersz, kolumnę i pole, gdzie dana cyfra jest już obecna. Wypełnij puste komórki w tym samym wierszu, kolumnie i polu pozostałymi cyframi od 1 do 9. Powtarzaj powyższy krok dla każdej danej cyfry, aż wszystkie puste komórki zostaną wypełnione. Upewnij się, że każdy wiersz, kolumna i pole zawierają cyfry od 1 do 9 tylko raz. Gra jest wygrana, gdy wszystkie komórki w siatce są wypełnione cyframi, które spełniają powyższe warunki."
+  }
+}

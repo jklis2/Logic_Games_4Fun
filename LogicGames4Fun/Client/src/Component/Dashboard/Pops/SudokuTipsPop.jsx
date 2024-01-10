@@ -1,25 +1,22 @@
+import React from "react";
 import Popover from "react-bootstrap/Popover";
+import { useTranslation } from "react-i18next";
 
-export const SudokuTipsPop = (
-  <Popover id="popover-basic">
-    <Popover.Header as="h3">Sudoku Tips</Popover.Header>
-    <Popover.Body>
-      <ol>
-        <li>
-          Start by filling the easiest cells, i.e., the ones with the fewest
-          possible options. This will help you make progress quickly.
-        </li>
-        <li>
-          Use logic and deduction to eliminate possible options for each cell.
-          This will help you identify the correct digit for each cell.
-        </li>
-        <li>
-          Double-check your work to ensure that you have not made any mistakes.
-        </li>
-        <li>Practice regularly to improve your skills and speed.</li>
-      </ol>
+export const SudokuTipsPop = () => {
+  const [t] = useTranslation(["translation", "sudokuTipsPop"]);
+  return (
+    <Popover id="popover-basic">
+      <Popover.Header as="h3">{t("sudokuTipsPop.header")}</Popover.Header>
+      <Popover.Body>
+        <ol>
+          <li>{t("sudokuTipsPop.tip1")}</li>
+          <li>{t("sudokuTipsPop.tip2")}</li>
+          <li>{t("sudokuTipsPop.tip3")}</li>
+          <li>{t("sudokuTipsPop.tip4")}</li>
+        </ol>
 
-      <strong>Enjoy playing Sudoku!</strong>
-    </Popover.Body>
-  </Popover>
-);
+        <strong>{t("sudokuTipsPop.enjoy")}</strong>
+      </Popover.Body>
+    </Popover>
+  );
+};

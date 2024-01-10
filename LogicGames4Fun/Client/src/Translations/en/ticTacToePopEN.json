@@ -1,0 +1,10 @@
+{
+  "ticTacToePop": {
+    "instructionTitle": "Tic Tac Toe Instructions",
+    "step1": "Select the game mode (against AI or another player) and, if playing against AI, choose the difficulty level.",
+    "step2": "Players take turns placing their marks (X or O) on empty squares on the board.",
+    "step3": "You win the game by arranging three of your marks in a horizontal, vertical, or diagonal line.",
+    "step4": "If all fields are filled but no player achieves a line of three marks, the game ends in a draw.",
+    "enjoy": "Enjoy playing Tic Tac Toe!"
+  }
+}

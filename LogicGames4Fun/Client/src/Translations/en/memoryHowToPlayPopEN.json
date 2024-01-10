@@ -1,0 +1,10 @@
+{
+  "memoryHowToPlayPop": {
+    "header": "Memory Instructions",
+    "step1": "When the game starts, you will see a grid of cards with fruits on them. To start the game, click on the 'Start Game' button.",
+    "step2": "Once the game starts, you can click on any card to flip it over and see the fruit. You can flip over two cards at a time.",
+    "step3": "If the two cards you flipped over have the same fruit, they will stay flipped over and you will earn a point.",
+    "step4": "If the two cards you flipped over do not have the same fruit, they will flip back over after a short delay.",
+    "step5": "Your goal is to match all pairs of cards as quickly as possible. The game ends when all pairs have been matched."
+  }
+}

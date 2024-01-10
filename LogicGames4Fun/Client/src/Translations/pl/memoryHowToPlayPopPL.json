@@ -1,0 +1,10 @@
+{
+  "memoryHowToPlayPop": {
+    "header": "Instrukcje do Memory",
+    "step1": "Gdy gra się rozpocznie, zobaczysz siatkę kart z owocami na nich. Aby rozpocząć grę, kliknij przycisk 'Rozpocznij grę'.",
+    "step2": "Po rozpoczęciu gry możesz kliknąć na dowolną kartę, aby ją odwrócić i zobaczyć owoc. Możesz odwrócić naraz dwie karty.",
+    "step3": "Jeśli dwie karty, które odwróciłeś, mają ten sam owoc, pozostaną odwrócone i zdobędziesz punkt.",
+    "step4": "Jeśli dwie karty, które odwróciłeś, nie mają tego samego owocu, zostaną ponownie odwrócone po krótkim opóźnieniu.",
+    "step5": "Twoim celem jest dopasowanie wszystkich par kart jak najszybciej. Gra kończy się, gdy wszystkie pary zostaną dopasowane."
+  }
+}

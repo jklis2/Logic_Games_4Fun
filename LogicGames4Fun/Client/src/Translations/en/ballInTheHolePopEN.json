@@ -1,0 +1,10 @@
+{
+  "ballInTheHolePop": {
+    "instructionTitle": "Instrukcja Ball in the Hole",
+    "step1": "Wybierz poziom trudności i rozpocznij grę.",
+    "step2": "Na początku każdej rundy zostanie wyświetlona operacja matematyczna. Twoim zadaniem jest znalezienie odpowiedniego wyniku.",
+    "step3": "Poprowadź piłkę tak, aby wpadła do dołka, który odpowiada poprawnemu wynikowi operacji matematycznej.",
+    "step4": "Gra kończy się, gdy piłka wpadnie do nieprawidłowego dołka lub gdy ukończysz wszystkie poziomy.",
+    "enjoy": "Miłej zabawy w Ball in the Hole!"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "snakePop": {
+    "instructionTitle": "Snake Instructions",
+    "step1": "Select the difficulty level and start the game.",
+    "step2": "Use the arrow keys on your keyboard to change the direction of the snake's movement.",
+    "step3": "Lead the snake to the food. When the snake eats the food, it will grow in length.",
+    "step4": "Avoid the snake hitting the walls and its own body.",
+    "step5": "The speed of the snake depends on the selected difficulty level.",
+    "enjoy": "Enjoy playing Snake!"
+  }
+}

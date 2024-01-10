@@ -1,0 +1,9 @@
+{
+  "mazePop": {
+    "instructionTitle": "Instrukcja Labiryntu",
+    "step1": "Na ekranie startowym wybierz rozmiar labiryntu i, jeśli dostępne, zdecyduj, czy chcesz użyć trybu oszukiwania. Następnie rozpocznij grę.",
+    "step2": "Przemieszczaj się przez labirynt, poszukując wyjścia.",
+    "step3": "Jeśli włączysz tryb oszukiwania, gra może ułatwić znalezienie drogi przez labirynt, ale Twój wynik nie będzie zapisany.",
+    "enjoy": "Miłej zabawy w labiryncie!"
+  }
+}

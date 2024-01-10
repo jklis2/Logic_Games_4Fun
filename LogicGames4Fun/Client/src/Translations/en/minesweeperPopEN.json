@@ -1,0 +1,12 @@
+{
+  "minesweeperPop": {
+    "instructionTitle": "Minesweeper Instructions",
+    "step1": "Choose a difficulty level and start the game.",
+    "step2": "Click on a tile to uncover it. If the tile contains a mine, the game is over. If the tile is empty, an area free of mines will be revealed.",
+    "step3": "If an uncovered tile has adjacent mines, the number on the tile will indicate how many mines are in the eight tiles around it.",
+    "step4": "Right-click on a tile to mark it with a flag if you suspect there is a mine.",
+    "step5": "Use the information about the number of mines around uncovered tiles to logically deduce where the mines are.",
+    "step6": "To win, uncover all tiles that do not contain mines.",
+    "enjoy": "Enjoy playing Minesweeper!"
+  }
+}

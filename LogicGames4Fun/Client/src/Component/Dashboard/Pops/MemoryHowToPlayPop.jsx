@@ -1,29 +1,21 @@
+import React from "react";
 import Popover from "react-bootstrap/Popover";
+import { useTranslation } from "react-i18next";
 
-export const MemoryHowToPlayPop = (
+export const MemoryHowToPlayPop = () => {
+  const [t] = useTranslation(["translation", "memoryHowToPlayPop"]);
+  return (
     <Popover id="popover-basic">
-      <Popover.Header as="h3">Memory Instruction</Popover.Header>
+      <Popover.Header as="h3">{t("memoryHowToPlayPop.header")}</Popover.Header>
       <Popover.Body>
-      <ol>
-          <li>
-            When the game starts, you will see a grid of cards with fruits on them. 
-            To start the game, click on the "Start Game" button.
-          </li>
-          <li>
-            Once the game starts, you can click on any card to flip it over and see the fruit. 
-            You can flip over two cards at a time.
-          </li>
-          <li>
-            If the two cards you flipped over have the same fruit, they will stay flipped over and you will earn a point.
-          </li>
-          <li>
-            If the two cards you flipped over do not have the same fruit, they will flip back over after a short delay.
-          </li>
-          <li>
-            Your goal is to match all pairs of cards as quickly as possible. The game ends when all pairs have been matched.
-          </li>
-      </ol>
+        <ol>
+          <li>{t("memoryHowToPlayPop.step1")}</li>
+          <li>{t("memoryHowToPlayPop.step2")}</li>
+          <li>{t("memoryHowToPlayPop.step3")}</li>
+          <li>{t("memoryHowToPlayPop.step4")}</li>
+          <li>{t("memoryHowToPlayPop.step5")}</li>
+        </ol>
       </Popover.Body>
     </Popover>
   );
-  
+};

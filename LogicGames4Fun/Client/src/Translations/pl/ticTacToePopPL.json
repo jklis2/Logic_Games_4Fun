@@ -1,0 +1,10 @@
+{
+  "ticTacToePop": {
+    "instructionTitle": "Instrukcja Kółko Krzyżyk",
+    "step1": "Wybierz tryb gry (przeciwko AI lub drugiemu graczowi) i, jeśli gra z AI, wybierz poziom trudności.",
+    "step2": "Gracze naprzemiennie umieszczają swoje znaki (X lub O) w pustych kwadratach planszy.",
+    "step3": "Wygrywasz grę, gdy ułożysz trzy swoje znaki w linii poziomej, pionowej lub skośnej.",
+    "step4": "Jeśli wszystkie pola zostaną wypełnione, ale żaden gracz nie osiągnie linii trzech znaków, gra kończy się remisem.",
+    "enjoy": "Miłej zabawy w kółko krzyżyk!"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "mazePop": {
+    "instructionTitle": "Maze Instructions",
+    "step1": "On the start screen, select the size of the maze and, if available, decide whether to use cheat mode. Then start the game.",
+    "step2": "Navigate through the maze, searching for the exit.",
+    "step3": "If you enable cheat mode, the game may make it easier to find your way through the maze, but your score will not be recorded.",
+    "enjoy": "Enjoy playing in the maze!"
+  }
+}

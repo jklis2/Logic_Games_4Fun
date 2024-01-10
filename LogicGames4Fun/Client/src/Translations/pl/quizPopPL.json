@@ -1,0 +1,11 @@
+{
+  "quizPop": {
+    "instructionTitle": "Instrukcja Quiz",
+    "step1": "Na ekranie startowym wybierz kategorię quizu i rozpocznij grę.",
+    "step2": "Wybierz jedną z dostępnych odpowiedzi w każdym pytaniu.",
+    "step3": "Przechodź przez każde pytanie, odpowiadając na nie. Twoje odpowiedzi będą rejestrowane.",
+    "step4": "Po zakończeniu quizu zostaniesz przeniesiony do ekranu przeglądu, gdzie zobaczysz swoje odpowiedzi i ogólny wynik.",
+    "step5": "Możesz także tworzyć własne pytania do quizu.",
+    "enjoy": "Miłej zabawy w Quiz!"
+  }
+}

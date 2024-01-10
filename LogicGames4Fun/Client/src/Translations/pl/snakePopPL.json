@@ -1,0 +1,11 @@
+{
+  "snakePop": {
+    "instructionTitle": "Instrukcja Snake",
+    "step1": "Wybierz poziom trudności i rozpocznij grę.",
+    "step2": "Użyj klawiszy strzałek na klawiaturze do zmiany kierunku ruchu węża.",
+    "step3": "Prowadź węża do jedzenia. Gdy wąż zje jedzenie, jego długość zwiększy się.",
+    "step4": "Unikaj uderzenia węża w ściany i jego własne ciało.",
+    "step5": "Prędkość węża zależy od wybranego poziomu trudności",
+    "enjoy": "Miłej zabawy w Snake!"
+  }
+}

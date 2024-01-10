@@ -1,0 +1,10 @@
+{
+  "sudokuTipsPop": {
+    "header": "Sudoku Tips",
+    "tip1": "Start by filling the easiest cells, i.e., the ones with the fewest possible options. This will help you make progress quickly.",
+    "tip2": "Use logic and deduction to eliminate possible options for each cell. This will help you identify the correct digit for each cell.",
+    "tip3": "Double-check your work to ensure that you have not made any mistakes.",
+    "tip4": "Practice regularly to improve your skills and speed.",
+    "enjoy": "Enjoy playing Sudoku!"
+  }
+}

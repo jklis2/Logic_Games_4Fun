@@ -46,6 +46,32 @@ import authEN from "./Translations/en/authEN.json";
 import authPL from "./Translations/pl/authPL.json";
 import profileEN from "./Translations/en/profileEN.json";
 import profilePL from "./Translations/pl/profilePL.json";
+import ballInTheHolePopEN from "./Translations/en/ballInTheHolePopEN.json";
+import ballInTheHolePopPL from "./Translations/pl/ballInTheHolePopPL.json";
+import game2048PopEN from "./Translations/en/game2048PopEN.json";
+import game2048PopPL from "./Translations/pl/game2048PopPL.json";
+import mazePopEN from "./Translations/en/mazePopEN.json";
+import mazePopPL from "./Translations/pl/mazePopPL.json";
+import minesweeperPopEN from "./Translations/en/minesweeperPopEN.json";
+import minesweeperPopPL from "./Translations/pl/minesweeperPopPL.json";
+import quizPopEN from "./Translations/en/quizPopEN.json";
+import quizPopPL from "./Translations/pl/quizPopPL.json";
+import snakePopEN from "./Translations/en/snakePopEN.json";
+import snakePopPL from "./Translations/pl/snakePopPL.json";
+import ticTacToePopEN from "./Translations/en/ticTacToePopEN.json";
+import ticTacToePopPL from "./Translations/pl/ticTacToePopPL.json";
+import crosswordHowToPlayPopEN from "./Translations/en/crosswordHowToPlayPopEN.json";
+import crosswordHowToPlayPopPL from "./Translations/pl/crosswordHowToPlayPopPL.json";
+import crosswordTipsPopEN from "./Translations/en/crosswordTipsPopEN.json";
+import crosswordTipsPopPL from "./Translations/pl/crosswordTipsPopPL.json";
+import memoryHowToPlayPopEN from "./Translations/en/memoryHowToPlayPopEN.json";
+import memoryHowToPlayPopPL from "./Translations/pl/memoryHowToPlayPopPL.json";
+import memoryTipsPopEN from "./Translations/en/memoryTipsPopEN.json";
+import memoryTipsPopPL from "./Translations/pl/memoryTipsPopPL.json";
+import sudokuHowToPlayPopEN from "./Translations/en/sudokuHowToPlayPopEN.json";
+import sudokuHowToPlayPopPL from "./Translations/pl/sudokuHowToPlayPopPL.json";
+import sudokuTipsPopEN from "./Translations/en/sudokuTipsPopEN.json";
+import sudokuTipsPopPL from "./Translations/pl/sudokuTipsPopPL.json";
 
 const resources = {
   en: {
@@ -71,7 +97,20 @@ const resources = {
       ...crosswordEN,
       ...achievementEN,
       ...authEN,
-      ...profileEN
+      ...profileEN,
+      ...ballInTheHolePopEN,
+      ...game2048PopEN,
+      ...mazePopEN,
+      ...minesweeperPopEN,
+      ...quizPopEN,
+      ...snakePopEN,
+      ...ticTacToePopEN,
+      ...crosswordHowToPlayPopEN,
+      ...crosswordTipsPopEN,
+      ...memoryHowToPlayPopEN,
+      ...memoryTipsPopEN,
+      ...sudokuHowToPlayPopEN,
+      ...sudokuTipsPopEN,
     },
   },
   pl: {
@@ -97,7 +136,20 @@ const resources = {
       ...crosswordPL,
       ...achievementPL,
       ...authPL,
-      ...profilePL
+      ...profilePL,
+      ...ballInTheHolePopPL,
+      ...game2048PopPL,
+      ...mazePopPL,
+      ...minesweeperPopPL,
+      ...quizPopPL,
+      ...snakePopPL,
+      ...ticTacToePopPL,
+      ...crosswordHowToPlayPopPL,
+      ...crosswordTipsPopPL,
+      ...memoryHowToPlayPopPL,
+      ...memoryTipsPopPL,
+      ...sudokuHowToPlayPopPL,
+      ...sudokuTipsPopPL,
     },
   },
 };
