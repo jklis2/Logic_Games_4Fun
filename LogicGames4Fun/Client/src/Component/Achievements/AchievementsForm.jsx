@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { InternalNavbar } from "../InternalNavbar/InternalNavbar";
 import DashboardFooter from "../Dashboard/DashboardFooter";
 import ProgressBarValue from "./ProgressBarValue";
-import { achievementList } from "./achievementList";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,32 +25,33 @@ export const AchievementsForm = () => {
     return dividedArrays;
   };
 
-  console.log(achievements && divideArray(achievements))
+  const [currentIndexArray, setCurrentIndexArray] = useState([]);
 
-  const initialAchievementLevels = achievementList.reduce(
-    (acc, achievement) => {
-      acc[achievement.id] = "brown";
-      return acc;
-    },
-    {}
-  );
-
-  const [achievementLevels, setAchievementLevels] = useState(
-    initialAchievementLevels
-  );
-
-  const changeAchievementLevel = (achievementId, direction) => {
-    const levels = ["brown", "silver", "gold", "diamond"];
-    let currentIndex = levels.indexOf(achievementLevels[achievementId]);
-    if (direction === "right") {
-      currentIndex = (currentIndex + 1) % levels.length;
-    } else {
-      currentIndex = (currentIndex - 1 + levels.length) % levels.length;
+  useEffect(() => {
+    if (achievements) {
+      const initialIndexes = divideArray(achievements).map(() => 0);
+      setCurrentIndexArray(initialIndexes);
     }
-    setAchievementLevels({
-      ...achievementLevels,
-      [achievementId]: levels[currentIndex],
-    });
+  }, [achievements]);
+
+  const handlePrevAchievement = (index) => {
+    if (currentIndexArray[index] > 0) {
+      setCurrentIndexArray((prevIndexes) => {
+        const newIndexes = [...prevIndexes];
+        newIndexes[index] = newIndexes[index] - 1;
+        return newIndexes;
+      });
+    }
+  };
+
+  const handleNextAchievement = (index, achievementCount) => {
+    if (currentIndexArray[index] < achievementCount - 1) {
+      setCurrentIndexArray((prevIndexes) => {
+        const newIndexes = [...prevIndexes];
+        newIndexes[index] = newIndexes[index] + 1;
+        return newIndexes;
+      });
+    }
   };
 
   return (
@@ -60,60 +60,64 @@ export const AchievementsForm = () => {
       <h1 className="h1 text-center my-5">{t("achievementsTitle")}</h1>
       <div className="container">
         <div className="row">
-          {achievementList.map((achievement) => {
-            const currentLevel = achievementLevels[achievement.id];
-            const achievementImage = achievement.images[currentLevel];
-            const achievementLevelText = t(
-              `achievementList.${achievement.id}.levels.${currentLevel}`
-            );
-            const achievementAltText = t(
-              `achievementList.${achievement.id}.alt`
-            );
+          {achievements &&
+            divideArray(achievements).map((arr, index) => {
+              const isLeftArrowVisible = currentIndexArray[index] > 0;
+              const isRightArrowVisible =
+                currentIndexArray[index] < arr.length - 1;
 
-            return (
-              <div key={achievement.id} className="col-md-3 p-4">
-                <div className="bg-light h-100 d-flex flex-column justify-content-around achievement-card p-5 text-center">
-                  <div
-                    className={`d-flex ${
-                      currentLevel === "brown"
-                        ? "justify-content-end"
-                        : currentLevel === "diamond"
-                        ? "justify-content-start"
-                        : "justify-content-between"
-                    } align-items-center w-100`}
-                  >
-                    {currentLevel !== "brown" && (
-                      <FaArrowLeft
-                        style={{ fontSize: "2rem" }}
-                        onClick={() =>
-                          changeAchievementLevel(achievement.id, "left")
-                        }
+              return (
+                <div key={index} className="col-md-3 p-4">
+                  <div className="bg-light h-100 d-flex flex-column justify-content-around achievement-card p-5 text-center">
+                    <div
+                      className={`d-flex w-100 ${
+                        !isLeftArrowVisible && "justify-content-end"
+                      }
+                      ${!isRightArrowVisible && "justify-content-start"}
+                      ${
+                        isLeftArrowVisible &&
+                        isRightArrowVisible &&
+                        "justify-content-between"
+                      }
+                      `}
+                    >
+                      {isLeftArrowVisible && (
+                        <FaArrowLeft
+                          className="fs-2"
+                          onClick={() => handlePrevAchievement(index)}
+                        />
+                      )}
+                      {isRightArrowVisible && (
+                        <FaArrowRight
+                          className="fs-2"
+                          onClick={() =>
+                            handleNextAchievement(index, arr.length)
+                          }
+                        />
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <img
+                        src={`${process.env.PUBLIC_URL}${
+                          arr[currentIndexArray[index]]?.imgPath
+                        }`}
+                        alt={arr[currentIndexArray[index]]?.alt}
+                        className="w-100"
                       />
-                    )}
-                    {currentLevel !== "diamond" && (
-                      <FaArrowRight
-                        style={{ fontSize: "2rem" }}
-                        onClick={() =>
-                          changeAchievementLevel(achievement.id, "right")
-                        }
-                      />
-                    )}
-                  </div>
-                  <div className="p-4">
-                    <img
-                      src={achievementImage}
-                      alt={achievementAltText}
-                      className="w-100"
-                    />
-                  </div>
-                  <div className="d-flex flex-column">
-                    <p className="fs-3">{achievementLevelText}</p>
-                    <ProgressBarValue />
+                    </div>
+                    <div className="d-flex flex-column">
+                      <p className="fs-3">
+                        {arr[currentIndexArray[index]]?.path}
+                      </p>
+                      <p className="fs-3">
+                        {arr[currentIndexArray[index]]?.name}
+                      </p>
+                      <ProgressBarValue />
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
       <DashboardFooter />

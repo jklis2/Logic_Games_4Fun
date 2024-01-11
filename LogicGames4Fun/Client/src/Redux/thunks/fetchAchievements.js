@@ -11,8 +11,6 @@ export const fetchAchievements = createAsyncThunk(
       if (response.status !== 200) {
         throw new Error("Cannot get user data.");
       }
-
-      console.log(response)
       return response.data;
     } catch (err) {
       console.log(err);
