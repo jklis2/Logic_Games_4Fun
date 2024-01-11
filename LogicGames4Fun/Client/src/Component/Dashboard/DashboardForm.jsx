@@ -35,8 +35,9 @@ export const DashboardForm = () => {
                     <div className="game-card__overlay d-flex justify-content-center align-items-center flex-column">
                       <OverlayTrigger
                         trigger="click"
-                        overlay={<SudokuHowToPlayPop />}
+                        overlay={game.pop}
                         container={ref}
+                        placement="bottom"
                       >
                         <button className="button-light my-3">
                           {t("dashboard.howToPlay")}
@@ -46,7 +47,8 @@ export const DashboardForm = () => {
                       <OverlayTrigger
                         trigger="click"
                         placement="bottom"
-                        overlay={SudokuTipsPop}
+                        overlay={game.tipsPop}
+                        container={ref}
                       >
                         <button className="button-light my-3">
                           {t("dashboard.tips")}

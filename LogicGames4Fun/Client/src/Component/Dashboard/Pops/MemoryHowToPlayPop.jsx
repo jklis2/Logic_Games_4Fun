@@ -2,10 +2,10 @@ import React from "react";
 import Popover from "react-bootstrap/Popover";
 import { useTranslation } from "react-i18next";
 
-export const MemoryHowToPlayPop = () => {
+export const MemoryHowToPlayPop = React.forwardRef(({...props}, ref) => {
   const [t] = useTranslation(["translation", "memoryHowToPlayPop"]);
   return (
-    <Popover id="popover-basic">
+    <Popover id="popover-basic" ref={ref} {...props}>
       <Popover.Header as="h3">{t("memoryHowToPlayPop.header")}</Popover.Header>
       <Popover.Body>
         <ol>
@@ -18,4 +18,4 @@ export const MemoryHowToPlayPop = () => {
       </Popover.Body>
     </Popover>
   );
-};
+});
