@@ -1,13 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InternalNavbar } from "../InternalNavbar/InternalNavbar";
 import DashboardFooter from "../Dashboard/DashboardFooter";
 import ProgressBarValue from "./ProgressBarValue";
 import { achievementList } from "./achievementList";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAchievements } from "../../Redux/thunks/fetchAchievements";
 
 export const AchievementsForm = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAchievements());
+  }, [dispatch]);
+
+  const { achievements } = useSelector((state) => state.achievement);
+
+  const divideArray = (arr) => {
+    const dividedArrays = [];
+    for (let i = 0; i < arr.length; i += 4) {
+      dividedArrays.push(arr.slice(i, i + 4));
+    }
+    return dividedArrays;
+  };
+
+  console.log(achievements && divideArray(achievements))
 
   const initialAchievementLevels = achievementList.reduce(
     (acc, achievement) => {
