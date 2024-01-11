@@ -9,10 +9,12 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import { scoreGames } from "./scoreGames";
 import { logicGames } from "./logicGames";
 import { useTranslation } from "react-i18next";
+import { useRef } from "react";
 
 export const DashboardForm = () => {
   const [t] = useTranslation(["translation", "dashboard"]);
   const navigate = useNavigate();
+  const ref = useRef(null);
 
   return (
     <div className="dashboard ">
@@ -25,13 +27,16 @@ export const DashboardForm = () => {
           <div className="row container-xxl">
             {logicGames.map((game) => (
               <div key={game.id} className="col-md-4 mt-5">
-                <div className="d-flex flex-center justify-content-center">
+                <div
+                  className="d-flex flex-center justify-content-center"
+                  ref={ref}
+                >
                   <div className="game-card">
                     <div className="game-card__overlay d-flex justify-content-center align-items-center flex-column">
                       <OverlayTrigger
                         trigger="click"
-                        placement="bottom"
-                        overlay={SudokuHowToPlayPop}
+                        overlay={<SudokuHowToPlayPop />}
+                        container={ref}
                       >
                         <button className="button-light my-3">
                           {t("dashboard.howToPlay")}
@@ -73,7 +78,6 @@ export const DashboardForm = () => {
                   <div className="game-card">
                     <div className="game-card__overlay d-flex justify-content-center align-items-center flex-column">
                       <OverlayTrigger
-                        s
                         trigger="click"
                         placement="bottom"
                         overlay={MemoryHowToPlayPop}

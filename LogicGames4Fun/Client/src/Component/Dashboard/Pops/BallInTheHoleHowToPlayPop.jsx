@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 
 export const Game2048TipsPop = () => {
   const [t] = useTranslation(["translation", "ballInTheHolePop"]);
+  
   return (
     <Popover id="popover-basic">
       <Popover.Header as="h3">
