@@ -246,4 +246,27 @@
 	- Removed result of math operation
  	- Fixed error with flicker auth form
 
+- **0.1.12** (`2023/12/21`)
+	- Added udpate profile on backend
+ 	- Added translations to authForm
+    	- Added updating avatar on profile
+ 
+- **0.1.13** (`2023/12/25`)
+	- Refactored and fixed errors with music
+ 	- Mute music working
 
+- **0.1.14** (`2024/01/02`)
+	- Added translations for profile form and sudoku and memory modal
+ 	- Refactored Server files
+ 
+- **0.1.15** (`2024/01/04)
+	- Created models for games and achievements
+
+- **0.1.16** (`2024/01/07)
+	- Created endpioint for games
+
+- **0.1.17** (`2024/01/09)
+	- Created slice for achievements
+
+- **0.1.18** (`2024/01/10)
+	- Added How to play Pop and Tips Pop to all games with translations
