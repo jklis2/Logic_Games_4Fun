@@ -26,6 +26,7 @@ export const MemoryGame = () => {
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
   const [noOfMatched, setNoOfMatched] = useState(0);
+  console.log(images.length);
 
   const chooseCard = (image) => {
     if (!image.matched && !imageOne && !imageTwo) {
@@ -94,8 +95,13 @@ export const MemoryGame = () => {
       )}
       <div className="memory min-vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
         <div className="memory__board bg-white p-2">
-          {images.length ? (
-            <div className="memory__grid p-3">
+          {images.length > 0? (
+            <div
+              style={{
+                gridTemplateColumns: `repeat(${(images.length / 2)}, 1fr)`,
+              }}
+              className="memory__grid p-3"
+            >
               {images.map((image, key) => {
                 return (
                   <Card

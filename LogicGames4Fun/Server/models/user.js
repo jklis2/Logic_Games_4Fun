@@ -41,9 +41,12 @@ export const UserSchema = new mongoose.Schema({
   path: {
     type: String,
   },
-  achievements: {
-    type: Array,
-  },
+  achievements: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Achievement",
+    },
+  ],
   isAdmin: {
     type: Boolean,
   },

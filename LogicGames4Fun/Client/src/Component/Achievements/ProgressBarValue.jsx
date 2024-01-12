@@ -4,7 +4,7 @@ import ProgressBar from "./ProgressBar";
 
 export default function ProgressBarValue() {
   // eslint-disable-next-line
-  const [progress, setProgress] = React.useState(10);
+  const [progress, setProgress] = React.useState(90);
 
   return (
     <Box sx={{ width: "100%" }}>

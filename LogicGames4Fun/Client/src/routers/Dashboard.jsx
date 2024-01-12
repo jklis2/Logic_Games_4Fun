@@ -1,6 +1,6 @@
 import React from "react";
-import { DashboardForm } from "../Component/Dashboard/DashboardForm";
+import { GamesPanel } from "../Component/Dashboard/GamesPanel";
 
 export const Dashboard = () => {
-  return <DashboardForm />;
+  return <GamesPanel />;
 };

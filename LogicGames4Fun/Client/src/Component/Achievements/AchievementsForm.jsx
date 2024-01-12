@@ -10,12 +10,14 @@ import { fetchAchievements } from "../../Redux/thunks/fetchAchievements";
 export const AchievementsForm = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const [currentIndexArray, setCurrentIndexArray] = useState([]);
 
   useEffect(() => {
     dispatch(fetchAchievements());
   }, [dispatch]);
 
   const { achievements } = useSelector((state) => state.achievement);
+  console.log( achievements && achievements)
 
   const divideArray = (arr) => {
     const dividedArrays = [];
@@ -24,8 +26,6 @@ export const AchievementsForm = () => {
     }
     return dividedArrays;
   };
-
-  const [currentIndexArray, setCurrentIndexArray] = useState([]);
 
   useEffect(() => {
     if (achievements) {

@@ -14,7 +14,7 @@ export async function getUser(req, res) {
     }
 
     const { login } = user;
-    const userFromDatabase = await UserModel.findOne({ login });
+    const userFromDatabase = await UserModel.findOne({ login }).populate('achievements');
 
     if (!userFromDatabase) {
       return res.status(404).json({ message: "User not found" });
