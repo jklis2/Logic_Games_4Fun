@@ -16,16 +16,16 @@ function CrosswordAddWord() {
   };
 
   return (
-    <div>
-      <h2>{t("crossword.title")}</h2>
+    <div className="">
+      <h2 className="difficulty-card__title text-center">{t("crossword.title")}</h2>
 
       <div className="form-group">
-        <label className="fs-3" htmlFor="word">
+        <label className="difficulty-card__label mb-2" htmlFor="word">
           {t("crossword.wordLabel")}
         </label>
         <input
           type="text"
-          className="form-control fs-3"
+          className="difficulty-card__input w-100"
           id="word"
           value={word}
           onChange={(e) => setWord(e.target.value)}
@@ -33,12 +33,12 @@ function CrosswordAddWord() {
       </div>
 
       <div className="form-group mt-3">
-        <label className="fs-3" htmlFor="definition">
+        <label className="difficulty-card__label mb-2" htmlFor="definition">
           {t("crossword.definitionLabel")}
         </label>
         <input
           type="text"
-          className="form-control fs-3"
+          className="difficulty-card__input w-100"
           id="definition"
           value={definition}
           onChange={(e) => setDefinition(e.target.value)}
@@ -48,7 +48,7 @@ function CrosswordAddWord() {
       <div className="mt-4 row">
         <div className="col-md-6">
           <button
-            className="btn btn-primary fs-4 p-3 w-100"
+            className="button-light fs-4 p-3 w-100"
             onClick={() => window.location.reload()}
           >
             {t("crossword.returnToMainMenu")}
@@ -56,7 +56,7 @@ function CrosswordAddWord() {
         </div>
         <div className="col-md-6">
           <button
-            className="btn btn-primary fs-4 p-3 w-100"
+            className="button-light fs-4 p-3 w-100"
             onClick={handleSubmit}
           >
             {t("crossword.addButton")}

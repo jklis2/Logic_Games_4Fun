@@ -100,7 +100,7 @@ function CrosswordBoard({ difficulty }) {
   };
 
   return (
-    <div className="row">
+    <div className="row mx-5">
       <div className="d-flex flex-column mt-1 justify-content-center col-md-8">
         {sampleBoard.map((row, rowIndex) => (
           <div className="board-row" key={rowIndex}>

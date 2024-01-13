@@ -31,7 +31,7 @@ function CrosswordGame() {
   if (showAddWord) {
     return (
       <div className="d-flex flex-column align-items-center container">
-        <div className="crossword bg-light m-5 p-5">
+        <div className="difficulty-card bg-light m-5 p-5">
           <CrosswordAddWord />
         </div>
       </div>
