@@ -1,6 +1,6 @@
 {
   "crosswordHowPop": {
     "instructionTitle": "Instrukcje Krzyżówki",
-    "instructions": "Zacznij od pustej siatki 9x9, w której niektóre komórki są już wypełnione cyframi. Zidentyfikuj wiersz, kolumnę i pole, gdzie dana cyfra jest już obecna. Wypełnij puste komórki w tym samym wierszu, kolumnie i polu pozostałymi cyframi od 1 do 9. Powtarzaj powyższy krok dla każdej danej cyfry, aż wszystkie puste komórki zostaną wypełnione. Upewnij się, że każdy wiersz, kolumna i pole zawierają cyfry od 1 do 9 tylko raz. Gra jest wygrana, gdy wszystkie komórki w siatce są wypełnione cyframi, które spełniają powyższe warunki."
+    "instructions": "Aby zagrać w Grę Krzyżówkową, wybierz poziom trudności i rozpocznij rozwiązywanie zagadek. Wypełnij słowa na podstawie dostarczonych podpowiedzi, dopasowując je do odpowiednich miejsc w siatce. Gra automatycznie sprawdza twoje odpowiedzi. Postępuj zgodnie z podpowiedziami, rozwiązując krzyżówkę, a w razie potrzeby rób przerwy przy trudniejszych częściach. Jeśli gra na to pozwala, możesz również dodać własne słowa i definicje."
   }
 }

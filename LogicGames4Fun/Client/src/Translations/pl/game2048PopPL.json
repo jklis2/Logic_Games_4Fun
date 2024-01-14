@@ -1,6 +1,6 @@
 {
   "game2048Pop": {
-    "instructionsTitle": "2048 Instrukcja",
+    "welcomeMessage": "2048 Instrukcja",
     "selectDifficulty": "Wybierz poziom trudności i rozpocznij grę na ekranie startowym.",
     "useArrows": "Użyj klawiszy strzałek na klawiaturze, aby przesuwać kafelki na planszy w górę, w dół, w lewo lub w prawo.",
     "combineTiles": "Gdy dwa kafelki o tej samej wartości zderzą się podczas ruchu, połączą się w jeden kafelek o wartości sumy tych dwóch kafelków.",

@@ -1,6 +1,6 @@
 {
   "game2048Pop": {
-    "instructionsTitle": "2048 Instructions",
+    "welcomeMessage": "2048 Instructions",
     "selectDifficulty": "Select the difficulty level and start the game on the start screen.",
     "useArrows": "Use the arrow keys on your keyboard to move tiles on the board up, down, left, or right.",
     "combineTiles": "When two tiles of the same value collide during a move, they will combine into one tile with the value being the sum of these two tiles.",

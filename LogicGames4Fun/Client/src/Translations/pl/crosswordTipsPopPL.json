@@ -1,10 +1,10 @@
 {
   "crosswordTipsPop": {
     "header": "Wskazówki do Krzyżówki",
-    "tip1": "Zacznij od wypełnienia najłatwiejszych komórek, czyli tych z najmniejszą liczbą możliwych opcji. To pomoże Ci szybko postępować.",
-    "tip2": "Użyj logiki i dedukcji, aby eliminować możliwe opcje dla każdej komórki. To pomoże Ci zidentyfikować poprawną cyfrę dla każdej komórki.",
-    "tip3": "Dwukrotnie sprawdź swoją pracę, aby upewnić się, że nie popełniłeś żadnych błędów.",
-    "tip4": "Regularnie ćwicz, aby poprawić swoje umiejętności i szybkość.",
+    "tip1": "Otwórz Grę Krzyżówkową i wybierz preferowany poziom trudności: łatwy, średni, trudny lub niemożliwy.",
+    "tip2": "Jeśli gra na to pozwala, dodaj słowa i ich definicje korzystając z funkcji Dodaj Słowo.",
+    "tip3": "Zwróć uwagę na podpowiedzi dostarczone w komponencie CrosswordClue. Każda podpowiedź jest powiązana z numerem, który odpowiada określonej lokalizacji na planszy.",
+    "tip4": "Kliknij na komórkę w siatce krzyżówki, aby zacząć wpisywać słowo. Komponent CrosswordCell zajmie się przetwarzaniem twojego wpisu.",
     "enjoy": "Miłej zabawy w Krzyżówkę!"
   }
 }
