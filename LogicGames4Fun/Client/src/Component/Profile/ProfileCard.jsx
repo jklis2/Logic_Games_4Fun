@@ -48,9 +48,13 @@ export const ProfileCard = () => {
                 <span className="profile__info text-success px-2">Online</span>
               </div>
               <div className="mt-4 fs-4 px-3 py-1">
-                {user?.description
-                  ? <p>{user?.description}</p>
-                  : <p className="text-secondary">Description has not been added yet.</p>}
+                {user?.description ? (
+                  <p>{user.description}</p>
+                ) : (
+                  <p className="text-secondary">
+                    Description has not been added yet.
+                  </p>
+                )}
               </div>
 
               <div className="row mt-3 py-2 px-3">
