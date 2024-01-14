@@ -1,13 +1,31 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { sendMessage } from "../../Redux/thunks/sendMessage";
 
 export const ContactForm = () => {
   const [t] = useTranslation(["translation", "contact"]);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [contactData, setContactData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    dispatch(sendMessage(contactData)).then(
+      setContactData({
+        name: "",
+        email: "",
+        message: "",
+      })
+    );
+
     setShowSuccessAlert(true);
     setTimeout(() => {
       setShowSuccessAlert(false);
@@ -28,19 +46,36 @@ export const ContactForm = () => {
         </div>
         <form className="mt-5" onSubmit={handleSubmit}>
           <input
-            className="contact__input"
+            id="name"
             type="text"
+            className="contact__input"
+            autoComplete="name"
             placeholder={t("contact.namePlaceholder")}
+            value={contactData.name}
+            onChange={(e) =>
+              setContactData({ ...contactData, name: e.target.value })
+            }
           ></input>
           <input
-            className="contact__input"
+            id="email"
             type="email"
+            autoComplete="email"
+            className="contact__input"
             placeholder={t("contact.emailPlaceholder")}
+            value={contactData.email}
+            onChange={(e) =>
+              setContactData({ ...contactData, email: e.target.value })
+            }
           ></input>
           <textarea
-            className="contact__input"
+            id="message"
             rows="3"
+            className="contact__input"
             placeholder={t("contact.messagePlaceholder")}
+            value={contactData.message}
+            onChange={(e) =>
+              setContactData({ ...contactData, message: e.target.value })
+            }
           ></textarea>
         </form>
         {showSuccessAlert && (

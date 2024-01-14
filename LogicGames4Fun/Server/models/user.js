@@ -47,6 +47,22 @@ export const UserSchema = new mongoose.Schema({
       ref: "Achievement",
     },
   ],
+  scores: [
+    {
+      game: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Game",
+      },
+      level: {
+        type: String,
+        required: true,
+      },
+      result: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
   isAdmin: {
     type: Boolean,
   },

@@ -17,7 +17,9 @@ export const AchievementsForm = () => {
   }, [dispatch]);
 
   const { achievements } = useSelector((state) => state.achievement);
-  console.log( achievements && achievements)
+  const { achievements: userAchievements, scores } = useSelector(
+    (state) => state.auth.user
+  );
 
   const divideArray = (arr) => {
     const dividedArrays = [];
@@ -25,6 +27,20 @@ export const AchievementsForm = () => {
       dividedArrays.push(arr.slice(i, i + 4));
     }
     return dividedArrays;
+  };
+
+  const hasAchievement = (arr) =>
+    arr && userAchievements.some((a) => a._id === arr._id);
+
+  const checkScore = (arr) => {
+    const hasScore =
+      arr && scores.filter((score) => score.game === arr.game._id);
+
+    if (hasScore && hasScore.length > 0) {
+      return Math.round((hasScore[0].result / arr.requiredScore) * 100);
+    } else {
+      return 0;
+    }
   };
 
   useEffect(() => {
@@ -102,7 +118,11 @@ export const AchievementsForm = () => {
                           arr[currentIndexArray[index]]?.imgPath
                         }`}
                         alt={arr[currentIndexArray[index]]?.alt}
-                        className="w-100"
+                        className={`profile__achievement${
+                          hasAchievement(arr[currentIndexArray[index]])
+                            ? "-gained"
+                            : ""
+                        } w-100`}
                       />
                     </div>
                     <div className="d-flex flex-column">
@@ -112,7 +132,10 @@ export const AchievementsForm = () => {
                       <p className="fs-3">
                         {arr[currentIndexArray[index]]?.name}
                       </p>
-                      <ProgressBarValue />
+
+                      <ProgressBarValue
+                        percent={checkScore(arr[currentIndexArray[index]])}
+                      />
                     </div>
                   </div>
                 </div>
