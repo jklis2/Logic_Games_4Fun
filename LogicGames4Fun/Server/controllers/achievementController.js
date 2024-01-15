@@ -28,7 +28,9 @@ export async function addAchievement(req, res) {
 }
 
 export async function awardAchievement(req, res) {
+  console.log(req.uer);
 
+  return res.status(201).json({ message: "Ok" });
 }
 
 export async function removeAchievement(req, res) {}

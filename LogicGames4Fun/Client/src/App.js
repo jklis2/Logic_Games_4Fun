@@ -24,6 +24,7 @@ import { TicTacToe } from "./Routers/TicTacToe";
 import { initializeMusic } from "./Redux/music-slice";
 import { fetchUserData } from "./Redux/thunks/fetchUserData";
 import { Loader } from "./Component/Loader/Loader";
+import { fetchGames } from "./Redux/thunks/fetchGames";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,13 +35,19 @@ function App() {
   useEffect(() => {
     const initializeWithMouseMovement = () => {
       dispatch(initializeMusic());
-      document.body.removeEventListener("mousemove", initializeWithMouseMovement);
+      document.body.removeEventListener(
+        "mousemove",
+        initializeWithMouseMovement
+      );
     };
-  
+
     document.body.addEventListener("mousemove", initializeWithMouseMovement);
-  
+
     return () => {
-      document.body.removeEventListener("mousemove", initializeWithMouseMovement);
+      document.body.removeEventListener(
+        "mousemove",
+        initializeWithMouseMovement
+      );
     };
   }, [dispatch]);
 
@@ -48,6 +55,10 @@ function App() {
     dispatch(fetchUserData()).finally(() => {
       setIsLoading(false);
     });
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchGames());
   }, [dispatch]);
 
   const requireAuth = (element) => {

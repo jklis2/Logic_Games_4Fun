@@ -12,7 +12,7 @@ const router = Router();
 // router.get("/", isAuth, getAchievements);
 router.get("/", getAchievements);
 router.post("/", addAchievement);
-router.post("/award", awardAchievement);
+router.post("/award", isAuth, awardAchievement);
 router.delete("/", removeAchievement);
 
 export default router;

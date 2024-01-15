@@ -3,22 +3,50 @@ import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
 import { generateMemoryLevels } from "./generateMemoryLevels";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { updateProfile } from "../../../Redux/thunks/updateProfile";
 
 const MemoryModal = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [t] = useTranslation(["translation", "memory"]);
 
-  const cos = useSelector((state) => state);
-  console.log(cos);
+  const currentGame =
+    props.games && props.games.filter((game) => game.name.includes("Memory"))[0];
+
+  const hasScore = props.scores?.some((score) => score.game === currentGame._id);
+  const getLevel = props.scores?.filter((score) => score.game === currentGame._id)[0];
 
   const nextLevelHandler = () => {
     props.onHide();
-    const lvl = localStorage.getItem("memoryLvl");
-    const newlvl = +lvl + 1;
-    localStorage.setItem("memoryLvl", newlvl.toString());
 
-    //Poślij requesta, że wbito nowy lvl
+    const lvl =
+      getLevel?.result !== undefined
+        ? getLevel.result
+        : localStorage.getItem("memoryLvl");
+
+    const newlvl = +lvl + 1;
+    //TYLKO DLA ZALOGOWANEGO USERA
+    if (localStorage.getItem("token")) {
+      if (hasScore) {
+        console.log("Yes");
+      } else {
+        dispatch(
+          updateProfile({
+            scores: [
+              ...props.scores,
+              {
+                game: currentGame._id,
+                level: "none",
+                result: +lvl,
+              },
+            ],
+          })
+        );
+      }
+    } else {
+      localStorage.setItem("memoryLvl", newlvl.toString());
+    }
 
     props.setNoOfMatched(0);
     props.setLevel(newlvl);

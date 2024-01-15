@@ -7,12 +7,34 @@ import Card from "./Card";
 import { generateMemoryLevels } from "./generateMemoryLevels";
 import ReactDOM from "react-dom";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 export const MemoryGame = () => {
   const [t] = useTranslation(["translation", "memory"]);
-  const [level, setLevel] = useState(
-    Number(localStorage.getItem("memoryLvl")) || 1
-  );
+
+  //Test
+  const { games } = useSelector((state) => state.game);
+  const { scores } = useSelector((state) => state.auth.user) || [];
+
+  const currentGame =
+    games && games.filter((game) => game.name.includes("Memory"))[0];
+
+  const getLevel = React.useMemo(() => {
+    return scores?.filter((score) => score.game === currentGame._id)[0] || {};
+  }, [scores, currentGame]);
+
+  const initialLevel =
+    getLevel.result || Number(localStorage.getItem("memoryLvl")) || 1;
+  const [level, setLevel] = useState(initialLevel);
+
+  useEffect(() => {
+    if (getLevel.result !== undefined) {
+      setLevel(getLevel.result);
+    }
+  }, [getLevel]);
+
+  //End test
+
   const [memLevels, setMemLevels] = useState(
     generateMemoryLevels().filter((mem) => mem.lvl === +level)
   );
@@ -21,7 +43,7 @@ export const MemoryGame = () => {
     (mem) => mem.lvl === +level
   )[0];
 
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState(true);
 
   const imagesItems = allImages
     .sort((a, b) => 0.5 - Math.random())
@@ -94,6 +116,12 @@ export const MemoryGame = () => {
           show={modalShow}
           setLevel={setLevel}
           onHide={() => setModalShow(false)}
+          
+          games={games}
+          scores={scores}
+          // hasScore={hasScore}
+          getLevel={getLevel}
+
         />,
         document.getElementById("modal-root")
       )}
