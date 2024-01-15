@@ -12,10 +12,15 @@ const MemoryModal = (props) => {
   const [t] = useTranslation(["translation", "memory"]);
 
   const currentGame =
-    props.games && props.games.filter((game) => game.name.includes("Memory"))[0];
+    props.games &&
+    props.games.filter((game) => game.name.includes("Memory"))[0];
 
-  const hasScore = props.scores?.some((score) => score.game === currentGame._id);
-  const getLevel = props.scores?.filter((score) => score.game === currentGame._id)[0];
+  const hasScore = props.scores?.some(
+    (score) => score.game === currentGame._id
+  );
+  const getLevel = props.scores?.filter(
+    (score) => score.game === currentGame._id
+  )[0];
 
   const nextLevelHandler = () => {
     props.onHide();
@@ -26,10 +31,17 @@ const MemoryModal = (props) => {
         : localStorage.getItem("memoryLvl");
 
     const newlvl = +lvl + 1;
-    //TYLKO DLA ZALOGOWANEGO USERA
+    
     if (localStorage.getItem("token")) {
       if (hasScore) {
-        console.log("Yes");
+        const updatedScores = props.scores.map((score) =>
+          score.game === currentGame._id ? { ...score, result: lvl + 1 } : score
+        );
+        dispatch(
+          updateProfile({
+            scores: updatedScores,
+          })
+        );
       } else {
         dispatch(
           updateProfile({
