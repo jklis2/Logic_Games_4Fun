@@ -1,7 +1,7 @@
 import React from "react";
 import { userAvatars } from "./userAvatars";
 import Modal from "react-bootstrap/Modal";
-import { updateProfilePath } from "../../Redux/thunks/updateProfile";
+import { updateProfile } from "../../Redux/thunks/updateProfile";
 import { fetchUserData } from "../../Redux/thunks/fetchUserData";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -39,7 +39,7 @@ export const AvatarForm = ({ selectedAvatar, setSelectedAvatar, setShow }) => {
         <button
           className="button-light"
           onClick={() => {
-            dispatch(updateProfilePath(selectedAvatar))
+            dispatch(updateProfile({path: selectedAvatar}))
               .then(dispatch(fetchUserData()))
               .then(() => setShow(false));
           }}

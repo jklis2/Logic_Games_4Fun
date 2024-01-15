@@ -41,6 +41,9 @@ export const UserSchema = new mongoose.Schema({
   path: {
     type: String,
   },
+  description: {
+    type: String,
+  },
   achievements: [
     {
       type: mongoose.Schema.Types.ObjectId,

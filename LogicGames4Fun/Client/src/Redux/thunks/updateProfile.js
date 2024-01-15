@@ -1,9 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const updateProfilePath = createAsyncThunk(
+export const updateProfile = createAsyncThunk(
   "user/updateProfilePath",
-  async (path, thunkAPI) => {
+  async (data, thunkAPI) => {
     const state = thunkAPI.getState();
     const headers = {
       Authorization: `Bearer ${state.auth.token}`,
@@ -13,7 +13,7 @@ export const updateProfilePath = createAsyncThunk(
     try {
       const response = await axios.put(
         `${process.env.REACT_APP_API_URL}/user/`,
-        { path },
+        data,
         { headers }
       );
       return response.data;

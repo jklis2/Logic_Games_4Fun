@@ -16,6 +16,11 @@ export const MemoryGame = () => {
   const [memLevels, setMemLevels] = useState(
     generateMemoryLevels().filter((mem) => mem.lvl === +level)
   );
+
+  const { cols } = generateMemoryLevels().filter(
+    (mem) => mem.lvl === +level
+  )[0];
+
   const [modalShow, setModalShow] = useState(false);
 
   const imagesItems = allImages
@@ -26,7 +31,6 @@ export const MemoryGame = () => {
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
   const [noOfMatched, setNoOfMatched] = useState(0);
-  console.log(images.length);
 
   const chooseCard = (image) => {
     if (!image.matched && !imageOne && !imageTwo) {
@@ -95,10 +99,10 @@ export const MemoryGame = () => {
       )}
       <div className="memory min-vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
         <div className="memory__board bg-white p-2">
-          {images.length > 0? (
+          {images.length > 0 ? (
             <div
               style={{
-                gridTemplateColumns: `repeat(${(images.length / 2)}, 1fr)`,
+                gridTemplateColumns: `repeat(${cols}, 1fr)`,
               }}
               className="memory__grid p-3"
             >

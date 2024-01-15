@@ -1,5 +1,6 @@
 import UserModel from "../models/user.js";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 export async function getUser(req, res) {
   try {
@@ -36,9 +37,16 @@ export async function updateUser(req, res) {
     const user = jwt.decode(header, process.env.secret);
     if (!user) throw new Error("Invalid token");
 
+    if (req.body.password) {
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      req.body.password = hashedPassword;
+    }
+
     await UserModel.findOneAndUpdate(
       { login: user.login },
-      { path: req.body.path },
+      {
+        $set: req.body,
+      },
       { new: true }
     );
 

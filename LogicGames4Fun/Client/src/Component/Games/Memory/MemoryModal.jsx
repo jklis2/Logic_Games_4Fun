@@ -3,17 +3,23 @@ import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
 import { generateMemoryLevels } from "./generateMemoryLevels";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const MemoryModal = (props) => {
   const navigate = useNavigate();
-
   const [t] = useTranslation(["translation", "memory"]);
+
+  const cos = useSelector((state) => state);
+  console.log(cos);
 
   const nextLevelHandler = () => {
     props.onHide();
     const lvl = localStorage.getItem("memoryLvl");
     const newlvl = +lvl + 1;
     localStorage.setItem("memoryLvl", newlvl.toString());
+
+    //Poślij requesta, że wbito nowy lvl
+
     props.setNoOfMatched(0);
     props.setLevel(newlvl);
     props.setMemLevels(

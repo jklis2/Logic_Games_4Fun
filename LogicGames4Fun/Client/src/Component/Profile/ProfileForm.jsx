@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Modal from "react-bootstrap/Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProfile } from "../../Redux/thunks/updateProfile";
+import { fetchUserData } from "../../Redux/thunks/fetchUserData";
 
 export const ProfileForm = ({ setShow }) => {
+  const dispatch = useDispatch();
   const [t] = useTranslation(["translation", "profile"]);
+
+  const { dateOfBirth, email, description } = useSelector(
+    (state) => state.auth.user
+  );
+
+  const [profileData, setProfileData] = useState({
+    dateOfBirth,
+    email,
+    description,
+  });
+
+  const submitChanges = () => {
+    dispatch(updateProfile(profileData))
+      .then(dispatch(fetchUserData()))
+      .then(() => setShow(false));
+  };
+
   return (
     <>
       <Modal.Header closeButton>
@@ -20,6 +41,13 @@ export const ProfileForm = ({ setShow }) => {
             name="dateOfBirth"
             id="dateOfBirth"
             className="form__input"
+            value={profileData.dateOfBirth.slice(0, 10)}
+            onChange={(e) =>
+              setProfileData({
+                ...profileData,
+                dateOfBirth: e.target.value,
+              })
+            }
           />
 
           <label htmlFor="email" className="form__label mt-3">
@@ -31,6 +59,13 @@ export const ProfileForm = ({ setShow }) => {
             id="email"
             autoComplete="email"
             className="form__input"
+            value={profileData.email}
+            onChange={(e) =>
+              setProfileData({
+                ...profileData,
+                email: e.target.value,
+              })
+            }
           />
 
           <label htmlFor="description" className="form__label mt-3">
@@ -42,6 +77,13 @@ export const ProfileForm = ({ setShow }) => {
             id="description"
             cols="30"
             rows="10"
+            value={profileData.description}
+            onChange={(e) =>
+              setProfileData({
+                ...profileData,
+                description: e.target.value,
+              })
+            }
           ></textarea>
         </form>
       </Modal.Body>
@@ -50,12 +92,7 @@ export const ProfileForm = ({ setShow }) => {
         <button className="button-light" onClick={() => setShow(false)}>
           {t("profile.closeButton")}
         </button>
-        <button
-          className="button-light"
-          onClick={() => {
-            console.log(1);
-          }}
-        >
+        <button className="button-light" onClick={submitChanges}>
           {t("profile.saveButton")}
         </button>
       </Modal.Footer>
