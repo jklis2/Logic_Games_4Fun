@@ -7,47 +7,17 @@ import Card from "./Card";
 import { generateMemoryLevels } from "./generateMemoryLevels";
 import ReactDOM from "react-dom";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useScore } from "../../../Hooks/useScore";
 
 export const MemoryGame = () => {
   const [t] = useTranslation(["translation", "memory"]);
-
-  //Test
-  const { games } = useSelector((state) => state.game);
-  const { scores } = useSelector((state) => state.auth.user) || [];
-
-  const currentGame =
-    games && games.filter((game) => game.name.includes("Memory"))[0];
-
-  const getLevel = React.useMemo(() => {
-    return scores?.filter((score) => score.game === currentGame._id)[0] || {};
-  }, [scores, currentGame]);
-
-  const initialLevel =
-    getLevel.result || Number(localStorage.getItem("memoryLvl")) || 1;
-  const [level, setLevel] = useState(initialLevel);
-
-  useEffect(() => {
-    if (getLevel.result !== undefined) {
-      setLevel(getLevel.result);
-    }
-  }, [getLevel]);
-
-  //End test
-
+  const { level, setLevel, currentGame, games, scores, getLevel } =
+    useScore("Memory");
+  const [modalShow, setModalShow] = useState(false);
+  
   const [memLevels, setMemLevels] = useState(
-    generateMemoryLevels().filter((mem) => mem.lvl === +level)
+    level && generateMemoryLevels().filter((mem) => mem.lvl === +level)
   );
-
-  const { cols } = generateMemoryLevels().filter(
-    (mem) => mem.lvl === +level
-  )[0];
-
-  const [modalShow, setModalShow] = useState(true);
-
-  const imagesItems = allImages
-    .sort((a, b) => 0.5 - Math.random())
-    .slice(0, memLevels[0].pairs);
 
   const [images, setImages] = useState([]);
   const [imageOne, setImageOne] = useState(null);
@@ -67,8 +37,15 @@ export const MemoryGame = () => {
     }
   };
 
+const imagesItems =
+  allImages
+    .sort((a, b) => 0.5 - Math.random())
+    .slice(0, memLevels?.[0]?.pairs || 0);
+
   const initGame = () => {
     const cards = memLevels[0].pairs;
+    console.log(memLevels[0].pairs)
+
     const allImages = [...imagesItems, ...imagesItems]
       .sort(() => Math.random() - 0.5)
       .slice(0, cards * 2)
@@ -77,8 +54,12 @@ export const MemoryGame = () => {
     setImages(allImages);
   };
 
-  // eslint-disable-next-line
-  useEffect(() => initGame(), [level]);
+  useEffect(() => {
+    if (level !== null) {
+      initGame();
+    }
+    // eslint-disable-next-line
+  }, [level]);
 
   useEffect(() => {
     if (noOfMatched === imagesItems.length) {
@@ -107,57 +88,58 @@ export const MemoryGame = () => {
   }, [imageOne, imageTwo]);
 
   return (
-    <>
-      {ReactDOM.createPortal(
-        <MemoryModal
-          setMemLevels={setMemLevels}
-          initGame={initGame}
-          setNoOfMatched={setNoOfMatched}
-          show={modalShow}
-          setLevel={setLevel}
-          onHide={() => setModalShow(false)}
-          
-          games={games}
-          scores={scores}
-          // hasScore={hasScore}
-          getLevel={getLevel}
-
-        />,
-        document.getElementById("modal-root")
-      )}
-      <div className="memory min-vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
-        <div className="memory__board bg-white p-2">
-          {images.length > 0 ? (
-            <div
-              style={{
-                gridTemplateColumns: `repeat(${cols}, 1fr)`,
-              }}
-              className="memory__grid p-3"
-            >
-              {images.map((image, key) => {
-                return (
-                  <Card
-                    key={key}
-                    chooseCard={chooseCard}
-                    modalShow={modalShow}
-                    flipped={
-                      image === imageOne || image === imageTwo || image.matched
-                    }
-                    image={image}
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <></>
-          )}
+    currentGame && (
+      <>
+        {ReactDOM.createPortal(
+          <MemoryModal
+            setMemLevels={setMemLevels}
+            initGame={initGame}
+            setNoOfMatched={setNoOfMatched}
+            show={modalShow}
+            setLevel={setLevel}
+            onHide={() => setModalShow(false)}
+            games={games}
+            scores={scores}
+            getLevel={getLevel}
+          />,
+          document.getElementById("modal-root")
+        )}
+        <div className="memory min-vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
+          <div className="memory__board bg-white p-2">
+            {images.length > 0 ? (
+              <div
+                style={{
+                  gridTemplateColumns: `repeat(${memLevels[0].cols}, 1fr)`,
+                }}
+                className="memory__grid p-3"
+              >
+                {images.map((image, key) => {
+                  return (
+                    <Card
+                      key={key}
+                      chooseCard={chooseCard}
+                      modalShow={modalShow}
+                      flipped={
+                        image === imageOne ||
+                        image === imageTwo ||
+                        image.matched
+                      }
+                      image={image}
+                    />
+                  );
+                })}
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className="d-flex  justify-content-center mt-5">
+            <Badge className="px-5 p-3" bg="">
+              {t("memory.level")} {level}
+            </Badge>
+          </div>
         </div>
-        <div className="d-flex  justify-content-center mt-5">
-          <Badge className="px-5 p-3" bg="">
-            {t("memory.level")} {level}
-          </Badge>
-        </div>
-      </div>
-    </>
+      </>
+    )
   );
 };

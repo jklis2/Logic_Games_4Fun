@@ -132,7 +132,7 @@ export const AchievementsForm = () => {
                       <p className="fs-3">
                         {arr[currentIndexArray[index]]?.name}
                       </p>
-
+                        {console.log(arr[currentIndexArray[index]]) }
                       <ProgressBarValue
                         percent={checkScore(arr[currentIndexArray[index]])}
                       />
