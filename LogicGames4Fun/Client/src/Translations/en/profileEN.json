@@ -1,5 +1,8 @@
 {
   "profile": {
+    "changeAvatarLabel": "Choose a new avatar",
+    "changeProfileLabel": "Edit profile",
+    "changePasswordLabel": "Change password",
     "currentPasswordLabel": "Current password",
     "newPasswordLabel": "New password",
     "confirmPasswordLabel": "Confirm password",
@@ -12,6 +15,7 @@
     "descriptionLabel": "Description",
     "selectAvatarModalTitle": "Select an avatar",
     "closeButton": "Close",
-    "saveButton": "Save"
+    "saveButton": "Save",
+    "saveAlert": "Saved changes"
   }
 }

@@ -1,5 +1,8 @@
 {
   "profile": {
+    "changeAvatarLabel": "Wybierz nowego awatara",
+    "changeProfileLabel": "Edytuj profil",
+    "changePasswordLabel": "Zmień hasło",
     "currentPasswordLabel": "Aktualne hasło",
     "newPasswordLabel": "Nowe hasło",
     "confirmPasswordLabel": "Potwierdź hasło",
@@ -12,6 +15,7 @@
     "descriptionLabel": "Opis",
     "selectAvatarModalTitle": "Wybierz awatar",
     "closeButton": "Zamknij",
-    "saveButton": "Zapisz"
+    "saveButton": "Zapisz",
+    "saveAlert": "Zapisano zmiany"
   }
 }

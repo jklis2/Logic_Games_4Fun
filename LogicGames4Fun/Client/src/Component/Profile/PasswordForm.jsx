@@ -32,7 +32,7 @@ export const PasswordForm = ({ setShow }) => {
   return (
     <>
       <Modal.Header closeButton>
-        <Modal.Title>Edit profile</Modal.Title>
+        <Modal.Title>{t("profile.changePasswordLabel")}</Modal.Title>
       </Modal.Header>
 
       <Modal.Body className="d-flex flex-wrap justify-content-center ">
