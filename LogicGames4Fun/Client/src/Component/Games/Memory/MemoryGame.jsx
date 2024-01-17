@@ -12,7 +12,7 @@ import { useScore } from "../../../Hooks/useScore";
 export const MemoryGame = () => {
   const [t] = useTranslation(["translation", "memory"]);
   const { level, setLevel, games, scores } = useScore("Memory", "memoryLvl");
-  const [modalShow, setModalShow] = useState(true);
+  const [modalShow, setModalShow] = useState(false);
   const [images, setImages] = useState([]);
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
@@ -57,7 +57,7 @@ export const MemoryGame = () => {
   }, [level]);
 
   useEffect(() => {
-    if (noOfMatched === imagesItems.length) {
+    if (level && (noOfMatched === imagesItems.length)) {
       setModalShow(true);
     }
 

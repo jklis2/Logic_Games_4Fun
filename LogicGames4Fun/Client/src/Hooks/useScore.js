@@ -14,12 +14,14 @@ export const useScore = (gameName, localStorageName) => {
   useEffect(() => {
     const getLevel =
       scores?.filter((score) => score.game === currentGame?._id)[0] || {};
+
     if (user) {
-      setLevel(getLevel.result);
+      setLevel(getLevel.result );
     } else {
       setLevel(Number(localStorage.getItem("memoryLvl")) || 1);
     }
   }, [scores, currentGame, user]);
+
 
   return { games, scores, currentGame, level, setLevel };
 };
