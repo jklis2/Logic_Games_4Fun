@@ -11,14 +11,8 @@ import { useScore } from "../../../Hooks/useScore";
 
 export const MemoryGame = () => {
   const [t] = useTranslation(["translation", "memory"]);
-  const { level, setLevel, currentGame, games, scores, getLevel } =
-    useScore("Memory");
-  const [modalShow, setModalShow] = useState(false);
-  
-  const [memLevels, setMemLevels] = useState(
-    level && generateMemoryLevels().filter((mem) => mem.lvl === +level)
-  );
-
+  const { level, setLevel, games, scores } = useScore("Memory", "memoryLvl");
+  const [modalShow, setModalShow] = useState(true);
   const [images, setImages] = useState([]);
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
@@ -36,15 +30,16 @@ export const MemoryGame = () => {
       setImageTwo(image);
     }
   };
+  const memLevels =
+    level && generateMemoryLevels().filter((mem) => mem.lvl === +level)[0];
 
-const imagesItems =
-  allImages
+  const imagesItems = allImages
     .sort((a, b) => 0.5 - Math.random())
-    .slice(0, memLevels?.[0]?.pairs || 0);
+    .slice(0, memLevels && memLevels.pairs);
 
   const initGame = () => {
-    const cards = memLevels[0].pairs;
-    console.log(memLevels[0].pairs)
+    const cards = generateMemoryLevels().filter((mem) => mem.lvl === +level)[0]
+      .pairs;
 
     const allImages = [...imagesItems, ...imagesItems]
       .sort(() => Math.random() - 0.5)
@@ -55,7 +50,7 @@ const imagesItems =
   };
 
   useEffect(() => {
-    if (level !== null) {
+    if (level) {
       initGame();
     }
     // eslint-disable-next-line
@@ -88,19 +83,18 @@ const imagesItems =
   }, [imageOne, imageTwo]);
 
   return (
-    currentGame && (
+    memLevels && (
       <>
         {ReactDOM.createPortal(
           <MemoryModal
-            setMemLevels={setMemLevels}
             initGame={initGame}
             setNoOfMatched={setNoOfMatched}
             show={modalShow}
             setLevel={setLevel}
             onHide={() => setModalShow(false)}
+            level={level}
             games={games}
             scores={scores}
-            getLevel={getLevel}
           />,
           document.getElementById("modal-root")
         )}
@@ -109,7 +103,7 @@ const imagesItems =
             {images.length > 0 ? (
               <div
                 style={{
-                  gridTemplateColumns: `repeat(${memLevels[0].cols}, 1fr)`,
+                  gridTemplateColumns: `repeat(${memLevels.cols}, 1fr)`,
                 }}
                 className="memory__grid p-3"
               >

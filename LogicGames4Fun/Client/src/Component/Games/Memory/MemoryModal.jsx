@@ -1,7 +1,6 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
-import { generateMemoryLevels } from "./generateMemoryLevels";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "../../../Redux/thunks/updateProfile";
@@ -18,24 +17,17 @@ const MemoryModal = (props) => {
   const hasScore = props.scores?.some(
     (score) => score.game === currentGame._id
   );
-  const getLevel = props.scores?.filter(
-    (score) => score.game === currentGame._id
-  )[0];
 
   const nextLevelHandler = () => {
     props.onHide();
+    props.setLevel((lvl) => lvl + 1);
 
-    const lvl =
-      getLevel?.result !== undefined
-        ? getLevel.result
-        : localStorage.getItem("memoryLvl");
-
-    const newlvl = +lvl + 1;
-    
     if (localStorage.getItem("token")) {
       if (hasScore) {
         const updatedScores = props.scores.map((score) =>
-          score.game === currentGame._id ? { ...score, result: lvl + 1 } : score
+          score.game === currentGame._id
+            ? { ...score, result: props.level + 1 }
+            : score
         );
         dispatch(
           updateProfile({
@@ -50,21 +42,18 @@ const MemoryModal = (props) => {
               {
                 game: currentGame._id,
                 level: "none",
-                result: +lvl,
+                result: +props.level,
               },
             ],
           })
         );
       }
     } else {
-      localStorage.setItem("memoryLvl", newlvl.toString());
+      localStorage.setItem("memoryLvl", props.level.toString());
     }
 
     props.setNoOfMatched(0);
-    props.setLevel(newlvl);
-    props.setMemLevels(
-      generateMemoryLevels().filter((mem) => mem.lvl === +newlvl)
-    );
+    props.setLevel(props.level + 1);
     props.initGame();
     navigate("/games/memory");
   };
