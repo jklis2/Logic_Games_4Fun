@@ -16,7 +16,7 @@ export const useScore = (gameName, localStorageName) => {
       scores?.filter((score) => score.game === currentGame?._id)[0] || {};
 
     if (user) {
-      setLevel(getLevel.result );
+      setLevel(getLevel.result || 1);
     } else {
       setLevel(Number(localStorage.getItem("memoryLvl")) || 1);
     }

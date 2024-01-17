@@ -14,9 +14,9 @@ const MemoryModal = (props) => {
     props.games &&
     props.games.filter((game) => game.name.includes("Memory"))[0];
 
-  const hasScore = props.scores?.some(
-    (score) => score.game === currentGame._id
-  );
+    const hasScore =
+    currentGame &&
+    props?.scores?.some((score) => score?.game === currentGame._id);
 
   const nextLevelHandler = () => {
     props.onHide();
