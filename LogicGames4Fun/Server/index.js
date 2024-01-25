@@ -17,6 +17,11 @@ app.get("/api", (_, res) => {
   res.json({ message: "Hello from server!" });
 });
 
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`);
+});
+
+
 app.use("/auth", auth);
 app.use("/user", user);
 app.use("/game", game);
