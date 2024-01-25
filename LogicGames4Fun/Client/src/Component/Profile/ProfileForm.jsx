@@ -28,7 +28,7 @@ export const ProfileForm = ({ setShow }) => {
   return (
     <>
       <Modal.Header closeButton>
-        <Modal.Title>{t("profile.changeProfileLabel")}</Modal.Title>
+        <Modal.Title className="fs-1">{t("profile.changeProfileLabel")}</Modal.Title>
       </Modal.Header>
 
       <Modal.Body className="d-flex flex-wrap justify-content-center ">
@@ -40,7 +40,7 @@ export const ProfileForm = ({ setShow }) => {
             type="date"
             name="dateOfBirth"
             id="dateOfBirth"
-            className="form__input"
+            className="form__input mt-3"
             value={profileData.dateOfBirth.slice(0, 10)}
             onChange={(e) =>
               setProfileData({
@@ -50,7 +50,7 @@ export const ProfileForm = ({ setShow }) => {
             }
           />
 
-          <label htmlFor="email" className="form__label mt-3">
+          <label htmlFor="email" className="form__label mt-4">
             {t("profile.emailLabel")}
           </label>
           <input
@@ -58,7 +58,7 @@ export const ProfileForm = ({ setShow }) => {
             name="email"
             id="email"
             autoComplete="email"
-            className="form__input"
+            className="form__input mt-3"
             value={profileData.email}
             onChange={(e) =>
               setProfileData({
@@ -68,15 +68,15 @@ export const ProfileForm = ({ setShow }) => {
             }
           />
 
-          <label htmlFor="description" className="form__label mt-3">
+          <label htmlFor="description" className="form__label mt-4">
             {t("profile.descriptionLabel")}
           </label>
           <textarea
-            className="form__input"
+            className="form__input mt-3"
             name=""
             id="description"
             cols="30"
-            rows="10"
+            rows="3"
             value={profileData.description}
             onChange={(e) =>
               setProfileData({

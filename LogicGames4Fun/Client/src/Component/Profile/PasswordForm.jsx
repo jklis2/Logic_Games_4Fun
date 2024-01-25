@@ -32,7 +32,7 @@ export const PasswordForm = ({ setShow }) => {
   return (
     <>
       <Modal.Header closeButton>
-        <Modal.Title>{t("profile.changePasswordLabel")}</Modal.Title>
+        <Modal.Title className="fs-1">{t("profile.changePasswordLabel")}</Modal.Title>
       </Modal.Header>
 
       <Modal.Body className="d-flex flex-wrap justify-content-center ">
@@ -45,7 +45,7 @@ export const PasswordForm = ({ setShow }) => {
               type="password"
               name=""
               id="newPassword"
-              className="form__input"
+              className="form__input mt-3"
               value={passwordData.password}
               onChange={(e) =>
                 setPasswordData({
@@ -63,7 +63,7 @@ export const PasswordForm = ({ setShow }) => {
               type="password"
               name=""
               id="confirmNewPassword"
-              className="form__input"
+              className="form__input mt-3"
               value={passwordData.confirmPassword}
               onChange={(e) =>
                 setPasswordData({

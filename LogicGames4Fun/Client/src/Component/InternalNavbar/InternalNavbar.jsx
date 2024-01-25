@@ -31,11 +31,6 @@ export const InternalNavbar = () => {
       path: "/dashboard",
     },
     {
-      label: t("navbar.favouriteGames"),
-      path: "/favouritegames",
-      allowedForLoggedInUser: true,
-    },
-    {
       label: t("navbar.achievements"),
       path: "/achievements",
       allowedForLoggedInUser: true,
@@ -96,16 +91,18 @@ export const InternalNavbar = () => {
                 ) {
                   return (
                     <Dropdown.Item
+                    className="py-3"
                       as="div"
                       key={setting.path}
                       onClick={logoutHandler}
+
                     >
                       {setting.label}
                     </Dropdown.Item>
                   );
                 }
                 return (
-                  <Dropdown.Item as="div" key={setting.path}>
+                  <Dropdown.Item as="div" className="py-3" key={setting.path}>
                     <Link to={setting.path}>{setting.label}</Link>
                   </Dropdown.Item>
                 );

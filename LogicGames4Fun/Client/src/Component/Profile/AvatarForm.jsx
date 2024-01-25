@@ -15,7 +15,7 @@ export const AvatarForm = ({ selectedAvatar, setSelectedAvatar, setShow }) => {
   return (
     <>
       <Modal.Header closeButton>
-        <Modal.Title>{t("profile.changeAvatarLabel")}</Modal.Title>
+        <Modal.Title className="fs-1">{t("profile.changeAvatarLabel")}</Modal.Title>
       </Modal.Header>
 
       <Modal.Body className="d-flex flex-wrap justify-content-center ">
