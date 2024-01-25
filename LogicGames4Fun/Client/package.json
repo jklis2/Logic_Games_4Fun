@@ -17,6 +17,7 @@
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-http-backend": "^2.4.2",
     "is-emoji-supported": "^0.0.5",
+    "jest": "^27.5.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-css-modules": "^4.7.11",
@@ -41,6 +42,11 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)"
     ]
   },
   "browserslist": {
