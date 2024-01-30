@@ -270,3 +270,16 @@
 
 - **0.1.18** (`2024/01/10)
 	- Added How to play Pop and Tips Pop to all games with translations
+
+- **0.1.19** (`2024/01/17`)
+	- Fixed errors caused by modal
+ 	- fixed bug with winning automatically
+    	- Fixed async errors in memory game
+ 
+- **0.1.20** (`2024/01/21`)
+	- Created home page unit test
+ 	- Added first backend unit test
+ 
+- **0.1.20** (`2024/01/25`)
+	- Created space in dropdown and modals
+ 	- Fixed error with listen on port
