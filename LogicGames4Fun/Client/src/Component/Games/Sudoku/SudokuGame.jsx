@@ -12,11 +12,13 @@ import { useScore } from "../../../Hooks/useScore";
 export const SudokuGame = () => {
   const [t] = useTranslation(["translation", "sudoku"]);
   const { level } = useScore("Sudoku", "sudokuLvl");
+  // const level = 13;
   const [mistakes, setMistakes] = useState(0);
   const [win, setWin] = useState(false);
   const [time, setTime] = useState(0);
   const [sudokuArr, setSudokuArr] = useState([]);
   const [modalShow, setModalShow] = useState(true);
+  const [hasEffectRun, setHasEffectRun] = useState(false);
 
   useEffect(() => {
     if (win) {
@@ -26,8 +28,7 @@ export const SudokuGame = () => {
 
   function generateSudoku(level) {
     const solvedArray = solveSudoku(level);
-    setSudokuArr([]);
-    const newSudokuArr = [];
+    let newSudokuArr = [];
 
     for (let col = 0; col < 9; col++) {
       for (let row = 0; row < 9; row++) {
@@ -35,15 +36,15 @@ export const SudokuGame = () => {
         newSudokuArr.push(new Sudoku(col, row, solvedArray[col][row], box));
       }
     }
-
     setSudokuArr(newSudokuArr);
   }
 
   useEffect(() => {
-    if (level) {
+    if (level && !hasEffectRun) {
       generateSudoku(level);
+      setHasEffectRun(true);
     }
-  }, [level]);
+  }, [level, hasEffectRun]);
 
   useEffect(() => {
     if (level) {
