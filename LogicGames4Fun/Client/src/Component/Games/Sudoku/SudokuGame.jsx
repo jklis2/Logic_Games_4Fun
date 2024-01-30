@@ -7,15 +7,16 @@ import SudokuModal from "./SudokuModal";
 import ReactDOM from "react-dom";
 import Badge from "react-bootstrap/Badge";
 import { useTranslation } from "react-i18next";
+import { useScore } from "../../../Hooks/useScore";
 
 export const SudokuGame = () => {
   const [t] = useTranslation(["translation", "sudoku"]);
-  const level = localStorage.getItem("sudokuLvl") || 1;
+  const { level } = useScore("Sudoku", "sudokuLvl");
   const [mistakes, setMistakes] = useState(0);
   const [win, setWin] = useState(false);
   const [time, setTime] = useState(0);
   const [sudokuArr, setSudokuArr] = useState([]);
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState(true);
 
   useEffect(() => {
     if (win) {
@@ -23,8 +24,9 @@ export const SudokuGame = () => {
     }
   }, [win]);
 
-  useEffect(() => {
+  function generateSudoku(level) {
     const solvedArray = solveSudoku(level);
+    setSudokuArr([]);
     const newSudokuArr = [];
 
     for (let col = 0; col < 9; col++) {
@@ -33,15 +35,24 @@ export const SudokuGame = () => {
         newSudokuArr.push(new Sudoku(col, row, solvedArray[col][row], box));
       }
     }
+
     setSudokuArr(newSudokuArr);
+  }
+
+  useEffect(() => {
+    if (level) {
+      generateSudoku(level);
+    }
   }, [level]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime((prevSeconds) => prevSeconds + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  });
+    if (level) {
+      const interval = setInterval(() => {
+        setTime((prevSeconds) => prevSeconds + 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [level]);
 
   return (
     <>
@@ -59,7 +70,8 @@ export const SudokuGame = () => {
           <div className="row mt-5">
             <div className="col-md-4 p-1">
               <Badge className="w-100 p-3" bg="">
-              {t("sudoku.time")} {String(Math.trunc(time / 3600)).padStart(2, 0)}:
+                {t("sudoku.time")}{" "}
+                {String(Math.trunc(time / 3600)).padStart(2, 0)}:
                 {String(Math.trunc(time / 60)).padStart(2, 0)}:
                 {String(time % 60).padStart(2, 0)}
               </Badge>
@@ -67,13 +79,13 @@ export const SudokuGame = () => {
 
             <div className="col-md-4 p-1">
               <Badge className="w-100 col-md-4 p-3" bg="">
-              {t("sudoku.mistakes")} {mistakes}
+                {t("sudoku.mistakes")} {mistakes}
               </Badge>
             </div>
 
             <div className="col-md-4 p-1">
               <Badge className="w-100 col-md-4 p-3" bg="">
-              {t("sudoku.level")} {level}
+                {t("sudoku.level")} {level}
               </Badge>
             </div>
           </div>
@@ -85,6 +97,7 @@ export const SudokuGame = () => {
           resetArr={setSudokuArr}
           onHide={setModalShow}
           setTime={setTime}
+          generateSudoku={generateSudoku}
         />,
         document.getElementById("modal-root")
       )}

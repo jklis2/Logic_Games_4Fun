@@ -18,9 +18,9 @@ export const useScore = (gameName, localStorageName) => {
     if (user) {
       setLevel(getLevel.result || 1);
     } else {
-      setLevel(Number(localStorage.getItem("memoryLvl")) || 1);
+      setLevel(Number(localStorage.getItem(localStorageName)) || 1);
     }
-  }, [scores, currentGame, user]);
+  }, [scores, currentGame, user, localStorageName]);
 
 
   return { games, scores, currentGame, level, setLevel };

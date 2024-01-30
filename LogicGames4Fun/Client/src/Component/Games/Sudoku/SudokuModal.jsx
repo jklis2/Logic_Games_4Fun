@@ -2,18 +2,55 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useScore } from "../../../Hooks/useScore";
+import { useDispatch } from "react-redux";
+import { updateProfile } from "../../../Redux/thunks/updateProfile";
 
-const SudokuModal = ({ show, resetArr, onHide, setTime }) => {
+const SudokuModal = ({ show, resetArr, onHide, setTime, generateSudoku }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { level, scores, currentGame } = useScore("Sudoku", "sudokulvl");
 
   const [t] = useTranslation(["translation", "sudoku"]);
 
+  const hasScore =
+    currentGame && scores?.some((score) => score?.game === currentGame._id);
+
   const nextLevelHandler = () => {
     onHide();
-    const lvl = localStorage.getItem("sudokuLvl");
-    const newlvl = +lvl + 1;
-    localStorage.setItem("sudokuLvl", newlvl.toString());
+
+    if (localStorage.getItem("token")) {
+      if (hasScore) {
+        const updatedScores = scores.map((score) =>
+          score.game === currentGame._id
+            ? { ...score, result: level + 1 }
+            : score
+        );
+        dispatch(
+          updateProfile({
+            scores: updatedScores,
+          })
+        );
+      } else {
+        dispatch(
+          updateProfile({
+            scores: [
+              ...scores,
+              {
+                game: currentGame._id,
+                level: "none",
+                result: level,
+              },
+            ],
+          })
+        );
+      }
+    } else {
+      localStorage.setItem("sudokuLvl", level.toString());
+    }
+
     resetArr([]);
+    generateSudoku(level + 1);
     setTime(0);
     navigate("/games/sudoku");
   };
